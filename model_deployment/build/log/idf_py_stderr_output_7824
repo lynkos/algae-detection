@@ -1,0 +1,14 @@
+[0;33m--- idf_monitor on PORT5 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+Exception in thread Thread-2 (_run_outer):
+Traceback (most recent call last):
+  File "threading.py", line 1038, in _bootstrap_inner
+  File "threading.py", line 975, in run
+  File "C:\Espressif\frameworks\esp-idf-v5.0.4\tools\idf_monitor_base\stoppable_thread.py", line 47, in _run_outer
+    self.run()
+  File "C:\Espressif\frameworks\esp-idf-v5.0.4\tools\idf_monitor_base\serial_reader.py", line 52, in run
+    self.serial.open()
+  File "C:\Espressif\python_env\idf5.0_py3.11_env\Lib\site-packages\serial\serialwin32.py", line 64, in open
+    raise SerialException("could not open port {!r}: {!r}".format(self.portstr, ctypes.WinError()))
+serial.serialutil.SerialException: could not open port 'PORT5': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+[0m

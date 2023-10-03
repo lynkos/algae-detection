@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/CMakeFiles/bootloader
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/CMakeFiles/bootloader.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/CMakeFiles/bootloader-complete.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
