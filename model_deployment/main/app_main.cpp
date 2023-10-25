@@ -790,8 +790,13 @@ extern "C" void app_main(void)
 {
 Tensor<int16_t> input;
                 input.set_element((int16_t *)example_element).set_exponent(input_exponent).set_shape({input_height,input_width,input_channel}).set_auto_free(false);
+                
                 HANDRECOGNITION model;
+                
+                
                 dl::tool::Latency latency;
+                
+                
                 latency.start();
                 model.forward(input);
                 latency.end();

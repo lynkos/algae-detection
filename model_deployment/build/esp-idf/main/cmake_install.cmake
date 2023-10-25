@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/main
+# Install script for directory: C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

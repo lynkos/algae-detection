@@ -36,6 +36,7 @@ $<TARGET_FILE:__idf_cmock>
 $<TARGET_FILE:__idf_console>
 $<TARGET_FILE:__idf_http_parser>
 $<TARGET_FILE:__idf_esp-tls>
+$<TARGET_FILE:__idf_esp32-camera>
 $<TARGET_FILE:__idf_esp_adc>
 $<TARGET_FILE:__idf_esp_eth>
 $<TARGET_FILE:__idf_esp_gdbstub>

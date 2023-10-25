@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment
+# Install script for directory: C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/esp-idf/cmake_install.cmake")
+  include("C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/build/esp-idf/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/bruh/Blogs/ESP-DL/model_deployment/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
