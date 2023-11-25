@@ -1,0 +1,4 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.default.compilerPath": "c:\\Espressif\\espidf.constraints.v5.0.txt"
+}

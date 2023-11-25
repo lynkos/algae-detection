@@ -1,7 +1,7 @@
 idf_build_get_property(target IDF_TARGET)
 
 set(srcs            app_main.cpp   
-                ../model/handrecognition_coefficient.cpp
+                ../model/algea_coefficientTRUE.cpp
                 )
 
 set(include_dirs    ../model)

@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "deploy",
-    "project_version":    "af5e8f7-dirty",
+    "project_version":    "26c5e9f-dirty",
     "project_path":       "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.0.4",
     "build_dir":          "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/build",
@@ -774,7 +774,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/main/app_main.cpp", "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/model/handrecognition_coefficient.cpp" ],
+            "sources": [ "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/main/app_main.cpp", "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/model/algea_coefficientTRUE.cpp" ],
             "include_dirs": [ "../model" ]
         },
         "mbedtls": {

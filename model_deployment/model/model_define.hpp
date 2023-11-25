@@ -4,16 +4,16 @@
 #include "dl_layer_max_pool2d.hpp"
 #include "dl_layer_conv2d.hpp"
 #include "dl_layer_concat.hpp"
-#include "handrecognition_coefficient.hpp"
+#include "algea_coefficientTRUE.hpp"
 #include "dl_layer_reshape.hpp"
 #include "dl_layer_softmax.hpp"
 #include <stdint.h>
 
 using namespace dl;
 using namespace layer;
-using namespace handrecognition_coefficient;
+using namespace algea_coefficientTRUE;
 
-class HANDRECOGNITION : public Model<int16_t> // Derive the Model class in "dl_layer_model.hpp"
+class ALGEA : public Model<int16_t> // Derive the Model class in "dl_layer_model.hpp"
 {
 private:
     // Declare layers as member variables
@@ -36,17 +36,18 @@ public:
      * @brief Initialize layers in constructor function
      * 
      */
-    HANDRECOGNITION () : 
+    ALGEA () : 
     // l1(Reshape<int16_t>({96,96,1})),
-                         l1(Conv2D<int16_t>(-8, get_statefulpartitionedcall_sequential_1_conv2d_3_biasadd_filter(), get_statefulpartitionedcall_sequential_1_conv2d_3_biasadd_bias(), get_statefulpartitionedcall_sequential_1_conv2d_3_biasadd_activation(), PADDING_VALID, {}, 1,1, "l1")),
+                         //l1r(Reshape<int16_t>({96,96,1})),
+                         l1(Conv2D<int16_t>(-16, get_statefulpartitionedcall_sequential_conv2d_biasadd_filter(), get_statefulpartitionedcall_sequential_conv2d_biasadd_bias(), get_statefulpartitionedcall_sequential_conv2d_biasadd_activation(), PADDING_VALID, {}, 1,1, "l1")),
                          l2(MaxPool2D<int16_t>({2,2},PADDING_VALID, {}, 2, 2, "l2")),                      
-                         l3(Conv2D<int16_t>(-9, get_statefulpartitionedcall_sequential_1_conv2d_4_biasadd_filter(), get_statefulpartitionedcall_sequential_1_conv2d_4_biasadd_bias(), get_statefulpartitionedcall_sequential_1_conv2d_4_biasadd_activation(), PADDING_VALID,{}, 1,1, "l3")),                       
+                         l3(Conv2D<int16_t>(-13, get_statefulpartitionedcall_sequential_conv2d_1_biasadd_filter(), get_statefulpartitionedcall_sequential_conv2d_1_biasadd_bias(), get_statefulpartitionedcall_sequential_conv2d_1_biasadd_activation(), PADDING_VALID,{}, 1,1, "l3")),                       
                          l4(MaxPool2D<int16_t>({2,2},PADDING_VALID,{}, 2, 2, "l4")),                       
-                         l5(Conv2D<int16_t>(-9, get_statefulpartitionedcall_sequential_1_conv2d_5_biasadd_filter(), get_statefulpartitionedcall_sequential_1_conv2d_5_biasadd_bias(), get_statefulpartitionedcall_sequential_1_conv2d_5_biasadd_activation(), PADDING_VALID,{}, 1,1, "l5")),                    
+                         l5(Conv2D<int16_t>(-10, get_statefulpartitionedcall_sequential_conv2d_2_biasadd_filter(), get_statefulpartitionedcall_sequential_conv2d_2_biasadd_bias(), get_statefulpartitionedcall_sequential_conv2d_2_biasadd_activation(), PADDING_VALID,{}, 1,1, "l5")),                    
                          l6(MaxPool2D<int16_t>({2,2},PADDING_VALID,{}, 2, 2, "l6")),
                          l7(Reshape<int16_t>({1,1,6400},"l7_reshape")), 
-                         l8(Conv2D<int16_t>(-9, get_fused_gemm_0_filter(), get_fused_gemm_0_bias(), get_fused_gemm_0_activation(), PADDING_VALID, {}, 1, 1, "l8")),
-                         l9(Conv2D<int16_t>(-9, get_fused_gemm_1_filter(), get_fused_gemm_1_bias(), NULL, PADDING_VALID,{}, 1,1, "l9")),
+                         l8(Conv2D<int16_t>(-8, get_fused_gemm_0_filter(), get_fused_gemm_0_bias(), get_fused_gemm_0_activation(), PADDING_VALID, {}, 1, 1, "l8")),
+                         l9(Conv2D<int16_t>(-8, get_fused_gemm_1_filter(), get_fused_gemm_1_bias(), NULL, PADDING_VALID,{}, 1,1, "l9")),
                          l10(Softmax<int16_t>(-14,"l10")){}
 
                 

@@ -1,0 +1,73 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:7332
+load:0x40078000,len:16496
+ho 0 tail 12 room 4
+load:0x40080400,len:4280
+entry 0x4008066c
+[0;32mI (29) boot: ESP-IDF v5.0.4 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time 12:29:51[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v3.1[0m
+[0;32mI (36) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 80MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : QIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 factory          factory app      00 00 00010000 003c0000[0m
+[0;32mI (79) boot:  1 nvs              WiFi data        01 02 003d0000 00004000[0m
+[0;32mI (86) boot:  2 fr               Unknown data     01 06 003e0000 00020000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1cb7c8h (1882056) map[0m
+[0;32mI (624) esp_image: segment 1: paddr=001db7f0 vaddr=3ffb0000 size=04828h ( 18472) load[0m
+[0;32mI (630) esp_image: segment 2: paddr=001e0020 vaddr=400d0020 size=4e820h (321568) map[0m
+[0;32mI (718) esp_image: segment 3: paddr=0022e848 vaddr=3ffb4828 size=027dch ( 10204) load[0m
+[0;32mI (722) esp_image: segment 4: paddr=0023102c vaddr=40080000 size=14834h ( 84020) load[0m
+[0;32mI (763) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (763) boot: Disabling RNG early entropy source...[0m
+[0;32mI (774) cpu_start: Multicore app[0m
+[0;32mI (774) quad_psram: This chip is ESP32-D0WD[0m
+[0;32mI (775) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (777) esp_psram: Speed: 80MHz[0m
+[0;32mI (780) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
+[0;33mW (788) esp_psram: Virtual address not enough for PSRAM, map as much as we can. 4MB is mapped[0m
+[0;32mI (797) cpu_start: Pro cpu up.[0m
+[0;32mI (801) cpu_start: Starting app cpu, entry point is 0x400815a0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (1321) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1329) cpu_start: Pro cpu start user code[0m
+[0;32mI (1329) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1329) cpu_start: Application information:[0m
+[0;32mI (1332) cpu_start: Project name:     deploy[0m
+[0;32mI (1337) cpu_start: App version:      26c5e9f-dirty[0m
+[0;32mI (1343) cpu_start: Compile time:     Nov 19 2023 12:29:33[0m
+[0;32mI (1349) cpu_start: ELF file SHA256:  aac8b557212aca9e...[0m
+[0;32mI (1355) cpu_start: ESP-IDF:          v5.0.4[0m
+[0;32mI (1360) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (1365) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (1370) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (1375) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1382) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (1388) heap_init: At 3FFB9270 len 00026D90 (155 KiB): DRAM[0m
+[0;32mI (1394) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (1401) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (1407) heap_init: At 40094834 len 0000B7CC (45 KiB): IRAM[0m
+[0;32mI (1414) esp_psram: Adding pool of 4096K of PSRAM memory to heap allocator[0m
+[0;32mI (1422) spi_flash: detected chip: generic[0m
+[0;32mI (1426) spi_flash: flash io: qio[0m
+[0;32mI (1432) app_start: Starting scheduler on CPU0[0m
+[0;32mI (1435) app_start: Starting scheduler on CPU1[0m
+[0;32mI (1435) main_task: Started on CPU0[0m
+[0;32mI (1445) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1445) main_task: Calling app_main()[0m
+
+SIGN::forward: 3712929 us
+1.400910, 4.000656, 10.681727, 6.324568, 77.083839, 
+non-algae: 4
+[0;32mI (5195) main_task: Returned from app_main()[0m

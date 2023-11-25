@@ -1,0 +1,97 @@
+[0;33m--- WARNING: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM5 instead...[0m
+[0;33m--- idf_monitor on \\.\COM5 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400815a0: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.0.4/components/esp_system/port/cpu_start.c:143
+[0m
+[0;33m0x400dd23e: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:64
+[0m
+[0;33m0x400fdae0: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400fdaed: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400dd23b: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:62
+[0m
+[0;33m0x400dd5dd: ALGEA::build(dl::Tensor<short>&) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/model/model_define.hpp:75
+[0m
+[0;33m0x400fe65e: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+[0m
+[0;33m0x400dbe1f: app_main at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/main/app_main.cpp:36
+[0m
+[0;33m0x4011e413: main_task at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x4008da55: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:149
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400815a0: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.0.4/components/esp_system/port/cpu_start.c:143
+[0m
+[0;33m0x400dd23e: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:64
+[0m
+[0;33m0x400fdae0: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400fdaed: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400dd23b: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:62
+[0m
+[0;33m0x400dd5dd: ALGEA::build(dl::Tensor<short>&) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/model/model_define.hpp:75
+[0m
+[0;33m0x400fe65e: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+[0m
+[0;33m0x400dbe1f: app_main at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/main/app_main.cpp:36
+[0m
+[0;33m0x4011e413: main_task at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x4008da55: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:149
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400815a0: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.0.4/components/esp_system/port/cpu_start.c:143
+[0m
+[0;33m0x400dd23e: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:64
+[0m
+[0;33m0x400fdae0: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400fdaed: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400dd23b: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:62
+[0m
+[0;33m0x400dd5dd: ALGEA::build(dl::Tensor<short>&) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/model/model_define.hpp:75
+[0m
+[0;33m0x400fe65e: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+[0m
+[0;33m0x400dbe1f: app_main at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/main/app_main.cpp:36
+[0m
+[0;33m0x4011e413: main_task at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x4008da55: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:149
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400815a0: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.0.4/components/esp_system/port/cpu_start.c:143
+[0m
+[0;33m0x400dd23e: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:64
+[0m
+[0;33m0x400fdae0: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400fdaed: dl::Tensor<short>::set_shape(std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/typedef/src/dl_variable.cpp:26 (discriminator 3)
+[0m
+[0;33m0x400dd23b: dl::layer::Reshape<short>::build(dl::Tensor<short>&, bool) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/components/esp-dl/include/layer/dl_layer_reshape.hpp:62
+[0m
+[0;33m0x400dd5dd: ALGEA::build(dl::Tensor<short>&) at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/model/model_define.hpp:75
+[0m
+[0;33m0x400fe65e: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+[0m
+[0;33m0x400dbe1f: app_main at C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/main/app_main.cpp:36
+[0m
+[0;33m0x4011e413: main_task at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x4008da55: vPortTaskWrapper at C:/Espressif/frameworks/esp-idf-v5.0.4/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:149
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400815a0: call_start_cpu1 at C:/Espressif/frameworks/esp-idf-v5.0.4/components/esp_system/port/cpu_start.c:143
+[0m
+[0m
