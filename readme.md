@@ -4,7 +4,7 @@ Before follow these steps please Configure the ESP-IDF [release 4.4](https://git
 ### 1. Clone the git-hub repository 
 
 ```bash
-git clone https://github.com/alibukharai/Blogs.git 
+git clone https://github.com/rdgbrian/cap-2-project-algea-detection
 
 ```
 ### 2. Update the submodules
@@ -17,7 +17,7 @@ git submodule update --init --recursive
 ### 3. Change the working directory to model_deployment
 
 ```bash 
-cd ESP-DL/model_deployment
+cd cap-2-project-algea-detection/model_deployment
 
 ```
 
@@ -31,13 +31,15 @@ idf.py reconfigure
 ### 5. Select the target ESP32
 
 ```bash 
-idf.py set-target esp32s3
+idf.py set-target esp32
 
 ```
 ### 6. Build the project
 
 ```bash
-idf.py build flash monitor 
+idf.py build
+idf.py -p COM4 flash
+idf.py -p COM4 monitor
 
 ```
 In case found error during the building process [follow the official IDF  guide for more details](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#build-your-first-project). 

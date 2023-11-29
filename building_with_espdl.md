@@ -37,12 +37,11 @@ For this classification problem, We are using an open-source dataset from the Ka
 
 | Gesture     | Label Used |
 | :-----------: | :-----------: |
-| Palm        |   0         |
-| I           |   1         |
-|Thumb        |   2         |
-|Index        |   3         |
-|OK           |   4         |
-|C            |   5         |
+| Closterium        |   0         |
+| Nitzschia           |   1         |
+|Microcystis        |   2         |
+|Oscillatoria        |   3         |
+|Non Algae           |   4         |
 <p align = 'center'> <b>Table 1 — Classification used for every hand gesture.</b>
 </p>
 <p align = 'left'>

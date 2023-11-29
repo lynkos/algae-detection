@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "deploy",
-    "project_version":    "e88ee97-dirty",
+    "project_version":    "156879f-dirty",
     "project_path":       "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.0.4",
     "build_dir":          "C:/Users/rdgbr/Documents/University-Stuff/Fall-2023/Capstone-2/ESP-DL/model_deployment/build",
