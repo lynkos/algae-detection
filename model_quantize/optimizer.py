@@ -5,7 +5,7 @@ import collections
 import onnx
 from onnx import helper, numpy_helper, version_converter
 from onnx import TensorProto
-#from onnxruntime.transformers.onnx_model import OnnxModel
+from onnxruntime.transformers.onnx_model import OnnxModel
 
 import onnxoptimizer
 

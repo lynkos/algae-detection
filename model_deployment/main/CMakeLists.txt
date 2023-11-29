@@ -1,7 +1,7 @@
 idf_build_get_property(target IDF_TARGET)
 
 set(srcs            app_main.cpp   
-                ../model/algea_coefficientTRUE.cpp
+                ../model/algae_coefficient.cpp
                 )
 
 set(include_dirs    ../model)
