@@ -1,4 +1,12 @@
 {
     "C_Cpp.errorSquiggles": "enabled",
-    "C_Cpp.default.compilerPath": "c:\\Espressif\\espidf.constraints.v5.0.txt"
+    "terminal.integrated.env.osx": {
+        "LOAD_SSH_KEY": "/usr/bin/ssh-add --apple-load-keychain"
+  },
+  "idf.port": "/dev/cu.Bluetooth-Incoming-Port",
+  "idf.adapterTargetName": "esp32",
+  "idf.openOcdConfigs": [
+    "board/esp32-bridge.cfg"
+  ],
+  "arduino.useArduinoCli" : true,
 }

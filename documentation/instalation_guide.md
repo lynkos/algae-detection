@@ -196,6 +196,3 @@ Its important to note that miniconda doesnt come with pip so you would have do d
 ```
 sudo apt install python3-pip
 ```
-
-
-
