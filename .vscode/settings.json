@@ -1,11 +1,4 @@
 {
     "C_Cpp.errorSquiggles": "enabled",
-    "terminal.integrated.env.osx": {
-        "LOAD_SSH_KEY": "/usr/bin/ssh-add --apple-load-keychain"
-  },
-  "idf.port": "/dev/cu.usbserial-1130",
-  "idf.adapterTargetName": "esp32",
-  "idf.openOcdConfigs": [
-    "board/esp32-bridge.cfg"
-  ]
+    "C_Cpp.default.compilerPath": "c:\\Espressif\\espidf.constraints.v5.0.txt"
 }
