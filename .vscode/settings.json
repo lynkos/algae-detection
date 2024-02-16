@@ -9,4 +9,5 @@
     "board/esp32-bridge.cfg"
   ],
   "arduino.useArduinoCli" : true,
+  "python.defaultInterpreterPath": "/Users/kiran/miniconda3/envs/algae_env/bin/python",
 }
