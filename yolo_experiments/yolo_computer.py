@@ -1,49 +1,36 @@
-from ultralytics import YOLO
 from cv2 import VideoCapture, imshow, waitKey, destroyAllWindows
-from yolo_base import coordinates
+from yolo_base import MODEL, coordinates
 
 # Original versions:
 # opencv: 4.6.0
 # opencv-python: 4.8.1.
 
-URL = "http://10.1.10.134/cam-lo.jpg"
-MODEL = YOLO("yolo-Weights/yolov8n.pt") #YOLO("/Users/kiran/Documents/workspace/Projects/algae-detection/model_development/model.keras")
-
-print("Model Loaded!")
-
 # Start webcam
-WEBCAM = VideoCapture(0) # cv2.VideoCapture(URL)
+WEBCAM = VideoCapture(0) # VideoCapture(URL)
 WEBCAM.set(3, 640)
 WEBCAM.set(4, 480)
-
 print("Webcam started!")
 
-# Object classes
-CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
-              "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
-              "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",
-              "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite", "baseball bat",
-              "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle", "wine glass", "cup",
-              "fork", "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange", "broccoli",
-              "carrot", "hot dog", "pizza", "donut", "cake", "chair", "sofa", "pottedplant", "bed",
-              "diningtable", "toilet", "tvmonitor", "laptop", "mouse", "remote", "keyboard", "cell phone",
-              "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
-              "teddy bear", "hair drier", "toothbrush" ]
-
 while True:
+    # Fetch image from webcam
     success, img = WEBCAM.read()
     print("Success:", success, "Image:", type(img))
-    print("Read")
+
+    # Object detection code
+    print("Making Prediction...")
     results = MODEL(img, stream = True)
 
     # Coordinates
     coordinates(results, img)
+
+    # Show webcam feed
     imshow("Webcam", img)
 
     # Check for key press, if "q" is pressed, exit the loop
     if waitKey(1) == ord('q'):
         break
 
+# Release webcam
 WEBCAM.release()
 
 # Close OpenCV windows

@@ -2,9 +2,6 @@ from ultralytics import YOLO
 from cv2 import rectangle, putText, FONT_HERSHEY_SIMPLEX
 from math import ceil
 
-URL = "http://10.0.0.134/cam-hi.jpg"
-MODEL = YOLO("yolo-Weights/yolov8n.pt") #8n.pt
-
 # Object classes
 CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
@@ -16,6 +13,10 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
               "diningtable", "toilet", "tvmonitor", "laptop", "mouse", "remote", "keyboard", "cell phone",
               "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
               "teddy bear", "hair drier", "toothbrush" ]
+
+URL = "http://10.1.10.134/cam-hi.jpg"
+MODEL = YOLO("yolo-Weights/yolov8n.pt") #YOLO("/Users/kiran/Documents/workspace/Projects/algae-detection/model_development/model.keras")
+print("Model Loaded!")
 
 def coordinates(results, img):
     # Coordinates
