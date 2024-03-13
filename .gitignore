@@ -3,11 +3,14 @@ model_deployment/build
 model_deployment/components/esp-dl
 model_deployment/sdkconfig
 model_quantize
-.vscode/settings.json
+.vscode
 .DS_Store
 *.json
 examples/classification/classification.ipynb
-examples/hand-recognition-example
 dataset
-*.keras
+*.lock
 .gitignore
+sdkconfig*
+sdkconfig.*
+sdkconfig.old
+__pycache__
