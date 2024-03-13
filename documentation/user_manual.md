@@ -1,5 +1,23 @@
 # User Manual
-## Running Model Deplyment
+## Run the ESP32 Camera Web Server with YOLO on Computer
+1. Open Arduino IDE and connect ESP32 chip. Make sure the correct board and port are selected.
+2. Open `sketch_jan17a.ino`, then click Upload. This will start the camera and the web server.
+3. Wait for it to upload. When it's finished, it should produce an output similar to:
+```
+CAMERA OK
+http://10.1.10.134
+  /cam-lo.jpg
+  /cam-hi.jpg
+  /cam-mid.jpg
+```
+4. Choose which quality of image you want to use for the inference. The options are low, medium, and high quality. The low quality image is the smallest and fastest to process, but it is also the lowest resolution. The high quality image is the largest and slowest to process, but it is also the highest resolution. The medium quality image is in between the low and high quality images in terms of size, speed, and resolution.
+5. Open the link in a browser to make sure it's working. If it is, you should see a live video feed from the camera.
+6. Navigate to `yolo_experiments`. If you want to run the inference on your computer, open `yolo_computer.py`. If you want to run the inference on the ESP32, open `yolo_esp32.py`.
+7. Change the `url` variable to the link you got from the serial monitor.
+8. Run the script. It should open to a window with the live video feed from the camera.
+9. Press `q` or `CTRL + C` to stop the script and close the window.
+
+## Running Model Deplyment on the Chip
 Once you have gone thought the instalation guide for the Model Deployment Program you can run the ESP-IDF 5.0 CMD as shown bellow and run the following comands to make an inference on a hardcoded rest image.
 
 Make sure you are in the model_deployment directory
