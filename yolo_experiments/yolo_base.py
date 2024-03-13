@@ -1,22 +1,9 @@
 from ultralytics import YOLO
-from cv2 import VideoCapture, imshow, waitKey, destroyAllWindows
-from yolo_base import coordinates
+from cv2 import rectangle, putText, FONT_HERSHEY_SIMPLEX
+from math import ceil
 
-# Original versions:
-# opencv: 4.6.0
-# opencv-python: 4.8.1.
-
-URL = "http://10.1.10.134/cam-lo.jpg"
-MODEL = YOLO("yolo-Weights/yolov8n.pt") #YOLO("/Users/kiran/Documents/workspace/Projects/algae-detection/model_development/model.keras")
-
-print("Model Loaded!")
-
-# Start webcam
-WEBCAM = VideoCapture(0) # cv2.VideoCapture(URL)
-WEBCAM.set(3, 640)
-WEBCAM.set(4, 480)
-
-print("Webcam started!")
+URL = "http://10.0.0.134/cam-hi.jpg"
+MODEL = YOLO("yolo-Weights/yolov8n.pt") #8n.pt
 
 # Object classes
 CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
@@ -30,21 +17,34 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
               "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
               "teddy bear", "hair drier", "toothbrush" ]
 
-while True:
-    success, img = WEBCAM.read()
-    print("Success:", success, "Image:", type(img))
-    print("Read")
-    results = MODEL(img, stream = True)
-
+def coordinates(results, img):
     # Coordinates
-    coordinates(results, img)
-    imshow("Webcam", img)
+    for r in results:
+        boxes = r.boxes
 
-    # Check for key press, if "q" is pressed, exit the loop
-    if waitKey(1) == ord('q'):
-        break
+        for box in boxes:
+            # Bounding box
+            x1, y1, x2, y2 = box.xyxy[0]
 
-WEBCAM.release()
+            # Convert to int values
+            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
 
-# Close OpenCV windows
-destroyAllWindows()
+            # Put box in cam
+            rectangle(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
+
+            # Confidence
+            confidence = ceil((box.conf[0] * 100)) / 100
+            print("Confidence --->", confidence)
+
+            # Class name
+            cls = int(box.cls[0])
+            print("Class name -->", CLASSES[cls])
+
+            # Object details
+            org = [x1, y1]
+            font = FONT_HERSHEY_SIMPLEX
+            fontScale = 1
+            color = (255, 0, 0)
+            thickness = 2
+
+            putText(img, CLASSES[cls], org, font, fontScale, color, thickness)
