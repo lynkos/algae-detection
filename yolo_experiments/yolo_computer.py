@@ -2,9 +2,10 @@ from ultralytics import YOLO
 import cv2
 import math 
 
-url = 'http://10.0.0.134/cam-low.jpg'
+url = "http://10.1.10.134/cam-lo.jpg"
 
-#url = 0
+# opencv: 4.6.0
+# opencv-python: 4.8.1.
 
 # start webcam
 cap = cv2.VideoCapture(0) 
@@ -15,7 +16,7 @@ cap.set(4, 480)
 
 
 # model
-model = YOLO("yolo-Weights/yolov8n.pt") #8n.pt
+model = YOLO("/Users/kiran/Documents/workspace/Projects/algae-detection/model_development/model.keras")#yolo-Weights/yolov8n.pt")
 
 # object classes
 classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
