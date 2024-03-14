@@ -1,4 +1,4 @@
-from cv2 import VideoCapture, imshow, waitKey, destroyAllWindows
+from cv2 import VideoCapture, imshow, waitKey, destroyAllWindows, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT
 from yolo_base import MODEL, coordinates
 
 # Original versions:
@@ -7,26 +7,30 @@ from yolo_base import MODEL, coordinates
 
 # Start webcam
 WEBCAM = VideoCapture(0) # VideoCapture(URL)
-WEBCAM.set(3, 640)
-WEBCAM.set(4, 480)
+WEBCAM.set(CAP_PROP_FRAME_WIDTH, 640)
+WEBCAM.set(CAP_PROP_FRAME_HEIGHT, 480)
 print("Webcam started!")
 
-while True:
+while WEBCAM.isOpened():
     # Fetch image from webcam
     success, img = WEBCAM.read()
-    print("Success:", success)
 
-    # Object detection code
-    results = MODEL(img, stream = True)
+    if success:
+        # Object detection code
+        results = MODEL(img, stream = True, device = "mps", agnostic_nms = True)
 
-    # Coordinates
-    coordinates(results, img)
+        if not results: continue
 
-    # Show webcam feed
-    imshow("Webcam", img)
+        # Coordinates
+        coordinates(results, img)
+
+        # Show webcam feed
+        imshow("Webcam", img)
+
+    else: break
 
     # Check for key press, if "q" is pressed, exit the loop
-    if waitKey(1) == ord('q'):
+    if waitKey(1) & 0xFF == ord("q"):
         break
 
 # Release webcam
