@@ -16,7 +16,6 @@ while True:
         img = imdecode(img_array, -1)
         
         # Object detection code
-        print("Making Prediction...")
         results = MODEL(img, stream = True)
 
         # Coordinates

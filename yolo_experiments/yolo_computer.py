@@ -14,10 +14,9 @@ print("Webcam started!")
 while True:
     # Fetch image from webcam
     success, img = WEBCAM.read()
-    print("Success:", success, "Image:", type(img))
+    print("Success:", success)
 
     # Object detection code
-    print("Making Prediction...")
     results = MODEL(img, stream = True)
 
     # Coordinates
