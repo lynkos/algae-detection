@@ -2,7 +2,7 @@
 ## Run the ESP32 Camera Web Server with YOLO on Computer
 1. Open Arduino IDE and connect ESP32 chip. Make sure the correct board and port are selected.
 2. Open `sketch_jan17a.ino`, then click Upload. This will start the camera and the web server.
-3. Wait for it to upload. When it's finished, it should produce an output similar to:
+3. Wait for it to upload. When it's finished, the `Serial Monitor` tab should produce an output similar to:
 ```
 CAMERA OK
 http://10.1.10.134
