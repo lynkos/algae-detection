@@ -6,7 +6,7 @@ from yolo_base import URL, MODEL, coordinates
 while True:    
     # Fetch image from URL
     response = get(URL, stream = True)
-    print("Got Content!", response.status_code)
+    print("Got Content!")
     
     if response.status_code == 200:        
         # Read the image as a numpy array (takes the most time)
