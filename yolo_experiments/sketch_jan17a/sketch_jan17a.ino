@@ -33,7 +33,6 @@ void handleJpgLo() {
   if(!esp32cam::Camera.changeResolution(loRes)) {
     Serial.println("SET-LO-RES FAIL");
   }
-  
   serveJpg();
 }
  
@@ -43,14 +42,14 @@ void handleJpgHi() {
   }
   serveJpg();
 }
-
+ 
 void handleJpgMid() {
-  if (!esp32cam::Camera.changeResolution(midRes)) {
+  if(!esp32cam::Camera.changeResolution(midRes)) {
     Serial.println("SET-MID-RES FAIL");
   }
   serveJpg();
 }
-
+ 
 void setup() {
   Serial.begin(115200);
   Serial.println();

@@ -1,7 +1,9 @@
 from requests import get
 from numpy import uint8, array
 from cv2 import imdecode, imshow, waitKey, destroyAllWindows
-from yolo_base import URL, MODEL, coordinates
+from yolo_base import MODEL, coordinates
+
+URL = "http://10.110.220.30/cam-lo.jpg"
 
 while True:    
     # Fetch image from URL
@@ -16,13 +18,13 @@ while True:
         img = imdecode(img_array, -1)
         
         # Object detection code
-        results = MODEL(img, stream = True)
+        results = MODEL(img, stream = True, device = "mps", agnostic_nms = True)
 
         # Coordinates
         coordinates(results, img)
 
         # Show ESP32 stream
-        imshow("Video Stream", img)
+        imshow("ESP32 Stream", img)
 
     # Check for key press, if "q" is pressed, exit the loop
     if waitKey(1) & 0xFF == ord("q"):
