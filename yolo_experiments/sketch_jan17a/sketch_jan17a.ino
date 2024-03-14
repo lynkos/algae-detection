@@ -13,11 +13,13 @@ static auto hiRes = esp32cam::Resolution::find(800, 600);
 
 void serveJpg() {
   auto frame = esp32cam::capture();
+
   if(frame == nullptr) {
     Serial.println("CAPTURE FAIL");
     server.send(503, "", "");
     return;
   }
+
   Serial.printf("CAPTURE OK %dx%d %db\n", frame -> getWidth(), frame -> getHeight(),
                 static_cast<int>(frame -> size()));
  
@@ -31,6 +33,7 @@ void handleJpgLo() {
   if(!esp32cam::Camera.changeResolution(loRes)) {
     Serial.println("SET-LO-RES FAIL");
   }
+  
   serveJpg();
 }
  
