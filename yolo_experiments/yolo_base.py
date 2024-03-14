@@ -19,7 +19,7 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
               "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
               "teddy bear", "hair drier", "toothbrush" ]
 
-URL = "http://10.1.10.134/cam-hi.jpg"
+URL = "http://10.0.0.134/cam-lo.jpg"
 MODEL = YOLO("yolo-Weights/yolov8n.pt") #YOLO("/Users/kiran/Documents/workspace/Projects/algae-detection/model_development/model.keras")
 print("Model Loaded!")
 
