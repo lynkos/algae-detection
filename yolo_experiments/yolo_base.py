@@ -2,6 +2,11 @@ from ultralytics import YOLO
 from cv2 import rectangle, putText, FONT_HERSHEY_SIMPLEX
 from math import ceil
 
+# Note: If you get the following error:
+# AttributeError: module 'cv2.dnn' has no attribute 'DictValue
+# comment out the following (i.e., line 168) within "/Users/kiran/miniconda3/envs/algae_env/lib/python3.11/site-packages/cv2/typing/__init__.py"
+# LayerId = cv2.dnn.DictValue
+
 # Object classes
 CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
