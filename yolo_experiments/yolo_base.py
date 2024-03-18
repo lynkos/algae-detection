@@ -7,7 +7,10 @@ from math import ceil
 # comment out the following (i.e., line 168) within "/Users/kiran/miniconda3/envs/algae_env/lib/python3.11/site-packages/cv2/typing/__init__.py"
 # LayerId = cv2.dnn.DictValue
 
-# Object classes
+COLOR = (255, 0, 0)
+THICKNESS = 2
+"""Bounding box attributes"""
+
 CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
               "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",
@@ -18,9 +21,9 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
               "diningtable", "toilet", "tvmonitor", "laptop", "mouse", "remote", "keyboard", "cell phone",
               "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
               "teddy bear", "hair drier", "toothbrush" ]
+"""Object classes"""
 
-MODEL = YOLO("model_weights/yolov8n.pt") #YOLO("/Users/kiran/Documents/workspace/Projects/algae-detection/model_development/model.keras")
-print("Model Loaded!")
+MODEL = YOLO("model_weights/yolov8n.pt") # model.keras
 
 def coordinates(results, img):
     # Coordinates
@@ -35,7 +38,7 @@ def coordinates(results, img):
             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
 
             # Put box in cam
-            rectangle(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
+            rectangle(img, (x1, y1), (x2, y2), COLOR, THICKNESS)
 
             # Confidence
             confidence = ceil((box.conf[0] * 100)) / 100
@@ -49,7 +52,5 @@ def coordinates(results, img):
             org = [x1, y1]
             font = FONT_HERSHEY_SIMPLEX
             fontScale = 1
-            color = (255, 0, 0)
-            thickness = 2
 
-            putText(img, CLASSES[cls], org, font, fontScale, color, thickness)
+            putText(img, CLASSES[cls], org, font, fontScale, COLOR, THICKNESS)
