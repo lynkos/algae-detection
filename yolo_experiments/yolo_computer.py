@@ -5,13 +5,17 @@ from yolo_base import MODEL, coordinates
 # opencv: 4.6.0
 # opencv-python: 4.8.1.
 
+CONNECTION_TYPE = 0
+"""0 for computer's webcam, 1 for external webcam (i.e., iPhone camera)"""
+
 # Start webcam
-WEBCAM = VideoCapture(0) # VideoCapture(URL)
+WEBCAM = VideoCapture(CONNECTION_TYPE) # VideoCapture(URL)
 WEBCAM.set(CAP_PROP_FRAME_WIDTH, 640)
 WEBCAM.set(CAP_PROP_FRAME_HEIGHT, 480)
-print("Webcam started!")
 
 while WEBCAM.isOpened():
+    print("Webcam started!")
+    
     # Fetch image from webcam
     success, img = WEBCAM.read()
 
