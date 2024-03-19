@@ -1,23 +1,24 @@
-from cv2 import VideoCapture, waitKey, destroyAllWindows, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS
-from yolo_base import MODEL, coordinates, showWindow
+from cv2 import VideoCapture, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS
+from yolo_base import showWindow, MODEL
 
 # Original versions:
 # opencv: 4.6.0
 # opencv-python: 4.8.1.
+
+WEBCAM = VideoCapture(0) # VideoCapture(URL)
+"""Start webcam"""
 
 WIDTH = 1280
 HEIGHT = 720
 FPS = 30.0
 """Webcam attributes"""
 
-WEBCAM = VideoCapture(0) # VideoCapture(URL)
-"""Start webcam"""
-
 WEBCAM.set(CAP_PROP_FRAME_WIDTH, WIDTH)
 WEBCAM.set(CAP_PROP_FRAME_HEIGHT, HEIGHT)
 WEBCAM.set(CAP_PROP_FPS, FPS)
+"""Set webcam width, height, and FPS"""
 
-while WEBCAM.isOpened():    
+while WEBCAM.isOpened():
     # Fetch image from webcam
     success, img = WEBCAM.read()
 
@@ -27,22 +28,5 @@ while WEBCAM.isOpened():
 
         if not results: continue
 
-        # Coordinates
-        coordinates(results, img)
-
         # Show webcam feed
-        showWindow("Webcam", img, 0, 0)
-
-    else: break
-
-    # Check for key press, if "q" is pressed, exit the loop
-    if waitKey(1) & 0xFF == ord("q"):
-        break
-
-# Release webcam
-WEBCAM.release()
-
-# Close OpenCV windows
-destroyAllWindows()
-
-exit(0)
+        showWindow("Webcam", img, results, WEBCAM)

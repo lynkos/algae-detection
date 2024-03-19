@@ -1,6 +1,8 @@
 from ultralytics import YOLO
-from cv2 import rectangle, putText, namedWindow, moveWindow, imshow, getTextSize, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA
 from math import ceil
+from cv2 import (rectangle, putText, namedWindow, moveWindow, imshow, waitKey,
+                 getWindowProperty, getTextSize, destroyAllWindows,
+                 WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA)
 
 # Note: If you get the following error:
 # AttributeError: module 'cv2.dnn' has no attribute 'DictValue
@@ -28,7 +30,7 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
 MODEL = YOLO("model_weights/yolov8x.pt")
 """Model"""
 
-def coordinates(results, img):
+def coordinates(img, results):
     for result in results:
         for box in result.boxes:
             # Get bounding box coordinates and dimensions
@@ -37,7 +39,10 @@ def coordinates(results, img):
             # Draw bounding box
             drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", x, y, w, h)
 
-def showWindow(name, img, x, y):
+def showWindow(name, img, results, cam = None, x = 0, y = 0):
+    # Coordinates
+    coordinates(img, results)
+        
     # Create named window
     namedWindow(name)
 
@@ -46,6 +51,16 @@ def showWindow(name, img, x, y):
 
     # Show image
     imshow(name, img)
+
+    # Exit loop if "q" is pressed or window is closed
+    if (waitKey(1) & 0xFF == ord("q")) or (getWindowProperty(name, WND_PROP_VISIBLE) < 1):
+        # Release webcam, if applicable
+        if cam: cam.release()
+
+        # Close OpenCV windows
+        destroyAllWindows()
+        
+        exit(0)
 
 def drawBoundingBox(img, text, x, y, w, h):
     # Typecast to int
