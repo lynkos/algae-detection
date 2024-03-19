@@ -29,15 +29,12 @@ MODEL = YOLO("model_weights/yolov8x.pt")
 """Model"""
 
 def coordinates(results, img):
-    # Coordinates
     for result in results:
-        boxes = result.boxes
-
-        for box in boxes:
-            # Bounding box
+        for box in result.boxes:
+            # Get bounding box coordinates and dimensions
             x, y, w, h = box.xyxy[0]
 
-            # Put box in cam
+            # Draw bounding box
             drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", x, y, w, h)
 
 def showWindow(name, img, x, y):
@@ -59,5 +56,5 @@ def drawBoundingBox(img, text, x, y, w, h):
     
     # Label
     text_width, text_height = getTextSize(text, FONT_HERSHEY_SIMPLEX, FONT_SCALE, THICKNESS)[0]
-    rectangle(img, (x, y), (x + text_width + 2, y - (text_height + 4)), BOX_COLOR, FILLED)
-    putText(img, text, (x, y), FONT_HERSHEY_SIMPLEX, FONT_SCALE, FONT_COLOR, THICKNESS, LINE_AA)
+    rectangle(img, (x, y), (x + text_width, y - (text_height + 10)), BOX_COLOR, FILLED)
+    putText(img, text, (x, y - 5), FONT_HERSHEY_SIMPLEX, FONT_SCALE, FONT_COLOR, THICKNESS, LINE_AA)
