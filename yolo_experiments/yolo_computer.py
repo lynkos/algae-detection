@@ -1,18 +1,23 @@
-from cv2 import VideoCapture, waitKey, destroyAllWindows, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT
+from cv2 import VideoCapture, waitKey, destroyAllWindows, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS
 from yolo_base import MODEL, coordinates, showWindow
 
 # Original versions:
 # opencv: 4.6.0
 # opencv-python: 4.8.1.
 
-# Start webcam
-WEBCAM = VideoCapture(0) # VideoCapture(URL)
-WEBCAM.set(CAP_PROP_FRAME_WIDTH, 1280)
-WEBCAM.set(CAP_PROP_FRAME_HEIGHT, 720)
+WIDTH = 1280
+HEIGHT = 720
+FPS = 30.0
+"""Webcam attributes"""
 
-while WEBCAM.isOpened():
-    print("Webcam started!")
-    
+WEBCAM = VideoCapture(0) # VideoCapture(URL)
+"""Start webcam"""
+
+WEBCAM.set(CAP_PROP_FRAME_WIDTH, WIDTH)
+WEBCAM.set(CAP_PROP_FRAME_HEIGHT, HEIGHT)
+WEBCAM.set(CAP_PROP_FPS, FPS)
+
+while WEBCAM.isOpened():    
     # Fetch image from webcam
     success, img = WEBCAM.read()
 

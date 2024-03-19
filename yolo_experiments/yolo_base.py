@@ -1,5 +1,5 @@
 from ultralytics import YOLO
-from cv2 import rectangle, putText, namedWindow, moveWindow, imshow, FONT_HERSHEY_SIMPLEX
+from cv2 import rectangle, putText, namedWindow, moveWindow, imshow, getTextSize, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA
 from math import ceil
 
 # Note: If you get the following error:
@@ -7,8 +7,10 @@ from math import ceil
 # comment out the following (i.e., line 168) within "/Users/kiran/miniconda3/envs/algae_env/lib/python3.11/site-packages/cv2/typing/__init__.py"
 # LayerId = cv2.dnn.DictValue
 
-COLOR = (255, 0, 0)
+BOX_COLOR = (255, 0, 0)
+FONT_COLOR = (255, 255, 255)
 THICKNESS = 2
+FONT_SCALE = 1
 """Bounding box attributes"""
 
 CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
@@ -24,23 +26,19 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
 """Object classes"""
 
 MODEL = YOLO("model_weights/yolov8x.pt")
+"""Model"""
 
 def coordinates(results, img):
     # Coordinates
-    for r in results:
-        boxes = r.boxes
+    for result in results:
+        boxes = result.boxes
 
         for box in boxes:
             # Bounding box
-            x1, y1, x2, y2 = box.xyxy[0]
-
-            org = (int(x1), int(y1))
+            x, y, w, h = box.xyxy[0]
 
             # Put box in cam
-            rectangle(img, org, (int(x2), int(y2)), COLOR, THICKNESS)
-
-            # Put text in cam
-            putText(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", org, FONT_HERSHEY_SIMPLEX, 1, COLOR, THICKNESS)
+            drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", x, y, w, h)
 
 def showWindow(name, img, x, y):
     # Create named window
@@ -51,3 +49,15 @@ def showWindow(name, img, x, y):
 
     # Show image
     imshow(name, img)
+
+def drawBoundingBox(img, text, x, y, w, h):
+    # Typecast to int
+    x, y, w, h = int(x), int(y), int(w), int(h)
+
+    # Bounding box frame
+    rectangle(img, (x, y), (w, h), BOX_COLOR, THICKNESS)
+    
+    # Label
+    text_width, text_height = getTextSize(text, FONT_HERSHEY_SIMPLEX, FONT_SCALE, THICKNESS)[0]
+    rectangle(img, (x, y), (x + text_width + 2, y - (text_height + 4)), BOX_COLOR, FILLED)
+    putText(img, text, (x, y), FONT_HERSHEY_SIMPLEX, FONT_SCALE, FONT_COLOR, THICKNESS, LINE_AA)
