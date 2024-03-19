@@ -1,5 +1,5 @@
 from ultralytics import YOLO
-from cv2 import rectangle, putText, FONT_HERSHEY_SIMPLEX
+from cv2 import rectangle, putText, namedWindow, moveWindow, imshow, FONT_HERSHEY_SIMPLEX
 from math import ceil
 
 # Note: If you get the following error:
@@ -23,7 +23,7 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
               "teddy bear", "hair drier", "toothbrush" ]
 """Object classes"""
 
-MODEL = YOLO("model_weights/yolov8n.pt") # model.keras
+MODEL = YOLO("model_weights/yolov8x.pt")
 
 def coordinates(results, img):
     # Coordinates
@@ -34,23 +34,20 @@ def coordinates(results, img):
             # Bounding box
             x1, y1, x2, y2 = box.xyxy[0]
 
-            # Convert to int values
-            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+            org = (int(x1), int(y1))
 
             # Put box in cam
-            rectangle(img, (x1, y1), (x2, y2), COLOR, THICKNESS)
+            rectangle(img, org, (int(x2), int(y2)), COLOR, THICKNESS)
 
-            # Confidence
-            confidence = ceil((box.conf[0] * 100)) / 100
-            print("Confidence --->", confidence)
+            # Put text in cam
+            putText(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", org, FONT_HERSHEY_SIMPLEX, 1, COLOR, THICKNESS)
 
-            # Class name
-            cls = int(box.cls[0])
-            print("Class name -->", CLASSES[cls])
+def showWindow(name, img, x, y):
+    # Create named window
+    namedWindow(name)
 
-            # Object details
-            org = [x1, y1]
-            font = FONT_HERSHEY_SIMPLEX
-            fontScale = 1
+    # Move to (x, y)
+    moveWindow(name, x, y)
 
-            putText(img, CLASSES[cls], org, font, fontScale, COLOR, THICKNESS)
+    # Show image
+    imshow(name, img)

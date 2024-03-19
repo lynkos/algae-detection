@@ -1,17 +1,14 @@
-from cv2 import VideoCapture, imshow, waitKey, destroyAllWindows, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT
-from yolo_base import MODEL, coordinates
+from cv2 import VideoCapture, waitKey, destroyAllWindows, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT
+from yolo_base import MODEL, coordinates, showWindow
 
 # Original versions:
 # opencv: 4.6.0
 # opencv-python: 4.8.1.
 
-CONNECTION_TYPE = 0
-"""0 for computer's webcam, 1 for external webcam (i.e., iPhone camera)"""
-
 # Start webcam
-WEBCAM = VideoCapture(CONNECTION_TYPE) # VideoCapture(URL)
-WEBCAM.set(CAP_PROP_FRAME_WIDTH, 640)
-WEBCAM.set(CAP_PROP_FRAME_HEIGHT, 480)
+WEBCAM = VideoCapture(0) # VideoCapture(URL)
+WEBCAM.set(CAP_PROP_FRAME_WIDTH, 1280)
+WEBCAM.set(CAP_PROP_FRAME_HEIGHT, 720)
 
 while WEBCAM.isOpened():
     print("Webcam started!")
@@ -29,7 +26,7 @@ while WEBCAM.isOpened():
         coordinates(results, img)
 
         # Show webcam feed
-        imshow("Webcam", img)
+        showWindow("Webcam", img, 0, 0)
 
     else: break
 
@@ -42,3 +39,5 @@ WEBCAM.release()
 
 # Close OpenCV windows
 destroyAllWindows()
+
+exit(0)
