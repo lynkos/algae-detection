@@ -1,10 +1,6 @@
 from cv2 import VideoCapture, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS
 from yolo_base import showWindow, MODEL
 
-# Original versions:
-# opencv: 4.6.0
-# opencv-python: 4.8.1.
-
 WEBCAM = VideoCapture(0) # VideoCapture(URL)
 """Start webcam"""
 
@@ -23,7 +19,7 @@ while WEBCAM.isOpened():
     success, img = WEBCAM.read()
 
     if success:
-        # Object detection code
+        # Object detection
         results = MODEL(img, stream = True, device = "mps", agnostic_nms = True)
 
         if not results: continue
