@@ -1,4 +1,4 @@
-name: algae_env
+name: algae_env1
 channels:
   - defaults
 dependencies:
@@ -13,4 +13,9 @@ dependencies:
   - tensorflow=2.12.0
   - pip:
     - ultralytics==8.1.37
-prefix: $(conda info --base)/envs/algae_env
+    - roboflow==1.1.26
+    - tensorflow-metal==1.1.0
+    - torch==2.2.2
+    - torchvision==0.17.2
+    - torchaudio==2.2.2
+    - https://download.pytorch.org/whl/nightly/cpu
