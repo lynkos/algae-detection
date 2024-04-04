@@ -29,10 +29,12 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
               "teddy bear", "hair drier", "toothbrush" ]
 """Object classes"""
 
-MODEL = YOLO("model_weights/yolov8x.pt")
-
 DEVICE = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu"
+WEIGHTS = "model_weights/yolov8x.pt"
 """Model attributes"""
+
+MODEL = YOLO(WEIGHTS)
+"""Model"""
 
 def coordinates(img, results):
     for result in results:
@@ -43,7 +45,7 @@ def coordinates(img, results):
             # Draw bounding box
             drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", x, y, w, h)
 
-def createModel(img):
+def model(img):
     return MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
 
 def showWindow(name, img, results, cam = None, x = 0, y = 0):
