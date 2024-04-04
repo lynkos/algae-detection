@@ -33,7 +33,7 @@ DEVICE = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cp
 WEIGHTS = "model_weights/yolov8x.pt"
 """Model attributes"""
 
-MODEL = YOLO(WEIGHTS)
+MODEL = YOLO(WEIGHTS, task = "detect")
 """Model"""
 
 def coordinates(img, results):
