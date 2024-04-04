@@ -1,3 +1,5 @@
+from torch.cuda import is_available as is_cuda_available
+from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
 from math import ceil
 from cv2 import (rectangle, putText, namedWindow, moveWindow, imshow, waitKey,
@@ -28,7 +30,8 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
 """Object classes"""
 
 MODEL = YOLO("model_weights/yolov8x.pt")
-"""Model"""
+DEVICE = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu"
+"""Model attributes"""
 
 def coordinates(img, results):
     for result in results:
