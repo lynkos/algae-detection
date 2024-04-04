@@ -1,3 +1,4 @@
+from torch import device
 from torch.cuda import is_available as is_cuda_available
 from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
@@ -29,7 +30,7 @@ CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train"
               "teddy bear", "hair drier", "toothbrush" ]
 """Object classes"""
 
-DEVICE = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu"
+DEVICE = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
 WEIGHTS = "model_weights/yolov8x.pt"
 """Model attributes"""
 
