@@ -1,7 +1,7 @@
 from numpy import uint8, array
 from cv2 import imdecode
 from urllib import request
-from PIL import Image
+from PIL.Image import fromarray
 from yolo_base import showWindow, createModel
 
 URL = "http://10.0.0.134/cam-lo.jpg"
@@ -11,7 +11,7 @@ while True:
     img_array = request.urlopen(URL)
 
     # Read the image as a numpy array (takes the most time)
-    img_array = array(Image.fromarray(img_array, "RGB"))
+    img_array = array(fromarray(img_array, "RGB"))
     #img_array = array(bytearray(img_array.read()), dtype = uint8)
 
     # Decode the numpy array to an OpenCV image
