@@ -1,28 +1,32 @@
 from cv2 import VideoCapture, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS
-from yolo_base import showWindow, MODEL
+from yolo_base import showWindow, MODEL, DEVICE
 
-WEBCAM = VideoCapture(0) # VideoCapture(URL)
-"""Start webcam"""
+CAMERA_TYPE = 0
+"""Camera type: 0 = Default (Webcam), 1 = External (iPhone)"""
 
+CAMERA = VideoCapture(CAMERA_TYPE)
+"""Start camera"""
+
+TITLE = "Webcam" if CAMERA_TYPE == 0 else "Smartphone"
 WIDTH = 1280
 HEIGHT = 720
 FPS = 30.0
-"""Webcam attributes"""
+"""Camera attributes"""
 
-WEBCAM.set(CAP_PROP_FRAME_WIDTH, WIDTH)
-WEBCAM.set(CAP_PROP_FRAME_HEIGHT, HEIGHT)
-WEBCAM.set(CAP_PROP_FPS, FPS)
-"""Set webcam width, height, and FPS"""
+CAMERA.set(CAP_PROP_FRAME_WIDTH, WIDTH)
+CAMERA.set(CAP_PROP_FRAME_HEIGHT, HEIGHT)
+CAMERA.set(CAP_PROP_FPS, FPS)
+"""Set camera width, height, and FPS"""
 
-while WEBCAM.isOpened():
-    # Fetch image from webcam
-    success, img = WEBCAM.read()
+while CAMERA.isOpened():
+    # Fetch image from camera
+    success, img = CAMERA.read()
 
     if success:
         # Object detection
-        results = MODEL(img, stream = True, device = "mps", agnostic_nms = True)
+        results = MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
 
         if not results: continue
 
-        # Show webcam feed
-        showWindow("Webcam", img, results, WEBCAM)
+        # Show camera feed
+        showWindow(TITLE, img, results, CAMERA)
