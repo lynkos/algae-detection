@@ -1,11 +1,11 @@
 from cv2 import VideoCapture, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS
-from yolo_base import showWindow, MODEL, DEVICE
+from yolo_base import showWindow, createModel
 
 CAMERA_TYPE = 0
 """Camera type: 0 = Default (Webcam), 1 = External (iPhone)"""
 
 CAMERA = VideoCapture(CAMERA_TYPE)
-"""Start camera"""
+"""Initialize camera"""
 
 TITLE = "Webcam" if CAMERA_TYPE == 0 else "Smartphone"
 WIDTH = 1280
@@ -24,7 +24,7 @@ while CAMERA.isOpened():
 
     if success:
         # Object detection
-        results = MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
+        results = createModel(img)
 
         if not results: continue
 
