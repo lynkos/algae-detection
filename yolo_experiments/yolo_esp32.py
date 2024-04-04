@@ -2,7 +2,7 @@ from numpy import uint8, array
 from cv2 import imdecode
 from urllib import request
 from PIL import Image
-from yolo_base import MODEL, showWindow
+from yolo_base import showWindow, MODEL, DEVICE
 
 URL = "http://10.0.0.134/cam-lo.jpg"
 
@@ -18,7 +18,7 @@ while True:
     img = imdecode(img_array, -1)
 
     # Object detection code
-    results = MODEL(img, stream = True, device = "mps", agnostic_nms = True)
+    results = MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
 
     # Show ESP32 stream (processing done here)
     showWindow("ESP32 Stream", img, results)
