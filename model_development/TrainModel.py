@@ -5,30 +5,31 @@ from torchvision.transforms import Compose, ToTensor, Normalize, RandomHorizonta
 from torchvision.datasets import CIFAR10
 from torch import no_grad, save, load, max as max_t
 from os import getcwd
+from os.path import join
 from operator import __add__
 from AlgaeCNN import AlgaeCNN
 
 N_WORKERS = 8
 BATCH = 4
 EPOCHS = 1
+SAVE_DIR = join(getcwd(), "model_weights")
 
-transform = Compose([ToTensor(),
+TRANSFORM = Compose([ToTensor(),
                      RandomHorizontalFlip(),
                      RandomVerticalFlip(),
                      Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
-trainset = CIFAR10(root = getcwd(), train = True, transform = transform)
-testset = CIFAR10(root = getcwd(), train = False, transform = transform)
-trainloader = DataLoader(trainset, shuffle = True, num_workers = N_WORKERS, batch_size = BATCH)
-testloader = DataLoader(testset, shuffle = False, num_workers = N_WORKERS, batch_size = BATCH)
+TRAIN_SET = CIFAR10(root = getcwd(), train = True, transform = TRANSFORM)
+TEST_SET = CIFAR10(root = getcwd(), train = False, transform = TRANSFORM)
 
-def train(model, epoch = EPOCHS, save_path = f"{getcwd()}/test_model3.pt"):
-    loss_f, opt = CrossEntropyLoss(reduction = "sum"), Adam(model.parameters(), lr = 1e-5, eps = 1e-7)
+def train(model, name, epoch = EPOCHS):
     model.to(model.device)
+    loss_f, opt = CrossEntropyLoss(reduction = "sum"), Adam(model.parameters(), lr = 1e-5, eps = 1e-7)
 
-    for e in range(epoch):  # loop over the dataset multiple times
+    # loop over the dataset multiple times
+    for e in range(epoch):
         running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
+        for i, data in enumerate(DataLoader(TRAIN_SET, shuffle = True, num_workers = N_WORKERS, batch_size = BATCH), 0):
             # get the inputs; data is a list of [inputs, labels]
             inputs, labels = data[0].to(model.device), data[1].to(model.device)
 
@@ -44,31 +45,35 @@ def train(model, epoch = EPOCHS, save_path = f"{getcwd()}/test_model3.pt"):
             # print statistics
             running_loss += loss.item()
             if i % 2000 == 1999:    # print every 2000 mini-batches
-                print(f'[{e + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}')
+                print(f"[{e + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}")
                 running_loss = 0.0
 
-    print('Finished Training... Saving model...')
-    save(model.state_dict(), save_path)
+    model_path = f"{join(SAVE_DIR, name)}"
+    save(model.state_dict(), model_path)
+    print(f"Model saved to {model_path}")
 
-def test(model, load_path = f"{getcwd()}/test_model3.pt"):
-    correct, total = 0, 0
-    model.load_state_dict(load(load_path))
+def test(model, name):
+    correct, total, model_path = 0, 0, f"{join(SAVE_DIR, name)}"
     model.to(model.device)
+    model.load_state_dict(load(model_path))
+    print(f"Model loaded from {model_path}")
     
     # since we're not training, we don't need to calculate the gradients for our outputs
     with no_grad():
-        for data in testloader:
+        for data in DataLoader(TEST_SET, shuffle = False, num_workers = N_WORKERS, batch_size = BATCH):
             images, labels = data[0].to(model.device), data[1].to(model.device)
+            
             # calculate outputs by running images through the network
             outputs = model(images)
+            
             # the class with the highest energy is what we choose as prediction
             _, predicted = max_t(outputs.data, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-    print(f'Accuracy of the network on the 10000 test images: {100 * correct // total}%')
+    print(f"Network accuracy on 10000 test images: {100 * correct // total}%")
     
-if __name__ == '__main__':
+if __name__ == "__main__":
     model = AlgaeCNN()
-    #train(model)
-    test(model)
+    train(model, "test_model3.pt")
+    test(model, "test_model3.pt")
