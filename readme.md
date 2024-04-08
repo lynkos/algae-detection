@@ -74,24 +74,15 @@ Automatically detect and classify different species of algae from water samples 
    ```
    git clone https://github.com/lynkos/algae-detection.git
    ```
-5. Change the working directory to `model_deployment`
-     * POSIX
-       ```sh
-       cd algae-detection/model_deployment
-       ```
-     * Windows
-       ```sh
-       cd algae-detection\model_deployment
-       ```
-6. Create a conda virtual environment from `environment.yml`
+5. Create a conda virtual environment from `environment.yml`
    ```
    conda env create -f environment.yml
    ```
-7. Activate the virtual environment (`algae_env`)
+6. Activate the virtual environment (`algae_env`)
    ```
    conda activate algae_env
    ```
-8. Confirm that the virtual environment (`algae_env`) is active
+7. Confirm that the virtual environment (`algae_env`) is active
      * If active, the virtual environment's name should be in parentheses () or brackets [] before your command prompt, e.g.
        ```
        (algae_env) $
@@ -104,7 +95,7 @@ Automatically detect and classify different species of algae from water samples 
        ```
        conda env list
        ```
-9. Read the files within `documentation` directory for more details
+8. Read the files within `documentation` directory for more details
 
 <!-- ## Only do steps 4-6 if you have UNIX-based OS, else skip to step 7
 
