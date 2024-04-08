@@ -1,9 +1,10 @@
-from torch.nn import Sequential, Conv2d, Linear, MaxPool2d, LazyBatchNorm2d, LazyBatchNorm1d, Dropout, ReLU, Softmax, Module
-from torch import device, flatten
 from functools import reduce
 from operator import __add__
+from torch import device, flatten
 from torch.cuda import is_available as is_cuda_available
 from torch.backends.mps import is_available as is_mps_available
+from torch.nn import (Sequential, Conv2d, Linear, MaxPool2d, LazyBatchNorm2d,
+                      LazyBatchNorm1d, Dropout, ReLU, Softmax, Module)
 
 CLASSES = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 N_CLASS = len(CLASSES)
@@ -101,7 +102,8 @@ class AlgaeCNN(Module):
         return Sequential(self.dense(in_features = in_features, out_features = out_features),
                           
                           ReLU(inplace = True),
-                          
+
+                          # TODO Fix (used to be batch_norm2d)
                           self.batch_norm1d(momentum = momentum, epsilon = epsilon))
 
     def features(self, x):
@@ -124,6 +126,7 @@ class AlgaeCNN(Module):
         
         # Pytorch rep: (Batch, Channel, Height, Width) for conv
         # (Batch, # feats) for linear/dense
+        # TODO Fix
         x = flatten(x, 1) # flatten all dimensions except batch
 
         x = self.classifier(x)
