@@ -22,8 +22,10 @@ CLASSES = [ "closterium", "microcystis", "nitzschia", "oscillatoria" ]
 """Object classes"""
 
 DEVICE = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
+"""Model device (GPU or CPU)"""
+
 WEIGHTS = "model_weights/best_sahi_v1.pt"
-"""Model attributes"""
+"""Model weights"""
 
 MODEL = YOLO(WEIGHTS, task = "detect")
 """Model"""
