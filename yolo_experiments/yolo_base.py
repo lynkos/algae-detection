@@ -3,9 +3,9 @@ from torch.cuda import is_available as is_cuda_available
 from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
 from math import ceil
-from cv2 import (rectangle, putText, namedWindow, moveWindow, imshow, waitKey,
-                 getWindowProperty, getTextSize, destroyAllWindows,
-                 WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA)
+from cv2 import (rectangle, putText, namedWindow, moveWindow, imshow, waitKey, # type: ignore
+                 getWindowProperty, getTextSize, destroyAllWindows, # type: ignore
+                 WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA) # type: ignore
 
 # Note: If you get the following error:
 # AttributeError: module 'cv2.dnn' has no attribute 'DictValue
@@ -18,20 +18,11 @@ THICKNESS = 2
 FONT_SCALE = 1
 """Bounding box attributes"""
 
-CLASSES = [ "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
-              "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
-              "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",
-              "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite", "baseball bat",
-              "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle", "wine glass", "cup",
-              "fork", "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange", "broccoli",
-              "carrot", "hot dog", "pizza", "donut", "cake", "chair", "sofa", "pottedplant", "bed",
-              "diningtable", "toilet", "tvmonitor", "laptop", "mouse", "remote", "keyboard", "cell phone",
-              "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
-              "teddy bear", "hair drier", "toothbrush" ]
+CLASSES = [ "closterium", "microcystis", "nitzschia", "oscillatoria" ]
 """Object classes"""
 
 DEVICE = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
-WEIGHTS = "model_weights/yolov8x.pt"
+WEIGHTS = "model_weights/best_sahi_v1.pt"
 """Model attributes"""
 
 MODEL = YOLO(WEIGHTS, task = "detect")
