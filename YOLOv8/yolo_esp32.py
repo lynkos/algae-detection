@@ -6,20 +6,24 @@ from yolo_base import showWindow, model
 URL = "http://10.0.0.134/snapshot"
 
 while(True):
-    # Fetch image from stream at URL
-    response = get(URL, stream = True, allow_redirects = True).raw.read()
+    try:
+        # Attempt to get image from stream
+        response = get(URL, stream = True, allow_redirects = True)
 
-    if response:
-        # Read image as a numpy array
-        img_array = asarray(bytearray(response), dtype = "uint8")
-        
-        # Decode ndarray to OpenCV image
-        image = imdecode(img_array, IMREAD_UNCHANGED | IMREAD_IGNORE_ORIENTATION)
+        # Check if response is valid
+        if response.ok:
+            # Read image as a numpy array
+            img_array = asarray(bytearray(response.raw.read()), dtype = "uint8")
+            
+            # Decode ndarray to OpenCV image
+            image = imdecode(img_array, IMREAD_UNCHANGED | IMREAD_IGNORE_ORIENTATION)
 
-        # Algae detection
-        results = model(image)
-        
-        if not results: continue
-        
-        # Show ESP32 stream
-        showWindow("ESP32 Stream", image, results)
+            # Algae detection
+            results = model(image)
+            
+            if not results: continue
+            
+            # Show ESP32 stream
+            showWindow("ESP32 Stream", image, results)
+
+    except: continue
