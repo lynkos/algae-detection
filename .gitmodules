@@ -1,0 +1,4 @@
+[submodule "streaming/esp32cam-rtsp"]
+	path = streaming/esp32cam-rtsp
+	url = https://github.com/rzeldent/esp32cam-rtsp.git
+	branch = develop
