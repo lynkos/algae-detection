@@ -2,15 +2,16 @@ from torch import device
 from torch.cuda import is_available as is_cuda_available
 from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
-from math import ceil
-from cv2 import (rectangle, putText, namedWindow, imshow, waitKey, # type: ignore
-                 getWindowProperty, getTextSize, destroyAllWindows, # type: ignore
-                 WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA, WINDOW_NORMAL) # type: ignore
+from cv2 import (rectangle, putText, namedWindow, imshow, waitKey,
+                 getWindowProperty, getTextSize, destroyAllWindows,
+                 WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA, WINDOW_NORMAL)
 
-# Note: If you get the following error:
-# AttributeError: module 'cv2.dnn' has no attribute 'DictValue
-# comment out the following (i.e., line 168) within "/Users/kiran/miniconda3/envs/algae_env/lib/python3.11/site-packages/cv2/typing/__init__.py"
-# LayerId = cv2.dnn.DictValue
+"""
+Note: If you get the following error:
+AttributeError: module 'cv2.dnn' has no attribute 'DictValue
+comment out the following (i.e., line 168) within "/Users/kiran/miniconda3/envs/algae_env/lib/python3.11/site-packages/cv2/typing/__init__.py"
+LayerId = cv2.dnn.DictValue
+"""
 
 BOX_COLOR = (255, 0, 0)
 FONT_COLOR = (255, 255, 255)
@@ -24,25 +25,25 @@ CLASSES = [ "closterium", "microcystis", "nitzschia", "oscillatoria" ]
 DEVICE = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
 """Model device (GPU or CPU)"""
 
-WEIGHTS = "model_weights/best_sahi_v1.pt"
+WEIGHTS = "weights/best_sahi_v1.pt"
 """Model weights"""
 
 MODEL = YOLO(WEIGHTS, task = "detect")
 """Model"""
 
-def coordinates(img, results):
+def coordinates(img, results) -> None:
     for result in results:
         for box in result.boxes:
             # Get bounding box coordinates and dimensions
             x, y, w, h = box.xyxy[0]
 
             # Draw bounding box
-            drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", int(x), int(y), int(w), int(h))
+            drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {box.conf[0]:.2f}", int(x), int(y), int(w), int(h))
 
-def model(img):
+def model(img) -> YOLO:
     return MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
 
-def showWindow(name, img, results, cam = None):
+def showWindow(name: str, img, results, cam = None) -> None:
     # Coordinates
     coordinates(img, results)
         
@@ -62,7 +63,7 @@ def showWindow(name, img, results, cam = None):
         
         exit(0)
 
-def drawBoundingBox(img, text, x, y, w, h):
+def drawBoundingBox(img, text: str, x: int, y: int, w: int, h: int) -> None:
     # Bounding box frame
     rectangle(img, (x, y), (w, h), BOX_COLOR, THICKNESS)
     
