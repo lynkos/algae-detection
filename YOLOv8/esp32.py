@@ -1,7 +1,7 @@
 from numpy import asarray
 from cv2 import imdecode, IMREAD_UNCHANGED, IMREAD_IGNORE_ORIENTATION # type: ignore
 from requests import get
-from yolo_base import showWindow, model
+from base import showWindow, model
 
 URL = "http://10.0.0.134/snapshot"
 
