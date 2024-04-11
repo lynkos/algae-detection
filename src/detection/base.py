@@ -30,7 +30,7 @@ DEVICE = device("mps") if is_mps_available() else device("cuda") if is_cuda_avai
 ROOT = Repo(".", search_parent_directories = True).working_dir
 """Root directory"""
 
-WEIGHTS = Path(ROOT, "weights", "best_sahi_v1.pt")
+WEIGHTS = Path(ROOT, "weights", "best_yolov8x.pt")
 """Model weights"""
 
 MODEL = YOLO(WEIGHTS, task = "detect")

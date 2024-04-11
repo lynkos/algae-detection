@@ -1,7 +1,7 @@
 from cv2 import VideoCapture, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS
 from base import showWindow, model
 
-CAMERA_TYPE = 0
+CAMERA_TYPE = 1
 """Camera type: 0 = Webcam (Default), 1 = iPhone (Additional)"""
 
 CAMERA = VideoCapture(CAMERA_TYPE)
