@@ -37,7 +37,7 @@ def coordinates(img, results):
             x, y, w, h = box.xyxy[0]
 
             # Draw bounding box
-            drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", x, y, w, h)
+            drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {ceil((box.conf[0] * 100)) / 100}", int(x), int(y), int(w), int(h))
 
 def model(img):
     return MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
@@ -63,9 +63,6 @@ def showWindow(name, img, results, cam = None):
         exit(0)
 
 def drawBoundingBox(img, text, x, y, w, h):
-    # Typecast to int
-    x, y, w, h = int(x), int(y), int(w), int(h)
-
     # Bounding box frame
     rectangle(img, (x, y), (w, h), BOX_COLOR, THICKNESS)
     
