@@ -1,5 +1,5 @@
 from numpy import asarray
-from cv2 import imdecode, IMREAD_UNCHANGED, IMREAD_IGNORE_ORIENTATION # type: ignore
+from cv2 import imdecode, IMREAD_UNCHANGED, IMREAD_IGNORE_ORIENTATION
 from requests import get
 from base import showWindow, model
 
