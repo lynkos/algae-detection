@@ -1,6 +1,3 @@
-<!-- # **Steps to download and run** 
-Before follow these steps please Configure the ESP-IDF [release 5.0](https://github.com/espressif/esp-idf/tree/release/v4.4) environment. <sup>[setting-up ESP-IDF environment](https://www.youtube.com/watch?v=byVPAfodTyY) / [toolchain for ESP-IDF](https://blog.espressif.com/esp-idf-development-tools-guide-part-i-89af441585b)  -->
-
 <div align="center">
 <h1>Algae Detection</h1>
 <img alt="Python" src="https://img.shields.io/static/v1?label=Language&style=flat&message=Python+3.11.5&logo=python&color=c7a228&labelColor=393939&logoColor=4f97d1">
