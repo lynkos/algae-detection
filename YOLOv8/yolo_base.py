@@ -3,9 +3,9 @@ from torch.cuda import is_available as is_cuda_available
 from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
 from math import ceil
-from cv2 import (rectangle, putText, namedWindow, moveWindow, imshow, waitKey, # type: ignore
+from cv2 import (rectangle, putText, namedWindow, imshow, waitKey, # type: ignore
                  getWindowProperty, getTextSize, destroyAllWindows, # type: ignore
-                 WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA) # type: ignore
+                 WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA, WINDOW_NORMAL) # type: ignore
 
 # Note: If you get the following error:
 # AttributeError: module 'cv2.dnn' has no attribute 'DictValue
@@ -42,15 +42,12 @@ def coordinates(img, results):
 def model(img):
     return MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
 
-def showWindow(name, img, results, cam = None, x = 0, y = 0):
+def showWindow(name, img, results, cam = None):
     # Coordinates
     coordinates(img, results)
         
-    # Create named window
-    namedWindow(name)
-
-    # Move to (x, y)
-    moveWindow(name, x, y)
+    # Create resizable, named window
+    namedWindow(name, WINDOW_NORMAL)
 
     # Show image
     imshow(name, img)

@@ -12,7 +12,7 @@ while(True):
 
         # Check if response is valid
         if response.ok:
-            # Read image as a numpy array
+            # Read raw data as a numpy array
             img_array = asarray(bytearray(response.raw.read()), dtype = "uint8")
             
             # Decode ndarray to OpenCV image

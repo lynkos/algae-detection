@@ -2,12 +2,12 @@ from cv2 import VideoCapture, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_P
 from yolo_base import showWindow, model
 
 CAMERA_TYPE = 1
-"""Camera type: 0 = Default (Webcam), 1 = External (iPhone)"""
+"""Camera type: 0 = Default (Webcam), 1 = iPhone"""
 
 CAMERA = VideoCapture(CAMERA_TYPE)
 """Initialize camera"""
 
-TITLE = "Webcam" if CAMERA_TYPE == 0 else "Smartphone"
+TITLE = "Webcam" if CAMERA_TYPE == 0 else "iPhone"
 WIDTH = 1280
 HEIGHT = 720
 FPS = 30.0
