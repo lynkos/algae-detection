@@ -6,7 +6,7 @@ from PIL.Image import open as open_img
 from pathlib import Path
 from re import search
 
-DIRECTORY = Path(getcwd(), "dataset", "script_cleaned_data")
+DIRECTORY = Path(getcwd(), "dataset", "orig_data")
 """Directory containing images, each of which are in their respective subdirectories"""
 
 OVERREPRESENTED = ["non-algae", "oscillatoria"]
@@ -81,7 +81,7 @@ def standardize(category_path: Path) -> None:
             elif digest not in hashes:
                 print(f"Retaining and cropping {img_path} since it's not a duplicate")
                 hashes.add(digest)
-                crop_img(img_path)
+                #crop_img(img_path)
                 
             else:
                 print(f"Removing {img_path} because it's a near duplicate")
@@ -135,5 +135,36 @@ def cleanup(directory: Path = DIRECTORY) -> None:
             standardize(over_path)
             choose_random_imgs(over_path, avg_under_count)
 
+def get_image_shapes(directory: Path = DIRECTORY) -> dict[tuple[int, int], int]:
+    """
+    Get dimensions and frequency of images within in a given directory's subdirectories
+
+    Args:
+        directory (Path, optional): Directory containing categories; defaults to DIRECTORY
+
+    Returns:
+        dict[tuple[int, int], int]: Dictionary containing unique image shapes in dataset and how often they occur
+    """
+    shape_and_occurrence = dict()
+    
+    for folder_name in listdir(directory):
+        subdirectory = Path(directory / folder_name)
+        
+        if isdir(subdirectory):
+            for file in listdir(subdirectory):
+                file_path = Path(subdirectory / file)
+                
+                if is_valid_img(file_path):
+                    shape = open_img(file_path).size
+                    
+                    if shape not in shape_and_occurrence: shape_and_occurrence[shape] = 1
+
+                    elif shape in shape_and_occurrence:
+                        count = shape_and_occurrence[shape]
+                        count += 1
+                        shape_and_occurrence[shape] = count
+
+    return shape_and_occurrence
+
 if "__main__" == __name__:
-    cleanup()
+    print(get_image_shapes())
