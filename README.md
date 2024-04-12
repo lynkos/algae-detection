@@ -78,7 +78,7 @@ Detects and classifies different species of algae from water samples under a mic
        ```
 4. Clone `algae-detection`
    ```
-   git clone https://github.com/lynkos/algae-detection.git
+   git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
