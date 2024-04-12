@@ -2,7 +2,8 @@ from torch import device
 from torch.cuda import is_available as is_cuda_available
 from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
-from git import Repo
+from os import curdir
+from os.path import abspath
 from pathlib import Path
 from cv2 import (rectangle, putText, namedWindow, imshow, waitKey,
                  getWindowProperty, getTextSize, destroyAllWindows,
@@ -27,7 +28,7 @@ CLASSES = [ "closterium", "microcystis", "nitzschia", "oscillatoria" ]
 DEVICE = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
 """Model device (GPU or CPU)"""
 
-ROOT = Repo(".", search_parent_directories = True).working_dir
+ROOT = abspath(curdir)
 """Root directory"""
 
 WEIGHTS = Path(ROOT, "weights", "best_yolov8x.pt")
@@ -45,7 +46,7 @@ def coordinates(img, results) -> None:
             # Draw bounding box
             drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {box.conf[0]:.2f}", int(x), int(y), int(w), int(h))
 
-def model(img) -> YOLO:
+def model(img):
     return MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
 
 def showWindow(name: str, img, results, cam = None) -> None:

@@ -1,12 +1,12 @@
-from os import remove, listdir, mkdir, getcwd
-from os.path import splitext, basename, isdir, exists
+from os import remove, listdir, mkdir, curdir
+from os.path import splitext, basename, isdir, exists, abspath
 from hashlib import sha1
 from random import sample
 from PIL.Image import open as open_img
 from pathlib import Path
 from re import search
 
-DIRECTORY = Path(getcwd(), "dataset", "orig_data")
+DIRECTORY = Path(abspath(curdir), "dataset", "orig_data")
 """Directory containing images, each of which are in their respective subdirectories"""
 
 OVERREPRESENTED = ["non-algae", "oscillatoria"]
@@ -167,7 +167,4 @@ def get_image_shapes(directory: Path = DIRECTORY) -> dict[tuple[int, int], int]:
     return shape_and_occurrence
 
 if "__main__" == __name__:
-    #print(get_image_shapes())
-    from os.path import join
-    A = join(".", "algae_ds")#'dataset', 'manually_cleaned_data')
-    print(A)
+    print(get_image_shapes())
