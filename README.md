@@ -30,7 +30,7 @@ Detects and classifies different species of algae from water samples under a mic
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
 > [!NOTE]
-> If you have trouble deciding between Anaconda and Miniconda, please refer to the table below
+> If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
 > <table>
 > <thead>
 > <tr>
@@ -77,9 +77,15 @@ Detects and classifies different species of algae from water samples under a mic
        cd C:\Users\user\path\to\directory
        ```
 4. Clone `algae-detection`
-   ```
+   ```sh
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
+> [!WARNING]
+> Please download [Git LFS](https://git-lfs.com) and try cloning again if you run into any errors similar to this:
+> 
+> <code>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</code>
+>
+> This error is caused by the [large] repo's size, hence the need for Git LFS. If it still doesn't work, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading it as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
    conda env create -f environment.yml
