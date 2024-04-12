@@ -99,65 +99,41 @@ Detects and classifies different species of algae from water samples under a mic
        ```
 8. Read the files within `documentation` directory for more details
 
-<!-- ## Only do steps 4-6 if you have UNIX-based OS, else skip to step 7
-
-### 4. (Optional) Add `export.sh` command to shell profile
-```sh
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
-```
-
-### 5. (Optional) Restart terminal OR run `source` command
-```sh
-source <PATH_TO_PROFILE>
-```
-
-### 6. (Optional) Run `export.sh` command
-```
-get_idf
-```
-
-### 7. Reconfigure the Cmake 
-```
-idf.py reconfigure 
-```
-
-### 8. Select the target ESP32 (Make sure the device is connected!)
-```
-idf.py set-target esp32
-```
-
-### 9. Run project configuration
-```
-idf.py menuconfig
-```
-
-### 10. Select the following options, then save and quit
-```
-Serial flasher config > Flash size > 4 MB
-```
-
-### 11. Build the project
-```
-idf.py build
-```
-
-### 12. Flash and monitor the project (`PATH_TO_ESP_DEVICE` = `COM4` for Windows)
-```
-idf.py -p PATH_TO_ESP_DEVICE flash
-idf.py -p PATH_TO_ESP_DEVICE monitor
-```
-
-In case found error during the building process [follow the official IDF  guide for more details](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#build-your-first-project).  -->
-
 ## Usage
-WIP
+### Detect and classify algae in real-time with input from camera
+#### ESP32-CAM
+Run `esp32.py`
+   * POSIX
+      ```
+      $(which python) esp32.py
+      ```
+   * Windows
+      ```
+      $(where python) esp32.py
+      ```
 
-## Future Work
-- [ ] Heatsink for ESP32-CAM AI Thinker in order to prevent overheating
+#### Computer Webcam and/or iPhone
+Run `other.py`
+   * POSIX
+      ```
+      $(which python) other.py
+      ```
+   * Windows
+      ```
+      $(where python) other.py
+      ```
 
-## Credits
-Special thanks to [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop)!
-<!-- ### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) (Recommended)
+### Training, validation, and testing algae detection model
+#### Google Colab (Recommended)
+1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
+2. Make sure you have your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key), else you'll have to manually upload your Roboflow dataset and won't be able to deploy your model after it's trained
+3. Click the key button in the left panel to add your Roboflow API key
+4. Input `ROBOFLOW_API_KEY` within **Name** column and paste your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key) within **Value** column
+5. Toggle **Notebook access** on
+6. Click **Add new secret**
+7. Notebook can now be run
+
+#### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 1. Open the Command Palette in [Visual Studio Code](https://code.visualstudio.com/download) with the relevant keyboard shortcut
     * Mac
       ```
@@ -169,47 +145,34 @@ Special thanks to [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](ht
       ```
 2. Search and select `Python: Select Interpreter`
 3. Select the virtual environment (`algae_env`)
-4. Open `algae-classification.ipynb` and/or `yolo-computer.py`
+4. Open `model-pipeline.ipynb`
 5. Confirm `algae_env` is the selected [kernel](https://docs.jupyter.org/en/latest/install/kernels.html)
-6. Run program(s)
-   * `algae-classification.ipynb`: Click `Run All`
-   * `yolo-computer.py`: Click `▷` (i.e. `Play` button) in the upper-right corner
+6. Run `model-pipeline.ipynb`: Click `Run All`
 7. Deactivate the virtual environment (`algae_env`) when you're finished
    ```
    conda deactivate
    ```
 
-### Command Line
-#### Python
-1. Run `yolo-computer.py`
-   * POSIX
-      ```
-      $(which python) yolo-computer.py
-      ```
-   * Windows
-      ```
-      $(where python) yolo-computer.py
-      ```
-2. Deactivate the virtual environment (`algae_env`) when you're finished
-   ```
-   conda deactivate
-   ```
-
 #### Jupyter Notebook
-1. Install `ipykernel` in the virtual environment (`algae_env`)
-   ```
-   conda install -n algae_env ipykernel
-   ```
-2. Add the virtual environment (`algae_env`) as a Jupyter kernel
+1. Add the virtual environment (`algae_env`) as a Jupyter kernel
    ```
    python -m ipykernel install --user --name=algae_env
    ```
-3. Open `algae-classification.ipynb` in the currently running notebook server, starting one if necessary
+2. Open `model-pipeline.ipynb` in the currently running notebook server, starting one if necessary
    ```
-   jupyter notebook algae-classification.ipynb
+   jupyter notebook model-pipeline.ipynb
    ```
-4. Select the virtual environment (`algae_env`) as the kernel before running `algae-classification.ipynb`
-5. Deactivate the virtual environment (`algae_env`) when you're finished
+3. Select the virtual environment (`algae_env`) as the kernel before running `model-pipeline.ipynb`
+4. Deactivate the virtual environment (`algae_env`) when you're finished
    ```
    conda deactivate
-   ``` -->
+   ```
+   
+## Future Work
+- [ ] Heatsink for ESP32-CAM AI Thinker in order to prevent overheating
+
+## Credits
+Special thanks to:
+- [Dr. Antao Chen](https://ieeexplore.ieee.org/author/37291140300) for his mentorship
+- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop)
+- [rdgbrian](https://github.com/rdgbrian), last semester's team lead, for his assistance
