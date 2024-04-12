@@ -22,9 +22,12 @@
 Detects and classifies different species of algae from water samples under a microscope in real-time using a convolutional neural network.
 
 ## Requirements
-- [x] ESP32-CAM AI Thinker (or another [ESP32 chip](https://www.espressif.com/en/products/socs/esp32))
+- [x] [ESP32](https://www.espressif.com/en/products/socs/esp32)
+   - Currently using AI Thinker
+   - Any other ESP32 with a camera (note: source code may or may not need to be modified accordingly)
 - [x] Nikon Microscope
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
+
 > [!NOTE]
 > If you have trouble deciding between Anaconda and Miniconda, please refer to the table below
 > <table>
@@ -76,7 +79,7 @@ Detects and classifies different species of algae from water samples under a mic
    ```
    git clone https://github.com/lynkos/algae-detection.git
    ```
-5. Create conda virtual environment from `environment.yml`
+5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
    conda env create -f environment.yml
    ```
@@ -100,9 +103,25 @@ Detects and classifies different species of algae from water samples under a mic
 8. Read the files in `documentation` for more details
 
 ## Usage
-### Detect and classify algae in real-time with input from camera
-#### ESP32-CAM
-Run `esp32.py` (located in `src/detection`)
+### Detect and Classify Algae
+1. Open [`weights`](weights)
+2. Choose the algae detection model you want to use
+   * To use your own `.pt` model, add it to [`weights`](weights)
+   * To use an existing model, decompress the `.zip` file to get the `.pt` model
+      * [RT-DETR](https://docs.ultralytics.com/models/rtdetr) Extra-Large with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`rt-detr-x_sahi.pt.zip`](weights/rt-detr-x_sahi.pt.zip)
+      * [YOLOv8n](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+      * [YOLOv8x](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`yolov8x.pt.zip`](weights/yolov8x.pt.zip)
+3. Open [`base.py`](src/detection/base.py)
+4. Set [`MODEL`](src/detection/base.py#27) to path of desired `.pt` model
+5. Read the following depending on which camera you'll use
+   * [ESP32](#esp32)
+   * [Webcam and/or iPhone](#webcam-andor-iphone)
+
+#### ESP32
+1. Follow the steps in [this specific `README.md`](src/streaming/README.md) to set up ESP32
+2. Open [`esp32.py`](src/detection/esp32.py) once finished
+3. Set [`URL`](src/detection/esp32.py#6) to ESP32's IP address
+4. Run [`esp32.py`](src/detection/esp32.py)
    * POSIX
       ```
       $(which python) src/detection/esp32.py
@@ -112,8 +131,10 @@ Run `esp32.py` (located in `src/detection`)
       $(where python) src/detection/esp32.py
       ```
 
-#### Computer Webcam and/or iPhone
-Run `other.py` (located in `src/detection`)
+#### Webcam and/or iPhone
+1. Open [`other.py`](src/detection/other.py)
+2. Set [`CAMERA_TYPE`](src/detection/other.py#4) to `0` to use webcam or `1` to use iPhone
+3. Run [`other.py`](src/detection/other.py)
    * POSIX
       ```
       $(which python) src/detection/other.py
@@ -123,7 +144,7 @@ Run `other.py` (located in `src/detection`)
       $(where python) src/detection/other.py
       ```
 
-### Training, validation, and testing algae detection model
+### Training, Validating, and Testing Model
 #### Google Colab (Recommended)
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 2. Make sure you have your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key), else you'll have to manually upload your Roboflow dataset and won't be able to deploy your model after it's trained
@@ -131,7 +152,7 @@ Run `other.py` (located in `src/detection`)
 4. Input `ROBOFLOW_API_KEY` within **Name** column and paste your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key) within **Value** column
 5. Toggle **Notebook access** on
 6. Click **Add new secret**
-7. Notebook can now be used
+7. Run notebook
 
 #### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 1. Open the Command Palette in [Visual Studio Code](https://code.visualstudio.com/download) with the relevant keyboard shortcut
@@ -145,10 +166,10 @@ Run `other.py` (located in `src/detection`)
       ```
 2. Search and select `Python: Select Interpreter`
 3. Select `algae_env`
-4. Open `model-pipeline.ipynb` (located in `src`)
+4. Open [`model-pipeline.ipynb`](src/model_pipeline.ipynb)
 5. Confirm `algae_env` is the selected [kernel](https://docs.jupyter.org/en/latest/install/kernels.html)
-6. Run `model-pipeline.ipynb`: Click `Run All`
-7. Deactivate `algae_env` when you're finished
+6. Run [`model-pipeline.ipynb`](src/model_pipeline.ipynb): Click `Run All`
+7. Deactivate `algae_env` once finished
    ```
    conda deactivate
    ```
@@ -158,22 +179,25 @@ Run `other.py` (located in `src/detection`)
    ```
    python -m ipykernel install --user --name=algae_env
    ```
-2. Open `model-pipeline.ipynb` (located in `src`) in the currently running notebook server, starting one if necessary
+2. Open [`model-pipeline.ipynb`](src/model_pipeline.ipynb) in the currently running notebook server, starting one if necessary
    ```
    jupyter notebook src/model-pipeline.ipynb
    ```
 3. Select `algae_env` as the kernel before running
-4. Deactivate `algae_env` when finished
+4. Deactivate `algae_env` once finished
    ```
    conda deactivate
    ```
    
 ## Future Work
-- [ ] Heatsink for ESP32-CAM AI Thinker in order to prevent overheating
-- [ ] Increase dataset size to [at least 1000 per class](https://blog.roboflow.com/model-best-practices/#dataset-size) by taking more images of algae
-    - [ ] Make sure [all classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
-    - [ ] Add more types of algae to improve model's versatility
-- [ ] Use ESP32-CAM AI Thinker without a web server (e.g., via USB, etc.), just like Webcam and iPhone
+- [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
+   - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
+   - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
+   - [Dr. Schonna R. Manning](https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html) may help with categorizing any algae in new images
+   - Further reading: [1](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom), [2](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin), [3](https://pubs.usgs.gov/publication/ofr20171054), and/or research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
+- [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone
+- [ ] Heatsink for ESP32 to prevent overheating
+- [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., [ESP32-S3-EYE](https://www.espressif.com/en/products/devkits/esp-eye/overview), iPhone, Android, etc.
 - [ ] Add Android compatability (assuming it isn't)
 
 ## Credits
