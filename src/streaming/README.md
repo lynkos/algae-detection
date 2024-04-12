@@ -27,26 +27,6 @@ Supported protocols
   The HTTP Image returns an HTTP JPEG image of the camera.
   The URL is http://&lt;ip address&gt;/snapshot
 
-This software supports the following ESP32-CAM (and alike) modules:
-
-- AI THINKER
-- EspressIf ESP-EYE
-- EspressIf ESP32S2-CAM
-- EspressIf ESP32S3-CAM-LCD
-- EspressIf ESP32S3-EYE
-- Freenove WROVER KIT
-- M5STACK ESP32CAM
-- M5STACK_PSRAM
-- M5STACK_UNITCAM
-- M5STACK_UNITCAMS3
-- M5STACK_V2_PSRAM
-- M5STACK_PSRAM
-- M5STACK_WIDE
-- M5STACK
-- Seeed Studio XIAO ESP32S3 SENSE
-- TTGO T-CAMERA
-- TTGO T-JOURNAL
-
 The software provides a **configuration web server**, that can be used to:
 
 - Provide information about the state of the device, wifi connection and camera,
@@ -84,6 +64,28 @@ The software provides a **configuration web server**, that can be used to:
 
 The software provides contains also a mDNS server to be easily discoverable on the local network.
 It advertises HTTP (port 80) and RTSP (port 554)
+
+## Modules
+
+This software supports the following ESP32-CAM (and alike) modules:
+
+- AI THINKER
+- EspressIf ESP-EYE
+- EspressIf ESP32S2-CAM
+- EspressIf ESP32S3-CAM-LCD
+- EspressIf ESP32S3-EYE
+- Freenove WROVER KIT
+- M5STACK ESP32CAM
+- M5STACK_PSRAM
+- M5STACK_UNITCAM
+- M5STACK_UNITCAMS3
+- M5STACK_V2_PSRAM
+- M5STACK_PSRAM
+- M5STACK_WIDE
+- M5STACK
+- Seeed Studio XIAO ESP32S3 SENSE
+- TTGO T-CAMERA
+- TTGO T-JOURNAL
 
 ## Required
 

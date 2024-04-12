@@ -22,9 +22,7 @@
 Detects and classifies different species of algae from water samples under a microscope in real-time using a convolutional neural network.
 
 ## Requirements
-- [x] [ESP32](https://www.espressif.com/en/products/socs/esp32)
-   - Currently using AI Thinker
-   - Any other ESP32 with a camera (note: source code may or may not need to be modified accordingly)
+- [x] [ESP32-CAM AI Thinker](src/streaming/assets/boards/schematics/ai_thinker_esp32cam.pdf) (or any of the [modules](src/streaming/README.md#modules) and [boards](src/streaming/README.md#boards) listed [here](src/streaming/README.md), though you may or may not need to modify some of the code within [`esp32.py`](src/detection/esp32.py) accordingly)
 - [x] Nikon Microscope
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
