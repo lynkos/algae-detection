@@ -170,7 +170,7 @@ Run `other.py` (located in `src/detection`)
    
 ## Future Work
 - [ ] Heatsink for ESP32-CAM AI Thinker in order to prevent overheating
-- [ ] Increase dataset size to [at least a couple thousand](https://blog.roboflow.com/model-best-practices/#dataset-size) by taking more images of algae
+- [ ] Increase dataset size to [at least 1000 per class](https://blog.roboflow.com/model-best-practices/#dataset-size) by taking more images of algae
     - [ ] Make sure [all classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
     - [ ] Add more types of algae to improve model's versatility
 - [ ] Use ESP32-CAM AI Thinker without a web server (e.g., via USB, etc.), just like Webcam and iPhone
