@@ -9,13 +9,6 @@ from cv2 import (rectangle, putText, namedWindow, imshow, waitKey,
                  getWindowProperty, getTextSize, destroyAllWindows,
                  WND_PROP_VISIBLE, FONT_HERSHEY_SIMPLEX, FILLED, LINE_AA, WINDOW_NORMAL)
 
-"""
-Note: If you get the following error:
-AttributeError: module 'cv2.dnn' has no attribute 'DictValue
-comment out the following (i.e., line 168) within "/Users/kiran/miniconda3/envs/algae_env/lib/python3.11/site-packages/cv2/typing/__init__.py"
-LayerId = cv2.dnn.DictValue
-"""
-
 BOX_COLOR = (255, 0, 0)
 FONT_COLOR = (255, 255, 255)
 THICKNESS = 2
