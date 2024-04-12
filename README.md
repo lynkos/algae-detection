@@ -154,6 +154,9 @@ WIP
 
 ## Future Work
 - [ ] Heatsink for ESP32-CAM AI Thinker in order to prevent overheating
+
+## Credits
+Special thanks to [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop)!
 <!-- ### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) (Recommended)
 1. Open the Command Palette in [Visual Studio Code](https://code.visualstudio.com/download) with the relevant keyboard shortcut
     * Mac
