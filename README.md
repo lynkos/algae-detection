@@ -118,7 +118,7 @@ Detects and classifies different species of algae from water samples under a mic
       * [YOLOv8n](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
       * [YOLOv8x](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`yolov8x.pt.zip`](weights/yolov8x.pt.zip)
 3. Open [`base.py`](src/detection/base.py)
-4. Set [`MODEL`](src/detection/base.py#27) to path of desired `.pt` model
+4. Set [`MODEL`](src/detection/base.py#L27) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [Webcam and/or iPhone](#webcam-andor-iphone)
@@ -126,7 +126,7 @@ Detects and classifies different species of algae from water samples under a mic
 #### ESP32
 1. Follow the steps in [this specific `README.md`](src/streaming/README.md) to set up ESP32
 2. Open [`esp32.py`](src/detection/esp32.py) once finished
-3. Set [`URL`](src/detection/esp32.py#6) to ESP32's IP address
+3. Set [`URL`](src/detection/esp32.py#L6) to ESP32's IP address
 4. Run [`esp32.py`](src/detection/esp32.py)
    * POSIX
       ```
@@ -139,7 +139,7 @@ Detects and classifies different species of algae from water samples under a mic
 
 #### Webcam and/or iPhone
 1. Open [`other.py`](src/detection/other.py)
-2. Set [`CAMERA_TYPE`](src/detection/other.py#4) to `0` to use webcam or `1` to use iPhone
+2. Set [`CAMERA_TYPE`](src/detection/other.py#L4) to `0` to use webcam or `1` to use iPhone
 3. Run [`other.py`](src/detection/other.py)
    * POSIX
       ```
