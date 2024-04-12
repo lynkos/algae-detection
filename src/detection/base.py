@@ -16,19 +16,19 @@ FONT_SCALE = 1
 """Bounding box attributes"""
 
 CLASSES = [ "closterium", "microcystis", "nitzschia", "oscillatoria" ]
-"""Object classes"""
+"""Types of algae the model can detect"""
 
 DEVICE = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
-"""Model device (GPU or CPU)"""
+"""Device (GPU or CPU) to run detection model on"""
 
 ROOT = abspath(curdir)
 """Root directory"""
 
-WEIGHTS = Path(ROOT, "weights", "best_yolov8x.pt")
-"""Model weights"""
+MODEL = Path(ROOT, "weights", "best_yolov8x.pt")
+"""Custom-trained model"""
 
-MODEL = YOLO(WEIGHTS, task = "detect")
-"""Model"""
+YOLO_MODEL = YOLO(MODEL, task = "detect")
+"""YOLO Model using """
 
 def coordinates(img, results) -> None:
     for result in results:
@@ -40,7 +40,7 @@ def coordinates(img, results) -> None:
             drawBoundingBox(img, f"{CLASSES[int(box.cls[0])]} {box.conf[0]:.2f}", int(x), int(y), int(w), int(h))
 
 def model(img):
-    return MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
+    return YOLO_MODEL(img, stream = True, device = DEVICE, agnostic_nms = True)
 
 def showWindow(name: str, img, results, cam = None) -> None:
     # Coordinates
