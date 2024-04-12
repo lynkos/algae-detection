@@ -4,9 +4,7 @@
 <img alt="Shell" src="https://img.shields.io/static/v1?label=Shell&style=flat&message=Bash&logo=gnu+bash&color=b30086&labelColor=393939&logoColor=b30086">
 <img alt="Conda" src="https://img.shields.io/static/v1?label=Package+Manager&style=flat&message=Conda&logo=anaconda&color=44A833&labelColor=393939&logoColor=44A833">
 <br>
-<img alt="Keras" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=Keras&logo=keras&color=D00000&labelColor=393939&logoColor=D00000">
 <img alt="PyTorch" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=PyTorch&logo=pytorch&color=EE4C2C&labelColor=393939&logoColor=EE4C2C">
-<img alt="TensorFlow" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=TensorFlow&logo=tensorflow&color=FF6F00&labelColor=393939&logoColor=FF6F00">
 <img alt="Jupyter" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=Jupyter&logo=jupyter&color=F37626&labelColor=393939&logoColor=F37626">
 <img alt="Arduino" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=Arduino&logo=arduino&color=00878F&labelColor=393939&logoColor=00878F">
 <img alt="Espressif" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=Espressif&logo=espressif&color=E7352C&labelColor=393939&logoColor=E7352C">
