@@ -63,7 +63,7 @@ Detects and classifies different species of algae from water samples under a mic
    ```
    conda update conda
    ```
-3. Enter the directory where you want the repository (`algae-detection`) to be cloned
+3. Enter the directory you want `algae-detection` to be cloned in
      * POSIX
        ```sh
        cd ~/path/to/directory
@@ -72,24 +72,24 @@ Detects and classifies different species of algae from water samples under a mic
        ```sh
        cd C:\Users\user\path\to\directory
        ```
-4. Clone the repository (`algae-detection`)
+4. Clone `algae-detection`
    ```
    git clone https://github.com/lynkos/algae-detection.git
    ```
-5. Create a conda virtual environment from `environment.yml`
+5. Create conda virtual environment from `environment.yml`
    ```
    conda env create -f environment.yml
    ```
-6. Activate the virtual environment (`algae_env`)
+6. Activate `algae_env`
    ```
    conda activate algae_env
    ```
-7. Confirm that the virtual environment (`algae_env`) is active
-     * If active, the virtual environment's name should be in parentheses () or brackets [] before your command prompt, e.g.
+7. Confirm that `algae_env` is active
+     * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
        ```
        (algae_env) $
        ```
-     * If necessary, see which environments are available and/or currently active (active environment denoted with asterisk (*))
+     * If necessary, see which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
        ```
        conda info --envs
        ```
@@ -97,30 +97,30 @@ Detects and classifies different species of algae from water samples under a mic
        ```
        conda env list
        ```
-8. Read the files within `documentation` directory for more details
+8. Read the files in `documentation` for more details
 
 ## Usage
 ### Detect and classify algae in real-time with input from camera
 #### ESP32-CAM
-Run `esp32.py`
+Run `esp32.py` (located in `src/detection`)
    * POSIX
       ```
-      $(which python) esp32.py
+      $(which python) src/detection/esp32.py
       ```
    * Windows
       ```
-      $(where python) esp32.py
+      $(where python) src/detection/esp32.py
       ```
 
 #### Computer Webcam and/or iPhone
-Run `other.py`
+Run `other.py` (located in `src/detection`)
    * POSIX
       ```
-      $(which python) other.py
+      $(which python) src/detection/other.py
       ```
    * Windows
       ```
-      $(where python) other.py
+      $(where python) src/detection/other.py
       ```
 
 ### Training, validation, and testing algae detection model
@@ -131,7 +131,7 @@ Run `other.py`
 4. Input `ROBOFLOW_API_KEY` within **Name** column and paste your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key) within **Value** column
 5. Toggle **Notebook access** on
 6. Click **Add new secret**
-7. Notebook can now be run
+7. Notebook can now be used
 
 #### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 1. Open the Command Palette in [Visual Studio Code](https://code.visualstudio.com/download) with the relevant keyboard shortcut
@@ -139,37 +139,42 @@ Run `other.py`
       ```
       ⌘ + Shift + P
       ```
-    * Windows
+    * PC
       ```
       CTRL + Shift + P
       ```
 2. Search and select `Python: Select Interpreter`
-3. Select the virtual environment (`algae_env`)
-4. Open `model-pipeline.ipynb`
+3. Select `algae_env`
+4. Open `model-pipeline.ipynb` (located in `src`)
 5. Confirm `algae_env` is the selected [kernel](https://docs.jupyter.org/en/latest/install/kernels.html)
 6. Run `model-pipeline.ipynb`: Click `Run All`
-7. Deactivate the virtual environment (`algae_env`) when you're finished
+7. Deactivate `algae_env` when you're finished
    ```
    conda deactivate
    ```
 
 #### Jupyter Notebook
-1. Add the virtual environment (`algae_env`) as a Jupyter kernel
+1. Add `algae_env` as a Jupyter kernel
    ```
    python -m ipykernel install --user --name=algae_env
    ```
-2. Open `model-pipeline.ipynb` in the currently running notebook server, starting one if necessary
+2. Open `model-pipeline.ipynb` (located in `src`) in the currently running notebook server, starting one if necessary
    ```
-   jupyter notebook model-pipeline.ipynb
+   jupyter notebook src/model-pipeline.ipynb
    ```
-3. Select the virtual environment (`algae_env`) as the kernel before running `model-pipeline.ipynb`
-4. Deactivate the virtual environment (`algae_env`) when you're finished
+3. Select `algae_env` as the kernel before running
+4. Deactivate `algae_env` when finished
    ```
    conda deactivate
    ```
    
 ## Future Work
 - [ ] Heatsink for ESP32-CAM AI Thinker in order to prevent overheating
+- [ ] Increase dataset size to [at least a couple thousand](https://blog.roboflow.com/model-best-practices/#dataset-size) by taking more images of algae
+    - [ ] Make sure [all classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
+    - [ ] Add more types of algae to improve model's versatility
+- [ ] Use ESP32-CAM AI Thinker without a web server (e.g., via USB, etc.), just like Webcam and iPhone
+- [ ] Add Android compatability (assuming it isn't)
 
 ## Credits
 Special thanks to:
