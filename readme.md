@@ -22,6 +22,8 @@
 Automatically detect and classify different species of algae from water samples at a reasonable speed in real-time using a convolutional neural net.
 
 ## Requirements
+- [x] ESP32-CAM AI Thinker (or another [ESP32 chip](https://www.espressif.com/en/products/socs/esp32))
+- [x] Nikon Microscope
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 > [!NOTE]
 > If you have trouble deciding between Anaconda and Miniconda, please refer to the table below
