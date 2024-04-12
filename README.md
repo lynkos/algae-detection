@@ -19,7 +19,7 @@
 </div>
 
 ## Overview
-Automatically detect and classify different species of algae from water samples at a reasonable speed in real-time using a convolutional neural net.
+Detects and classifies different species of algae from water samples under a microscope in real-time using a convolutional neural network.
 
 ## Requirements
 - [x] ESP32-CAM AI Thinker (or another [ESP32 chip](https://www.espressif.com/en/products/socs/esp32))
