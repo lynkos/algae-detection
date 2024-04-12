@@ -85,7 +85,7 @@ Detects and classifies different species of algae from water samples under a mic
 > 
 > <code>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</code>
 >
-> This error is caused by the [large] repo's size, hence the need for Git LFS. If it still doesn't work, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading it as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+> This error is caused by the repo's [large] size, hence the need for Git LFS. If it still doesn't work, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading it as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
    conda env create -f environment.yml
