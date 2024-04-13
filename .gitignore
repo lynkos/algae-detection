@@ -1,0 +1,5 @@
+.vscode
+.pio
+.github
+__pycache__
+.DS_STORE
