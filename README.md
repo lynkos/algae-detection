@@ -137,7 +137,7 @@ Detects and classifies different species of algae from water samples under a mic
       ```
    * Windows
       ```
-      $(where python) src/detection/esp32.py
+      $(where python) src\detection\esp32.py
       ```
 
 #### Webcam and/or iPhone
@@ -150,7 +150,7 @@ Detects and classifies different species of algae from water samples under a mic
       ```
    * Windows
       ```
-      $(where python) src/detection/other.py
+      $(where python) src\detection\other.py
       ```
 
 ### Training, Validating, and Testing Model
