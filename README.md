@@ -24,9 +24,11 @@
 Detects and classifies different species of algae from water samples under a microscope in real-time using a convolutional neural network.
 
 ## Requirements
-- [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon SKT Optical Microscope with 200x resolution lens
+- [x] USB-C cable
+- [x] [Visual Studio Code](https://code.visualstudio.com/download)
+- [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
 > [!NOTE]

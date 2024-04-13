@@ -4,7 +4,7 @@ Simple [RTSP](https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol), [HTTP
 
 Flashing this software on a ESP32CAM module will make it a **RTSP streaming camera** server, a **HTTP Motion JPEG streamer** and a **HTTP image server**.
 
-Supported protocols
+Supported protocols:
 
 - RTSP
   The RTSP protocol is an industry standard and allows many CCTV systems and applications (like for example [VLC](https://www.videolan.org/vlc/)) to connect directly to the ESP32CAM camera stream.
@@ -55,15 +55,7 @@ The software provides a **configuration web server**, that can be used to:
   - Downside enable
   - Color bar
 
-The software provides contains also a mDNS server to be easily discoverable on the local network.
-It advertises HTTP (port 80) and RTSP (port 554)
-
-## Required
-
-- ESP32-CAM module or similar
-- USB-C cable
-- [Visual Studio Code](https://code.visualstudio.com)
-- [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
+The software provides contains also a mDNS server to be easily discoverable on the local network. It advertises HTTP (port 80) and RTSP (port 554).
 
 ## Compiling and deploying the software
 
