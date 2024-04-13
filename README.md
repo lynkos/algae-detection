@@ -183,7 +183,7 @@ Detects and classifies different species of algae from water samples under a mic
    conda deactivate
    ```
 
-## Directory Structure
+## Repository Structure
 ```
 .
 ├── assets/
@@ -246,11 +246,11 @@ Detects and classifies different species of algae from water samples under a mic
    - Further reading: [1](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom), [2](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin), [3](https://pubs.usgs.gov/publication/ofr20171054), and/or research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
 - [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone
 - [ ] Heatsink for ESP32 to prevent overheating
-- [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., [ESP32-S3-EYE](https://www.espressif.com/en/products/devkits/esp-eye/overview), iPhone, Android, etc.
+- [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., Phone, Android, etc.
 - [ ] Add Android compatability (assuming it isn't)
 
 ## Credits
 Special thanks to:
 - [Dr. Antao Chen](https://ieeexplore.ieee.org/author/37291140300) (product owner) for his mentorship
-- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop)
+- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop), which has been modified and used in [`streaming`](src/streaming)
 - [rdgbrian](https://github.com/rdgbrian) (last semester's team lead) for his assistance
