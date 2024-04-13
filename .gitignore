@@ -1,5 +1,8 @@
 .vscode
 .pio
 .github
-__pycache__
 .DS_STORE
+*.pt
+*.json
+__pycache__
+algae_ds
