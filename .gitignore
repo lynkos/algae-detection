@@ -2,6 +2,6 @@
 .pio
 .github
 .DS_STORE
-*.json
+*.pt
 __pycache__
 dataset
