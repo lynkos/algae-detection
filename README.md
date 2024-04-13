@@ -24,6 +24,7 @@
 Detects and classifies different species of algae from water samples under a microscope in real-time using a convolutional neural network.
 
 ## Requirements
+- [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [ESP32-CAM AI Thinker](src/streaming/assets/boards/schematics/ai_thinker_esp32cam.pdf) (or any of the [modules](src/streaming/README.md#modules) and [boards](src/streaming/README.md#boards) listed [here](src/streaming/README.md), though you may or may not need to modify some of the code within [`esp32.py`](src/detection/esp32.py) accordingly)
 - [x] Nikon Microscope
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
@@ -176,21 +177,6 @@ Detects and classifies different species of algae from water samples under a mic
 5. Confirm `algae_env` is the selected [kernel](https://docs.jupyter.org/en/latest/install/kernels.html)
 6. Run [`model-pipeline.ipynb`](src/model_pipeline.ipynb): Click `Run All`
 7. Deactivate `algae_env` once finished
-   ```
-   conda deactivate
-   ```
-
-#### Jupyter Notebook
-1. Add `algae_env` as a Jupyter kernel
-   ```
-   python -m ipykernel install --user --name=algae_env
-   ```
-2. Open [`model-pipeline.ipynb`](src/model_pipeline.ipynb) in the currently running notebook server, starting one if necessary
-   ```
-   jupyter notebook src/model-pipeline.ipynb
-   ```
-3. Select `algae_env` as the kernel before running
-4. Deactivate `algae_env` once finished
    ```
    conda deactivate
    ```
