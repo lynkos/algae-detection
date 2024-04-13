@@ -2,7 +2,6 @@
 .pio
 .github
 .DS_STORE
-*.pt
 *.json
 __pycache__
-algae_ds
+dataset
