@@ -25,8 +25,8 @@ Detects and classifies different species of algae from water samples under a mic
 
 ## Requirements
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
-- [x] [ESP32-CAM AI Thinker](src/streaming/assets/boards/schematics/ai_thinker_esp32cam.pdf) (or any of the [modules](src/streaming/README.md#modules) and [boards](src/streaming/README.md#boards) listed [here](src/streaming/README.md), though you may or may not need to modify some of the code within [`esp32.py`](src/detection/esp32.py) accordingly)
-- [x] Nikon Microscope
+- [x] ESP32-CAM AI Thinker
+- [x] Nikon SKT Optical Microscope with 200x resolution lens
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
 > [!NOTE]
