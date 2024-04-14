@@ -23,6 +23,94 @@
 ## Overview
 Detects and classifies different species of algae from water samples under a microscope in real-time using a convolutional neural network.
 
+<details>
+  <summary><b>Repository Structure</b></summary>
+<pre>
+.
+├── assets/
+│   ├── sahi_rt-detr-x/
+│   │   ├── F1_curve.png
+│   │   ├── PR_curve.png
+│   │   ├── P_curve.png
+│   │   ├── R_curve.png
+│   │   ├── confusion_matrix.png
+│   │   ├── confusion_matrix_normalized.png
+│   │   ├── labels.jpg
+│   │   ├── results.png
+│   │   └── val_sahi_rt-detr-x.png
+│   ├── sahi_yolov8n/
+│   │   ├── F1_curve.png
+│   │   ├── PR_curve.png
+│   │   ├── P_curve.png
+│   │   ├── R_curve.png
+│   │   ├── confusion_matrix.png
+│   │   ├── confusion_matrix_normalized.png
+│   │   ├── results.png
+│   │   └── val_sahi_yolov8n.png
+│   ├── yolov8x/
+│   │   ├── F1_curve.png
+│   │   ├── PR_curve.png
+│   │   ├── P_curve.png
+│   │   ├── R_curve.png
+│   │   ├── confusion_matrix.png
+│   │   ├── confusion_matrix_normalized.png
+│   │   ├── labels.jpg
+│   │   ├── labels_correlogram.jpg
+│   │   ├── results.png
+│   │   └── val_yolov8x.png
+│   ├── Configuration.png
+│   └── index.png
+├── documentation/
+│   ├── installation_guide.md
+│   ├── test_algae.pdf
+│   └── user_manual.md
+├── src/
+│   ├── detection/
+│   │   ├── base.py
+│   │   ├── esp32.py
+│   │   └── other.py
+│   ├── streaming/
+│   │   ├── boards/
+│   │   │   └── esp32cam_ai_thinker.json
+│   │   ├── html/
+│   │   │   ├── index.html
+│   │   │   └── index.min.html
+│   │   ├── include/
+│   │   │   ├── format_duration.h
+│   │   │   ├── format_number.h
+│   │   │   ├── lookup_camera_effect.h
+│   │   │   ├── lookup_camera_frame_size.h
+│   │   │   ├── lookup_camera_gainceiling.h
+│   │   │   ├── lookup_camera_wb_mode.h
+│   │   │   └── settings.h
+│   │   ├── lib/
+│   │   │   └── rtsp_server/
+│   │   │       ├── library.json
+│   │   │       ├── rtsp_server.cpp
+│   │   │       └── rtsp_server.h
+│   │   ├── src/
+│   │   │   └── main.cpp
+│   │   ├── .gitignore
+│   │   ├── generate_html.ps1
+│   │   ├── generate_html.sh
+│   │   ├── minify.py
+│   │   ├── platformio.ini
+│   │   └── README.md
+│   ├── helper_functions.py
+│   └── model_pipeline.ipynb
+├── weights/
+│   ├── rt-detr-x_sahi.pt.zip
+│   ├── yolov8n_sahi.pt.zip
+│   └── yolov8x.pt.zip
+├── .gitattributes
+├── .gitignore
+├── environment.yml
+├── index.html
+├── LICENSE.md
+└── README.md
+</pre>
+</details>
+
 ## Requirements
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon SKT Optical Microscope with 200x resolution lens
@@ -182,92 +270,6 @@ Detects and classifies different species of algae from water samples under a mic
    ```
    conda deactivate
    ```
-
-## Repository Structure
-```
-.
-├── assets/
-│   ├── sahi_rt-detr-x/
-│   │   ├── F1_curve.png
-│   │   ├── PR_curve.png
-│   │   ├── P_curve.png
-│   │   ├── R_curve.png
-│   │   ├── confusion_matrix.png
-│   │   ├── confusion_matrix_normalized.png
-│   │   ├── labels.jpg
-│   │   ├── results.png
-│   │   └── val_sahi_rt-detr-x.png
-│   ├── sahi_yolov8n/
-│   │   ├── F1_curve.png
-│   │   ├── PR_curve.png
-│   │   ├── P_curve.png
-│   │   ├── R_curve.png
-│   │   ├── confusion_matrix.png
-│   │   ├── confusion_matrix_normalized.png
-│   │   ├── results.png
-│   │   └── val_sahi_yolov8n.png
-│   ├── yolov8x/
-│   │   ├── F1_curve.png
-│   │   ├── PR_curve.png
-│   │   ├── P_curve.png
-│   │   ├── R_curve.png
-│   │   ├── confusion_matrix.png
-│   │   ├── confusion_matrix_normalized.png
-│   │   ├── labels.jpg
-│   │   ├── labels_correlogram.jpg
-│   │   ├── results.png
-│   │   └── val_yolov8x.png
-│   ├── Configuration.png
-│   └── index.png
-├── documentation/
-│   ├── installation_guide.md
-│   ├── test_algae.pdf
-│   └── user_manual.md
-├── src/
-│   ├── detection/
-│   │   ├── base.py
-│   │   ├── esp32.py
-│   │   └── other.py
-│   ├── streaming/
-│   │   ├── boards/
-│   │   │   └── esp32cam_ai_thinker.json
-│   │   ├── html/
-│   │   │   ├── index.html
-│   │   │   └── index.min.html
-│   │   ├── include/
-│   │   │   ├── format_duration.h
-│   │   │   ├── format_number.h
-│   │   │   ├── lookup_camera_effect.h
-│   │   │   ├── lookup_camera_frame_size.h
-│   │   │   ├── lookup_camera_gainceiling.h
-│   │   │   ├── lookup_camera_wb_mode.h
-│   │   │   └── settings.h
-│   │   ├── lib/
-│   │   │   └── rtsp_server/
-│   │   │       ├── library.json
-│   │   │       ├── rtsp_server.cpp
-│   │   │       └── rtsp_server.h
-│   │   ├── src/
-│   │   │   └── main.cpp
-│   │   ├── .gitignore
-│   │   ├── generate_html.ps1
-│   │   ├── generate_html.sh
-│   │   ├── minify.py
-│   │   ├── platformio.ini
-│   │   └── README.md
-│   ├── helper_functions.py
-│   └── model_pipeline.ipynb
-├── weights/
-│   ├── rt-detr-x_sahi.pt.zip
-│   ├── yolov8n_sahi.pt.zip
-│   └── yolov8x.pt.zip
-├── .gitattributes
-├── .gitignore
-├── environment.yml
-├── index.html
-├── LICENSE.md
-└── README.md
-```
 
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
