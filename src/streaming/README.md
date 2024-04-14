@@ -73,7 +73,7 @@ If this happens, for the user enter 'admin' and for the password the value that 
 
 The streaming server is available using a normal web browser at:
 
-[http://esp32cam-rtsp.local:/stream](http://esp32cam-rtsp.local/stream)
+[http://10.0.0.134/stream](http://10.0.0.134/stream)
 
 > [!WARNING]
 > There is no password present!
