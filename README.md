@@ -28,6 +28,17 @@ Detects and classifies different species of algae from water samples under a mic
 <pre>
 .
 ├── assets/
+│   ├── custom_yolov8x/
+│   │   ├── F1_curve.png
+│   │   ├── PR_curve.png
+│   │   ├── P_curve.png
+│   │   ├── R_curve.png
+│   │   ├── confusion_matrix.png
+│   │   ├── confusion_matrix_normalized.png
+│   │   ├── labels.jpg
+│   │   ├── labels_correlogram.jpg
+│   │   ├── results.png
+│   │   └── val_custom_yolov8x.png
 │   ├── sahi_rt-detr-x/
 │   │   ├── F1_curve.png
 │   │   ├── PR_curve.png
@@ -47,17 +58,6 @@ Detects and classifies different species of algae from water samples under a mic
 │   │   ├── confusion_matrix_normalized.png
 │   │   ├── results.png
 │   │   └── val_sahi_yolov8n.png
-│   ├── yolov8x/
-│   │   ├── F1_curve.png
-│   │   ├── PR_curve.png
-│   │   ├── P_curve.png
-│   │   ├── R_curve.png
-│   │   ├── confusion_matrix.png
-│   │   ├── confusion_matrix_normalized.png
-│   │   ├── labels.jpg
-│   │   ├── labels_correlogram.jpg
-│   │   ├── results.png
-│   │   └── val_yolov8x.png
 │   ├── Configuration.png
 │   └── index.png
 ├── documentation/
