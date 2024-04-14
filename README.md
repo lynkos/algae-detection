@@ -101,7 +101,7 @@ Detects and classifies different species of algae from water samples under a mic
 ├── weights/
 │   ├── rt-detr-x_sahi.pt.zip
 │   ├── yolov8n_sahi.pt.zip
-│   └── yolov8x.pt.zip
+│   └── custom_yolov8x.pt.zip
 ├── .gitattributes
 ├── .gitignore
 ├── environment.yml
@@ -206,7 +206,7 @@ Detects and classifies different species of algae from water samples under a mic
    * To use an existing model, decompress the `.zip` file to get the `.pt` model
       * [RT-DETR](https://docs.ultralytics.com/models/rtdetr) Extra-Large with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`rt-detr-x_sahi.pt.zip`](weights/rt-detr-x_sahi.pt.zip)
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
-      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`yolov8x.pt.zip`](weights/yolov8x.pt.zip)
+      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip)
 3. Open [`base.py`](src/detection/base.py)
 4. Set [`MODEL`](src/detection/base.py#L27) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
