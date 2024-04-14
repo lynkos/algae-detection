@@ -106,7 +106,6 @@ Detects and classifies different species of algae from water samples under a mic
 ├── .gitignore
 ├── environment.yml
 ├── index.html
-├── LICENSE.md
 └── README.md
 </pre>
 </details>
@@ -277,8 +276,9 @@ Detects and classifies different species of algae from water samples under a mic
    - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
    - [Dr. Schonna R. Manning](https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html) may help with categorizing any algae in new images
    - Further reading: [1](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom), [2](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin), [3](https://pubs.usgs.gov/publication/ofr20171054), and/or research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
-- [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone
+- [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
 - [ ] Heatsink for ESP32 to prevent overheating
+- [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., Phone, Android, etc.
 - [ ] Add Android compatability (assuming it isn't)
 
