@@ -3,5 +3,7 @@
 .github
 .DS_STORE
 *.pt
+.*/*
+.*.*
 __pycache__
 dataset
