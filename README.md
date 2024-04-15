@@ -57,9 +57,12 @@ Quickly detects and classifies different species of harmful algae from water sam
 │   ├── Configuration.png
 │   ├── ESP32-CAM AI Thinker.jpg
 │   ├── index.png
-│   ├── Kiran's Poster.pdf
 │   └── microscope.jpg
 ├── documentation/
+│   ├── posters/
+│   │   ├── cristian.pdf
+│   │   ├── justin.pdf
+│   │   └── kiran.pdf
 │   ├── installation_guide.md
 │   ├── test_algae.pdf
 │   └── user_manual.md
