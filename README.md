@@ -20,7 +20,7 @@
 </div>
 
 ## Overview
-Quickly detects and classifies different species of harmful algae from water samples under a microscope in real-time by using a convolutional neural network with a low-cost, accessible, and portable camera (or, if preferred, smartphone).
+Quickly detects and classifies different species of harmful algae from water samples under a microscope in real-time by using a convolutional neural network with a low-cost, and portable camera (or, if preferred, smartphone).
 
 <details open>
    <summary><b>Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator</b></summary>
