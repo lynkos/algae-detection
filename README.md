@@ -23,7 +23,7 @@
 Quickly detects and classifies different species of harmful algae from water samples under a microscope in real-time by using a convolutional neural network with a low-cost, accessible, and portable camera (or, if preferred, smartphone).
 
 <details open>
-   <summary><b>Nikon Microscope with ESP32-CAM AI Thinker inside 3D printed lens attachment and illuminator</b></summary>
+   <summary><b>Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator</b></summary>
    <div align="center"><img alt="Microscope" src="assets/microscope.jpg" /></div>
 </details>
 
@@ -109,11 +109,12 @@ Quickly detects and classifies different species of harmful algae from water sam
 
 ## Requirements
 - [x] ESP32-CAM AI Thinker
-- [x] Nikon SKT Optical Microscope with 200x resolution lens
+- [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] USB-C cable
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
-- [x] [Roboflow Account](https://roboflow.com)
+- [x] [Roboflow account](https://roboflow.com)
+- [x] [Google Colab account](https://colab.research.google.com)
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
 > [!NOTE]
