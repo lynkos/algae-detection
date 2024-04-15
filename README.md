@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Algae Detection</h1>
+<h1>Using AI and Low-Cost Camera to Detect Harmful Algae in Natural Water</h1>
 <img alt="Python" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=Python+3.11.5&logo=python&color=c7a228&labelColor=393939&logoColor=4f97d1">
 <img alt="C++" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=C%2B%2B&logo=c%2B%2B&color=00599c&labelColor=393939&logoColor=00599c">
 <img alt="Shell" src="https://img.shields.io/static/v1?label=Shell&style=flat&message=Bash&logo=gnu+bash&color=b30086&labelColor=393939&logoColor=b30086">
@@ -20,7 +20,12 @@
 </div>
 
 ## Overview
-Detects and classifies different species of algae from water samples under a microscope in real-time using a convolutional neural network.
+Quickly detects and classifies different species of harmful algae from water samples under a microscope in real-time by using a convolutional neural network with a low-cost, accessible, and portable camera (or, if preferred, smartphone).
+
+<details open>
+   <summary><b>Nikon Microscope with ESP32-CAM AI Thinker inside 3D printed lens attachment and illuminator</b></summary>
+   <div align="center"><img alt="Microscope" src="assets/microscope.jpg" /></div>
+</details>
 
 <details>
   <summary><b>Repository Structure</b></summary>
@@ -50,7 +55,10 @@ Detects and classifies different species of algae from water samples under a mic
 │   │   ├── validation.png
 │   │   └── example.jpg
 │   ├── Configuration.png
-│   └── index.png
+│   ├── ESP32-CAM AI Thinker.jpg
+│   ├── index.png
+│   ├── Kiran's Poster.pdf
+│   └── microscope.jpg
 ├── documentation/
 │   ├── installation_guide.md
 │   ├── test_algae.pdf
