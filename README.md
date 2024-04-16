@@ -33,7 +33,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <details>
    <summary><b>Dataset Classes</b></summary>
-   <table style="width: 100%; text-align: center;">
+   <table align="center" style="width: 100%; text-align: center;">
       <tr>
          <th style="text-align: center;">Name</th>
          <th style="text-align: center;" width="100%">Example</th>
