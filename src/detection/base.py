@@ -4,6 +4,7 @@ from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
 from os import curdir
 from os.path import abspath, join
+from cv2.typing import MatLike
 from cv2 import (VideoCapture, rectangle, putText, namedWindow, imshow,
                  waitKey, getWindowProperty, getTextSize, destroyAllWindows,
                  CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS,
@@ -69,13 +70,13 @@ class Camera:
                 # Show camera feed
                 self._showWindow(frame, results)
 
-    def _coordinates(self, frame, results) -> None:
+    def _coordinates(self, frame: MatLike, results: list) -> None:
         """
         Get bounding box coordinates and dimensions.
 
         Args:
-            frame: Detected object image.
-            results: Model results.
+            frame (MatLike): Detected object image.
+            results (list): Model results.
         """
         for result in results:
             for box in result.boxes:
@@ -85,13 +86,13 @@ class Camera:
                 # Draw bounding box
                 self._drawBoundingBox(frame, f"{self.classes[int(box.cls[0])]} {box.conf[0]:.2f}", int(x), int(y), int(w), int(h))
 
-    def _showWindow(self, frame, results) -> None:
+    def _showWindow(self, frame: MatLike, results: list) -> None:
         """
         Show camera feed with bounding boxes over detected objects.
 
         Args:
-            frame: Camera frame.
-            results: Model results.
+            frame (MatLike): Camera frame.
+            results (list): Model results.
         """
         # Coordinates
         self._coordinates(frame, results)
@@ -112,12 +113,12 @@ class Camera:
             
             exit(0)
 
-    def _drawBoundingBox(self, frame, label: str, x: int, y: int, w: int, h: int) -> None:
+    def _drawBoundingBox(self, frame: MatLike, label: str, x: int, y: int, w: int, h: int) -> None:
         """
         Draw bounding box around detected object.
 
         Args:
-            frame: Detected object image.
+            frame (MatLike): Detected object image.
             label (str): Label of detected object.
             x (int): X-coordinate of bounding box.
             y (int): Y-coordinate of bounding box.
