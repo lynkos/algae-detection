@@ -44,7 +44,7 @@ In case this does not happens automatically, connect to [`http://192.168.4.1`](h
 This page will display the current settings and status. On the bottom, there is a link to the config. Click on this link.
 This link brings up the configuration screen when connecting fot the first time.
 
-![Configuration screen](/assets/Configuration.png)
+![Configuration screen](/assets/stream_settings_ui.png)
 
 Configure at least:
 

@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Using AI and Low-Cost Camera to Detect Harmful Algae in Natural Water</h1>
+<h1>Using AI and Low-Cost Camera to Detect Harmful Algae</h1>
 <img alt="Python" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=Python+3.11.5&logo=python&color=c7a228&labelColor=393939&logoColor=4f97d1">
 <img alt="C++" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=C%2B%2B&logo=c%2B%2B&color=00599c&labelColor=393939&logoColor=00599c">
 <img alt="Shell" src="https://img.shields.io/static/v1?label=Shell&style=flat&message=Bash&logo=gnu+bash&color=b30086&labelColor=393939&logoColor=b30086">
@@ -20,7 +20,11 @@
 </div>
 
 ## Overview
-Quickly detects and classifies different species of harmful algae within water samples under a microscope in real-time by using a fine-tuned convolutional neural network with a low-cost camera (or, if preferred, smartphone).
+Quickly detect and classify different species of harmful algae within natural water samples under a microscope in real-time via a fine-tuned convolutional neural network and low-cost camera (or, if preferred, smartphone).
+
+The system can be used to monitor water quality and as a preventative measure for harmful algal blooms.
+
+It's designed to be user-friendly and cost-effective, making it ideal for both research and educational purposes.
 
 <details open>
    <summary><b>Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator</b></summary>
@@ -54,18 +58,19 @@ Quickly detects and classifies different species of harmful algae within water s
 │   │   ├── results.png
 │   │   ├── validation.png
 │   │   └── example.jpg
-│   ├── Configuration.png
-│   ├── ESP32-CAM AI Thinker.jpg
+│   ├── esp32cam_ai_thinker.jpg
 │   ├── index.png
-│   └── microscope.jpg
+│   ├── microscope.jpg
+│   └── stream_settings_ui.png
 ├── documentation/
-│   ├── posters/
-│   │   ├── cristian.pdf
-│   │   ├── justin.pdf
-│   │   └── kiran.pdf
 │   ├── installation_guide.md
 │   ├── test_algae.pdf
 │   └── user_manual.md
+├── posters/
+│   ├── cristian.pdf
+│   ├── justin.pdf
+│   └── kiran.pdf
+├── presentation_slides/
 ├── src/
 │   ├── detection/
 │   │   ├── base.py
@@ -99,13 +104,14 @@ Quickly detects and classifies different species of harmful algae within water s
 │   │   └── README.md
 │   ├── helper_functions.py
 │   └── model_pipeline.ipynb
+├── videos/
+│   └── index.html
 ├── weights/
 │   ├── yolov8n_sahi.pt.zip
 │   └── custom_yolov8x.pt.zip
 ├── .gitattributes
 ├── .gitignore
 ├── environment.yml
-├── index.html
 └── README.md
 </pre>
 </details>
