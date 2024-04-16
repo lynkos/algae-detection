@@ -28,35 +28,41 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <details open>
    <summary><b>Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator</b></summary>
-   <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></div>
+   <img align="center" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg">
 </details>
 
 <details>
    <summary><b>Dataset Classes</b></summary>
-   <table style="width: 100%; text-align: center;">
+   <table>
       <tr>
-         <th style="text-align: center;">Name</th>
-         <th style="text-align: center;">Example</th>
+         <th>
+            <img width="500" style="max-width: 100%;">
+            <p>Name</p>
+         </th>
+         <th>
+            <img width="500" style="max-width: 100%">
+            <p>Example</p>
+         </th>
       </tr>
       <tr>
-         <td>Closterium</td>
-         <td><img alt="Closterium" src="assets/algae/closterium.jpg"></td>
+         <td align="center">Closterium</td>
+         <td><img alt="Closterium" align="center" width="100%" src="assets/algae/closterium.jpg"></td>
       </tr>
       <tr>
-         <td>Microcystis</td>
-         <td><img alt="Microcystis" src="assets/algae/microcystis.jpg"></td>
+         <td align="center">Microcystis</td>
+         <td><img alt="Microcystis" align="center" width="100%" src="assets/algae/microcystis.jpg"></td>
       </tr>
       <tr>
-         <td>Nitzschia</td>
-         <td><img alt="Nitzschia" src="assets/algae/nitzschia.jpg"></td>
+         <td align="center">Nitzschia</td>
+         <td><img alt="Nitzschia" align="center" width="100%" src="assets/algae/nitzschia.jpg"></td>
       </tr>
       <tr>
-         <td>Oscillatoria</td>
-         <td><img alt="Oscillatoria" src="assets/algae/oscillatoria.jpg"></td>
+         <td align="center">Oscillatoria</td>
+         <td><img alt="Oscillatoria" align="center" width="100%" src="assets/algae/oscillatoria.jpg"></td>
       </tr>
       <tr>
-         <td>Non-Algae</td>
-         <td><img alt="Non-Algae" src="assets/algae/non-algae.jpg"></td>
+         <td align="center">Non-Algae</td>
+         <td><img alt="Non-Algae" align="center" width="100%" src="assets/algae/non-algae.jpg"></td>
       </tr>
    </table>
 </details>
