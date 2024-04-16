@@ -215,7 +215,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip)
 3. Open [`base.py`](src/detection/base.py)
-4. Set [`MODEL`](src/detection/base.py#L27) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](src/detection/base.py#L24) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [Webcam and/or iPhone](#webcam-andor-iphone)
@@ -223,7 +223,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 #### ESP32
 1. Follow the steps in [this specific `README.md`](src/streaming/README.md) to set up ESP32
 2. Open [`esp32.py`](src/detection/esp32.py) once finished
-3. Set [`URL`](src/detection/esp32.py#L6) to ESP32's IP address
+3. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address
 4. Run [`esp32.py`](src/detection/esp32.py)
    * POSIX
       ```
@@ -236,7 +236,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 #### Webcam and/or iPhone
 1. Open [`other.py`](src/detection/other.py)
-2. Set [`CAMERA_TYPE`](src/detection/other.py#L4) to `0` to use webcam or `1` to use iPhone
+2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `0` to use webcam or `1` to use iPhone
 3. Run [`other.py`](src/detection/other.py)
    * POSIX
       ```
