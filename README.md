@@ -240,7 +240,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
        ```
        conda env list
        ```
-8. Read the files in `documentation` for more details
+8. Read the files in [`documentation`](documentation) for more details
 
 ## Usage
 ### Detect and Classify Algae
