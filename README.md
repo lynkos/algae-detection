@@ -28,7 +28,37 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <details open>
    <summary><b>Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator</b></summary>
-   <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg" /></div>
+   <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></div>
+</details>
+
+<details>
+   <summary><b>Dataset Classes</b></summary>
+   <table style="width: 100%; text-align: center;">
+      <tr>
+         <th style="text-align: center;">Name</th>
+         <th style="text-align: center;">Example</th>
+      </tr>
+      <tr>
+         <td>Closterium</td>
+         <td><img alt="Closterium" src="assets/algae/closterium.jpg"></td>
+      </tr>
+      <tr>
+         <td>Microcystis</td>
+         <td><img alt="Microcystis" src="assets/algae/microcystis.jpg"></td>
+      </tr>
+      <tr>
+         <td>Nitzschia</td>
+         <td><img alt="Nitzschia" src="assets/algae/nitzschia.jpg"></td>
+      </tr>
+      <tr>
+         <td>Oscillatoria</td>
+         <td><img alt="Oscillatoria" src="assets/algae/oscillatoria.jpg"></td>
+      </tr>
+      <tr>
+         <td>Non-Algae</td>
+         <td><img alt="Non-Algae" src="assets/algae/non-algae.jpg"></td>
+      </tr>
+   </table>
 </details>
 
 <details>
@@ -36,6 +66,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 <pre>
 .
 ├── assets/
+│   ├── algae/
+│   │   ├── closterium.jpg
+│   │   ├── microcystis.jpg
+│   │   ├── nitzschia.jpg
+│   │   ├── non-algae.jpg
+│   │   └── oscillatoria.jpg
 │   ├── custom_yolov8x/
 │   │   ├── F1_curve.png
 │   │   ├── PR_curve.png
@@ -120,6 +156,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] USB-C cable
+- [x] Dataset
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
 - [x] [Roboflow account](https://roboflow.com)
@@ -248,6 +285,13 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 
 ### Training, Validating, and Testing Model
+All algae detection models trained and tested for this project have been fine-tuned with:
+
+1. Small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker
+2. Pre-trained models, such as [YOLOv8](https://docs.ultralytics.com/models/yolov8), [RT-DETR](https://docs.ultralytics.com/models/rtdetr), and [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference)
+
+Only the top 2 highest performing algae detection models have been kept.
+
 #### Google Colab (Recommended)
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 2. Make sure you have your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key), else you'll have to manually upload your Roboflow dataset and won't be able to deploy your model after it's trained
@@ -258,7 +302,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 7. Run notebook
 
 #### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
-1. Open the Command Palette in [Visual Studio Code](https://code.visualstudio.com/download) with the relevant keyboard shortcut
+1. Open the Command Palette in Visual Studio Code with the relevant keyboard shortcut
     * Mac
       ```
       ⌘ + Shift + P
