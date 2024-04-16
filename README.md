@@ -27,7 +27,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <details open>
    <summary><b>Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator</b></summary>
-   <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></div>
+   <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="src/assets/microscope.jpg"></div>
 </details>
 
 <details>
@@ -39,23 +39,23 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       </tr>
       <tr>
          <td>Closterium</td>
-         <td><img alt="Closterium" align="center" width="100%" src="assets/algae/closterium.jpg"></td>
+         <td><img alt="Closterium" align="center" width="100%" src="src/assets/algae/closterium.jpg"></td>
       </tr>
       <tr>
          <td>Microcystis</td>
-         <td><img alt="Microcystis" align="center" width="100%" src="assets/algae/microcystis.jpg"></td>
+         <td><img alt="Microcystis" align="center" width="100%" src="src/assets/algae/microcystis.jpg"></td>
       </tr>
       <tr>
          <td>Nitzschia</td>
-         <td><img alt="Nitzschia" align="center" width="100%" src="assets/algae/nitzschia.jpg"></td>
+         <td><img alt="Nitzschia" align="center" width="100%" src="src/assets/algae/nitzschia.jpg"></td>
       </tr>
       <tr>
          <td>Oscillatoria</td>
-         <td><img alt="Oscillatoria" align="center" width="100%" src="assets/algae/oscillatoria.jpg"></td>
+         <td><img alt="Oscillatoria" align="center" width="100%" src="src/assets/algae/oscillatoria.jpg"></td>
       </tr>
       <tr>
          <td>Non-Algae</td>
-         <td><img alt="Non-Algae" align="center" width="100%" src="assets/algae/non-algae.jpg"></td>
+         <td><img alt="Non-Algae" align="center" width="100%" src="src/assets/algae/non-algae.jpg"></td>
       </tr>
    </table>
 </details>
@@ -64,39 +64,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
   <summary><b>Repository Structure</b></summary>
 <pre>
 .
-├── assets/
-│   ├── algae/
-│   │   ├── closterium.jpg
-│   │   ├── microcystis.jpg
-│   │   ├── nitzschia.jpg
-│   │   ├── non-algae.jpg
-│   │   └── oscillatoria.jpg
-│   ├── custom_yolov8x/
-│   │   ├── F1_curve.png
-│   │   ├── PR_curve.png
-│   │   ├── P_curve.png
-│   │   ├── R_curve.png
-│   │   ├── confusion_matrix.png
-│   │   ├── confusion_matrix_normalized.png
-│   │   ├── labels.jpg
-│   │   ├── labels_correlogram.jpg
-│   │   ├── results.png
-│   │   ├── validation.png
-│   │   └── example.jpg
-│   ├── sahi_yolov8n/
-│   │   ├── F1_curve.png
-│   │   ├── PR_curve.png
-│   │   ├── P_curve.png
-│   │   ├── R_curve.png
-│   │   ├── confusion_matrix.png
-│   │   ├── confusion_matrix_normalized.png
-│   │   ├── results.png
-│   │   ├── validation.png
-│   │   └── example.jpg
-│   ├── esp32cam_ai_thinker.jpg
-│   ├── index.png
-│   ├── microscope.jpg
-│   └── stream_settings_ui.png
 ├── documentation/
 │   ├── installation_guide.md
 │   ├── test_algae.pdf
@@ -105,8 +72,39 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   ├── cristian.pdf
 │   ├── justin.pdf
 │   └── kiran.pdf
-├── presentation_slides/
+├── presentation_slides
 ├── src/
+│   ├── assets/
+│   │   ├── algae/
+│   │   │   ├── closterium.jpg
+│   │   │   ├── microcystis.jpg
+│   │   │   ├── nitzschia.jpg
+│   │   │   ├── non-algae.jpg
+│   │   │   └── oscillatoria.jpg
+│   │   ├── custom_yolov8x/
+│   │   │   ├── F1_curve.png
+│   │   │   ├── PR_curve.png
+│   │   │   ├── P_curve.png
+│   │   │   ├── R_curve.png
+│   │   │   ├── confusion_matrix.png
+│   │   │   ├── confusion_matrix_normalized.png
+│   │   │   ├── labels.jpg
+│   │   │   ├── labels_correlogram.jpg
+│   │   │   ├── results.png
+│   │   │   └── validation.png
+│   │   ├── sahi_yolov8n/
+│   │   │   ├── F1_curve.png
+│   │   │   ├── PR_curve.png
+│   │   │   ├── P_curve.png
+│   │   │   ├── R_curve.png
+│   │   │   ├── confusion_matrix.png
+│   │   │   ├── confusion_matrix_normalized.png
+│   │   │   ├── results.png
+│   │   │   └── validation.png
+│   │   ├── esp32cam_ai_thinker.jpg
+│   │   ├── index.png
+│   │   ├── microscope.jpg
+│   │   └── stream_settings_ui.png
 │   ├── detection/
 │   │   ├── base.py
 │   │   ├── esp32.py
@@ -137,7 +135,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   ├── minify.py
 │   │   ├── platformio.ini
 │   │   └── README.md
-│   ├── helper_functions.py
 │   └── model_pipeline.ipynb
 ├── videos/
 │   └── index.html

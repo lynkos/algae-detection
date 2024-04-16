@@ -44,7 +44,7 @@ In case this does not happens automatically, connect to [`http://192.168.4.1`](h
 This page will display the current settings and status. On the bottom, there is a link to the config. Click on this link.
 This link brings up the configuration screen when connecting fot the first time.
 
-![Configuration screen](/assets/stream_settings_ui.png)
+![Configuration screen](/src/assets/stream_settings_ui.png)
 
 Configure at least:
 
@@ -62,7 +62,7 @@ After the initial configuration and the device is connected to an access point, 
 
 When a connection is made to [http://esp32cam-rtsp](http://esp32cam-rtsp) the status screen is shown.
 
-![Status screen](/assets/index.png)
+![Status screen](/src/assets/index.png)
 
 In case changes have been made to the configuration, this is shown and the possibility to restart is given.
 
