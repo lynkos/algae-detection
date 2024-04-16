@@ -36,7 +36,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <table style="width: 100%; text-align: center;">
       <tr>
          <th style="text-align: center;">Name</th>
-         <th style="text-align: center;">Example</th>
+         <th style="text-align: center;" width="100%">Example</th>
       </tr>
       <tr>
          <td>Closterium</td>
