@@ -1,6 +1,6 @@
 from base import Camera
 
-URL = "http://10.0.0.134/stream"
+URL = "http://10.0.0.114/stream"
 """Stream URL"""
 
 Camera(URL, "ESP32 Stream").run()
