@@ -26,7 +26,7 @@ The system can be used to monitor water quality and as a preventative measure fo
 It's designed to be user-friendly and cost-effective, making it ideal for both research and educational purposes.
 
 <details open>
-   <summary><b>Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator</b></summary>
+   <summary><b>Nikon microscope with ESP32-CAM AI Thinker and illuminator</b></summary>
    <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="src/assets/microscope.jpg"></div>
 </details>
 
@@ -156,7 +156,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
 - [x] [Roboflow account](https://roboflow.com)
-- [x] [Google Colab account](https://colab.research.google.com)
+- [x] [Google Colab account](https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com)
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
 > [!NOTE]
@@ -248,7 +248,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip)
 3. Open [`base.py`](src/detection/base.py)
-4. Set [`MODEL_PATH`](src/detection/base.py#L25) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](src/detection/base.py#L21) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [Webcam and/or iPhone](#webcam-andor-iphone)
@@ -288,14 +288,10 @@ All algae detection models trained and tested for this project have been fine-tu
 
 Only the top 2 highest performing algae detection models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference) and [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large) have been kept.
 
-#### Google Colab (Recommended)
+#### [Google Colab](https://colab.research.google.com) (Recommended)
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
-2. Make sure you have your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key), else you'll have to manually upload your Roboflow dataset and won't be able to deploy your model after it's trained
-3. Click the key button in the left panel to add your Roboflow API key
-4. Input `ROBOFLOW_API_KEY` within **Name** column and paste your [Roboflow API key](https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key) within **Value** column
-5. Toggle **Notebook access** on
-6. Click **Add new secret**
-7. Run notebook
+2. Follow the instructions in the notebook
+3. Run notebook
 
 #### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 1. Open the Command Palette in Visual Studio Code with the relevant keyboard shortcut
@@ -311,8 +307,9 @@ Only the top 2 highest performing algae detection models (i.e., [YOLOv8](https:/
 3. Select `algae_env`
 4. Open [`model-pipeline.ipynb`](src/model_pipeline.ipynb)
 5. Confirm `algae_env` is the selected [kernel](https://docs.jupyter.org/en/latest/install/kernels.html)
-6. Run [`model-pipeline.ipynb`](src/model_pipeline.ipynb): Click `Run All`
-7. Deactivate `algae_env` once finished
+6. Read the instructions within the notebook and ensure all necessary constants are set
+7. Run [`model-pipeline.ipynb`](src/model_pipeline.ipynb): Click `Run All`
+8. Deactivate `algae_env` once finished
    ```
    conda deactivate
    ```
@@ -326,7 +323,7 @@ Only the top 2 highest performing algae detection models (i.e., [YOLOv8](https:/
 - [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
 - [ ] Heatsink for ESP32 to prevent overheating
 - [ ] Run model on ESP32 rather than on computer
-- [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., Phone, Android, etc.
+- [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add Android compatability (assuming it isn't)
 
 ## Credits

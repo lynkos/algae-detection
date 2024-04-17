@@ -44,7 +44,7 @@ In case this does not happens automatically, connect to [`http://192.168.4.1`](h
 This page will display the current settings and status. On the bottom, there is a link to the config. Click on this link.
 This link brings up the configuration screen when connecting fot the first time.
 
-![Configuration screen](/src/assets/stream_settings_ui.png)
+![Configuration screen](/src/assets/esp32_config.png)
 
 Configure at least:
 
@@ -60,9 +60,9 @@ It is also possible to restart manually by pressing the reset button.
 
 After the initial configuration and the device is connected to an access point, the device can be configured over http.
 
-When a connection is made to [http://esp32cam-rtsp](http://esp32cam-rtsp) the status screen is shown.
+When a connection is made, the status screen is shown.
 
-![Status screen](/src/assets/index.png)
+![Status screen](/src/assets/esp32_index.png)
 
 In case changes have been made to the configuration, this is shown and the possibility to restart is given.
 
@@ -111,7 +111,6 @@ This request can also be used (for example using cURL) to save the snapshot to a
   This is a **required** field before saving the credentials
 - When the password is lost, a fix is to completely erase the ESP32 using the ```pio run -t erase``` command.
   This will reset the device including configuration.
-  If using the esptool, you can do this using ```esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash```.
   However, after erasing, re-flashing of the firmware is required.
 - When finished configuring for the first time and the access point is entered, disconnect from the wireless network provided by the device.
   This should reset the device and connect to the access point.
@@ -119,4 +118,4 @@ This request can also be used (for example using cURL) to save the snapshot to a
 
 ## Credits
 
-[ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop) depends on PlatformIO, Bootstrap 5 and [Micro-RTSP](https://github.com/geeksville/Micro-RTSP) by [Kevin Hester](https://github.com/geeksville).
+[ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop) depends on PlatformIO, Bootstrap 5, and [Micro-RTSP](https://github.com/geeksville/Micro-RTSP) by [Kevin Hester](https://github.com/geeksville).
