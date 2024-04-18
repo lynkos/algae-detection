@@ -4,8 +4,9 @@
 2. Choose the algae detection model you want to use
    * To use your own `.pt` model, add it to [`weights`](/weights)
    * To use an existing model, decompress the `.zip` file to get the `.pt` model
-      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
-      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip)
+      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](/weights/yolov8n_sahi.pt.zip)
+      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](/weights/custom_yolov8x.pt.zip)
+      * [RT-DETR](https://docs.ultralytics.com/models/rtdetr) Large: [`custom_rt-detr-l.pt.zip`](/weights/custom_rt-detr-l.pt.zip)
 3. Open [`base.py`](/src/detection/base.py)
 4. Set [`MODEL_PATH`](/src/detection/base.py#L19) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
@@ -77,8 +78,6 @@
 
    - [Small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
    - Pre-trained models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8), [RT-DETR](https://docs.ultralytics.com/models/rtdetr), and [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference))
-
-   Only the top 2 highest performing algae detection models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference) and [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large) have been kept.
 </details>
 
 ## Additional Resources
