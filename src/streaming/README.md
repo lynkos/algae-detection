@@ -44,7 +44,7 @@ In case this does not happens automatically, connect to [`http://192.168.4.1`](h
 This page will display the current settings and status. On the bottom, there is a link to the config. Click on this link.
 This link brings up the configuration screen when connecting fot the first time.
 
-![Configuration screen](/src/assets/esp32_config.png)
+![Configuration screen](/src/assets/esp32/config.png)
 
 Configure at least:
 
@@ -62,7 +62,7 @@ After the initial configuration and the device is connected to an access point, 
 
 When a connection is made, the status screen is shown.
 
-![Status screen](/src/assets/esp32_index.png)
+![Status screen](/src/assets/esp32/index.png)
 
 In case changes have been made to the configuration, this is shown and the possibility to restart is given.
 
@@ -73,7 +73,7 @@ If this happens, for the user enter 'admin' and for the password the value that 
 
 The streaming server is available using a normal web browser at:
 
-[http://10.0.0.134/stream](http://10.0.0.134/stream)
+[http://10.0.0.114/stream](http://10.0.0.114/stream)
 
 > [!WARNING]
 > There is no password present!
