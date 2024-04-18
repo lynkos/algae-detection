@@ -6,5 +6,5 @@
 .*/*
 .*.*
 __pycache__
-dataset
 logs
+test.py
