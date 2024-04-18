@@ -280,10 +280,36 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    * [Webcam and/or iPhone](#webcam-andor-iphone)
 
 #### ESP32
-1. Follow the steps in [this specific `README.md`](src/streaming/README.md) to set up ESP32
-2. Open [`esp32.py`](src/detection/esp32.py) once finished
-3. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address
-4. Run [`esp32.py`](src/detection/esp32.py)
+1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
+![Open PlatformIO project](src/assets/esp32/setup/platformio_folder.png)
+2. Open [`streaming`](src/streaming)
+![Open `streaming`](src/assets/esp32/setup/open_streaming.png)
+3. Make sure the ESP32 is connected to the computer
+4. Configure ESP32 for streaming
+   - Click 'Build' to compile the code
+   - Click 'Upload' to flash the code to ESP32
+   - Click 'Monitor' for real-time logging in terminal (particularly helpful when troubleshooting)
+   ![Build, Upload, Monitor](src/assets/esp32/setup/build_upload_monitor.png)
+5. Go to your WiFi settings and select the network starting with `ESP32CAM-RTSP`
+![`ESP32CAM-RTSP` network](src/assets/esp32/setup/choose_ap.png)
+6. Once a window automatically pops up, click 'Change settings'
+![Window popup](src/assets/esp32/setup/ap_popup.png)
+7. You must fill in each of the following:
+   - AP (i.e., Access Point) password
+   - WiFi SSID
+   - WiFi password (if applicable)
+![Change settings](src/assets/esp32/setup/init_config.png)
+> [!WARNING]
+> Unfortunately, this software won't work with WiFi attained via hotspots or SSOs
+8. Change any of the other settings (you can always change them again), then click 'Apply'
+![Apply](src/assets/esp32/setup/apply.png)
+9. Disconnect from the current network and reconnect to your WiFi
+![Disconnect](src/assets/esp32/setup/disconnect.png)
+10. You can now connect to and stream from the ESP32 at the HTTP address listed under 'Special URLs / API'
+![Stream](src/assets/esp32/setup/get_url.png)
+11. Open [`esp32.py`](src/detection/esp32.py) once finished
+12. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.114` in this example)
+13. Run [`esp32.py`](src/detection/esp32.py)
    * POSIX
       ```
       $(which python) src/detection/esp32.py
@@ -292,6 +318,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
       $(where python) src\detection\esp32.py
       ```
+14. See [this specific `README.md`](src/streaming/README.md) for further details
 
 #### Webcam and/or iPhone
 1. Open [`other.py`](src/detection/other.py)
