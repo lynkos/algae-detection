@@ -346,7 +346,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 
 ### Training, Validating, and Testing Model
-> [!NOTE] All algae detection models trained, validated, and tested for this project are [fine-tuned](## "with a small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker") versions of the following pre-trained models:
+> [!NOTE]
+> All algae detection models trained, validated, and tested for this project are [fine-tuned](## "with a small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker") versions of the following pre-trained models:
 > - [YOLOv8](https://docs.ultralytics.com/models/yolov8)
 > - [RT-DETR](https://docs.ultralytics.com/models/rtdetr)
 > - [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference)
