@@ -346,17 +346,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 
 ### Training, Validating, and Testing Model
+> [!NOTE] All algae detection models trained, validated, and tested for this project are [fine-tuned](## "with a small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker") versions of the following pre-trained models:
+> - [YOLOv8](https://docs.ultralytics.com/models/yolov8)
+> - [RT-DETR](https://docs.ultralytics.com/models/rtdetr)
+> - [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference)
+
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 2. Follow the notebook's instructions
 3. Run notebook
-
-<details>
-   <summary><b>Further details</b></summary>
-   All algae detection models trained and tested for this project have been fine-tuned with:
-
-   - [Small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
-   - Pre-trained models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8), [RT-DETR](https://docs.ultralytics.com/models/rtdetr), and [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference))
-</details>
 
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
