@@ -144,33 +144,32 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   ├── base.py
 │   │   ├── esp32.py
 │   │   └── other.py
-│   ├── streaming/
-│   │   ├── boards/
-│   │   │   └── esp32cam_ai_thinker.json
-│   │   ├── html/
-│   │   │   ├── index.html
-│   │   │   └── index.min.html
-│   │   ├── include/
-│   │   │   ├── format_duration.h
-│   │   │   ├── format_number.h
-│   │   │   ├── lookup_camera_effect.h
-│   │   │   ├── lookup_camera_frame_size.h
-│   │   │   ├── lookup_camera_gainceiling.h
-│   │   │   ├── lookup_camera_wb_mode.h
-│   │   │   └── settings.h
-│   │   ├── lib/
-│   │   │   └── rtsp_server/
-│   │   │       ├── library.json
-│   │   │       ├── rtsp_server.cpp
-│   │   │       └── rtsp_server.h
-│   │   ├── src/
-│   │   │   └── main.cpp
-│   │   ├── generate_html.ps1
-│   │   ├── generate_html.sh
-│   │   ├── minify.py
-│   │   ├── platformio.ini
-│   │   └── README.md
-│   └── model_pipeline.ipynb
+│   └── streaming/
+│       ├── boards/
+│       │   └── esp32cam_ai_thinker.json
+│       ├── html/
+│       │   ├── index.html
+│       │   └── index.min.html
+│       ├── include/
+│       │   ├── format_duration.h
+│       │   ├── format_number.h
+│       │   ├── lookup_camera_effect.h
+│       │   ├── lookup_camera_frame_size.h
+│       │   ├── lookup_camera_gainceiling.h
+│       │   ├── lookup_camera_wb_mode.h
+│       │   └── settings.h
+│       ├── lib/
+│       │   └── rtsp_server/
+│       │       ├── library.json
+│       │       ├── rtsp_server.cpp
+│       │       └── rtsp_server.h
+│       ├── src/
+│       │   └── main.cpp
+│       ├── generate_html.ps1
+│       ├── generate_html.sh
+│       ├── minify.py
+│       ├── platformio.ini
+│       └── README.md
 ├── videos/
 │   └── index.html
 ├── weights/
@@ -344,38 +343,19 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 
 ### Training, Validating, and Testing Model
-All algae detection models trained and tested for this project have been fine-tuned with:
-
-- [Small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
-- Pre-trained models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8), [RT-DETR](https://docs.ultralytics.com/models/rtdetr), and [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference))
-
-Only the top 2 highest performing algae detection models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference) and [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large) have been kept.
-
-#### [Google Colab](https://colab.research.google.com) (Recommended)
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
-2. Follow the instructions in the notebook
+2. Follow the notebook's instructions
 3. Run notebook
 
-#### [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
-1. Open the Command Palette in Visual Studio Code with the relevant keyboard shortcut
-    * Mac
-      ```
-      ⌘ + Shift + P
-      ```
-    * PC
-      ```
-      CTRL + Shift + P
-      ```
-2. Search and select `Python: Select Interpreter`
-3. Select `algae_env`
-4. Open [`model-pipeline.ipynb`](src/model_pipeline.ipynb)
-5. Confirm `algae_env` is the selected [kernel](https://docs.jupyter.org/en/latest/install/kernels.html)
-6. Read the instructions within the notebook and ensure all necessary constants are set
-7. Run [`model-pipeline.ipynb`](src/model_pipeline.ipynb): Click `Run All`
-8. Deactivate `algae_env` once finished
-   ```
-   conda deactivate
-   ```
+<details>
+   <summary><b>Further details</b></summary>
+   All algae detection models trained and tested for this project have been fine-tuned with:
+
+   - [Small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
+   - Pre-trained models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8), [RT-DETR](https://docs.ultralytics.com/models/rtdetr), and [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference))
+
+   Only the top 2 highest performing algae detection models (i.e., [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference) and [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large) have been kept.
+</details>
 
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
