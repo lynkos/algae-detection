@@ -4,7 +4,6 @@
 <img alt="C++" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=C%2B%2B&logo=c%2B%2B&color=00599c&labelColor=393939&logoColor=00599c">
 <img alt="Conda" src="https://img.shields.io/static/v1?label=Package+Manager&style=flat&message=Conda&logo=anaconda&color=44A833&labelColor=393939&logoColor=44A833">
 <img alt="PyTorch" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=PyTorch&logo=pytorch&color=EE4C2C&labelColor=393939&logoColor=EE4C2C">
-<img alt="Jupyter" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=Jupyter&logo=jupyter&color=F37626&labelColor=393939&logoColor=F37626">
 <img alt="Colab" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=Colab&logo=google+colab&color=F9AB00&labelColor=393939&logoColor=F9AB00">
 <img alt="OpenCV" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=OpenCV&logo=opencv&color=5C3EE8&labelColor=393939&logoColor=5C3EE8">
 <img alt="Arduino" src="https://img.shields.io/static/v1?label=Packages&style=flat&message=Arduino&logo=arduino&color=00878F&labelColor=393939&logoColor=00878F">
@@ -245,12 +244,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    ```sh
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
+
 > [!WARNING]
 > Due to the [large] size of the repo, you may get errors such as:
 > 
 > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
 >
 > If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
    conda env create -f environment.yml
@@ -272,7 +273,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
        ```
        conda env list
        ```
-8. Read the files in [`documentation`](documentation) for more details
 
 ## Usage
 ### Detect and Classify Algae
@@ -294,6 +294,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > Using ESP32 as a camera requires WiFi!
 >
 > Unfortunately, WiFi attained via hotspots or SSOs are not compatible.
+
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
    <img alt="Open PlatformIO project" height="400" src="src/assets/esp32/setup/platformio_folder.png">
 2. Open [`streaming`](src/streaming)

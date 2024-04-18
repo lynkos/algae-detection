@@ -3,7 +3,7 @@
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] USB-C cable
-- [x] [Algae Dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
+- [x] [Algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
 - [x] [Roboflow account](https://roboflow.com)
@@ -61,12 +61,14 @@
    ```sh
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
+
 > [!WARNING]
 > Due to the [large] size of the repo, you may get errors such as:
 > 
 > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
 >
 > If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+
 5. Create conda virtual environment from [`environment.yml`](/environment.yml)
    ```
    conda env create -f environment.yml
@@ -88,4 +90,3 @@
        ```
        conda env list
        ```
-8. Read the files in [`documentation`](/documentation) for more details
