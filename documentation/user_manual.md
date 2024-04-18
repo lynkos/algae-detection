@@ -14,6 +14,10 @@
    * [Webcam and/or iPhone](#webcam-andor-iphone)
 
 ### ESP32
+> [!WARNING]
+> Using ESP32 as a camera requires WiFi!
+>
+> Unfortunately, WiFi attained via hotspots or SSOs are not compatible.
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
 ![Open PlatformIO project](/src/assets/esp32/setup/platformio_folder.png)
 2. Open [`streaming`](/src/streaming)
@@ -33,8 +37,6 @@
    - WiFi SSID
    - WiFi password (if applicable)
 ![Change settings](/src/assets/esp32/setup/init_config.png)
-> [!WARNING]
-> Unfortunately, this software won't work with WiFi attained via hotspots or SSOs
 8. Change any of the other settings (you can always change them again), then click 'Apply'
 ![Apply](/src/assets/esp32/setup/apply.png)
 9. Disconnect from the current network and reconnect to your WiFi
