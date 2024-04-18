@@ -79,10 +79,3 @@
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 2. Follow the notebook's instructions
 3. Run notebook
-
-## Additional Resources
-- [Running yolo locally on computer (with modifications input from the chip could be possible)](https://dipankarmedh1.medium.com/real-time-object-detection-with-yolo-and-webcam-enhancing-your-computer-vision-skills-861b97c78993)
-- [Creating dataset](https://docs.cogniflow.ai/en/article/how-to-create-a-dataset-for-object-detection-using-the-yolo-labeling-format-1tahk19)
-- [Labeling images and creating dataset](https://docs.cogniflow.ai/en/article/how-to-label-images-and-create-your-dataset-for-an-object-detection-ai-model-dcfg1y)
-- [Tool for labling](https://labelstud.io)
-- [How to do the training](https://docs.ultralytics.com/modes) [fine tuning](https://lablab.ai/t/yolov7)

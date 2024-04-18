@@ -187,7 +187,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] USB-C cable
-- [x] [Algae Dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
+- [x] [Algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
 - [x] [Roboflow account](https://roboflow.com)
@@ -347,7 +347,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 ### Training, Validating, and Testing Model
 > [!NOTE]
-> All algae detection models trained, validated, and tested for this project are [fine-tuned](## "with a small dataset of images (~1000 total) manually taken with the modified microscope and ESP32-CAM AI Thinker") versions of the following pre-trained models:
+> All algae detection models trained, validated, and tested for this project are fine-tuned (with the [algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)) versions of the following pre-trained models:
 > - [YOLOv8](https://docs.ultralytics.com/models/yolov8)
 > - [RT-DETR](https://docs.ultralytics.com/models/rtdetr)
 > - [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference)
