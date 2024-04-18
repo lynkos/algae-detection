@@ -290,8 +290,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    * [Webcam and/or iPhone](#webcam-andor-iphone)
 
 #### ESP32
-1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
-![Open PlatformIO project](src/assets/esp32/setup/platformio_folder.png)
+1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
+   <img alt="Open PlatformIO project" height="400" src="src/assets/esp32/setup/platformio_folder.png">
 2. Open [`streaming`](src/streaming)
 ![Open `streaming`](src/assets/esp32/setup/open_streaming.png)
 3. Make sure the ESP32 is connected to the computer
@@ -299,7 +299,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - Click 'Build' to compile the code
    - Click 'Upload' to flash the code to ESP32
    - Click 'Monitor' for real-time logging in terminal (particularly helpful when troubleshooting)
-   ![Build, Upload, Monitor](src/assets/esp32/setup/build_upload_monitor.png)
+   <img alt="Build, Upload, Monitor" height="400" src="src/assets/esp32/setup/build_upload_monitor.png">
 5. Go to your WiFi settings and select the network starting with `ESP32CAM-RTSP`
 ![`ESP32CAM-RTSP` network](src/assets/esp32/setup/choose_ap.png)
 6. Once a window automatically pops up, click 'Change settings'
