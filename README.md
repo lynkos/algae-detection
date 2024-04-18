@@ -81,30 +81,55 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── nitzschia.jpg
 │   │   │   ├── non-algae.jpg
 │   │   │   └── oscillatoria.jpg
-│   │   ├── custom_yolov8x/
-│   │   │   ├── F1_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── labels.jpg
-│   │   │   ├── labels_correlogram.jpg
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   ├── sahi_yolov8n/
-│   │   │   ├── F1_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   ├── esp32cam_ai_thinker.jpg
-│   │   ├── index.png
-│   │   ├── microscope.jpg
-│   │   └── stream_settings_ui.png
+│   │   ├── esp32/
+│   │   │   ├── ai_thinker.jpg
+│   │   │   ├── config.png
+│   │   │   └── index.png
+│   │   ├── flowchart/
+│   │   │   ├── esp32.png
+│   │   │   └── iphone.png
+│   │   ├── iphone/
+│   │   │   ├── iphone_ui_connect.png
+│   │   │   └── iphone_ui_disconnect.png
+│   │   ├── models/
+│   │   │   ├── custom_rt-detr-l/
+│   │   │   │   ├── confusion_matrix_normalized.png
+│   │   │   │   ├── confusion_matrix.png
+│   │   │   │   ├── F1_curve.png
+│   │   │   │   ├── labels_correlogram.jpg
+│   │   │   │   ├── labels.jpg
+│   │   │   │   ├── P_curve.png
+│   │   │   │   ├── PR_curve.png
+│   │   │   │   ├── R_curve.png
+│   │   │   │   ├── results.png
+│   │   │   │   └── validation.png
+│   │   │   ├── custom_yolov8x/
+│   │   │   │   ├── closterium-microcystis.png
+│   │   │   │   ├── confusion_matrix_normalized.png
+│   │   │   │   ├── confusion_matrix.png
+│   │   │   │   ├── example.jpg
+│   │   │   │   ├── F1_curve.png
+│   │   │   │   ├── labels_correlogram.jpg
+│   │   │   │   ├── labels.jpg
+│   │   │   │   ├── oscillatoria-nitzschia.png
+│   │   │   │   ├── P_curve.png
+│   │   │   │   ├── PR_curve.png
+│   │   │   │   ├── R_curve.png
+│   │   │   │   ├── results.png
+│   │   │   │   └── validation.png
+│   │   │   └── sahi_yolov8n/
+│   │   │       ├── closterium-microcystis.png
+│   │   │       ├── confusion_matrix_normalized.png
+│   │   │       ├── confusion_matrix.png
+│   │   │       ├── example.jpg
+│   │   │       ├── F1_curve.png
+│   │   │       ├── oscillatoria-nitzschia.png
+│   │   │       ├── P_curve.png
+│   │   │       ├── PR_curve.png
+│   │   │       ├── R_curve.png
+│   │   │       ├── results.png
+│   │   │       └── validation.png
+│   │   └── microscope.jpg
 │   ├── detection/
 │   │   ├── base.py
 │   │   ├── esp32.py
@@ -139,8 +164,9 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ├── videos/
 │   └── index.html
 ├── weights/
-│   ├── yolov8n_sahi.pt.zip
-│   └── custom_yolov8x.pt.zip
+│   ├── custom_rt-detr-l.pt.zip
+│   ├── custom_yolov8x.pt.zip
+│   └── yolov8n_sahi.pt.zip
 ├── .gitattributes
 ├── .gitignore
 ├── environment.yml
