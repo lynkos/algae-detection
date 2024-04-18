@@ -89,7 +89,7 @@ class Camera:
         namedWindow(self.title, WINDOW_GUI_EXPANDED)
         
         for result in results:
-            # Annotate the frame with its result
+            # Annotate the frame with its result, then show in window
             imshow(self.title, result.plot())
 
             # Exit loop if "q" is pressed or window is closed
