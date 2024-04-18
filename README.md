@@ -82,6 +82,16 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── non-algae.jpg
 │   │   │   └── oscillatoria.jpg
 │   │   ├── esp32/
+│   │   │   ├── setup/
+│   │   │   │   ├── ap_popup.png
+│   │   │   │   ├── apply.png
+│   │   │   │   ├── build_upload_monitor.png
+│   │   │   │   ├── choose_ap.png
+│   │   │   │   ├── disconnect.png
+│   │   │   │   ├── get_url.png
+│   │   │   │   ├── init_config.png
+│   │   │   │   ├── open_streaming.png
+│   │   │   │   └── platformio_folder.png
 │   │   │   ├── ai_thinker.jpg
 │   │   │   ├── config.png
 │   │   │   └── index.png
