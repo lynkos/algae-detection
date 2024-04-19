@@ -271,7 +271,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip)
 3. Open [`base.py`](src/detection/base.py)
-4. Set [`MODEL_PATH`](src/detection/base.py#L19) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](src/detection/base.py#L20) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [Webcam and/or iPhone](#webcam-andor-iphone)
@@ -337,7 +337,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!NOTE]
 > All algae detection models trained, validated, and tested for this project are fine-tuned (with the [algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)) versions of the following pre-trained models:
 > - [YOLOv8](https://docs.ultralytics.com/models/yolov8)
-> - [RT-DETR](https://docs.ultralytics.com/models/rtdetr)
 > - [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference)
 
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)

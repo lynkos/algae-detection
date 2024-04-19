@@ -8,27 +8,27 @@ from cv2 import (VideoCapture, namedWindow, imshow, waitKey, getWindowProperty,
                  destroyAllWindows, WND_PROP_VISIBLE, WINDOW_GUI_EXPANDED,
                  CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS)
 
+DEVICE: device = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
+CONFIDENCE: float = 0.25
+IOU: float = 0.5
+STRIDES: int = 5
 WIDTH: int = 1280
 HEIGHT: int = 720
 FPS: float = 30.0
-"""Default camera attributes"""
-
-DEVICE: device = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
-"""Default device (GPU or CPU) to run detection model on"""
+"""Object detection attributes"""
 
 MODEL_PATH: str = join(abspath(curdir), "weights", "yolov8n_sahi.pt")
 """Default path of custom-trained algae detection model"""
-
-CONFIDENCE: float = 0.25
-"""Default confidence threshold of detection model"""
 
 class Camera:
     def __init__(self,
                  camera_type: str | int,
                  title: str = "Algae Detector",
                  model_path: str = MODEL_PATH,
-                 confidence: float = CONFIDENCE,
                  device_type: device | str = DEVICE,
+                 confidence: float = CONFIDENCE,
+                 iou: float = IOU,
+                 video_strides: int = STRIDES,
                  width: int = WIDTH,
                  height: int = HEIGHT,
                  fps: float = FPS):
@@ -39,20 +39,24 @@ class Camera:
             camera_type (str | int): Which camera to use. Set to streaming URL for ESP32-CAM, `0` for Webcam, `1` for iPhone.
             title (str, optional): Window title. Defaults to "Algae Detector".
             model_path (str, optional): Detection model's path. Defaults to `MODEL_PATH`.
-            confidence (float, optional): Detection model's confidence threshold. Defaults to `CONFIDENCE`.
             device_type (device | str, optional): Device (GPU or CPU) to run detection model on. Defaults to `DEVICE`.
+            confidence (float, optional): Detection model's confidence threshold. Defaults to `CONFIDENCE`.
+            iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes, useful for reducing duplicates. Defaults to `IOU`.
+            video_strides (int, optional): Allows skipping frames in videos to speed up processing at the cost of temporal resolution. Value of `1` processes every frame, higher values skip frames. Defaults to `STRIDES`.
             width (int, optional): Camera width. Defaults to `WIDTH`.
             height (int, optional): Camera height. Defaults to `HEIGHT`.
             fps (float, optional): Camera FPS. Defaults to `FPS`.
         """
         self.camera: VideoCapture = VideoCapture(camera_type)
-        self.camera.set(CAP_PROP_FRAME_WIDTH, width)
-        self.camera.set(CAP_PROP_FRAME_HEIGHT, height)
-        self.camera.set(CAP_PROP_FPS, fps)
         self.title: str = title
         self._yolo_model: YOLO = YOLO(model_path, task = "detect")
         self.confidence: float = confidence
         self.device: device | str = device_type
+        self.iou: float = iou
+        self.strides: int = video_strides
+        self.camera.set(CAP_PROP_FRAME_WIDTH, width)
+        self.camera.set(CAP_PROP_FRAME_HEIGHT, height)
+        self.camera.set(CAP_PROP_FPS, fps)
 
     def run(self) -> None:
         """
@@ -68,9 +72,9 @@ class Camera:
                                            stream = True,
                                            device = self.device,
                                            stream_buffer = True,
-                                           vid_stride = 5,
+                                           vid_stride = self.strides,
                                            conf = self.confidence,
-                                           iou = 0.5,
+                                           iou = self.iou,
                                            agnostic_nms = True)
 
                 if not results: continue

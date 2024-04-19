@@ -7,7 +7,7 @@
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](/weights/yolov8n_sahi.pt.zip)
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](/weights/custom_yolov8x.pt.zip)
 3. Open [`base.py`](/src/detection/base.py)
-4. Set [`MODEL_PATH`](/src/detection/base.py#L19) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](/src/detection/base.py#L20) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [Webcam and/or iPhone](#webcam-andor-iphone)
