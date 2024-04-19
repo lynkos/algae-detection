@@ -71,7 +71,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   ├── cristian.pdf
 │   ├── justin.pdf
 │   └── kiran.pdf
-├── presentation_slides
+├── presentation_slides/
+│   └── algae_detection_ppt.pdf
 ├── src/
 │   ├── assets/
 │   │   ├── algae/
