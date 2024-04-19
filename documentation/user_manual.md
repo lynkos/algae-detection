@@ -5,7 +5,7 @@
    * To use your own `.pt` model, add it to [`weights`](/weights)
    * To use an existing model, decompress the `.zip` file to get the `.pt` model
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](/weights/yolov8n_sahi.pt.zip)
-      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](/weights/custom_yolov8x.pt.zip)
+      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](/weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](/weights/custom_yolov8x_v2.pt.zip)
 3. Open [`base.py`](/src/detection/base.py)
 4. Set [`MODEL_PATH`](/src/detection/base.py#L20) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use

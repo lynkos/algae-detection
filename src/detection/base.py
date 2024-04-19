@@ -17,7 +17,7 @@ HEIGHT: int = 720
 FPS: float = 30.0
 """Object detection attributes"""
 
-MODEL_PATH: str = join(abspath(curdir), "weights", "yolov8n_sahi.pt")
+MODEL_PATH: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt")
 """Default path of custom-trained algae detection model"""
 
 class Camera:
@@ -54,8 +54,10 @@ class Camera:
         self.device: device | str = device_type
         self.iou: float = iou
         self.strides: int = video_strides
-        self.camera.set(CAP_PROP_FRAME_WIDTH, width)
-        self.camera.set(CAP_PROP_FRAME_HEIGHT, height)
+        self.width = width
+        self.height = height
+        self.camera.set(CAP_PROP_FRAME_WIDTH, WIDTH)
+        self.camera.set(CAP_PROP_FRAME_HEIGHT, HEIGHT)
         self.camera.set(CAP_PROP_FPS, fps)
 
     def run(self) -> None:
@@ -75,6 +77,7 @@ class Camera:
                                            vid_stride = self.strides,
                                            conf = self.confidence,
                                            iou = self.iou,
+                                           imgsz = (self.height, self.width),
                                            agnostic_nms = True)
 
                 if not results: continue

@@ -2,7 +2,7 @@
 ## Requirements
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
-- [x] USB-C cable
+- [x] Micro USB cable
 - [x] [Algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)

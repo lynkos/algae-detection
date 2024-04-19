@@ -6,5 +6,5 @@ CAMERA_TYPE = 1
 TITLE = "Webcam" if CAMERA_TYPE == 0 else "iPhone"
 """Window title"""
 
-Camera(CAMERA_TYPE, TITLE).run()
+Camera(CAMERA_TYPE, TITLE, width = 320, height = 320).run()
 """Start algae detection program"""
