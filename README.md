@@ -101,17 +101,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── iphone_ui_connect.png
 │   │   │   └── iphone_ui_disconnect.png
 │   │   ├── models/
-│   │   │   ├── custom_rt-detr-l/
-│   │   │   │   ├── confusion_matrix_normalized.png
-│   │   │   │   ├── confusion_matrix.png
-│   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── labels_correlogram.jpg
-│   │   │   │   ├── labels.jpg
-│   │   │   │   ├── P_curve.png
-│   │   │   │   ├── PR_curve.png
-│   │   │   │   ├── R_curve.png
-│   │   │   │   ├── results.png
-│   │   │   │   └── validation.png
 │   │   │   ├── custom_yolov8x/
 │   │   │   │   ├── closterium-microcystis.png
 │   │   │   │   ├── confusion_matrix_normalized.png
@@ -172,7 +161,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ├── videos/
 │   └── index.html
 ├── weights/
-│   ├── custom_rt-detr-l.pt.zip
 │   ├── custom_yolov8x.pt.zip
 │   └── yolov8n_sahi.pt.zip
 ├── .gitattributes
@@ -282,7 +270,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    * To use an existing model, decompress the `.zip` file to get the `.pt` model
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
       * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip)
-      * [RT-DETR](https://docs.ultralytics.com/models/rtdetr) Large: [`custom_rt-detr-l.pt.zip`](weights/custom_rt-detr-l.pt.zip)
 3. Open [`base.py`](src/detection/base.py)
 4. Set [`MODEL_PATH`](src/detection/base.py#L19) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
