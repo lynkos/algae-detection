@@ -185,6 +185,56 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 </pre>
 </details>
 
+<details>
+   <summary><b>Models' Performance</b></summary>
+   <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
+      <tr>
+         <th style="text-align: center;">Model Name</th>
+         <th style="text-align: center;">Confusion Matrix (Normalized)</th>
+         <th style="text-align: center;">Precision-Confidence Curve</th>
+         <th style="text-align: center;">Precision-Recall Curve</th>
+         <th style="text-align: center;">Recall-Confidence Curve</th>
+         <th style="text-align: center;">F1-Confidence Curve</th>
+         <th style="text-align: center;">Training Results</th>
+         <th style="text-align: center;">Validation Output</th>
+         <th style="text-align: center;">Example Prediction</th>
+      </tr>
+      <tr>
+         <td>Custom YOLOv8 Extra-Large</td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x/example.jpg"></td>
+      </tr>
+      <tr>
+         <td>Custom YOLOv8 Extra-Large v2</td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x_v2/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x_v2/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.jpg"></td>
+      </tr>
+      <tr>
+         <td>YOLOv8 Nano with SAHI</td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/sahi_yolov8n/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="src/assets/models/sahi_yolov8n/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="src/assets/models/sahi_yolov8n/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="src/assets/models/sahi_yolov8n/example.jpg"></td>
+      </tr>
+   </table>
+</details>
+
 ## Requirements
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
@@ -281,10 +331,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ### Detect and Classify Algae
 1. Open [`weights`](weights)
 2. Choose the algae detection model you want to use
-   * To use your own `.pt` model, add it to [`weights`](weights)
-   * To use an existing model, decompress the `.zip` file to get the `.pt` model
-      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
-      * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
+> [!TIP]
+> * To use your own `.pt` model, add it to [`weights`](weights)
+> * To use an existing model, decompress the `.zip` file to get the `.pt` model
+>   * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+>   * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 3. Open [`base.py`](src/detection/base.py)
 4. Set [`MODEL_PATH`](src/detection/base.py#L20) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
@@ -388,52 +439,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 3. Run notebook
 
 ## [Models'](weights) Performance
-<table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
-   <tr>
-      <th style="text-align: center;">Model Name</th>
-      <th style="text-align: center;">Confusion Matrix (Normalized)</th>
-      <th style="text-align: center;">Precision-Confidence Curve</th>
-      <th style="text-align: center;">Precision-Recall Curve</th>
-      <th style="text-align: center;">Recall-Confidence Curve</th>
-      <th style="text-align: center;">F1-Confidence Curve</th>
-      <th style="text-align: center;">Training Results</th>
-      <th style="text-align: center;">Validation Output</th>
-      <th style="text-align: center;">Example Prediction</th>
-   </tr>
-   <tr>
-      <td>Custom YOLOv8 Extra-Large</td>
-      <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
-      <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/P_curve.png"></td>
-      <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x/PR_curve.png"></td>
-      <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/R_curve.png"></td>
-      <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/F1_curve.png"></td>
-      <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x/results.png"></td>
-      <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x/validation.png"></td>
-      <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x/example.jpg"></td>
-   </tr>
-   <tr>
-      <td>Custom YOLOv8 Extra-Large v2</td>
-      <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
-      <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/P_curve.png"></td>
-      <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
-      <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/R_curve.png"></td>
-      <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
-      <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x_v2/results.png"></td>
-      <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x_v2/validation.png"></td>
-      <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.jpg"></td>
-   </tr>
-   <tr>
-      <td>YOLOv8 Nano with SAHI</td>
-      <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
-      <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/P_curve.png"></td>
-      <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/sahi_yolov8n/PR_curve.png"></td>
-      <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/R_curve.png"></td>
-      <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/F1_curve.png"></td>
-      <td><img alt="Training Results" align="center" src="src/assets/models/sahi_yolov8n/results.png"></td>
-      <td><img alt="Validation Output" align="center" src="src/assets/models/sahi_yolov8n/validation.png"></td>
-      <td><img alt="Example Prediction" align="center" src="src/assets/models/sahi_yolov8n/example.jpg"></td>
-   </tr>
-</table>
 
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
