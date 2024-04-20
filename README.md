@@ -365,7 +365,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <img alt="Window popup" height="350" src="src/assets/esp32/ap_popup.png">
 
-7. You **must** fill in each of the following fields:
+7. You **must** fill in all of the following fields:
    - AP (i.e., Access Point) password
    - WiFi SSID
    - WiFi password (if applicable)
@@ -388,17 +388,17 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 (so the settings take effect) and connect to the AP
 
 > [!TIP]
-> If the error screen says it's unable to make a connection, try rebooting the device first (you can do so manually by pressing the 'Reset' button). The device will wait 30 seconds for a connection (configurable).
+> If the error screen says it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (configurable).
 >
-> Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
+> Connect to the SSID, go to the ESP32's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
 <!-- Img of reset button on ESP32 -->
 
 <img alt="Disconnect" height="350" src="src/assets/esp32/disconnect.png">
 
-10. You can now configure and stream from the ESP32 via HTTP
-   - HTTP Motion JPEG Streamer URL: `http://<ip address>/stream`
-   - HTTP Image URL: `http://<ip address>/snapshot`
-   - RTSP URL: `rtsp://<ip address>:554/mjpeg/1`
+10. You can now stream from the ESP32
+   - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
+   - HTTP Image: `http://<ESP32 IP address>/snapshot`
+   - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
 
 > [!WARNING]
 > Anyone with network access to the device can see the streams and images!
@@ -450,6 +450,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add Android compatability (assuming it isn't)
+- [ ] Add slider to [detector window/UI](src/detection/base.py#L88) for manual, real-time adjustment of confidence and IOU thresholds
 
 ## Credits
 Special thanks to:
