@@ -70,7 +70,7 @@
 > - PC: Press `Ctrl` + `F`
 > - Mac: Press `⌘` + `F`
 >
-> Then type 'IP Address:' in the search bar and press 'Enter'
+> Then type 'IP Address:' in the search bar and press 'Enter'.
 
 <img alt="IP Address" src="/src/assets/esp32/esp32_ip.png">
 
@@ -95,7 +95,10 @@
 15. Press `q` to exit the program
 
 > [!TIP]
-> See [this repo's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details on streaming
+> See [this module's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details on streaming.
+>
+> To update to latest version:
+> <pre>git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash</pre>
 
 ### Webcam
 1. Open [`other.py`](/src/detection/other.py)
