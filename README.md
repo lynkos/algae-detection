@@ -248,12 +248,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-   > [!WARNING]
-   > Due to the [large] size of the repo, you may get errors such as:
-   > 
-   > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
-   >
-   > If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+> [!WARNING]
+> Due to the [large] size of the repo, you may get errors such as:
+> 
+> <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
+>
+> If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
 
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
@@ -317,7 +317,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - WiFi password (if applicable)
 ![System config](src/assets/esp32/setup/init_config.png)
 
-   > [!TIP] If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
+> [!TIP]
+> If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
 8. Update the camera settings if you wish (you can always change them later), then scroll down and click 'Apply'
    <details>
@@ -325,24 +326,27 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       <div align="center"><img alt="Camera Settings" src="src/assets/esp32/config.png"></div>
    </details>
 
-   > [!WARNING] Very low number for 'JPG quality' (i.e., very high quality) can cause the ESP32 to crash or return no image!
+> [!WARNING]
+> Very low number for 'JPG quality' (i.e., very high quality) can cause the ESP32 to crash or return no image!
 
 9. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 (so the settings take effect) and connect to the AP
 ![Disconnect](src/assets/esp32/setup/disconnect.png)
 
-   > [!TIP] If the error screen says it's unable to make a connection, try rebooting the device first (you can do so manually by pressing the 'Reset' button); the device will wait 30 seconds for a connection (configurable).<br>
-   > Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
+> [!TIP]
+> If the error screen says it's unable to make a connection, try rebooting the device first (you can do so manually by pressing the 'Reset' button); the device will wait 30 seconds for a connection (configurable).<br>
+> Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
 
 <!-- Img of reset button on ESP32 -->
 
 10. You can now configure and stream from the ESP32 via HTTP
+
+> [!WARNING]
+> Anyone with network access to the device can see the streams and images!
+
    <details>
       <summary><b>Home Page</b></summary>
       <div align="center"><img alt="Home Page" src="src/assets/esp32/index.png"></div>
    </details>
-
-   > [!WARNING]
-   > Anyone with network access to the device can see the streams and images!
 
 11. Open [`esp32.py`](src/detection/esp32.py) once finished
 12. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.114` in this example)
