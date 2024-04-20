@@ -170,8 +170,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │       ├── generate_html.ps1
 │       ├── generate_html.sh
 │       ├── minify.py
-│       ├── platformio.ini
-│       └── README.md
+│       └── platformio.ini
 ├── videos/
 │   └── index.html
 ├── weights/
@@ -189,7 +188,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <summary><b>Models' Performance</b></summary>
    <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
       <tr>
-         <th style="text-align: center;">Model Name</th>
+         <th style="text-align: center;">Fine-tuned Model Name</th>
          <th style="text-align: center;">Confusion Matrix (Normalized)</th>
          <th style="text-align: center;">Precision-Confidence Curve</th>
          <th style="text-align: center;">Precision-Recall Curve</th>
@@ -200,7 +199,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <th style="text-align: center;">Example Prediction</th>
       </tr>
       <tr>
-         <td>Custom YOLOv8 Extra-Large</td>
+         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
          <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
          <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/P_curve.png"></td>
          <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x/PR_curve.png"></td>
@@ -211,7 +210,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x/example.jpg"></td>
       </tr>
       <tr>
-         <td>Custom YOLOv8 Extra-Large v2</td>
+         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
          <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
          <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/P_curve.png"></td>
          <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
@@ -222,7 +221,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.jpg"></td>
       </tr>
       <tr>
-         <td>YOLOv8 Nano with SAHI</td>
+         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
          <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
          <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/P_curve.png"></td>
          <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/sahi_yolov8n/PR_curve.png"></td>
@@ -331,11 +330,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ### Detect and Classify Algae
 1. Open [`weights`](weights)
 2. Choose the algae detection model you want to use
+
 > [!TIP]
-> * To use your own `.pt` model, add it to [`weights`](weights)
-> * To use an existing model, decompress the `.zip` file to get the `.pt` model
->   * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
->   * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
+> To use your own `.pt` model, add it to [`weights`](weights)
+>
+> To use an existing model, decompress the `.zip` file to get the `.pt` model
+> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
+
 3. Open [`base.py`](src/detection/base.py)
 4. Set [`MODEL_PATH`](src/detection/base.py#L20) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
@@ -350,18 +352,23 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
    <img alt="Open PlatformIO project" height="350" src="src/assets/esp32/setup/platformio_folder.png">
-2. Open [`streaming`](src/streaming)
-![Open `streaming`](src/assets/esp32/setup/open_streaming.png)
+2. Open [`streaming`](src/streaming)<br>
+   <img alt="Open `streaming`" height="350" src="src/assets/esp32/setup/open_streaming.png">
 3. Make sure the ESP32 is connected to the computer
-4. Build and upload ESP32 for streaming
+4. Build and upload code to ESP32
    - Click 'Build' to compile code
    - Click 'Upload' to flash code to ESP32
    - OPTIONAL: Click 'Monitor' for real-time logging in terminal (helpful for troubleshooting)<br>
    <img alt="Build, Upload, Monitor" height="350" src="src/assets/esp32/setup/build_upload_monitor.png">
-5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
-![`ESP32CAM-RTSP` network](src/assets/esp32/setup/choose_ap.png)
+5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`<br>
+   <img alt="`ESP32CAM-RTSP` network" height="250" src="src/assets/esp32/setup/choose_ap.png">
 6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
-![Window popup](src/assets/esp32/setup/ap_popup.png)
+
+> [!TIP]
+> The home page provides information about the device's state, diagnostics, WiFi connection, and camera settings.
+
+<img alt="Window popup" height="350" src="src/assets/esp32/setup/ap_popup.png">
+
 7. You **must** fill in each of the following fields:
    - AP (i.e., Access Point) password
    - WiFi SSID
@@ -370,9 +377,9 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!TIP]
 > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
-![System config](src/assets/esp32/setup/init_config.png)
+<img alt="System config" height="350" src="src/assets/esp32/setup/init_config.png">
 
-8. Update the camera settings if you wish (you can always change them later), then scroll down and click 'Apply'
+8. Update the streaming server settings and configure camera options (you can always change them later), then scroll down and click 'Apply'
 
 > [!WARNING]
 > Very low number for 'JPG quality' (i.e., very high quality) can cause the ESP32 to crash or return no image!
@@ -385,14 +392,17 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 (so the settings take effect) and connect to the AP
 
 > [!TIP]
-> If the error screen says it's unable to make a connection, try rebooting the device first (you can do so manually by pressing the 'Reset' button); the device will wait 30 seconds for a connection (configurable).<br>
+> If the error screen says it's unable to make a connection, try rebooting the device first (you can do so manually by pressing the 'Reset' button). The device will wait 30 seconds for a connection (configurable).
+>
 > Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
-
-![Disconnect](src/assets/esp32/setup/disconnect.png)
-
 <!-- Img of reset button on ESP32 -->
 
+<img alt="Disconnect" height="350" src="src/assets/esp32/setup/disconnect.png">
+
 10. You can now configure and stream from the ESP32 via HTTP
+   - HTTP Motion JPEG Streamer URL: `http://<ip address>/stream`
+   - HTTP Image URL: `http://<ip address>/snapshot`
+   - RTSP URL: `rtsp://<ip address>:554/mjpeg/1`
 
 > [!WARNING]
 > Anyone with network access to the device can see the streams and images!
@@ -413,7 +423,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
       $(where python) src\detection\esp32.py
       ```
-14. See [this specific `README.md`](src/streaming/README.md) for further details
+14. See [this repo's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details
 
 #### Webcam and/or iPhone
 1. Open [`other.py`](src/detection/other.py)
@@ -429,11 +439,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 
 ### Training, Validating, and Testing Model
-> [!NOTE]
-> All algae detection models trained, validated, and tested for this project are fine-tuned (with the [algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)) versions of the following pre-trained models:
-> - [YOLOv8](https://docs.ultralytics.com/models/yolov8)
-> - [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference)
-
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 2. Follow the notebook's instructions
 3. Run notebook
