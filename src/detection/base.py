@@ -15,7 +15,7 @@ STRIDES: int = 5
 WIDTH: int = 1280
 HEIGHT: int = 720
 FPS: float = 30.0
-"""Object detection attributes"""
+"""Default algae detection attributes"""
 
 MODEL_PATH: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt")
 """Default path of custom-trained algae detection model"""
@@ -54,10 +54,10 @@ class Camera:
         self.device: device | str = device_type
         self.iou: float = iou
         self.strides: int = video_strides
-        self.width = width
-        self.height = height
-        self.camera.set(CAP_PROP_FRAME_WIDTH, WIDTH)
-        self.camera.set(CAP_PROP_FRAME_HEIGHT, HEIGHT)
+        self.width: int = width
+        self.height: int = height
+        self.camera.set(CAP_PROP_FRAME_WIDTH, width)
+        self.camera.set(CAP_PROP_FRAME_HEIGHT, height)
         self.camera.set(CAP_PROP_FPS, fps)
 
     def run(self) -> None:
@@ -105,7 +105,7 @@ class Camera:
 
     def _showWindow(self, results: list) -> None:
         """
-        Show camera feed with bounding boxes over detected objects.
+        Show livestream with bounding boxes over detected algae.
 
         Args:
             results (list): Inference results.
