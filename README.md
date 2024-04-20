@@ -119,6 +119,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── custom_yolov8x_v2/
 │   │   │   │   ├── confusion_matrix_normalized.png
 │   │   │   │   ├── confusion_matrix.png
+│   │   │   │   ├── example.jpg
 │   │   │   │   ├── F1_curve.png
 │   │   │   │   ├── labels_correlogram.jpg
 │   │   │   │   ├── labels.jpg
@@ -146,7 +147,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   └── other.py
 │   └── streaming/
 │       ├── boards/
-│       │   └── esp32cam_ai_thinker.json
+│       │   ├── esp32cam_ai_thinker.json
+│       │   └── esp32cam_espressif_esp32s3_eye.json
 │       ├── html/
 │       │   ├── index.html
 │       │   └── index.min.html
@@ -194,7 +196,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [x] [Google Colab account](https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com)
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
-> [!NOTE]
+> [!TIP]
 > If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
 > <table>
 > <thead>
@@ -246,12 +248,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-> [!WARNING]
-> Due to the [large] size of the repo, you may get errors such as:
-> 
-> <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
->
-> If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+   > [!WARNING]
+   > Due to the [large] size of the repo, you may get errors such as:
+   > 
+   > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
+   >
+   > If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
 
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
@@ -291,35 +293,57 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 #### ESP32
 > [!WARNING]
-> Using ESP32 as a camera requires WiFi!
+> Current implementation of ESP32-CAM requires WiFi!
 >
-> Unfortunately, WiFi attained via hotspots or SSOs are not compatible.
+> Unfortunately, WiFi connections from hotspots or SSOs are not compatible.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
-   <img alt="Open PlatformIO project" height="400" src="src/assets/esp32/setup/platformio_folder.png">
+   <img alt="Open PlatformIO project" height="350" src="src/assets/esp32/setup/platformio_folder.png">
 2. Open [`streaming`](src/streaming)
 ![Open `streaming`](src/assets/esp32/setup/open_streaming.png)
 3. Make sure the ESP32 is connected to the computer
-4. Configure ESP32 for streaming
-   - Click 'Build' to compile the code
-   - Click 'Upload' to flash the code to ESP32
-   - Click 'Monitor' for real-time logging in terminal (particularly helpful when troubleshooting)
-   <img alt="Build, Upload, Monitor" height="400" src="src/assets/esp32/setup/build_upload_monitor.png">
-5. Go to your WiFi settings and select the network starting with `ESP32CAM-RTSP`
+4. Build and upload ESP32 for streaming
+   - Click 'Build' to compile code
+   - Click 'Upload' to flash code to ESP32
+   - OPTIONAL: Click 'Monitor' for real-time logging in terminal (helpful for troubleshooting)<br>
+   <img alt="Build, Upload, Monitor" height="350" src="src/assets/esp32/setup/build_upload_monitor.png">
+5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
 ![`ESP32CAM-RTSP` network](src/assets/esp32/setup/choose_ap.png)
-6. Once a window automatically pops up, click 'Change settings'
+6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
 ![Window popup](src/assets/esp32/setup/ap_popup.png)
-7. You must fill in each of the following:
+7. You **must** fill in each of the following fields:
    - AP (i.e., Access Point) password
    - WiFi SSID
    - WiFi password (if applicable)
-![Change settings](src/assets/esp32/setup/init_config.png)
-8. Change any of the other settings (you can always change them again), then click 'Apply'
-![Apply](src/assets/esp32/setup/apply.png)
-9. Disconnect from the current network and reconnect to your WiFi
+![System config](src/assets/esp32/setup/init_config.png)
+
+   > [!TIP] If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
+
+8. Update the camera settings if you wish (you can always change them later), then scroll down and click 'Apply'
+   <details>
+      <summary><b>Camera Settings</b></summary>
+      <div align="center"><img alt="Camera Settings" src="src/assets/esp32/config.png"></div>
+   </details>
+
+   > [!WARNING] Very low number for 'JPG quality' (i.e., very high quality) can cause the ESP32 to crash or return no image!
+
+9. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 (so the settings take effect) and connect to the AP
 ![Disconnect](src/assets/esp32/setup/disconnect.png)
-10. You can now connect to and stream from the ESP32 at the HTTP address listed under 'Special URLs / API'
-![Stream](src/assets/esp32/setup/get_url.png)
+
+   > [!TIP] If the error screen says it's unable to make a connection, try rebooting the device first (you can do so manually by pressing the 'Reset' button); the device will wait 30 seconds for a connection (configurable).<br>
+   > Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
+
+<!-- Img of reset button on ESP32 -->
+
+10. You can now configure and stream from the ESP32 via HTTP
+   <details>
+      <summary><b>Home Page</b></summary>
+      <div align="center"><img alt="Home Page" src="src/assets/esp32/index.png"></div>
+   </details>
+
+   > [!WARNING]
+   > Anyone with network access to the device can see the streams and images!
+
 11. Open [`esp32.py`](src/detection/esp32.py) once finished
 12. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.114` in this example)
 13. Run [`esp32.py`](src/detection/esp32.py)
@@ -355,6 +379,54 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 2. Follow the notebook's instructions
 3. Run notebook
+
+## [Models'](weights) Performance
+<table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
+   <tr>
+      <th style="text-align: center;">Model Name</th>
+      <th style="text-align: center;">Confusion Matrix (Normalized)</th>
+      <th style="text-align: center;">Precision-Confidence Curve</th>
+      <th style="text-align: center;">Precision-Recall Curve</th>
+      <th style="text-align: center;">Recall-Confidence Curve</th>
+      <th style="text-align: center;">F1-Confidence Curve</th>
+      <th style="text-align: center;">Training Results</th>
+      <th style="text-align: center;">Validation Output</th>
+      <th style="text-align: center;">Example Prediction</th>
+   </tr>
+   <tr>
+      <td>Custom YOLOv8 Extra-Large</td>
+      <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
+      <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/P_curve.png"></td>
+      <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x/PR_curve.png"></td>
+      <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/R_curve.png"></td>
+      <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/F1_curve.png"></td>
+      <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x/results.png"></td>
+      <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x/validation.png"></td>
+      <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x/example.jpg"></td>
+   </tr>
+   <tr>
+      <td>Custom YOLOv8 Extra-Large v2</td>
+      <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
+      <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/P_curve.png"></td>
+      <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
+      <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/R_curve.png"></td>
+      <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
+      <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x_v2/results.png"></td>
+      <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x_v2/validation.png"></td>
+      <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.jpg"></td>
+   </tr>
+   <tr>
+      <td>YOLOv8 Nano with SAHI</td>
+      <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
+      <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/P_curve.png"></td>
+      <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/sahi_yolov8n/PR_curve.png"></td>
+      <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/R_curve.png"></td>
+      <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/F1_curve.png"></td>
+      <td><img alt="Training Results" align="center" src="src/assets/models/sahi_yolov8n/results.png"></td>
+      <td><img alt="Validation Output" align="center" src="src/assets/models/sahi_yolov8n/validation.png"></td>
+      <td><img alt="Example Prediction" align="center" src="src/assets/models/sahi_yolov8n/example.jpg"></td>
+   </tr>
+</table>
 
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
