@@ -438,8 +438,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Follow the notebook's instructions
 3. Run notebook
 
-## [Models'](weights) Performance
-
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
    - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
