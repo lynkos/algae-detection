@@ -14,7 +14,8 @@
 4. Set [`MODEL_PATH`](/src/detection/base.py#L20) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
-   * [Webcam and/or iPhone](#webcam-andor-iphone)
+   * [Webcam and/or iPhone](#webcam)
+   * [iPhone](#iphone)
 
 ### ESP32
 > [!WARNING]
@@ -81,11 +82,14 @@
       ```
       $(where python) src\detection\esp32.py
       ```
-14. See [this repo's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details
+14. Press `q` to exit the program
 
-### Webcam and/or iPhone
+> [!TIP]
+> See [this repo's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details on streaming
+
+### Webcam
 1. Open [`other.py`](/src/detection/other.py)
-2. Set [`CAMERA_TYPE`](/src/detection/other.py#L3) to `0` to use webcam or `1` to use iPhone
+2. Set [`CAMERA_TYPE`](/src/detection/other.py#L3) to `0`
 3. Run [`other.py`](/src/detection/other.py)
    * POSIX
       ```
@@ -95,6 +99,23 @@
       ```
       $(where python) src\detection\other.py
       ```
+
+### iPhone
+1. Open [`other.py`](/src/detection/other.py)
+2. Set [`CAMERA_TYPE`](/src/detection/other.py#L3) to `1`
+3. Run [`other.py`](/src/detection/other.py)
+   * POSIX
+      ```
+      $(which python) src/detection/other.py
+      ```
+   * Windows
+      ```
+      $(where python) src\detection\other.py
+      ```
+4. If successfully connected, your iPhone's screen should look like this:
+   ![iPhone connected](/src/assets/iphone/iphone_ui_connect.png)
+5. Press `q` on your computer or 'Disconnect' on your iPhone to exit the program
+   ![iPhone disconnected](/src/assets/iphone/iphone_ui_disconnect.png)
 
 ## Training, Validating, and Testing Model
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)

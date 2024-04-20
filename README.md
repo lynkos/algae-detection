@@ -60,6 +60,70 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 </details>
 
 <details>
+   <summary><b>System Design</b></summary>
+      <div align="center">
+         <figure>
+            <picture><img alt="ESP32 system design" src="src/assets/esp32/flowchart.png"></picture>
+            <figcaption>ESP32</figcaption>
+         </figure>
+         <figure>
+            <picture><img alt="iPhone system design" src="src/assets/iphone/flowchart.png"></picture>
+            <figcaption>iPhone</figcaption>
+         </figure>
+      </div>
+</details>
+
+<details>
+   <summary><b>Models' Performance</b></summary>
+   <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
+      <tr>
+         <th style="text-align: center;">[Pre-Trained] Model</th>
+         <th style="text-align: center;">Confusion Matrix (Normalized)</th>
+         <th style="text-align: center;">Precision-Confidence Curve</th>
+         <th style="text-align: center;">Precision-Recall Curve</th>
+         <th style="text-align: center;">Recall-Confidence Curve</th>
+         <th style="text-align: center;">F1-Confidence Curve</th>
+         <th style="text-align: center;">Training Results</th>
+         <th style="text-align: center;">Validation Output</th>
+         <th style="text-align: center;">Example Prediction</th>
+      </tr>
+      <tr>
+         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x/example.jpg"></td>
+      </tr>
+      <tr>
+         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x_v2/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x_v2/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.jpg"></td>
+      </tr>
+      <tr>
+         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/sahi_yolov8n/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="src/assets/models/sahi_yolov8n/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="src/assets/models/sahi_yolov8n/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="src/assets/models/sahi_yolov8n/example.jpg"></td>
+      </tr>
+   </table>
+</details>
+
+<details>
   <summary><b>Repository Structure</b></summary>
 <pre>
 .
@@ -180,56 +244,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 </pre>
 </details>
 
-<details>
-   <summary><b>Models' Performance</b></summary>
-   <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
-      <tr>
-         <th style="text-align: center;">Fine-tuned Model Name</th>
-         <th style="text-align: center;">Confusion Matrix (Normalized)</th>
-         <th style="text-align: center;">Precision-Confidence Curve</th>
-         <th style="text-align: center;">Precision-Recall Curve</th>
-         <th style="text-align: center;">Recall-Confidence Curve</th>
-         <th style="text-align: center;">F1-Confidence Curve</th>
-         <th style="text-align: center;">Training Results</th>
-         <th style="text-align: center;">Validation Output</th>
-         <th style="text-align: center;">Example Prediction</th>
-      </tr>
-      <tr>
-         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
-         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
-         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/P_curve.png"></td>
-         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x/PR_curve.png"></td>
-         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/R_curve.png"></td>
-         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/F1_curve.png"></td>
-         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x/results.png"></td>
-         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x/validation.png"></td>
-         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x/example.jpg"></td>
-      </tr>
-      <tr>
-         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
-         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
-         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/P_curve.png"></td>
-         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
-         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/R_curve.png"></td>
-         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
-         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x_v2/results.png"></td>
-         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x_v2/validation.png"></td>
-         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.jpg"></td>
-      </tr>
-      <tr>
-         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
-         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
-         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/P_curve.png"></td>
-         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/sahi_yolov8n/PR_curve.png"></td>
-         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/R_curve.png"></td>
-         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/F1_curve.png"></td>
-         <td><img alt="Training Results" align="center" src="src/assets/models/sahi_yolov8n/results.png"></td>
-         <td><img alt="Validation Output" align="center" src="src/assets/models/sahi_yolov8n/validation.png"></td>
-         <td><img alt="Example Prediction" align="center" src="src/assets/models/sahi_yolov8n/example.jpg"></td>
-      </tr>
-   </table>
-</details>
-
 ## Requirements
 - [x] ESP32-CAM AI Thinker
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
@@ -338,7 +352,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 4. Set [`MODEL_PATH`](src/detection/base.py#L20) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
-   * [Webcam and/or iPhone](#webcam-andor-iphone)
+   * [Webcam](#webcam)
+   * [iPhone](#iphone)
 
 #### ESP32
 > [!WARNING]
@@ -421,9 +436,9 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 14. See [this repo's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details
 
-#### Webcam and/or iPhone
+#### Webcam
 1. Open [`other.py`](src/detection/other.py)
-2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `0` to use webcam or `1` to use iPhone
+2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `0`
 3. Run [`other.py`](src/detection/other.py)
    * POSIX
       ```
@@ -433,6 +448,24 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
       $(where python) src\detection\other.py
       ```
+
+#### iPhone
+1. Open [`other.py`](src/detection/other.py)
+2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `1`
+3. Run [`other.py`](src/detection/other.py)
+   * POSIX
+      ```
+      $(which python) src/detection/other.py
+      ```
+   * Windows
+      ```
+      $(where python) src\detection\other.py
+      ```
+4. If successfully connected, your iPhone's screen should look like this:<br>
+   <img alt="iPhone connected" height="350" src="src/assets/iphone/iphone_ui_connect.png">
+5. Press `q` on your computer or 'Disconnect' on your iPhone to exit the program<br>
+   <img alt="iPhone disconnected" height="350" src="src/assets/iphone/iphone_ui_disconnect.png">
+
 
 ### Training, Validating, and Testing Model
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
