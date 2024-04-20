@@ -97,7 +97,7 @@
 > [!TIP]
 > See [this module's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details on streaming.
 >
-> To update to latest version:
+> To update to latest version, commit and push changes, then run the following command in the terminal:
 > <pre>git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash</pre>
 
 ### Webcam
