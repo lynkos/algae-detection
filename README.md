@@ -82,23 +82,19 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── non-algae.jpg
 │   │   │   └── oscillatoria.jpg
 │   │   ├── esp32/
-│   │   │   ├── setup/
-│   │   │   │   ├── ap_popup.png
-│   │   │   │   ├── apply.png
-│   │   │   │   ├── build_upload_monitor.png
-│   │   │   │   ├── choose_ap.png
-│   │   │   │   ├── disconnect.png
-│   │   │   │   ├── get_url.png
-│   │   │   │   ├── init_config.png
-│   │   │   │   ├── open_streaming.png
-│   │   │   │   └── platformio_folder.png
 │   │   │   ├── ai_thinker.jpg
+│   │   │   ├── ap_popup.png
+│   │   │   ├── build_upload_monitor.png
+│   │   │   ├── choose_ap.png
 │   │   │   ├── config.png
-│   │   │   └── index.png
-│   │   ├── flowchart/
-│   │   │   ├── esp32.png
-│   │   │   └── iphone.png
+│   │   │   ├── disconnect.png
+│   │   │   ├── flowchart.png
+│   │   │   ├── index.png
+│   │   │   ├── init_config.png
+│   │   │   ├── open_streaming.png
+│   │   │   └── platformio_folder.png
 │   │   ├── iphone/
+│   │   │   ├── flowchart.png            
 │   │   │   ├── iphone_ui_connect.png
 │   │   │   └── iphone_ui_disconnect.png
 │   │   ├── models/
@@ -332,9 +328,9 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Choose the algae detection model you want to use
 
 > [!TIP]
-> To use your own `.pt` model, add it to [`weights`](weights)
+> To use your own `.pt` model, add it to [`weights`](weights).
 >
-> To use an existing model, decompress the `.zip` file to get the `.pt` model
+> To use an existing model, decompress the `.zip` file to get the `.pt` model.
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
@@ -351,23 +347,23 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > Unfortunately, WiFi connections from hotspots or SSOs are not compatible.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
-   <img alt="Open PlatformIO project" height="350" src="src/assets/esp32/setup/platformio_folder.png">
+   <img alt="Open PlatformIO project" height="350" src="src/assets/esp32/platformio_folder.png">
 2. Open [`streaming`](src/streaming)<br>
-   <img alt="Open `streaming`" height="350" src="src/assets/esp32/setup/open_streaming.png">
+   <img alt="Open `streaming`" height="350" src="src/assets/esp32/open_streaming.png">
 3. Make sure the ESP32 is connected to the computer
 4. Build and upload code to ESP32
    - Click 'Build' to compile code
    - Click 'Upload' to flash code to ESP32
    - OPTIONAL: Click 'Monitor' for real-time logging in terminal (helpful for troubleshooting)<br>
-   <img alt="Build, Upload, Monitor" height="350" src="src/assets/esp32/setup/build_upload_monitor.png">
+   <img alt="Build, Upload, Monitor" height="350" src="src/assets/esp32/build_upload_monitor.png">
 5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`<br>
-   <img alt="`ESP32CAM-RTSP` network" height="250" src="src/assets/esp32/setup/choose_ap.png">
+   <img alt="`ESP32CAM-RTSP` network" height="250" src="src/assets/esp32/choose_ap.png">
 6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
 
 > [!TIP]
 > The home page provides information about the device's state, diagnostics, WiFi connection, and camera settings.
 
-<img alt="Window popup" height="350" src="src/assets/esp32/setup/ap_popup.png">
+<img alt="Window popup" height="350" src="src/assets/esp32/ap_popup.png">
 
 7. You **must** fill in each of the following fields:
    - AP (i.e., Access Point) password
@@ -377,7 +373,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!TIP]
 > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
-<img alt="System config" height="350" src="src/assets/esp32/setup/init_config.png">
+<img alt="System config" height="350" src="src/assets/esp32/init_config.png">
 
 8. Update the streaming server settings and configure camera options (you can always change them later), then scroll down and click 'Apply'
 
@@ -397,7 +393,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
 <!-- Img of reset button on ESP32 -->
 
-<img alt="Disconnect" height="350" src="src/assets/esp32/setup/disconnect.png">
+<img alt="Disconnect" height="350" src="src/assets/esp32/disconnect.png">
 
 10. You can now configure and stream from the ESP32 via HTTP
    - HTTP Motion JPEG Streamer URL: `http://<ip address>/stream`

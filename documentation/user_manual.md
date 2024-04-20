@@ -23,19 +23,19 @@
 > Unfortunately, WiFi connections from hotspots or SSOs are not compatible.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
-   ![Open PlatformIO project](/src/assets/esp32/setup/platformio_folder.png)
+   ![Open PlatformIO project](/src/assets/esp32/platformio_folder.png)
 2. Open [`streaming`](/src/streaming)
-   ![Open `streaming`](/src/assets/esp32/setup/open_streaming.png)
+   ![Open `streaming`](/src/assets/esp32/open_streaming.png)
 3. Make sure the ESP32 is connected to the computer
 4. Build and upload ESP32 for streaming
    - Click 'Build' to compile code
    - Click 'Upload' to flash code to ESP32
    - OPTIONAL: Click 'Monitor' for real-time logging in terminal (helpful for troubleshooting)
-   ![Build, Upload, Monitor](/src/assets/esp32/setup/build_upload_monitor.png)
+   ![Build, Upload, Monitor](/src/assets/esp32/build_upload_monitor.png)
 5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
-   ![`ESP32CAM-RTSP` network](/src/assets/esp32/setup/choose_ap.png)
+   ![`ESP32CAM-RTSP` network](/src/assets/esp32/choose_ap.png)
 6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
-   ![Window popup](/src/assets/esp32/setup/ap_popup.png)
+   ![Window popup](/src/assets/esp32/ap_popup.png)
 7. You **must** fill in each of the following fields:
    - AP (i.e., Access Point) password
    - WiFi SSID
@@ -44,7 +44,7 @@
 > [!TIP]
 > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
-![System config](/src/assets/esp32/setup/init_config.png)
+![System config](/src/assets/esp32/init_config.png)
 
 8. Update the camera settings if you wish (you can always change them later), then scroll down and click 'Apply'
 
@@ -61,7 +61,7 @@
 > Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
 <!-- Img of reset button on ESP32 -->
 
-![Disconnect](/src/assets/esp32/setup/disconnect.png)
+![Disconnect](/src/assets/esp32/disconnect.png)
 
 10. You can now configure and stream from the ESP32 via HTTP
 
