@@ -499,7 +499,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add Android compatability (assuming it isn't)
-- [ ] Add slider to [detector window/UI](src/detection/base.py#L88) for manual, real-time adjustment of confidence and IOU thresholds
 
 ## Credits
 Special thanks to:

@@ -4,9 +4,9 @@ from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
 from os import curdir
 from os.path import abspath, join
-from cv2 import (VideoCapture, namedWindow, imshow, waitKey, getWindowProperty,
-                 destroyAllWindows, WND_PROP_VISIBLE, WINDOW_GUI_EXPANDED,
-                 CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS)
+from cv2 import (VideoCapture, namedWindow, imshow, waitKey, getWindowProperty, 
+                 destroyAllWindows, getTrackbarPos, createTrackbar, WND_PROP_VISIBLE,
+                 WINDOW_GUI_EXPANDED, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS)
 
 DEVICE: device = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
 CONFIDENCE: float = 0.25
@@ -85,6 +85,24 @@ class Camera:
                 # Show camera feed
                 self._showWindow(results)
 
+    def _changeConfidence(self, pos: int) -> None:
+        """
+        Callback function for confidence trackbar.
+
+        Args:
+            pos (int): Trackbar position.
+        """
+        self.confidence = pos / 100.0
+
+    def _changeIOU(self, pos: int) -> None:
+        """
+        Callback function for IOU trackbar.
+
+        Args:
+            pos (int): Trackbar position.
+        """
+        self.iou = pos / 100.0
+
     def _showWindow(self, results: list) -> None:
         """
         Show camera feed with bounding boxes over detected objects.
@@ -94,10 +112,18 @@ class Camera:
         """
         # Create resizable, named window
         namedWindow(self.title, WINDOW_GUI_EXPANDED)
+
+        # Create trackbars for confidence and IOU
+        createTrackbar("Confidence", self.title, int(self.confidence * 100), 100, self._changeConfidence)
+        createTrackbar("IOU", self.title, int(self.iou * 100), 100, self._changeIOU)
         
         for result in results:
             # Annotate the frame with its result, then show in window
             imshow(self.title, result.plot())
+
+            # Update trackbars for confidence and IOU
+            getTrackbarPos("Confidence", self.title)
+            getTrackbarPos("IOU", self.title)
 
             # Exit loop if "q" is pressed or window is closed
             if (waitKey(1) & 0xFF == ord("q")) or (getWindowProperty(self.title, WND_PROP_VISIBLE) < 1):
