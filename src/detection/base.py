@@ -113,11 +113,11 @@ class Camera:
 
         # Create trackbars for confidence and IOU
         createTrackbar("Confidence", self.title, int(self.confidence * 100), 100, self._changeConfidence)
-        createTrackbar("IOU", self.title, int(self.iou * 100), 100, self._changeIOU)
+        createTrackbar("Intersection over Union (IoU)", self.title, int(self.iou * 100), 100, self._changeIOU)
 
         # Ensure confidence and IOU are at least 1 to prevent program from hanging/freezing
         setTrackbarMin("Confidence", self.title, 1)
-        setTrackbarMin("IOU", self.title, 1)
+        setTrackbarMin("Intersection over Union (IoU)", self.title, 1)
         
         for result in results:
             # Update trackbars for confidence and IOU
