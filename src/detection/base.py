@@ -4,9 +4,9 @@ from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
 from os import curdir
 from os.path import abspath, join
-from cv2 import (VideoCapture, namedWindow, imshow, waitKey, getWindowProperty, 
-                 destroyAllWindows, getTrackbarPos, createTrackbar, WND_PROP_VISIBLE,
-                 WINDOW_GUI_EXPANDED, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS)
+from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin, 
+                 destroyAllWindows, getTrackbarPos, createTrackbar, WINDOW_GUI_EXPANDED,
+                 CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS)
 
 DEVICE: device = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
 CONFIDENCE: float = 0.25
@@ -80,28 +80,26 @@ class Camera:
                                            imgsz = (self.height, self.width),
                                            agnostic_nms = True)
 
-                if not results: continue
-
                 # Show camera feed
                 self._showWindow(results)
 
-    def _changeConfidence(self, pos: int) -> None:
+    def _changeConfidence(self, new_val: int) -> None:
         """
         Callback function for confidence trackbar.
 
         Args:
-            pos (int): Trackbar position.
+            new_val (int): New confidence value.
         """
-        self.confidence = pos / 100.0
+        self.confidence = new_val / 100.0
 
-    def _changeIOU(self, pos: int) -> None:
+    def _changeIOU(self, new_val: int) -> None:
         """
         Callback function for IOU trackbar.
 
         Args:
-            pos (int): Trackbar position.
+            new_val (int): New IOU value.
         """
-        self.iou = pos / 100.0
+        self.iou = new_val / 100.0
 
     def _showWindow(self, results: list) -> None:
         """
@@ -116,17 +114,21 @@ class Camera:
         # Create trackbars for confidence and IOU
         createTrackbar("Confidence", self.title, int(self.confidence * 100), 100, self._changeConfidence)
         createTrackbar("IOU", self.title, int(self.iou * 100), 100, self._changeIOU)
+
+        # Ensure confidence and IOU are at least 1 to prevent program from hanging/freezing
+        setTrackbarMin("Confidence", self.title, 1)
+        setTrackbarMin("IOU", self.title, 1)
         
         for result in results:
-            # Annotate the frame with its result, then show in window
-            imshow(self.title, result.plot())
-
             # Update trackbars for confidence and IOU
             getTrackbarPos("Confidence", self.title)
             getTrackbarPos("IOU", self.title)
+            
+            # Annotate the frame with its result, then show in window
+            imshow(self.title, result.plot())
 
-            # Exit loop if "q" is pressed or window is closed
-            if (waitKey(1) & 0xFF == ord("q")) or (getWindowProperty(self.title, WND_PROP_VISIBLE) < 1):
+            # Exit loop if "q" is pressed
+            if waitKey(1) & 0xFF == ord("q"):
                 # Release webcam, if applicable
                 self.camera.release()
 
