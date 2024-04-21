@@ -4,7 +4,7 @@ from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
 from os import curdir
 from os.path import abspath, join
-from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin, 
+from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin,
                  destroyAllWindows, getTrackbarPos, createTrackbar, WINDOW_GUI_EXPANDED,
                  CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS)
 
@@ -40,7 +40,7 @@ class Camera:
             title (str, optional): Window title. Defaults to "Algae Detector".
             model_path (str, optional): Detection model's path. Defaults to `MODEL_PATH`.
             device_type (device | str, optional): Device (GPU or CPU) to run detection model on. Defaults to `DEVICE`.
-            confidence (float, optional): Detection model's confidence threshold. Defaults to `CONFIDENCE`.
+            confidence (float, optional): Detection model's minimum confidence threshold. Defaults to `CONFIDENCE`.
             iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes, useful for reducing duplicates. Defaults to `IOU`.
             video_strides (int, optional): Allows skipping frames in videos to speed up processing at the cost of temporal resolution. Value of `1` processes every frame, higher values skip frames. Defaults to `STRIDES`.
             width (int, optional): Camera width. Defaults to `WIDTH`.
@@ -56,6 +56,7 @@ class Camera:
         self.strides: int = video_strides
         self.width: int = width
         self.height: int = height
+        self.max_detections: int = 100
         self.camera.set(CAP_PROP_FRAME_WIDTH, width)
         self.camera.set(CAP_PROP_FRAME_HEIGHT, height)
         self.camera.set(CAP_PROP_FPS, fps)
@@ -77,6 +78,7 @@ class Camera:
                                            vid_stride = self.strides,
                                            conf = self.confidence,
                                            iou = self.iou,
+                                           max_det = self.max_detections,
                                            imgsz = (self.height, self.width),
                                            agnostic_nms = True)
 
@@ -100,6 +102,15 @@ class Camera:
             new_val (int): New IOU value.
         """
         self.iou = new_val / 100.0
+        
+    def _changeMaxDetections(self, new_val: int) -> None:
+        """
+        Callback function for max detections trackbar.
+
+        Args:
+            new_val (int): New max detections value.
+        """
+        self.max_detections = new_val
 
     def _showWindow(self, results: list) -> None:
         """
@@ -111,18 +122,20 @@ class Camera:
         # Create resizable, named window
         namedWindow(self.title, WINDOW_GUI_EXPANDED)
 
-        # Create trackbars for confidence and IOU
+        # Create trackbars for confidence, IOU, and maximum detections
         createTrackbar("Confidence", self.title, int(self.confidence * 100), 100, self._changeConfidence)
-        createTrackbar("Intersection over Union (IoU)", self.title, int(self.iou * 100), 100, self._changeIOU)
+        createTrackbar("IoU", self.title, int(self.iou * 100), 100, self._changeIOU)
+        createTrackbar("Max Detects", self.title, self.max_detections, 300, self._changeMaxDetections)
 
         # Ensure confidence and IOU are at least 1 to prevent program from hanging/freezing
         setTrackbarMin("Confidence", self.title, 1)
-        setTrackbarMin("Intersection over Union (IoU)", self.title, 1)
+        setTrackbarMin("IoU", self.title, 1)
         
         for result in results:
-            # Update trackbars for confidence and IOU
+            # Update trackbars for confidence, IOU, and maximum detections
             getTrackbarPos("Confidence", self.title)
-            getTrackbarPos("IOU", self.title)
+            getTrackbarPos("IoU", self.title)
+            getTrackbarPos("Max Detects", self.title)
             
             # Annotate the frame with its result, then show in window
             imshow(self.title, result.plot())
