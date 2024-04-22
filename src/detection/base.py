@@ -12,6 +12,7 @@ DEVICE: device = device("mps") if is_mps_available() else device("cuda") if is_c
 CONFIDENCE: float = 0.25
 IOU: float = 0.5
 STRIDES: int = 5
+MAX_DETECTIONS: int = 100
 WIDTH: int = 1280
 HEIGHT: int = 720
 FPS: float = 30.0
@@ -28,6 +29,7 @@ class Camera:
                  device_type: device | str = DEVICE,
                  confidence: float = CONFIDENCE,
                  iou: float = IOU,
+                 max_detections: int = MAX_DETECTIONS,
                  video_strides: int = STRIDES,
                  width: int = WIDTH,
                  height: int = HEIGHT,
@@ -42,6 +44,7 @@ class Camera:
             device_type (device | str, optional): Device (GPU or CPU) to run detection model on. Defaults to `DEVICE`.
             confidence (float, optional): Detection model's minimum confidence threshold. Defaults to `CONFIDENCE`.
             iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes, useful for reducing duplicates. Defaults to `IOU`.
+            max_detections (int, optional): Maximum number of detections allowed per image. Limits the total number of objects the model can detect in a single inference, preventing excessive outputs in dense scenes. Defaults to `MAX_DETECTIONS`.
             video_strides (int, optional): Allows skipping frames in videos to speed up processing at the cost of temporal resolution. Value of `1` processes every frame, higher values skip frames. Defaults to `STRIDES`.
             width (int, optional): Camera width. Defaults to `WIDTH`.
             height (int, optional): Camera height. Defaults to `HEIGHT`.
@@ -53,10 +56,10 @@ class Camera:
         self.confidence: float = confidence
         self.device: device | str = device_type
         self.iou: float = iou
+        self.max_detections: int = max_detections
         self.strides: int = video_strides
         self.width: int = width
         self.height: int = height
-        self.max_detections: int = 100
         self.camera.set(CAP_PROP_FRAME_WIDTH, width)
         self.camera.set(CAP_PROP_FRAME_HEIGHT, height)
         self.camera.set(CAP_PROP_FPS, fps)
@@ -85,32 +88,32 @@ class Camera:
                 # Show camera feed
                 self._showWindow(results)
 
-    def _changeConfidence(self, new_val: int) -> None:
+    def _changeConfidence(self, new_conf: int) -> None:
         """
         Callback function for confidence trackbar.
 
         Args:
-            new_val (int): New confidence value.
+            new_conf (int): New confidence value.
         """
-        self.confidence = new_val / 100.0
+        self.confidence = new_conf / 100.0
 
-    def _changeIOU(self, new_val: int) -> None:
+    def _changeIOU(self, new_iou: int) -> None:
         """
         Callback function for IOU trackbar.
 
         Args:
-            new_val (int): New IOU value.
+            new_iou (int): New IOU value.
         """
-        self.iou = new_val / 100.0
+        self.iou = new_iou / 100.0
         
-    def _changeMaxDetections(self, new_val: int) -> None:
+    def _changeMaxDetections(self, new_max_det: int) -> None:
         """
         Callback function for max detections trackbar.
 
         Args:
-            new_val (int): New max detections value.
+            new_max_det (int): New max detections value.
         """
-        self.max_detections = new_val
+        self.max_detections = new_max_det
 
     def _showWindow(self, results: list) -> None:
         """
