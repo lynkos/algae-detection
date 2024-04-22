@@ -536,5 +536,5 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ## Credits
 Special thanks to:
 - [Dr. Antao Chen](https://ieeexplore.ieee.org/author/37291140300) (product owner) for his mentorship
-- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop), which has been modified and used in [`streaming`](src/streaming)
 - [rdgbrian](https://github.com/rdgbrian) (team lead during Fall 2023) for his assistance
+- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop), which has been modified and used in [`streaming`](src/streaming)
