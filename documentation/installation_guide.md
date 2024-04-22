@@ -1,8 +1,29 @@
 # Installation Guide
 ## Requirements
-- [x] ESP32-CAM AI Thinker
+- <details>
+   <summary>ESP32-CAM (or similar)</summary>
+      <ul>
+         <li>AI Thinker</li>
+         <li>Espressif ESP-EYE</li>
+         <li>Espressif ESP32S2-CAM</li>
+         <li>Espressif ESP32S3-CAM-LCD</li>
+         <li>Espressif ESP32S3-EYE</li>
+         <li>Freenove ESP32-WROVER</li>
+         <li>M5Stack</li>
+         <li>M5Stack ESP32CAM</li>
+         <li>M5Stack PSRAM</li>
+         <li>M5Stack Unit Cam</li>
+         <li>M5Stack Unit CamS3</li>
+         <li>M5Stack PSRAM</li>
+         <li>M5Stack PSRAM 2.0</li>
+         <li>M5Stack WIDE</li>
+         <li>Seeed Studio XIAO ESP32S3 Sense</li>
+         <li>TTGO T-Camera</li>
+         <li>TTGO T-Journal</li>
+      </ul>
+   </details>
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
-- [x] Micro USB cable
+- [x] Micro-USB cable
 - [x] [Algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
 - [x] [Visual Studio Code](https://code.visualstudio.com/download)
 - [x] [PlatformIO plugin for Visual Studio Code](https://docs.platformio.org/en/stable/integration/ide/vscode.html)
@@ -10,7 +31,7 @@
 - [x] [Google Colab account](https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com)
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
-> [!NOTE]
+> [!TIP]
 > If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
 > <table>
 > <thead>
