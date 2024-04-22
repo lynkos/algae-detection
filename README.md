@@ -197,7 +197,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   ├── detection/
 │   │   ├── base.py
 │   │   ├── esp32.py
-│   │   └── other.py
+│   │   ├── iphone.py
+│   │   └── webcam.py
 │   └── streaming/
 │       ├── boards/
 │       │   ├── esp32cam_ai_thinker.json
@@ -379,11 +380,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`base.py`](src/detection/base.py)
-4. Set [`MODEL_PATH`](src/detection/base.py#L21) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](src/detection/base.py#L22) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
-   * [Webcam](#webcam)
    * [iPhone](#iphone)
+   * [Webcam](#webcam)
 
 #### ESP32
 > [!WARNING]
@@ -486,35 +487,33 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > To update to latest version, commit and push changes, then run the following command in the terminal:
 > <pre>git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash</pre>
 
-#### Webcam
-1. Open [`other.py`](src/detection/other.py)
-2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `0`
-3. Run [`other.py`](src/detection/other.py)
-   * POSIX
-      ```sh
-      $(which python) src/detection/other.py
-      ```
-   * Windows
-      ```sh
-      $(where python) src\detection\other.py
-      ```
-
 #### iPhone
-1. Open [`other.py`](src/detection/other.py)
-2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `1`
-3. Run [`other.py`](src/detection/other.py)
+1. Open [`iphone.py`](src/detection/iphone.py)
+2. Run [`iphone.py`](src/detection/iphone.py)
    * POSIX
       ```sh
-      $(which python) src/detection/other.py
+      $(which python) src/detection/iphone.py
       ```
    * Windows
       ```sh
-      $(where python) src\detection\other.py
+      $(where python) src\detection\iphone.py
       ```
-4. If successfully connected, your iPhone's screen should look like this:<br>
+3. If successfully connected, your iPhone's screen should look like this:<br>
    <img alt="iPhone connected" height="350" src="src/assets/iphone/iphone_ui_connect.png">
-5. Press `q` on your computer or 'Disconnect' on your iPhone to exit the program<br>
+4. Press `q` on your computer or 'Disconnect' on your iPhone to exit the program<br>
    <img alt="iPhone disconnected" height="350" src="src/assets/iphone/iphone_ui_disconnect.png">
+
+#### Webcam
+1. Open [`webcam.py`](src/detection/webcam.py)
+2. Run [`webcam.py`](src/detection/webcam.py)
+   * POSIX
+      ```sh
+      $(which python) src/detection/webcam.py
+      ```
+   * Windows
+      ```sh
+      $(where python) src\detection\webcam.py
+      ```
 
 ### Training, Validating, and Testing Model
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
