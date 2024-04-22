@@ -529,7 +529,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
 - [ ] Heatsink for ESP32 to prevent overheating
 - [ ] Run model on ESP32 rather than on computer
-- [ ] Update microscope's 3D printed lens attachment by making it adjustable OR create multiple ones for different devices, e.g., iPhone, Android, etc.
+- [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add Android compatability (assuming it isn't)
 
 ## Credits
