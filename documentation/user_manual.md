@@ -11,7 +11,7 @@
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](/weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](/weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`base.py`](/src/detection/base.py)
-4. Set [`MODEL_PATH`](/src/detection/base.py#L20) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](/src/detection/base.py#L21) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [Webcam and/or iPhone](#webcam)
@@ -23,20 +23,25 @@
 >
 > Unfortunately, WiFi connections from hotspots or SSOs are not compatible.
 
-1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
-   ![Open PlatformIO project](/src/assets/esp32/platformio_folder.png)
-2. Open [`streaming`](/src/streaming)
-   ![Open `streaming`](/src/assets/esp32/open_streaming.png)
+1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
+   <img alt="Open PlatformIO project" height="350" src="/src/assets/esp32/platformio_folder.png">
+2. Open [`streaming`](/src/streaming)<br>
+   <img alt="Open `streaming`" height="350" src="/src/assets/esp32/open_streaming.png">
 3. Make sure the ESP32 is connected to the computer
-4. Build and upload ESP32 for streaming
+4. Build and upload code to ESP32
    - Click 'Build' to compile code
-   - Click 'Upload' to flash code to ESP32
-   ![Build, Upload, Monitor](/src/assets/esp32/build_upload_monitor.png)
-5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
-   ![`ESP32CAM-RTSP` network](/src/assets/esp32/choose_ap.png)
+   - Click 'Upload' to flash code to ESP32<br>
+   <img alt="Build, Upload, Monitor" height="350" src="/src/assets/esp32/build_upload_monitor.png">
+5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`<br>
+   <img alt="`ESP32CAM-RTSP` network" height="250" src="/src/assets/esp32/choose_ap.png">
 6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
-   ![Window popup](/src/assets/esp32/ap_popup.png)
-7. You **must** fill in each of the following fields:
+
+> [!NOTE]
+> The home page provides information about the device's state, diagnostics, WiFi connection, and camera settings.
+
+<img alt="Window popup" height="350" src="/src/assets/esp32/ap_popup.png">
+
+7. You **must** fill in all of the following fields:
    - AP (i.e., Access Point) password
    - WiFi SSID
    - WiFi password (if applicable)
@@ -44,55 +49,68 @@
 > [!TIP]
 > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
-![System config](/src/assets/esp32/init_config.png)
+<img alt="System config" height="350" src="/src/assets/esp32/init_config.png">
 
-8. Update the camera settings if you wish (you can always change them later; always remember to reset the device so the settings take effect), then scroll down and click 'Apply'
+8. Update the streaming server settings and configure camera options (you can always change them later; always remember to reset the device so the settings take effect), then scroll down and click 'Apply'
 
 > [!WARNING]
-> Very low number for 'JPG quality' (i.e., very high quality) can cause the ESP32 to crash or return no image!
+> Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
 
-![Camera Settings](/src/assets/esp32/config.png)
+   <details>
+      <summary><b>Camera Settings</b></summary>
+      <div align="center"><img alt="Camera Settings" src="/src/assets/esp32/config.png"></div>
+   </details>
 
-9. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
+10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
 
 > [!TIP]
-> If the error screen says it's unable to make a connection, try rebooting the device first (you can do so manually by pressing the 'Reset' button). The device will wait 30 seconds for a connection (configurable).
+> If the error screen says it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (configurable).
 >
-> Connect to the SSID, go to the device's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
-<!-- Img of reset button on ESP32 -->
+> Connect to the SSID, go to the ESP32's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
 
-![Disconnect](/src/assets/esp32/disconnect.png)
+<img alt="Disconnect" height="350" src="/src/assets/esp32/disconnect.png">
 
-10. Go back to PlatformIO's VSCode extension and click 'Monitor', then search for the ESP32's IP address
+11. Go back to PlatformIO's VSCode extension and click 'Monitor', then search for the ESP32's IP address
 
 > [!TIP]
 > To quickly find the IP address:
-> - PC: Press `Ctrl` + `F`
-> - Mac: Press `⌘` + `F`
+> - PC
+>   ```
+>   Ctrl + F
+>   ```
+> - Mac
+>   ```
+>   ⌘ + F
+>   ```
 >
 > Then type 'IP Address:' in the search bar and press 'Enter'.
 
 <img alt="IP Address" src="/src/assets/esp32/esp32_ip.png">
 
-11. You can now configure and stream from the ESP32 via HTTP
+12. You can now stream from the ESP32
+   - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
+   - HTTP Image: `http://<ESP32 IP address>/snapshot`
+   - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
 
 > [!WARNING]
 > Anyone with network access to the device can see the streams and images!
 
-![Home Page](/src/assets/esp32/index.png)
+   <details>
+      <summary><b>Home Page</b></summary>
+      <div align="center"><img alt="Home Page" src="/src/assets/esp32/index.png"></div>
+   </details>
 
-12. Open [`esp32.py`](/src/detection/esp32.py) once finished
-13. Set [`URL`](/src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
-14. Run [`esp32.py`](/src/detection/esp32.py)
+13. Open [`esp32.py`](/src/detection/esp32.py) once finished
+14. Set [`URL`](/src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
+15. Run [`esp32.py`](/src/detection/esp32.py)
    * POSIX
-      ```
+      ```sh
       $(which python) src/detection/esp32.py
       ```
    * Windows
-      ```
+      ```sh
       $(where python) src\detection\esp32.py
       ```
-15. Press `q` to exit the program
 
 > [!TIP]
 > See [this module's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details on streaming.
@@ -105,11 +123,11 @@
 2. Set [`CAMERA_TYPE`](/src/detection/other.py#L3) to `0`
 3. Run [`other.py`](/src/detection/other.py)
    * POSIX
-      ```
+      ```sh
       $(which python) src/detection/other.py
       ```
    * Windows
-      ```
+      ```sh
       $(where python) src\detection\other.py
       ```
 
@@ -118,11 +136,11 @@
 2. Set [`CAMERA_TYPE`](/src/detection/other.py#L3) to `1`
 3. Run [`other.py`](/src/detection/other.py)
    * POSIX
-      ```
+      ```sh
       $(which python) src/detection/other.py
       ```
    * Windows
-      ```
+      ```sh
       $(where python) src\detection\other.py
       ```
 4. If successfully connected, your iPhone's screen should look like this:

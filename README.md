@@ -159,19 +159,15 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── open_streaming.png
 │   │   │   └── platformio_folder.png
 │   │   ├── iphone/
-│   │   │   ├── flowchart.png            
+│   │   │   ├── flowchart.png
 │   │   │   ├── iphone_ui_connect.png
 │   │   │   └── iphone_ui_disconnect.png
 │   │   ├── models/
 │   │   │   ├── custom_yolov8x/
-│   │   │   │   ├── closterium-microcystis.png
 │   │   │   │   ├── confusion_matrix_normalized.png
 │   │   │   │   ├── confusion_matrix.png
 │   │   │   │   ├── example.jpg
 │   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── labels_correlogram.jpg
-│   │   │   │   ├── labels.jpg
-│   │   │   │   ├── oscillatoria-nitzschia.png
 │   │   │   │   ├── P_curve.png
 │   │   │   │   ├── PR_curve.png
 │   │   │   │   ├── R_curve.png
@@ -182,20 +178,16 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   │   ├── confusion_matrix.png
 │   │   │   │   ├── example.jpg
 │   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── labels_correlogram.jpg
-│   │   │   │   ├── labels.jpg
 │   │   │   │   ├── P_curve.png
 │   │   │   │   ├── PR_curve.png
 │   │   │   │   ├── R_curve.png
 │   │   │   │   ├── results.png
 │   │   │   │   └── validation.png
 │   │   │   └── sahi_yolov8n/
-│   │   │       ├── closterium-microcystis.png
 │   │   │       ├── confusion_matrix_normalized.png
 │   │   │       ├── confusion_matrix.png
 │   │   │       ├── example.jpg
 │   │   │       ├── F1_curve.png
-│   │   │       ├── oscillatoria-nitzschia.png
 │   │   │       ├── P_curve.png
 │   │   │       ├── PR_curve.png
 │   │   │       ├── R_curve.png
@@ -209,7 +201,22 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   └── streaming/
 │       ├── boards/
 │       │   ├── esp32cam_ai_thinker.json
-│       │   └── esp32cam_espressif_esp32s3_eye.json
+│       │   ├── esp32cam_espressif_esp_eye.json
+│       │   ├── esp32cam_espressif_esp32s2_cam_board.json
+│       │   ├── esp32cam_espressif_esp32s2_cam_header.json
+│       │   ├── esp32cam_espressif_esp32s3_cam_lcd.json
+│       │   ├── esp32cam_espressif_esp32s3_eye.json
+│       │   ├── esp32cam_freenove_s3_wroom_n8r8.json
+│       │   ├── esp32cam_freenove_wrover_kit.json
+│       │   ├── esp32cam_m5stack_camera_psram.json
+│       │   ├── esp32cam_m5stack_camera.json
+│       │   ├── esp32cam_m5stack_esp32cam.json
+│       │   ├── esp32cam_m5stack_unitcam.json
+│       │   ├── esp32cam_m5stack_unitcams3.json
+│       │   ├── esp32cam_m5stack_wide.json
+│       │   ├── esp32cam_seeed_xiao_esp32s3_sense.json
+│       │   ├── esp32cam_ttgo_t_camera.json
+│       │   └── esp32cam_ttgo_t_journal.json
 │       ├── html/
 │       │   ├── index.html
 │       │   └── index.min.html
@@ -246,7 +253,28 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 </details>
 
 ## Requirements
-- [x] ESP32-CAM AI Thinker
+- <details>
+   <summary>ESP32-CAM (or similar)</summary>
+      <ul>
+         <li>AI Thinker</li>
+         <li>Espressif ESP-EYE</li>
+         <li>Espressif ESP32S2-CAM</li>
+         <li>Espressif ESP32S3-CAM-LCD</li>
+         <li>Espressif ESP32S3-EYE</li>
+         <li>Freenove ESP32-WROVER</li>
+         <li>M5Stack</li>
+         <li>M5Stack ESP32CAM</li>
+         <li>M5Stack PSRAM</li>
+         <li>M5Stack Unit Cam</li>
+         <li>M5Stack Unit CamS3</li>
+         <li>M5Stack PSRAM</li>
+         <li>M5Stack PSRAM 2.0</li>
+         <li>M5Stack WIDE</li>
+         <li>Seeed Studio XIAO ESP32S3 Sense</li>
+         <li>TTGO T-Camera</li>
+         <li>TTGO T-Journal</li>
+      </ul>
+   </details>
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] Micro-USB cable
 - [x] [Algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
@@ -350,7 +378,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`base.py`](src/detection/base.py)
-4. Set [`MODEL_PATH`](src/detection/base.py#L20) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](src/detection/base.py#L21) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [Webcam](#webcam)
@@ -375,7 +403,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <img alt="`ESP32CAM-RTSP` network" height="250" src="src/assets/esp32/choose_ap.png">
 6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
 
-> [!TIP]
+> [!NOTE]
 > The home page provides information about the device's state, diagnostics, WiFi connection, and camera settings.
 
 <img alt="Window popup" height="350" src="src/assets/esp32/ap_popup.png">
@@ -393,7 +421,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 8. Update the streaming server settings and configure camera options (you can always change them later; always remember to reset the device so the settings take effect), then scroll down and click 'Apply'
 
 > [!WARNING]
-> Very low number for 'JPG quality' (i.e., very high quality) can cause the ESP32 to crash or return no image!
+> Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
 
    <details>
       <summary><b>Camera Settings</b></summary>
@@ -406,7 +434,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > If the error screen says it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (configurable).
 >
 > Connect to the SSID, go to the ESP32's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
-<!-- Img of reset button on ESP32 -->
 
 <img alt="Disconnect" height="350" src="src/assets/esp32/disconnect.png">
 
@@ -414,8 +441,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 > [!TIP]
 > To quickly find the IP address:
-> - PC: Press `Ctrl` + `F`
-> - Mac: Press `⌘` + `F`
+> - PC
+>   ```
+>   Ctrl + F
+>   ```
+> - Mac
+>   ```
+>   ⌘ + F
+>   ```
 >
 > Then type 'IP Address:' in the search bar and press 'Enter'.
 
@@ -438,11 +471,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 14. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
 15. Run [`esp32.py`](src/detection/esp32.py)
    * POSIX
-      ```
+      ```sh
       $(which python) src/detection/esp32.py
       ```
    * Windows
-      ```
+      ```sh
       $(where python) src\detection\esp32.py
       ```
 
@@ -457,11 +490,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `0`
 3. Run [`other.py`](src/detection/other.py)
    * POSIX
-      ```
+      ```sh
       $(which python) src/detection/other.py
       ```
    * Windows
-      ```
+      ```sh
       $(where python) src\detection\other.py
       ```
 
@@ -470,18 +503,17 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Set [`CAMERA_TYPE`](src/detection/other.py#L3) to `1`
 3. Run [`other.py`](src/detection/other.py)
    * POSIX
-      ```
+      ```sh
       $(which python) src/detection/other.py
       ```
    * Windows
-      ```
+      ```sh
       $(where python) src\detection\other.py
       ```
 4. If successfully connected, your iPhone's screen should look like this:<br>
    <img alt="iPhone connected" height="350" src="src/assets/iphone/iphone_ui_connect.png">
 5. Press `q` on your computer or 'Disconnect' on your iPhone to exit the program<br>
    <img alt="iPhone disconnected" height="350" src="src/assets/iphone/iphone_ui_disconnect.png">
-
 
 ### Training, Validating, and Testing Model
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
