@@ -63,11 +63,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <summary><b>System Design</b></summary>
       <div align="center">
          <figure>
-            <picture><img alt="ESP32 system design" src="src/assets/esp32/flowchart.png"></picture>
+            <picture><img alt="ESP32 system design" src="src/assets/esp32/flowchart.png"></picture><br>
             <figcaption>ESP32</figcaption>
-         </figure>
+         </figure><br><br>
          <figure>
-            <picture><img alt="iPhone system design" src="src/assets/iphone/flowchart.png"></picture>
+            <picture><img alt="iPhone system design" src="src/assets/iphone/flowchart.png"></picture><br>
             <figcaption>iPhone</figcaption>
          </figure>
       </div>
@@ -253,7 +253,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 </details>
 
 ## Requirements
-- <details>
+<details>
    <summary>ESP32-CAM (or similar)</summary>
       <ul>
          <li>AI Thinker</li>
@@ -274,7 +274,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <li>TTGO T-Camera</li>
          <li>TTGO T-Journal</li>
       </ul>
-   </details>
+</details>
+
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] Micro-USB cable
 - [x] [Algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
