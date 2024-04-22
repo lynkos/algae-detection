@@ -13,6 +13,7 @@ CONFIDENCE: float = 0.25
 IOU: float = 0.5
 STRIDES: int = 5
 MAX_DETECTIONS: int = 100
+MAX_DETECTIONS_LIMIT: int = 300
 WIDTH: int = 1280
 HEIGHT: int = 720
 FPS: float = 30.0
@@ -30,6 +31,7 @@ class Camera:
                  confidence: float = CONFIDENCE,
                  iou: float = IOU,
                  max_detections: int = MAX_DETECTIONS,
+                 max_detections_limit: int = MAX_DETECTIONS_LIMIT,
                  video_strides: int = STRIDES,
                  width: int = WIDTH,
                  height: int = HEIGHT,
@@ -45,6 +47,7 @@ class Camera:
             confidence (float, optional): Detection model's minimum confidence threshold. Defaults to `CONFIDENCE`.
             iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes, useful for reducing duplicates. Defaults to `IOU`.
             max_detections (int, optional): Maximum number of detections allowed per image. Limits the total number of objects the model can detect in a single inference, preventing excessive outputs in dense scenes. Defaults to `MAX_DETECTIONS`.
+            max_detections_limit (int, optional): Upper limit for maximum detections. Defaults to `MAX_DETECTIONS`.
             video_strides (int, optional): Allows skipping frames in videos to speed up processing at the cost of temporal resolution. Value of `1` processes every frame, higher values skip frames. Defaults to `STRIDES`.
             width (int, optional): Camera width. Defaults to `WIDTH`.
             height (int, optional): Camera height. Defaults to `HEIGHT`.
@@ -57,6 +60,7 @@ class Camera:
         self.device: device | str = device_type
         self.iou: float = iou
         self.max_detections: int = max_detections
+        self.max_detections_limit: int = max_detections_limit
         self.strides: int = video_strides
         self.width: int = width
         self.height: int = height
@@ -128,7 +132,7 @@ class Camera:
         # Create trackbars for confidence, IOU, and maximum detections
         createTrackbar("Confidence", self.title, int(self.confidence * 100), 100, self._changeConfidence)
         createTrackbar("IoU", self.title, int(self.iou * 100), 100, self._changeIOU)
-        createTrackbar("Max Detects", self.title, self.max_detections, 300, self._changeMaxDetections)
+        createTrackbar("Max Detects", self.title, self.max_detections, self.max_detections_limit, self._changeMaxDetections)
 
         # Ensure confidence and IOU are at least 1 to prevent program from hanging/freezing
         setTrackbarMin("Confidence", self.title, 1)
