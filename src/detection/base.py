@@ -92,18 +92,18 @@ class Camera:
                 # Show camera feed
                 self._showWindow(results)
 
-            # End program when "q" is pressed
+            # End program when "Escape" is pressed
             self._quit()
                 
     def _quit(self) -> None:
         """
-        When "q" is pressed:
+        When "Escape" is pressed:
         
         1. Close camera
         2. Close window
         3. Exit program
         """
-        if waitKey(1) & 0xFF == ord("q"):
+        if waitKey(1) & 0xFF == 27:
             self.camera.release()
             destroyAllWindows() 
             exit(0)
