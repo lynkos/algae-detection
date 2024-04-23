@@ -24,9 +24,11 @@
 
 ### ESP32
 > [!IMPORTANT]
-> Current implementation of ESP32-CAM requires WiFi!
+> Current implementation **requires** WiFi!
 >
-> Unfortunately, WiFi connections from hotspots or SSOs are not compatible.
+> This is because the ESP32-CAM livestreams to an [MJPEG server](https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming) over HTTP, which is how [`esp32.py`](/src/detection/esp32.py) gets the camera input.
+>
+> Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
    <img alt="Open PlatformIO project" height="350" src="/src/assets/esp32/platformio_folder.png">
@@ -53,7 +55,7 @@
 
 <img alt="System config" height="350" src="/src/assets/esp32/init_config.png">
 
-8. Update the streaming server settings and configure camera options (you can always change them later)
+8. Update the server settings and configure camera options (you can always change them later)
 
 > [!WARNING]
 > Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
@@ -66,14 +68,16 @@
 9. Scroll down and click 'Apply' to save settings
 
 > [!IMPORTANT]
-> You must reset the device in order for the settings to take effect.
+> You must reset the ESP32 everytime you change the settings for it to take effect.
 
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
 
 > [!NOTE]
-> If the error screen says it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (configurable).
+> If there's an error screen saying it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
 >
-> Connect to the SSID, go to the ESP32's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
+> Connect to the SSID, go to the ESP32's IP address and enter your credentials:
+> - Username: `admin`
+> - Password: AP password from Step #7
 
 <img alt="Disconnect" height="350" src="/src/assets/esp32/disconnect.png">
 

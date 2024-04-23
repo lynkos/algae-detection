@@ -360,7 +360,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-> [!WARNING]
+> [!IMPORTANT]
 > Due to the [large] size of the repo, you may get errors such as:
 > 
 > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
@@ -415,9 +415,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 #### ESP32
 > [!IMPORTANT]
-> Current implementation of ESP32-CAM requires WiFi!
+> Current implementation **requires** WiFi!
 >
-> Unfortunately, WiFi connections from hotspots or SSOs are not compatible.
+> This is because the ESP32-CAM livestreams to an [MJPEG server](https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming) over HTTP, which is how [`esp32.py`](src/detection/esp32.py) gets the camera input.
+>
+> Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
    <img alt="Open PlatformIO project" height="350" src="src/assets/esp32/platformio_folder.png">
@@ -444,7 +446,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <img alt="System config" height="350" src="src/assets/esp32/init_config.png">
 
-8. Update the streaming server settings and configure camera options (you can always change them later)
+8. Update the settings and configure camera options (you can always change them later)
 
 > [!WARNING]
 > Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
@@ -457,14 +459,16 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 9. Scroll down and click 'Apply' to save settings
 
 > [!IMPORTANT]
-> You must reset the device in order for the settings to take effect.
+> You must reset the ESP32 everytime you change the settings for it to take effect.
 
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
 
 > [!NOTE]
-> If the error screen says it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (configurable).
+> If there's an error screen saying it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
 >
-> Connect to the SSID, go to the ESP32's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
+> Connect to the SSID, go to the ESP32's IP address and enter your credentials:
+> - Username: `admin`
+> - Password: AP password from Step #7
 
 <img alt="Disconnect" height="350" src="src/assets/esp32/disconnect.png">
 
@@ -554,7 +558,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
    - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
    - [Dr. Schonna R. Manning](https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html) may help with categorizing any algae in new images
-- [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
+- [ ] Connect to ESP32 without a server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
 - [ ] Heatsink for ESP32 to prevent overheating
 - [ ] Use DC-GAN to generate additional synthetic images for training
 - [ ] Try different models, such as [RetinaNet](https://paperswithcode.com/method/retinanet) and [YOLOv9](https://docs.ultralytics.com/models/yolov9)

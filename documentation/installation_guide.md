@@ -83,7 +83,7 @@
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-> [!WARNING]
+> [!IMPORTANT]
 > Due to the [large] size of the repo, you may get errors such as:
 > 
 > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
