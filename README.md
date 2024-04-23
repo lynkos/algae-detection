@@ -60,15 +60,27 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 </details>
 
 <details>
-   <summary><b>System Design</b></summary>
+   <summary><b>Diagrams</b></summary>
       <div align="center">
          <figure>
             <picture><img alt="ESP32 system design" src="src/assets/esp32/flowchart.png"></picture><br>
-            <figcaption>ESP32</figcaption>
+            <figcaption>ESP32 System Design</figcaption>
          </figure><br><br>
          <figure>
             <picture><img alt="iPhone system design" src="src/assets/iphone/flowchart.png"></picture><br>
-            <figcaption>iPhone</figcaption>
+            <figcaption>iPhone System Design</figcaption>
+         </figure><br><br>
+         <figure>
+            <picture><img alt="YOLOv8 architecture" src="src/assets/models/yolov8_architecture.jpg"></picture><br>
+            <figcaption><a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html">YOLOv8 Architecture</a></figcaption>
+         </figure><br><br>
+         <figure>
+            <picture><img alt="Slicing Aided Fine Tuning (SAFT) framework" src="src/assets/models/saft_framework.png"></picture><br>
+            <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Fine Tuning (SAFT) Framework</a></figcaption>
+         </figure><br><br>
+         <figure>
+            <picture><img alt="Slicing Aided Hyper Inference (SAHI) framework" src="src/assets/models/sahi_framework.png"></picture><br>
+            <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Hyper Inference (SAHI) Framework</a></figcaption>
          </figure>
       </div>
 </details>
