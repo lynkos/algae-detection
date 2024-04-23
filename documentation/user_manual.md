@@ -1,5 +1,10 @@
 # User Manual
 ## Detect and Classify Algae
+<details open>
+   <summary><b>User Interface</b></summary>
+   <img align="center" alt="User Interface" src="/src/assets/user_interface.png">
+</details>
+
 1. Open [`weights`](/weights)
 2. Choose the algae detection model you want to use
 

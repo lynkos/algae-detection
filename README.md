@@ -65,7 +65,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <figure>
             <picture><img alt="ESP32 system design" src="src/assets/esp32/flowchart.png"></picture><br>
             <figcaption>ESP32</figcaption>
-         </figure><br><br>
+         </figure><br>
          <figure>
             <picture><img alt="iPhone system design" src="src/assets/iphone/flowchart.png"></picture><br>
             <figcaption>iPhone</figcaption>
@@ -255,7 +255,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 ## Requirements
 <details>
-   <summary>ESP32-CAM (or similar)</summary>
+   <summary><b>ESP32-CAM (or similar)</b></summary>
       <ul>
          <li>AI Thinker</li>
          <li>Espressif ESP-EYE</li>
@@ -369,6 +369,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 ## Usage
 ### Detect and Classify Algae
+<details open>
+   <summary><b>User Interface</b></summary>
+   <img align="center" alt="User Interface" src="src/assets/user_interface.png">
+</details>
+
 1. Open [`weights`](weights)
 2. Choose the algae detection model you want to use
 

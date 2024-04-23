@@ -1,7 +1,7 @@
 # Installation Guide
 ## Requirements
 - <details>
-   <summary>ESP32-CAM (or similar)</summary>
+   <summary><b>ESP32-CAM (or similar)</b></summary>
       <ul>
          <li>AI Thinker</li>
          <li>Espressif ESP-EYE</li>
