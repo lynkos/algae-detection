@@ -176,7 +176,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── custom_yolov8x_v2/
 │   │   │   │   ├── confusion_matrix_normalized.png
 │   │   │   │   ├── confusion_matrix.png
-│   │   │   │   ├── example.jpg
+│   │   │   │   ├── example.png
 │   │   │   │   ├── F1_curve.png
 │   │   │   │   ├── P_curve.png
 │   │   │   │   ├── PR_curve.png
