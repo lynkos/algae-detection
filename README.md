@@ -65,7 +65,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <figure>
             <picture><img alt="ESP32 system design" src="src/assets/esp32/flowchart.png"></picture><br>
             <figcaption>ESP32</figcaption>
-         </figure><br>
+         </figure><br><br>
          <figure>
             <picture><img alt="iPhone system design" src="src/assets/iphone/flowchart.png"></picture><br>
             <figcaption>iPhone</figcaption>
