@@ -1,4 +1,5 @@
 from base import Camera
 
-Camera(1, "iPhone", width = 320, height = 320).run()
-"""Start algae detection program"""
+if __name__ == "__main__":
+    # Start algae detection program
+    Camera(1, "iPhone", width = 320, height = 320).run()
