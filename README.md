@@ -195,16 +195,19 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   │   ├── R_curve.png
 │   │   │   │   ├── results.png
 │   │   │   │   └── validation.png
-│   │   │   └── sahi_yolov8n/
-│   │   │       ├── confusion_matrix_normalized.png
-│   │   │       ├── confusion_matrix.png
-│   │   │       ├── example.jpg
-│   │   │       ├── F1_curve.png
-│   │   │       ├── P_curve.png
-│   │   │       ├── PR_curve.png
-│   │   │       ├── R_curve.png
-│   │   │       ├── results.png
-│   │   │       └── validation.png
+│   │   │   ├── sahi_yolov8n/
+│   │   │   │   ├── confusion_matrix_normalized.png
+│   │   │   │   ├── confusion_matrix.png
+│   │   │   │   ├── example.jpg
+│   │   │   │   ├── F1_curve.png
+│   │   │   │   ├── P_curve.png
+│   │   │   │   ├── PR_curve.png
+│   │   │   │   ├── R_curve.png
+│   │   │   │   ├── results.png
+│   │   │   │   └── validation.png
+│   │   │   ├── saft_framework.png
+│   │   │   ├── sahi_framework.png
+│   │   │   └── yolov8_architecture.jpg
 │   │   ├── microscope.jpg
 │   │   └── user_interface.png
 │   ├── detection/
