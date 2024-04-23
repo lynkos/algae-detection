@@ -193,7 +193,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │       ├── R_curve.png
 │   │   │       ├── results.png
 │   │   │       └── validation.png
-│   │   └── microscope.jpg
+│   │   ├── microscope.jpg
+│   │   └── user_interface.png
 │   ├── detection/
 │   │   ├── base.py
 │   │   ├── esp32.py
