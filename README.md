@@ -414,7 +414,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    * [Webcam](#webcam)
 
 #### ESP32
-> [!WARNING]
+> [!IMPORTANT]
 > Current implementation of ESP32-CAM requires WiFi!
 >
 > Unfortunately, WiFi connections from hotspots or SSOs are not compatible.
@@ -432,9 +432,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <img alt="`ESP32CAM-RTSP` network" height="250" src="src/assets/esp32/choose_ap.png">
 6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
 
-> [!NOTE]
-> The home page provides information about the device's state, diagnostics, WiFi connection, and camera settings.
-
 <img alt="Window popup" height="350" src="src/assets/esp32/ap_popup.png">
 
 7. You **must** fill in all of the following fields:
@@ -442,12 +439,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - WiFi SSID
    - WiFi password (if applicable)
 
-> [!TIP]
+> [!NOTE]
 > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
 <img alt="System config" height="350" src="src/assets/esp32/init_config.png">
 
-8. Update the streaming server settings and configure camera options (you can always change them later; always remember to reset the device so the settings take effect), then scroll down and click 'Apply'
+8. Update the streaming server settings and configure camera options (you can always change them later)
 
 > [!WARNING]
 > Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
@@ -457,9 +454,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       <div align="center"><img alt="Camera Settings" src="src/assets/esp32/config.png"></div>
    </details>
 
+9. Scroll down and click 'Apply' to save settings
+
+> [!IMPORTANT]
+> You must reset the device in order for the settings to take effect.
+
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
 
-> [!TIP]
+> [!NOTE]
 > If the error screen says it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (configurable).
 >
 > Connect to the SSID, go to the ESP32's IP address and, anytime you're prompted for credentials, enter `admin` as the username and the AP password for the password.
@@ -479,7 +481,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 >   ⌘ + F
 >   ```
 >
-> Then type 'IP Address:' in the search bar and press 'Enter'.
+> Then type 'IP Address' in the search bar and press 'Enter'.
 
 <img alt="IP Address" src="src/assets/esp32/esp32_ip.png">
 
@@ -488,7 +490,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - HTTP Image: `http://<ESP32 IP address>/snapshot`
    - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
 
-> [!WARNING]
+> [!CAUTION]
 > Anyone with network access to the device can see the streams and images!
 
    <details>
@@ -508,8 +510,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       $(where python) src\detection\esp32.py
       ```
 
-> [!TIP]
-> See [this module's `README.md`](https://github.com/rzeldent/esp32cam-rtsp) for further details on streaming.
+> [!NOTE]
+> See [this module's](https://github.com/rzeldent/esp32cam-rtsp) [`README.md`](https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md) for further details on streaming.
 >
 > To update to latest version, commit and push changes, then run the following command in the terminal:
 > <pre>git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash</pre>
@@ -552,17 +554,23 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
    - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
    - [Dr. Schonna R. Manning](https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html) may help with categorizing any algae in new images
-   - Further reading: [1](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom), [2](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin), [3](https://pubs.usgs.gov/publication/ofr20171054), [4](https://www.mdpi.com/2073-4441/14/14/2219), and/or research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
 - [ ] Connect to ESP32 without a web server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
 - [ ] Heatsink for ESP32 to prevent overheating
 - [ ] Use DC-GAN to generate additional synthetic images for training
 - [ ] Try different models, such as [RetinaNet](https://paperswithcode.com/method/retinanet) and [YOLOv9](https://docs.ultralytics.com/models/yolov9)
 - [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
-- [ ] Add Android compatability (assuming it isn't)
+- [ ] Add Android compatability (if applicable and/or necessary)
+
+## Further Reading
+- [USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom)
+- [Cyanobacteria (Blue-Green Algae)](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin)
+- [Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom](https://pubs.usgs.gov/publication/ofr20171054)
+- [Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images](https://www.mdpi.com/2073-4441/14/14/2219)
+- Research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
 
 ## Credits
 Special thanks to:
 - [Dr. Antao Chen](https://ieeexplore.ieee.org/author/37291140300) (product owner) for his mentorship
 - [rdgbrian](https://github.com/rdgbrian) (team lead during Fall 2023) for his assistance
-- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop), which has been modified and used in [`streaming`](src/streaming)
+- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop), which has been slightly modified and added as a git subtree in [`streaming`](src/streaming)
