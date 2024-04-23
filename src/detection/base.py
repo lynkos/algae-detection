@@ -92,6 +92,22 @@ class Camera:
                 # Show camera feed
                 self._showWindow(results)
 
+            # End program when "q" is pressed
+            self._quit()
+                
+    def _quit(self) -> None:
+        """
+        When "q" is pressed:
+        
+        1. Close camera
+        2. Close window
+        3. Exit program
+        """
+        if waitKey(1) & 0xFF == ord("q"):
+            self.camera.release()
+            destroyAllWindows() 
+            exit(0)
+            
     def _changeConfidence(self, new_conf: int) -> None:
         """
         Callback function for confidence trackbar.
@@ -146,13 +162,3 @@ class Camera:
             
             # Annotate the frame with its result, then show in window
             imshow(self.title, result.plot())
-
-            # Exit loop if "q" is pressed
-            if waitKey(1) & 0xFF == ord("q"):
-                # Release webcam, if applicable
-                self.camera.release()
-
-                # Close OpenCV windows
-                destroyAllWindows()
-                
-                exit(0)
