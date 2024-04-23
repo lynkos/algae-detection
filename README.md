@@ -107,7 +107,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
          <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x_v2/results.png"></td>
          <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x_v2/validation.png"></td>
-         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.jpg"></td>
+         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.png"></td>
       </tr>
       <tr>
          <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
