@@ -63,23 +63,27 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <summary><b>Diagrams</b></summary>
       <div align="center">
          <figure>
-            <picture><img alt="ESP32 system design" src="src/assets/esp32/flowchart.png"></picture><br>
-            <figcaption>ESP32 System Design</figcaption>
+            <picture><img alt="ESP32-CAM system design" src="src/assets/diagrams/esp32_sys_des.png"></picture><br>
+            <figcaption>System Design (ESP32-CAM)</figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="iPhone system design" src="src/assets/iphone/flowchart.png"></picture><br>
-            <figcaption>iPhone System Design</figcaption>
+            <picture><img alt="iPhone system design" src="src/assets/diagrams/iphone_sys_des.png"></picture><br>
+            <figcaption>System Design (iPhone)</figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="YOLOv8 architecture" src="src/assets/models/yolov8_architecture.jpg"></picture><br>
+            <picture><img alt="Dataset flowchart" src="src/assets/diagrams/dataset_flowchart.png"></picture><br>
+            <figcaption>Dataset Flowchart</figcaption>
+         </figure><br><br>
+         <figure>
+            <picture><img alt="YOLOv8 architecture" src="src/assets/diagrams/yolov8_architecture.jpg"></picture><br>
             <figcaption><a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html">YOLOv8 Architecture</a></figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="Slicing Aided Fine Tuning (SAFT) framework" src="src/assets/models/saft_framework.png"></picture><br>
+            <picture><img alt="Slicing Aided Fine Tuning (SAFT) framework" src="src/assets/diagrams/saft_framework.png"></picture><br>
             <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Fine Tuning (SAFT) Framework</a></figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="Slicing Aided Hyper Inference (SAHI) framework" src="src/assets/models/sahi_framework.png"></picture><br>
+            <picture><img alt="Slicing Aided Hyper Inference (SAHI) framework" src="src/assets/diagrams/sahi_framework.png"></picture><br>
             <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Hyper Inference (SAHI) Framework</a></figcaption>
          </figure>
       </div>
@@ -157,6 +161,13 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── nitzschia.jpg
 │   │   │   ├── non-algae.jpg
 │   │   │   └── oscillatoria.jpg
+│   │   ├── diagrams/
+│   │   │   ├── dataset_flowchart.png
+│   │   │   ├── esp32_sys_des.png
+│   │   │   ├── iphone_sys_des.png
+│   │   │   ├── saft_framework.png
+│   │   │   ├── sahi_framework.png
+│   │   │   └── yolov8_architecture.jpg
 │   │   ├── esp32/
 │   │   │   ├── ai_thinker.jpg
 │   │   │   ├── ap_popup.png
@@ -165,13 +176,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── config.png
 │   │   │   ├── disconnect.png
 │   │   │   ├── esp32_ip.png
-│   │   │   ├── flowchart.png
 │   │   │   ├── index.png
 │   │   │   ├── init_config.png
 │   │   │   ├── open_streaming.png
 │   │   │   └── platformio_folder.png
 │   │   ├── iphone/
-│   │   │   ├── flowchart.png
 │   │   │   ├── iphone_ui_connect.png
 │   │   │   └── iphone_ui_disconnect.png
 │   │   ├── models/
@@ -188,16 +197,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── custom_yolov8x_v2/
 │   │   │   │   ├── confusion_matrix_normalized.png
 │   │   │   │   ├── confusion_matrix.png
-│   │   │   │   ├── example.png
-│   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── P_curve.png
-│   │   │   │   ├── PR_curve.png
-│   │   │   │   ├── R_curve.png
-│   │   │   │   ├── results.png
-│   │   │   │   └── validation.png
-│   │   │   ├── sahi_yolov8n/
-│   │   │   │   ├── confusion_matrix_normalized.png
-│   │   │   │   ├── confusion_matrix.png
 │   │   │   │   ├── example.jpg
 │   │   │   │   ├── F1_curve.png
 │   │   │   │   ├── P_curve.png
@@ -205,9 +204,16 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   │   ├── R_curve.png
 │   │   │   │   ├── results.png
 │   │   │   │   └── validation.png
-│   │   │   ├── saft_framework.png
-│   │   │   ├── sahi_framework.png
-│   │   │   └── yolov8_architecture.jpg
+│   │   │   └── sahi_yolov8n/
+│   │   │       ├── confusion_matrix_normalized.png
+│   │   │       ├── confusion_matrix.png
+│   │   │       ├── example.jpg
+│   │   │       ├── F1_curve.png
+│   │   │       ├── P_curve.png
+│   │   │       ├── PR_curve.png
+│   │   │       ├── R_curve.png
+│   │   │       ├── results.png
+│   │   │       └── validation.png
 │   │   ├── microscope.jpg
 │   │   └── user_interface.png
 │   ├── detection/
