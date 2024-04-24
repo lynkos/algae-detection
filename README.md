@@ -461,12 +461,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 9. Scroll down and click 'Apply' to save settings
 
 > [!IMPORTANT]
-> You must reset the ESP32 everytime you change the settings for it to take effect.
+> You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
 
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
 
 > [!NOTE]
-> If there's an error screen saying it's unable to make a connection, try rebooting the ESP32 first (you can do so manually by pressing the 'Reset' button). It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
+> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
 >
 > Connect to the SSID, go to the ESP32's IP address and enter your credentials:
 > - Username: `admin`
