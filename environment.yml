@@ -5,7 +5,7 @@ dependencies:
   - python=3.11.5
   - pip>=23.3.1
   - pip:
-    - ultralytics==8.2.2
+    - ultralytics==8.1.47
     - roboflow==1.1.27
     - torch==2.2.2
     - opencv-contrib-python-headless==4.9.0.80
