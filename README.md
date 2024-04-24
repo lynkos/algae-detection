@@ -533,7 +533,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 3. If successfully connected, your iPhone's screen should look like this:<br>
    <img alt="iPhone connected" height="350" src="src/assets/iphone/iphone_ui_connect.png">
-4. Press `q` on your computer or 'Disconnect' on your iPhone to exit the program<br>
+4. Press 'Escape' on your computer or 'Disconnect' on your iPhone to exit the program<br>
    <img alt="iPhone disconnected" height="350" src="src/assets/iphone/iphone_ui_disconnect.png">
 
 #### Webcam
@@ -564,7 +564,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [ ] Try different models, such as [RetinaNet](https://paperswithcode.com/method/retinanet) and [YOLOv9](https://docs.ultralytics.com/models/yolov9)
 - [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
-- [ ] Add Android compatability (if applicable and/or necessary)
+- [ ] Add Android compatibility (if applicable and/or necessary)
 
 ## Further Reading
 - [USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom)

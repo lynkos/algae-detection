@@ -142,7 +142,7 @@
       ```
 3. If successfully connected, your iPhone's screen should look like this:
    ![iPhone connected](/src/assets/iphone/iphone_ui_connect.png)
-4. Press `q` on your computer or 'Disconnect' on your iPhone to exit the program
+4. Press 'Escape' on your computer or 'Disconnect' on your iPhone to exit the program
    ![iPhone disconnected](/src/assets/iphone/iphone_ui_disconnect.png)
 
 ### Webcam
