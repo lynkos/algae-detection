@@ -1,19 +1,22 @@
+from collections import deque
+from multiprocessing.pool import ThreadPool
+from os import curdir
+from os.path import abspath, join
 from torch import device
 from torch.cuda import is_available as is_cuda_available
 from torch.backends.mps import is_available as is_mps_available
 from ultralytics import YOLO
-from os import curdir
-from os.path import abspath, join
-from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin,
-                 destroyAllWindows, getTrackbarPos, createTrackbar, WINDOW_GUI_EXPANDED,
-                 CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS)
+from ultralytics.engine.results import Results
+from cv2.typing import MatLike
+from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin, getNumberOfCPUs,
+                 destroyAllWindows, getTrackbarPos, createTrackbar, setNumThreads,
+                 CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FPS, WINDOW_GUI_EXPANDED)
 
 DEVICE: device = device("mps") if is_mps_available() else device("cuda") if is_cuda_available() else device("cpu")
 CONFIDENCE: float = 0.25
 IOU: float = 0.5
 STRIDES: int = 5
 MAX_DETECTIONS: int = 100
-MAX_DETECTIONS_LIMIT: int = 300
 WIDTH: int = 1280
 HEIGHT: int = 720
 FPS: float = 30.0
@@ -31,27 +34,27 @@ class Camera:
                  confidence: float = CONFIDENCE,
                  iou: float = IOU,
                  max_detections: int = MAX_DETECTIONS,
-                 max_detections_limit: int = MAX_DETECTIONS_LIMIT,
                  video_strides: int = STRIDES,
                  width: int = WIDTH,
                  height: int = HEIGHT,
-                 fps: float = FPS):
+                 fps: float = FPS,
+                 n_threads: int = getNumberOfCPUs()):
         """
         Base class for camera object detection.
 
         Args:
-            camera_type (str | int): Which camera to use. Set to streaming URL for ESP32-CAM, `0` for Webcam, `1` for iPhone.
+            camera_type (str | int): Camera used for input. Set to streaming server's URL for ESP32-CAM, `0` for Webcam, `1` for iPhone.
             title (str, optional): Window title. Defaults to "Algae Detector".
-            model_path (str, optional): Detection model's path. Defaults to `MODEL_PATH`.
-            device_type (device | str, optional): Device (GPU or CPU) to run detection model on. Defaults to `DEVICE`.
-            confidence (float, optional): Detection model's minimum confidence threshold. Defaults to `CONFIDENCE`.
-            iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes, useful for reducing duplicates. Defaults to `IOU`.
-            max_detections (int, optional): Maximum number of detections allowed per image. Limits the total number of objects the model can detect in a single inference, preventing excessive outputs in dense scenes. Defaults to `MAX_DETECTIONS`.
-            max_detections_limit (int, optional): Upper limit for maximum detections. Defaults to `MAX_DETECTIONS`.
-            video_strides (int, optional): Allows skipping frames in videos to speed up processing at the cost of temporal resolution. Value of `1` processes every frame, higher values skip frames. Defaults to `STRIDES`.
+            model_path (str, optional): Algae detection model's path. Defaults to `MODEL_PATH`.
+            device_type (device | str, optional): Device (GPU or CPU) to run algae detection model on. Defaults to `DEVICE`.
+            confidence (float, optional): Algae detection model's minimum confidence threshold. Defaults to `CONFIDENCE`.
+            iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to `IOU`.
+            max_detections (int, optional): Limits how many algae the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to `MAX_DETECTIONS`.
+            video_strides (int, optional): Allows skipping frames in stream to speed up processing (at the cost of temporal resolution). Value of `1` processes every frame, higher values skip frames. Defaults to `STRIDES`.
             width (int, optional): Camera width. Defaults to `WIDTH`.
             height (int, optional): Camera height. Defaults to `HEIGHT`.
             fps (float, optional): Camera FPS. Defaults to `FPS`.
+            n_threads (int, optional): Number of threads for video processing. Defaults to number of logical CPUs available.
         """
         self.camera: VideoCapture = VideoCapture(camera_type)
         self.title: str = title
@@ -60,44 +63,72 @@ class Camera:
         self.device: device | str = device_type
         self.iou: float = iou
         self.max_detections: int = max_detections
-        self.max_detections_limit: int = max_detections_limit
+        self.max_detections_limit: int = max_detections
         self.strides: int = video_strides
+        
         self.width: int = width
         self.height: int = height
         self.camera.set(CAP_PROP_FRAME_WIDTH, width)
         self.camera.set(CAP_PROP_FRAME_HEIGHT, height)
         self.camera.set(CAP_PROP_FPS, fps)
+        
+        setNumThreads(n_threads)
+        self._pool: ThreadPool = ThreadPool(n_threads)
+        self._n_threads: int = n_threads
+        self._pending: deque = deque()
 
     def run(self) -> None:
         """
-        Run camera object detection.
+        Run algae detection model with multithreaded video processing.
         """
         while self.camera.isOpened():
-            # Fetch camera frame
-            success, frame = self.camera.read()
+            # Process pending tasks
+            while len(self._pending) > 0 and self._pending[0].ready():
+                # Get model's inference result(s)
+                result = self._pending.popleft().get()
 
-            if success:
-                # Run algae detection model on the frame
-                results = self._yolo_model(frame,
-                                           stream = True,
-                                           device = self.device,
-                                           stream_buffer = True,
-                                           vid_stride = self.strides,
-                                           conf = self.confidence,
-                                           iou = self.iou,
-                                           max_det = self.max_detections,
-                                           imgsz = (self.height, self.width),
-                                           agnostic_nms = True)
+                # Show livestream with bounding boxes over detected algae
+                self._showWindow(result)
 
-                # Show camera feed
-                self._showWindow(results)
+            # Start new task if there are less than `self._n_threads` tasks pending
+            if len(self._pending) < self._n_threads:
+                # Fetch camera frame
+                success, frame = self.camera.read()
 
-            # End program when "Escape" is pressed
+                if success:
+                    # Process asynchronously
+                    task = self._pool.apply_async(self._process_frame, (frame,))
+
+                    # Add to deque
+                    self._pending.append(task)
+
+            # Finish when "Escape" is pressed
             self._quit()
-                
+
+    def _process_frame(self, frame: MatLike) -> list[Results]:
+        """
+        Use algae detection model on frame.
+
+        Args:
+            frame (MatLike): Camera frame.
+
+        Returns:
+            list[Results]: Inference results.
+        """
+        return self._yolo_model(frame,
+                                stream = True,
+                                device = self.device,
+                                stream_buffer = True,
+                                vid_stride = self.strides,
+                                conf = self.confidence,
+                                iou = self.iou,
+                                max_det = self.max_detections,
+                                imgsz = (self.height, self.width),
+                                agnostic_nms = True)
+    
     def _quit(self) -> None:
         """
-        When "Escape" is pressed:
+        When 'Escape' is pressed:
         
         1. Close camera
         2. Close window
@@ -135,12 +166,12 @@ class Camera:
         """
         self.max_detections = new_max_det
 
-    def _showWindow(self, results: list) -> None:
+    def _showWindow(self, results: list[Results]) -> None:
         """
         Show livestream with bounding boxes over detected algae.
 
         Args:
-            results (list): Inference results.
+            results (list[Results]): Inference results.
         """
         # Create resizable, named window
         namedWindow(self.title, WINDOW_GUI_EXPANDED)
