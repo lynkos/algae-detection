@@ -171,6 +171,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   ├── esp32/
 │   │   │   ├── ai_thinker.jpg
 │   │   │   ├── ap_popup.png
+│   │   │   ├── board_port.png
 │   │   │   ├── build_upload_monitor.png
 │   │   │   ├── choose_ap.png
 │   │   │   ├── config.png
@@ -425,7 +426,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <img alt="Open PlatformIO project" height="350" src="src/assets/esp32/platformio_folder.png">
 2. Open [`streaming`](src/streaming)<br>
    <img alt="Open `streaming`" height="350" src="src/assets/esp32/open_streaming.png">
-3. Make sure the ESP32 is connected to the computer
+3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window<br>
+   <img alt="Select board and port" src="src/assets/esp32/board_port.png">
 4. Build and upload code to ESP32
    - Click 'Build' to compile code
    - Click 'Upload' to flash code to ESP32<br>
