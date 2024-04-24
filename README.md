@@ -474,7 +474,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <img alt="Disconnect" height="350" src="src/assets/esp32/disconnect.png">
 
-11. Go back to PlatformIO's VSCode extension and click 'Monitor', then search for the ESP32's IP address
+11. Go back to PlatformIO's VSCode extension and click 'Monitor' to determine the ESP32's IP address
 
 > [!TIP]
 > To quickly find the IP address:
@@ -488,8 +488,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 >   ```
 >
 > Then type 'IP Address' in the search bar and press 'Enter'.
-
-<img alt="IP Address" src="src/assets/esp32/esp32_ip.png">
+>
+> <img alt="IP Address" src="src/assets/esp32/esp32_ip.png">
 
 12. You can now stream from the ESP32
    - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
