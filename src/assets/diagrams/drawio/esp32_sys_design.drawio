@@ -1,0 +1,100 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="QmViQ8wkF3xzIBRYMwpg">
+        <mxGraphModel dx="808" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-2" value="Web Server" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="235.5" y="50" width="90" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-5" value="VideoCapture" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="50" width="99" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=none;fontColor=default;strokeColor=#FFFFFF;" parent="1" source="pVXgDYakfk4pP3yBOaT2-2" target="pVXgDYakfk4pP3yBOaT2-5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="371" y="380" as="sourcePoint"/>
+                        <mxPoint x="421" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-7" value="Algae detection model" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="453" y="160" width="93" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;fontColor=default;strokeColor=#FFFFFF;" parent="1" source="pVXgDYakfk4pP3yBOaT2-5" target="pVXgDYakfk4pP3yBOaT2-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="441" y="380" as="sourcePoint"/>
+                        <mxPoint x="491" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-9" value="Image (i.e., frame)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontColor=#FFFFFF;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="127" width="69" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-11" value="Show image in window" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="435.75" y="390" width="127.5" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-12" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;fontColor=default;strokeColor=#FFFFFF;" parent="1" source="pVXgDYakfk4pP3yBOaT2-7" target="pVXgDYakfk4pP3yBOaT2-19" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="499.5" y="230" as="sourcePoint"/>
+                        <mxPoint x="680" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-13" value="Result" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontColor=#FFFFFF;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="505" y="235" width="29" height="11" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-19" value="Algae detected?" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="439.5" y="270" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-20" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;labelBackgroundColor=none;fontColor=default;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;" parent="1" source="pVXgDYakfk4pP3yBOaT2-19" target="pVXgDYakfk4pP3yBOaT2-26" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="211" y="460" as="sourcePoint"/>
+                        <mxPoint x="390" y="340" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;fontColor=default;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FFFFFF;" parent="1" source="pVXgDYakfk4pP3yBOaT2-19" target="pVXgDYakfk4pP3yBOaT2-11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="551" y="310" as="sourcePoint"/>
+                        <mxPoint x="580" y="380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-22" value="NO" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontColor=#FFFFFF;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="502" y="359" width="19" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-23" value="YES" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontColor=#FFFFFF;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="393" y="299" width="30" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-26" value="Get prediction, bounding box coordinates and dimensions, and model's confidence from result" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="240.12" y="260" width="129.75" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-27" value="Draw bounding box and label (i.e., prediction and confidence) on top of each detected algae in image" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="390" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-28" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;fontColor=default;strokeColor=#FFFFFF;" parent="1" source="pVXgDYakfk4pP3yBOaT2-26" target="pVXgDYakfk4pP3yBOaT2-27" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="161.13" y="460" as="sourcePoint"/>
+                        <mxPoint x="211.13" y="410" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="pVXgDYakfk4pP3yBOaT2-31" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;" parent="1" source="pVXgDYakfk4pP3yBOaT2-27" target="pVXgDYakfk4pP3yBOaT2-11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="430" y="370" as="sourcePoint"/>
+                        <mxPoint x="480" y="320" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rBBXNylS4l3Vie9IQd30-2" value="ESP32-CAM" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="50" width="90" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="rBBXNylS4l3Vie9IQd30-3" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#FFFFFF;" parent="1" source="rBBXNylS4l3Vie9IQd30-2" target="pVXgDYakfk4pP3yBOaT2-2" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="230" y="160" as="sourcePoint"/>
+                        <mxPoint x="280" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rBBXNylS4l3Vie9IQd30-4" value="Streaming via HTTP" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fillColor=none;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="121" y="67" width="111" height="12" as="geometry"/>
+                </mxCell>
+                <mxCell id="rBBXNylS4l3Vie9IQd30-9" value="Get stream via HTTP" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fillColor=none;labelBackgroundColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="325.5" y="67" width="120" height="12" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

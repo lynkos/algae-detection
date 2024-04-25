@@ -85,6 +85,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <figure>
             <picture><img alt="Slicing Aided Hyper Inference (SAHI) framework" src="src/assets/diagrams/sahi_framework.png"></picture><br>
             <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Hyper Inference (SAHI) Framework</a></figcaption>
+         </figure><br><br>
+         <figure>
+            <picture><img alt="`streaming` UML" src="src/assets/diagrams/streaming_uml.png"></picture><br>
+            <figcaption><a href="src/streaming"><code>streaming</code></a> UML</figcaption>
+         </figure><br><br>
+         <figure>
+            <picture><img alt="`Camera.py` uml" src="src/assets/diagrams/Camera_uml.png"></picture><br>
+            <figcaption><a href="src/detection/Camera.py"><code>`Camera.py`</code></a> UML</figcaption>
          </figure>
       </div>
 </details>
