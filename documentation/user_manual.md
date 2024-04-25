@@ -125,7 +125,7 @@
       ```
 
 > [!NOTE]
-> See [this module's](https://github.com/rzeldent/esp32cam-rtsp) [`README.md`](https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md) for further details on streaming.
+> See [this module](https://github.com/rzeldent/esp32cam-rtsp)'s [`README.md`](https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md) for further details on streaming.
 >
 > To update to latest version, commit and push changes, then run the following command in the terminal:
 > <pre>git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash</pre>
