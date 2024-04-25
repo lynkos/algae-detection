@@ -218,7 +218,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   ├── microscope.jpg
 │   │   └── user_interface.png
 │   ├── detection/
-│   │   ├── base.py
+│   │   ├── Camera.py
 │   │   ├── esp32.py
 │   │   ├── iphone.py
 │   │   └── webcam.py
@@ -404,8 +404,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
-3. Open [`base.py`](src/detection/base.py)
-4. Set [`MODEL_PATH`](src/detection/base.py#L25) to path of desired `.pt` model
+3. Open [`Camera.py`](src/detection/Camera.py)
+4. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired `.pt` model
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [iPhone](#iphone)

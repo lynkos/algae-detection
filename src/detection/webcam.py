@@ -1,4 +1,4 @@
-from base import Camera
+from Camera import Camera
 
 if __name__ == "__main__":
     # Start algae detection program
