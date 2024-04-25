@@ -259,9 +259,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │       │       └── rtsp_server.h
 │       ├── src/
 │       │   └── main.cpp
-│       ├── generate_html.ps1
-│       ├── generate_html.sh
-│       ├── minify.py
 │       └── platformio.ini
 ├── videos/
 │   └── index.html
