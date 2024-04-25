@@ -474,7 +474,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <img alt="Disconnect" height="350" src="src/assets/esp32/disconnect.png">
 
-11. Go back to PlatformIO's VSCode extension and click 'Monitor' to determine the ESP32's IP address
+11. Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
 
 > [!TIP]
 > To quickly find the IP address:
@@ -550,7 +550,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       $(where python) src\detection\webcam.py
       ```
 
-### Training, Validating, and Testing Model
+### Train, Validate, and Test Model
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 2. Follow the notebook's instructions
 3. Run notebook
