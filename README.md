@@ -88,11 +88,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          </figure><br><br>
          <figure>
             <picture><img alt="`streaming` UML" src="src/assets/diagrams/streaming_uml.png"></picture><br>
-            <figcaption><a href="src/streaming"><code>streaming</code></a> UML</figcaption>
+            <figcaption><code>streaming</code> UML</figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="`Camera.py` uml" src="src/assets/diagrams/Camera_uml.png"></picture><br>
-            <figcaption><a href="src/detection/Camera.py"><code>`Camera.py`</code></a> UML</figcaption>
+            <picture><img alt="`detection` UML" src="src/assets/diagrams/detection_uml.png"></picture><br>
+            <figcaption><code>detection</code> UML</figcaption>
          </figure>
       </div>
 </details>
