@@ -409,11 +409,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Choose the algae detection model you want to use
 
 > [!TIP]
-> To use your own `.pt` model, add it to [`weights`](weights).
+> * To use your own `.pt` model, add it to [`weights`](weights).
 >
-> To use an existing model, decompress the `.zip` file to get the `.pt` model.
-> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
-> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
+> * To use an existing model, decompress the `.zip` file to get the `.pt` model.
+>     * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+>     * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`Camera.py`](src/detection/Camera.py)
 
