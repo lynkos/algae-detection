@@ -171,10 +171,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   └── oscillatoria.jpg
 │   │   ├── diagrams/
 │   │   │   ├── dataset_flowchart.png
+│   │   │   ├── detection_uml.png
 │   │   │   ├── esp32_sys_des.png
 │   │   │   ├── iphone_sys_des.png
 │   │   │   ├── saft_framework.png
 │   │   │   ├── sahi_framework.png
+│   │   │   ├── streaming_uml.png
 │   │   │   └── yolov8_architecture.jpg
 │   │   ├── esp32/
 │   │   │   ├── ai_thinker.jpg
@@ -277,6 +279,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ├── .gitattributes
 ├── .gitignore
 ├── environment.yml
+├── LICENSE.md
 └── README.md
 </pre>
 </details>
