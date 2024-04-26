@@ -373,17 +373,17 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 >
 > If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
 
-1. Create conda virtual environment from [`environment.yml`](environment.yml)
+5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
    conda env create -f environment.yml
    ```
 
-2. Activate `algae_env`
+6. Activate `algae_env`
    ```
    conda activate algae_env
    ```
 
-3. Confirm that `algae_env` is active
+7. Confirm that `algae_env` is active
      * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
        ```
        (algae_env) $
@@ -415,11 +415,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
 > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
-1. Open [`Camera.py`](src/detection/Camera.py)
+3. Open [`Camera.py`](src/detection/Camera.py)
 
-2. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired `.pt` model
 
-3. Read the following depending on which camera you'll use
+5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [iPhone](#iphone)
    * [Webcam](#webcam)
@@ -485,7 +485,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > - Username: `admin`
 > - Password: AP password from Step #7
 
-1.  Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
+11.  Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
 
 > [!TIP]
 > To quickly find the IP address:
