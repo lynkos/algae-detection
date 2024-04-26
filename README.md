@@ -26,7 +26,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <details open>
    <summary><b>Nikon microscope with ESP32-CAM AI Thinker and illuminator</b></summary>
-   <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="src/assets/microscope.jpg"></div>
+   <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></div>
 </details>
 
 <details>
@@ -38,23 +38,23 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       </tr>
       <tr>
          <td>Closterium</td>
-         <td><img alt="Closterium" align="center" width="100%" src="src/assets/algae/closterium.jpg"></td>
+         <td><img alt="Closterium" align="center" width="100%" src="assets/algae/closterium.jpg"></td>
       </tr>
       <tr>
          <td>Microcystis</td>
-         <td><img alt="Microcystis" align="center" width="100%" src="src/assets/algae/microcystis.jpg"></td>
+         <td><img alt="Microcystis" align="center" width="100%" src="assets/algae/microcystis.jpg"></td>
       </tr>
       <tr>
          <td>Nitzschia</td>
-         <td><img alt="Nitzschia" align="center" width="100%" src="src/assets/algae/nitzschia.jpg"></td>
+         <td><img alt="Nitzschia" align="center" width="100%" src="assets/algae/nitzschia.jpg"></td>
       </tr>
       <tr>
          <td>Oscillatoria</td>
-         <td><img alt="Oscillatoria" align="center" width="100%" src="src/assets/algae/oscillatoria.jpg"></td>
+         <td><img alt="Oscillatoria" align="center" width="100%" src="assets/algae/oscillatoria.jpg"></td>
       </tr>
       <tr>
          <td>Non-Algae</td>
-         <td><img alt="Non-Algae" align="center" width="100%" src="src/assets/algae/non-algae.jpg"></td>
+         <td><img alt="Non-Algae" align="center" width="100%" src="assets/algae/non-algae.jpg"></td>
       </tr>
    </table>
 </details>
@@ -63,35 +63,35 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    <summary><b>Diagrams</b></summary>
       <div align="center">
          <figure>
-            <picture><img alt="ESP32-CAM system design" src="src/assets/diagrams/esp32_sys_des.png"></picture><br>
+            <picture><img alt="ESP32-CAM system design" src="assets/diagrams/esp32_sys_des.png"></picture><br>
             <figcaption>System Design (ESP32-CAM)</figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="iPhone system design" src="src/assets/diagrams/iphone_sys_des.png"></picture><br>
+            <picture><img alt="iPhone system design" src="assets/diagrams/iphone_sys_des.png"></picture><br>
             <figcaption>System Design (iPhone)</figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="Dataset flowchart" src="src/assets/diagrams/dataset_flowchart.png"></picture><br>
+            <picture><img alt="Dataset flowchart" src="assets/diagrams/dataset_flowchart.png"></picture><br>
             <figcaption>Dataset Flowchart</figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="YOLOv8 architecture" src="src/assets/diagrams/yolov8_architecture.jpg"></picture><br>
+            <picture><img alt="YOLOv8 architecture" src="assets/diagrams/yolov8_architecture.jpg"></picture><br>
             <figcaption><a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html">YOLOv8 Architecture</a></figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="Slicing Aided Fine Tuning (SAFT) framework" src="src/assets/diagrams/saft_framework.png"></picture><br>
+            <picture><img alt="Slicing Aided Fine Tuning (SAFT) framework" src="assets/diagrams/saft_framework.png"></picture><br>
             <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Fine Tuning (SAFT) Framework</a></figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="Slicing Aided Hyper Inference (SAHI) framework" src="src/assets/diagrams/sahi_framework.png"></picture><br>
+            <picture><img alt="Slicing Aided Hyper Inference (SAHI) framework" src="assets/diagrams/sahi_framework.png"></picture><br>
             <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Hyper Inference (SAHI) Framework</a></figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="`streaming` UML" src="src/assets/diagrams/streaming_uml.png"></picture><br>
+            <picture><img alt="`streaming` UML" src="assets/diagrams/streaming_uml.png"></picture><br>
             <figcaption><code>streaming</code> UML</figcaption>
          </figure><br><br>
          <figure>
-            <picture><img alt="`detection` UML" src="src/assets/diagrams/detection_uml.png"></picture><br>
+            <picture><img alt="`detection` UML" src="assets/diagrams/detection_uml.png"></picture><br>
             <figcaption><code>detection</code> UML</figcaption>
          </figure>
       </div>
@@ -113,36 +113,36 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       </tr>
       <tr>
          <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
-         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
-         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/P_curve.png"></td>
-         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x/PR_curve.png"></td>
-         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/R_curve.png"></td>
-         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x/F1_curve.png"></td>
-         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x/results.png"></td>
-         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x/validation.png"></td>
-         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x/example.jpg"></td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x/example.jpg"></td>
       </tr>
       <tr>
          <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
-         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
-         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/P_curve.png"></td>
-         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
-         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/R_curve.png"></td>
-         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
-         <td><img alt="Training Results" align="center" src="src/assets/models/custom_yolov8x_v2/results.png"></td>
-         <td><img alt="Validation Output" align="center" src="src/assets/models/custom_yolov8x_v2/validation.png"></td>
-         <td><img alt="Example Prediction" align="center" src="src/assets/models/custom_yolov8x_v2/example.png"></td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x_v2/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x_v2/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x_v2/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x_v2/example.png"></td>
       </tr>
       <tr>
          <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
-         <td><img alt="Confusion Matrix (Normalized)" align="center" src="src/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
-         <td><img alt="Precision-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/P_curve.png"></td>
-         <td><img alt="Precision-Recall Curve" align="center" src="src/assets/models/sahi_yolov8n/PR_curve.png"></td>
-         <td><img alt="Recall-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/R_curve.png"></td>
-         <td><img alt="F1-Confidence Curve" align="center" src="src/assets/models/sahi_yolov8n/F1_curve.png"></td>
-         <td><img alt="Training Results" align="center" src="src/assets/models/sahi_yolov8n/results.png"></td>
-         <td><img alt="Validation Output" align="center" src="src/assets/models/sahi_yolov8n/validation.png"></td>
-         <td><img alt="Example Prediction" align="center" src="src/assets/models/sahi_yolov8n/example.jpg"></td>
+         <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
+         <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/P_curve.png"></td>
+         <td><img alt="Precision-Recall Curve" align="center" src="assets/models/sahi_yolov8n/PR_curve.png"></td>
+         <td><img alt="Recall-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/R_curve.png"></td>
+         <td><img alt="F1-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/F1_curve.png"></td>
+         <td><img alt="Training Results" align="center" src="assets/models/sahi_yolov8n/results.png"></td>
+         <td><img alt="Validation Output" align="center" src="assets/models/sahi_yolov8n/validation.png"></td>
+         <td><img alt="Example Prediction" align="center" src="assets/models/sahi_yolov8n/example.jpg"></td>
       </tr>
    </table>
 </details>
@@ -151,78 +151,78 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
   <summary><b>Repository Structure</b></summary>
 <pre>
 .
+├── assets/
+│   ├── algae/
+│   │   ├── closterium.jpg
+│   │   ├── microcystis.jpg
+│   │   ├── nitzschia.jpg
+│   │   ├── non-algae.jpg
+│   │   ├── oscillatoria.jpg
+│   │   └── testing_sample.pdf
+│   ├── diagrams/
+│   │   ├── drawio/
+│   │   │   ├── Camera_uml.drawio
+│   │   │   ├── dataset_flowchart.drawio
+│   │   │   ├── esp32_sys_design.drawio
+│   │   │   └── streaming_uml.drawio
+│   │   ├── dataset_flowchart.png
+│   │   ├── detection_uml.png
+│   │   ├── esp32_sys_des.png
+│   │   ├── iphone_sys_des.png
+│   │   ├── saft_framework.png
+│   │   ├── sahi_framework.png
+│   │   ├── streaming_uml.png
+│   │   └── yolov8_architecture.jpg
+│   ├── esp32/
+│   │   ├── ai_thinker.jpg
+│   │   ├── ap_popup.png
+│   │   ├── board_port.png
+│   │   ├── build_upload_monitor.png
+│   │   ├── choose_ap.png
+│   │   ├── config.png
+│   │   ├── disconnect.png
+│   │   ├── esp32_ip.png
+│   │   ├── index.png
+│   │   ├── init_config.png
+│   │   ├── open_streaming.png
+│   │   └── platformio_folder.png
+│   ├── iphone/
+│   │   ├── iphone_ui_connect.png
+│   │   └── iphone_ui_disconnect.png
+│   ├── models/
+│   │   ├── custom_yolov8x/
+│   │   │   ├── confusion_matrix_normalized.png
+│   │   │   ├── confusion_matrix.png
+│   │   │   ├── example.jpg
+│   │   │   ├── F1_curve.png
+│   │   │   ├── P_curve.png
+│   │   │   ├── PR_curve.png
+│   │   │   ├── R_curve.png
+│   │   │   ├── results.png
+│   │   │   └── validation.png
+│   │   ├── custom_yolov8x_v2/
+│   │   │   ├── confusion_matrix_normalized.png
+│   │   │   ├── confusion_matrix.png
+│   │   │   ├── example.jpg
+│   │   │   ├── F1_curve.png
+│   │   │   ├── P_curve.png
+│   │   │   ├── PR_curve.png
+│   │   │   ├── R_curve.png
+│   │   │   ├── results.png
+│   │   │   └── validation.png
+│   │   └── sahi_yolov8n/
+│   │       ├── confusion_matrix_normalized.png
+│   │       ├── confusion_matrix.png
+│   │       ├── example.jpg
+│   │       ├── F1_curve.png
+│   │       ├── P_curve.png
+│   │       ├── PR_curve.png
+│   │       ├── R_curve.png
+│   │       ├── results.png
+│   │       └── validation.png
+│   ├── microscope.jpg
+│   └── user_interface.png
 ├── src/
-│   ├── assets/
-│   │   ├── algae/
-│   │   │   ├── closterium.jpg
-│   │   │   ├── microcystis.jpg
-│   │   │   ├── nitzschia.jpg
-│   │   │   ├── non-algae.jpg
-│   │   │   ├── oscillatoria.jpg
-│   │   │   └── testing_sample.pdf
-│   │   ├── diagrams/
-│   │   │   ├── drawio/
-│   │   │   │   ├── Camera_uml.drawio
-│   │   │   │   ├── dataset_flowchart.drawio
-│   │   │   │   ├── esp32_sys_design.drawio
-│   │   │   │   └── streaming_uml.drawio
-│   │   │   ├── dataset_flowchart.png
-│   │   │   ├── detection_uml.png
-│   │   │   ├── esp32_sys_des.png
-│   │   │   ├── iphone_sys_des.png
-│   │   │   ├── saft_framework.png
-│   │   │   ├── sahi_framework.png
-│   │   │   ├── streaming_uml.png
-│   │   │   └── yolov8_architecture.jpg
-│   │   ├── esp32/
-│   │   │   ├── ai_thinker.jpg
-│   │   │   ├── ap_popup.png
-│   │   │   ├── board_port.png
-│   │   │   ├── build_upload_monitor.png
-│   │   │   ├── choose_ap.png
-│   │   │   ├── config.png
-│   │   │   ├── disconnect.png
-│   │   │   ├── esp32_ip.png
-│   │   │   ├── index.png
-│   │   │   ├── init_config.png
-│   │   │   ├── open_streaming.png
-│   │   │   └── platformio_folder.png
-│   │   ├── iphone/
-│   │   │   ├── iphone_ui_connect.png
-│   │   │   └── iphone_ui_disconnect.png
-│   │   ├── models/
-│   │   │   ├── custom_yolov8x/
-│   │   │   │   ├── confusion_matrix_normalized.png
-│   │   │   │   ├── confusion_matrix.png
-│   │   │   │   ├── example.jpg
-│   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── P_curve.png
-│   │   │   │   ├── PR_curve.png
-│   │   │   │   ├── R_curve.png
-│   │   │   │   ├── results.png
-│   │   │   │   └── validation.png
-│   │   │   ├── custom_yolov8x_v2/
-│   │   │   │   ├── confusion_matrix_normalized.png
-│   │   │   │   ├── confusion_matrix.png
-│   │   │   │   ├── example.jpg
-│   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── P_curve.png
-│   │   │   │   ├── PR_curve.png
-│   │   │   │   ├── R_curve.png
-│   │   │   │   ├── results.png
-│   │   │   │   └── validation.png
-│   │   │   └── sahi_yolov8n/
-│   │   │       ├── confusion_matrix_normalized.png
-│   │   │       ├── confusion_matrix.png
-│   │   │       ├── example.jpg
-│   │   │       ├── F1_curve.png
-│   │   │       ├── P_curve.png
-│   │   │       ├── PR_curve.png
-│   │   │       ├── R_curve.png
-│   │   │       ├── results.png
-│   │   │       └── validation.png
-│   │   ├── microscope.jpg
-│   │   └── user_interface.png
 │   ├── detection/
 │   │   ├── Camera.py
 │   │   ├── esp32.py
@@ -311,34 +311,34 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [x] [Google Colab account](https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com)
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
 
-> [!TIP]
-> If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
-> <table>
-> <thead>
-> <tr>
-> <th><center>Anaconda</center></th>
-> <th><center>Miniconda</center></th>
-> </tr>
-> </thead>
-> <tbody>
-> <tr>
-> <td>New to conda and/or Python</td>
-> <td>Familiar with conda and/or Python</td>
-> </tr>
-> <tr>
-> <td>Like the convenience of having Python and 1,500+ scientific packages automatically installed at once</td>
-> <td>Want fast access to Python and the conda commands and plan to sort out the other programs later</td>
-> </tr>
-> <tr>
-> <td>Have the time and space (a few minutes and 3 GB)</td>
-> <td>Don't have the time or space to install 1,500+ packages</td>
-> </tr>
-> <tr>
-> <td>Don't want to individually install each package</td>
-> <td>Don't mind individually installing each package</td>
-> </tr>
-> </tbody>
-> </table>
+  > [!TIP]
+  > If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
+  > <table>
+  > <thead>
+  > <tr>
+  > <th><center>Anaconda</center></th>
+  > <th><center>Miniconda</center></th>
+  > </tr>
+  > </thead>
+  > <tbody>
+  > <tr>
+  > <td>New to conda and/or Python</td>
+  > <td>Familiar with conda and/or Python</td>
+  > </tr>
+  > <tr>
+  > <td>Like the convenience of having Python and 1,500+ scientific packages automatically installed at once</td>
+  > <td>Want fast access to Python and the conda commands and plan to sort out the other programs later</td>
+  > </tr>
+  > <tr>
+  > <td>Have the time and space (a few minutes and 3 GB)</td>
+  > <td>Don't have the time or space to install 1,500+ packages</td>
+  > </tr>
+  > <tr>
+  > <td>Don't want to individually install each package</td>
+  > <td>Don't mind individually installing each package</td>
+  > </tr>
+  > </tbody>
+  > </table>
 
 ## Installation
 1. Verify that conda is installed
@@ -363,12 +363,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-> [!IMPORTANT]
-> Due to the [large] size of the repo, you may get errors such as:
-> 
-> <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
->
-> If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+   > [!IMPORTANT]
+   > Due to the [large] size of the repo, you may get errors such as:
+   > 
+   > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
+   >
+   > If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
 
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
@@ -396,18 +396,18 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ### Detect and Classify Algae
 <details open>
    <summary><b>User Interface</b></summary>
-   <img align="center" alt="User Interface" src="src/assets/user_interface.png">
+   <img align="center" alt="User Interface" src="assets/user_interface.png">
 </details>
 
 1. Open [`weights`](weights)
 2. Choose the algae detection model you want to use
 
-> [!TIP]
-> To use your own `.pt` model, add it to [`weights`](weights).
->
-> To use an existing model, decompress the `.zip` file to get the `.pt` model.
-> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
-> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
+   > [!TIP]
+   > To use your own `.pt` model, add it to [`weights`](weights).
+   >
+   > To use an existing model, decompress the `.zip` file to get the `.pt` model.
+   > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+   > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`Camera.py`](src/detection/Camera.py)
 4. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired `.pt` model
@@ -423,106 +423,92 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > This is because the ESP32-CAM livestreams to an [MJPEG server](https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming) over HTTP, which is how [`esp32.py`](src/detection/esp32.py) gets the camera input.
 >
 > Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
-
-1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'<br>
-   <img alt="Open PlatformIO project" height="350" src="src/assets/esp32/platformio_folder.png">
-2. Open [`streaming`](src/streaming)<br>
-   <img alt="Open `streaming`" height="350" src="src/assets/esp32/open_streaming.png">
-3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window<br>
-   <img alt="Select board and port" src="src/assets/esp32/board_port.png">
+1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
+   <div align="center"><img alt="Open PlatformIO project" height="350" src="assets/esp32/platformio_folder.png"></div>
+2. Open [`streaming`](src/streaming)
+   <div align="center"><img alt="Open `streaming`" height="350" src="assets/esp32/open_streaming.png"></div>
+3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window
+   <div align="center"><img alt="Select board and port" src="assets/esp32/board_port.png"></div>
 4. Build and upload code to ESP32
    - Click 'Build' to compile code
-   - Click 'Upload' to flash code to ESP32<br>
-   <img alt="Build, Upload, Monitor" height="350" src="src/assets/esp32/build_upload_monitor.png">
-5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`<br>
-   <img alt="`ESP32CAM-RTSP` network" height="250" src="src/assets/esp32/choose_ap.png">
+   - Click 'Upload' to flash code to ESP32
+   <div align="center"><img alt="Build, Upload, Monitor" height="350" src="assets/esp32/build_upload_monitor.png"></div>
+5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
+   <div align="center"><img alt="`ESP32CAM-RTSP` network" height="250" src="assets/esp32/choose_ap.png"></div>
 6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
-
-<img alt="Window popup" height="350" src="src/assets/esp32/ap_popup.png">
-
+   <div align="center"><img alt="Window popup" height="350" src="assets/esp32/ap_popup.png"></div>
 7. You **must** fill in all of the following fields:
    - AP (i.e., Access Point) password
    - WiFi SSID
    - WiFi password (if applicable)
+   <div align="center"><img alt="System config" height="350" src="assets/esp32/init_config.png"></div>
 
-> [!NOTE]
-> If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
-
-<img alt="System config" height="350" src="src/assets/esp32/init_config.png">
-
+   > [!NOTE]
+   > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 8. Update the settings and configure camera options (you can always change them later)
-
-> [!WARNING]
-> Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
-
-   <details>
+   <details open>
       <summary><b>Camera Settings</b></summary>
-      <div align="center"><img alt="Camera Settings" src="src/assets/esp32/config.png"></div>
+      <div align="center"><img alt="Camera Settings" src="assets/esp32/config.png"></div>
    </details>
-
+   
+   > [!WARNING]
+   > Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
 9. Scroll down and click 'Apply' to save settings
-
-> [!IMPORTANT]
-> You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
-
-10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
-
-> [!NOTE]
-> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
->
-> Connect to the SSID, go to the ESP32's IP address and enter your credentials:
-> - Username: `admin`
-> - Password: AP password from Step #7
-
-<img alt="Disconnect" height="350" src="src/assets/esp32/disconnect.png">
-
+   > [!IMPORTANT]
+   > You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
+10.  Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
+      <div align="center"><img alt="Disconnect" height="350" src="assets/esp32/disconnect.png"></div>
+      
+     > [!NOTE]
+     > If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
+     >
+     > Connect to the SSID, go to the ESP32's IP address and enter your credentials:
+     > - Username: `admin`
+     > - Password: AP password from Step #7
 11. Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
-
-> [!TIP]
-> To quickly find the IP address:
-> - PC
->   ```
->   Ctrl + F
->   ```
-> - Mac
->   ```
->   ⌘ + F
->   ```
->
-> Then type 'IP Address' in the search bar and press 'Enter'.
->
-> <img alt="IP Address" src="src/assets/esp32/esp32_ip.png">
-
+    > [!TIP]
+    > To quickly find the IP address:
+    > - PC
+    >   ```
+    >   Ctrl + F
+    >   ```
+    > - Mac
+    >   ```
+    >   ⌘ + F
+    >   ```
+    >
+    > Then type 'IP Address' in the search bar and press 'Enter'.
+    > <div align="center"><img alt="IP Address" src="assets/esp32/esp32_ip.png"></div>
 12. You can now stream from the ESP32
-   - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
-   - HTTP Image: `http://<ESP32 IP address>/snapshot`
-   - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
-
-> [!CAUTION]
-> Anyone with network access to the device can see the streams and images!
-
-   <details>
+    - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
+    - HTTP Image: `http://<ESP32 IP address>/snapshot`
+    - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
+    <details open>
       <summary><b>Home Page</b></summary>
-      <div align="center"><img alt="Home Page" src="src/assets/esp32/index.png"></div>
-   </details>
+      <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
+    </details>
 
+    > [!CAUTION]
+    > Anyone with network access to the device can see the streams and images!
 13. Open [`esp32.py`](src/detection/esp32.py) once finished
 14. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
 15. Run [`esp32.py`](src/detection/esp32.py)
-   * POSIX
+    * POSIX
       ```sh
       $(which python) src/detection/esp32.py
       ```
-   * Windows
+    * Windows
       ```sh
       $(where python) src\detection\esp32.py
       ```
 
 > [!NOTE]
-> See [this module](https://github.com/rzeldent/esp32cam-rtsp)'s [`README.md`](https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md) for further details on streaming.
+> See [this module](https://github.com/rzeldent/esp32cam-rtsp)'s [`README.md`](https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md) for further details on [`streaming`](src/streaming).
 >
 > To update to latest version, commit and push changes, then run the following command in the terminal:
-> <pre>git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash</pre>
+> ```sh
+> git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash
+> ```
 
 #### iPhone
 1. Open [`iphone.py`](src/detection/iphone.py)
@@ -535,10 +521,10 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```sh
       $(where python) src\detection\iphone.py
       ```
-3. If successfully connected, your iPhone's screen should look like this:<br>
-   <img alt="iPhone connected" height="350" src="src/assets/iphone/iphone_ui_connect.png">
-4. Press 'Escape' on your computer or 'Disconnect' on your iPhone to exit the program<br>
-   <img alt="iPhone disconnected" height="350" src="src/assets/iphone/iphone_ui_disconnect.png">
+3. If successfully connected, your iPhone's screen should look like this:
+   <div align="center"><img alt="iPhone connected" height="350" src="assets/iphone/iphone_ui_connect.png"></div>
+4. Press 'Escape' on your computer or 'Disconnect' on your iPhone to exit the program
+   <div align="center"><img alt="iPhone disconnected" height="350" src="assets/iphone/iphone_ui_disconnect.png"></div>
 
 #### Webcam
 1. Open [`webcam.py`](src/detection/webcam.py)
@@ -557,7 +543,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Follow the notebook's instructions
 3. Run notebook
 
-## Further Work
+## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
    - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
    - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
