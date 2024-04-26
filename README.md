@@ -170,6 +170,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── non-algae.jpg
 │   │   │   └── oscillatoria.jpg
 │   │   ├── diagrams/
+│   │   │   ├── drawio/
+│   │   │   │   ├── Camera_uml.drawio
+│   │   │   │   ├── dataset_flowchart.drawio
+│   │   │   │   ├── esp32_sys_design.drawio
+│   │   │   │   └── streaming_uml.drawio
 │   │   │   ├── dataset_flowchart.png
 │   │   │   ├── detection_uml.png
 │   │   │   ├── esp32_sys_des.png
