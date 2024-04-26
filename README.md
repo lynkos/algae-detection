@@ -429,7 +429,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > * Current implementation **requires** WiFi!
 >     * This is because the ESP32-CAM livestreams to an [MJPEG server](https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming) over HTTP, which is how [`esp32.py`](src/detection/esp32.py) gets the camera input.
 >     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
-> * If you're more of a visual learner, here's the [YouTube tutorial + demo](https://youtu.be/SxlSjRWeGuw)
+> 
+> * If you're more of a visual learner, here's the [YouTube tutorial + demo](https://youtu.be/SxlSjRWeGuw).
 >     * Make sure you've [installed the necessary software](#installation) **AND** have completed step #1-5 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
