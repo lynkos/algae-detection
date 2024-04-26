@@ -151,16 +151,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
   <summary><b>Repository Structure</b></summary>
 <pre>
 .
-├── documentation/
-│   ├── installation_guide.md
-│   ├── test_algae.pdf
-│   └── user_manual.md
-├── posters/
-│   ├── cristian.pdf
-│   ├── justin.pdf
-│   └── kiran.pdf
-├── presentation_slides/
-│   └── algae_detection_ppt.pdf
 ├── src/
 │   ├── assets/
 │   │   ├── algae/
@@ -168,7 +158,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   │   ├── microcystis.jpg
 │   │   │   ├── nitzschia.jpg
 │   │   │   ├── non-algae.jpg
-│   │   │   └── oscillatoria.jpg
+│   │   │   ├── oscillatoria.jpg
+│   │   │   └── testing_sample.pdf
 │   │   ├── diagrams/
 │   │   │   ├── drawio/
 │   │   │   │   ├── Camera_uml.drawio
@@ -275,8 +266,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │       ├── src/
 │       │   └── main.cpp
 │       └── platformio.ini
-├── videos/
-│   └── index.html
 ├── weights/
 │   ├── custom_yolov8x_v2.pt.zip
 │   ├── custom_yolov8x.pt.zip
@@ -568,7 +557,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Follow the notebook's instructions
 3. Run notebook
 
-## Future Work
+## Further Reading
+- [USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom)
+- [Cyanobacteria (Blue-Green Algae)](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin)
+- [Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom](https://pubs.usgs.gov/publication/ofr20171054)
+- [Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images](https://www.mdpi.com/2073-4441/14/14/2219)
+- Research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
+
+## Further Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
    - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
    - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
@@ -580,13 +576,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add Android compatibility (if applicable and/or necessary)
-
-## Further Reading
-- [USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom)
-- [Cyanobacteria (Blue-Green Algae)](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin)
-- [Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom](https://pubs.usgs.gov/publication/ofr20171054)
-- [Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images](https://www.mdpi.com/2073-4441/14/14/2219)
-- Research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
 
 ## Credits
 Special thanks to:
