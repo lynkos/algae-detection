@@ -310,34 +310,35 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [x] [Roboflow account](https://roboflow.com)
 - [x] [Google Colab account](https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com)
 - [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
-  > [!TIP]
-  > If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
-  > <table>
-  > <thead>
-  > <tr>
-  > <th><center>Anaconda</center></th>
-  > <th><center>Miniconda</center></th>
-  > </tr>
-  > </thead>
-  > <tbody>
-  > <tr>
-  > <td>New to conda and/or Python</td>
-  > <td>Familiar with conda and/or Python</td>
-  > </tr>
-  > <tr>
-  > <td>Like the convenience of having Python and 1,500+ scientific packages automatically installed at once</td>
-  > <td>Want fast access to Python and the conda commands and plan to sort out the other programs later</td>
-  > </tr>
-  > <tr>
-  > <td>Have the time and space (a few minutes and 3 GB)</td>
-  > <td>Don't have the time or space to install 1,500+ packages</td>
-  > </tr>
-  > <tr>
-  > <td>Don't want to individually install each package</td>
-  > <td>Don't mind individually installing each package</td>
-  > </tr>
-  > </tbody>
-  > </table>
+
+> [!TIP]
+> If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
+> <table>
+> <thead>
+> <tr>
+> <th><center>Anaconda</center></th>
+> <th><center>Miniconda</center></th>
+> </tr>
+> </thead>
+> <tbody>
+> <tr>
+> <td>New to conda and/or Python</td>
+> <td>Familiar with conda and/or Python</td>
+> </tr>
+> <tr>
+> <td>Like the convenience of having Python and 1,500+ scientific packages automatically installed at once</td>
+> <td>Want fast access to Python and the conda commands and plan to sort out the other programs later</td>
+> </tr>
+> <tr>
+> <td>Have the time and space (a few minutes and 3 GB)</td>
+> <td>Don't have the time or space to install 1,500+ packages</td>
+> </tr>
+> <tr>
+> <td>Don't want to individually install each package</td>
+> <td>Don't mind individually installing each package</td>
+> </tr>
+> </tbody>
+> </table>
 
 ## Installation
 1. Verify that conda is installed
@@ -365,24 +366,24 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-   > [!IMPORTANT]
-   > Due to the [large] size of the repo, you may get errors such as:
-   > 
-   > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
-   >
-   > If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+> [!IMPORTANT]
+> Due to the [large] size of the repo, you may get errors such as:
+> 
+> <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
+>
+> If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
 
-5. Create conda virtual environment from [`environment.yml`](environment.yml)
+1. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
    conda env create -f environment.yml
    ```
 
-6. Activate `algae_env`
+2. Activate `algae_env`
    ```
    conda activate algae_env
    ```
 
-7. Confirm that `algae_env` is active
+3. Confirm that `algae_env` is active
      * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
        ```
        (algae_env) $
@@ -406,18 +407,19 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 1. Open [`weights`](weights)
 
 2. Choose the algae detection model you want to use
-   > [!TIP]
-   > To use your own `.pt` model, add it to [`weights`](weights).
-   >
-   > To use an existing model, decompress the `.zip` file to get the `.pt` model.
-   > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
-   > * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
-3. Open [`Camera.py`](src/detection/Camera.py)
+> [!TIP]
+> To use your own `.pt` model, add it to [`weights`](weights).
+>
+> To use an existing model, decompress the `.zip` file to get the `.pt` model.
+> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+> * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
-4. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired `.pt` model
+1. Open [`Camera.py`](src/detection/Camera.py)
 
-5. Read the following depending on which camera you'll use
+2. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired `.pt` model
+
+3. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
    * [iPhone](#iphone)
    * [Webcam](#webcam)
@@ -456,8 +458,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - WiFi password (if applicable)
    <div align="center"><img alt="System config" height="350" src="assets/esp32/init_config.png"></div>
 
-   > [!NOTE]
-   > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
+ > [!NOTE]
+ > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
 8. Update the settings and configure camera options (you can always change them later)
    <details open>
@@ -465,39 +467,39 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       <div align="center"><img alt="Camera Settings" src="assets/esp32/config.png"></div>
    </details>
 
-   > [!WARNING]
-   > Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
+> [!WARNING]
+> Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
 
 9. Scroll down and click 'Apply' to save settings
 
-   > [!IMPORTANT]
-   > You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
+> [!IMPORTANT]
+> You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
 
-10.  Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
+10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
       <div align="center"><img alt="Disconnect" height="350" src="assets/esp32/disconnect.png"></div>
       
-     > [!NOTE]
-     > If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
-     >
-     > Connect to the SSID, go to the ESP32's IP address and enter your credentials:
-     > - Username: `admin`
-     > - Password: AP password from Step #7
+> [!NOTE]
+> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
+>
+> Connect to the SSID, go to the ESP32's IP address and enter your credentials:
+> - Username: `admin`
+> - Password: AP password from Step #7
 
-11. Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
+1.  Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
 
-    > [!TIP]
-    > To quickly find the IP address:
-    > - PC
-    >   ```
-    >   Ctrl + F
-    >   ```
-    > - Mac
-    >   ```
-    >   ⌘ + F
-    >   ```
-    >
-    > Then type 'IP Address' in the search bar and press 'Enter'.
-    > <div align="center"><img alt="IP Address" src="assets/esp32/esp32_ip.png"></div>
+> [!TIP]
+> To quickly find the IP address:
+> - PC
+>   ```
+>   Ctrl + F
+>   ```
+> - Mac
+>   ```
+>   ⌘ + F
+>   ```
+>
+> Then type 'IP Address' in the search bar and press 'Enter'.
+> <div align="center"><img alt="IP Address" src="assets/esp32/esp32_ip.png"></div>
 
 12. You can now stream from the ESP32
     - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
@@ -508,8 +510,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
     </details>
 
-    > [!CAUTION]
-    > Anyone with network access to the device can see the streams and images!
+> [!CAUTION]
+> Anyone with network access to the device can see the streams and images!
 
 13. Open [`esp32.py`](src/detection/esp32.py) once finished
 
