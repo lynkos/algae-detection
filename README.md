@@ -431,7 +431,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 >     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 > 
 > * If you're more of a visual learner, here's the [YouTube tutorial + demo](https://youtu.be/SxlSjRWeGuw).
->     * Make sure you've [installed the necessary software](#installation) **AND** have completed step #1-5 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
+>     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #1–4 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
    <div align="center"><img alt="Open PlatformIO project" height="350" src="assets/esp32/platformio_folder.png"></div>
