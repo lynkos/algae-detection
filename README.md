@@ -576,7 +576,9 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 3. Run notebook
 
 ## Demo
-<div align="center"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SxlSjRWeGuw?si=_KMoZTuC-vyuo-qL&amp;start=327" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SxlSjRWeGuw?si=_KMoZTuC-vyuo-qL&amp;start=327" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
