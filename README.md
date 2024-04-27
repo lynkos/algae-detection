@@ -430,7 +430,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 >     * This is because the ESP32-CAM livestreams to an [MJPEG server](https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming) over HTTP, which is how [`esp32.py`](src/detection/esp32.py) gets the camera input.
 >     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 > 
-> * If you're more of a visual learner, here's the [YouTube tutorial + demo](https://youtu.be/SxlSjRWeGuw).
+> * If you're more of a visual learner, here's the [YouTube tutorial](https://youtu.be/SxlSjRWeGuw).
 >     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #1–4 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
@@ -574,6 +574,9 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 2. Follow the notebook's instructions
 
 3. Run notebook
+
+## Demo
+<div align="center"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SxlSjRWeGuw?si=_KMoZTuC-vyuo-qL&amp;start=327" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
 ## Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
