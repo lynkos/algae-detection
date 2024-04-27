@@ -577,7 +577,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 ## Demo
 <div align="center">
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SxlSjRWeGuw?si=_KMoZTuC-vyuo-qL&amp;start=327" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SxlSjRWeGuw?si=_KMoZTuC-vyuo-qL&amp;start=327" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 ## Future Work
