@@ -575,7 +575,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 3. Run notebook
 
-## Future Work
+## Appendix
+### Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
    - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
    - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
@@ -588,14 +589,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add Android compatibility (if applicable and/or necessary)
 
-## Further Reading
+### Further Reading
 - [USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom)
 - [Cyanobacteria (Blue-Green Algae)](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin)
 - [Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom](https://pubs.usgs.gov/publication/ofr20171054)
 - [Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images](https://www.mdpi.com/2073-4441/14/14/2219)
 - Research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
 
-## Glossary
+### Glossary
 1. **Access Point (AP)**: Networking device that allows wireless-capable devices to connect to a WLAN; in this case, it provides WiFi to ESP32
 2. **Algae**: Group of mostly aquatic, photosynthetic, and nucleus-bearing organisms that lack many features of larger multicellular plants
 3. **Anaconda**: Open-source platform for managing and installing various Python packages
