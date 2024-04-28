@@ -514,7 +514,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > - Username: `admin`
 > - Password: AP password from Step #7
 
-11.  Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
+11. Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
 
 > [!TIP]
 > To quickly find the IP address:
