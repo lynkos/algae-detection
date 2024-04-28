@@ -540,18 +540,18 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!CAUTION]
 > Anyone with network access to the device can see the streams and images!
 
-13.  Open [`esp32.py`](src/detection/esp32.py) once finished
+13. Open [`esp32.py`](src/detection/esp32.py) once finished
 
-14.  Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
+14. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
 
-15.  Run [`esp32.py`](src/detection/esp32.py)
+15. Run [`esp32.py`](src/detection/esp32.py)
     * POSIX
-      ```sh
-      $(which python) src/detection/esp32.py
+      ```
+      python src/detection/esp32.py
       ```
     * Windows
-      ```sh
-      $(where python) src\detection\esp32.py
+      ```
+      python src\detection\esp32.py
       ```
 
 > [!NOTE]
@@ -567,12 +567,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 2. Run [`iphone.py`](src/detection/iphone.py)
    * POSIX
-      ```sh
-      $(which python) src/detection/iphone.py
+      ```
+      python src/detection/iphone.py
       ```
    * Windows
-      ```sh
-      $(where python) src\detection\iphone.py
+      ```
+      python src\detection\iphone.py
       ```
 
 3. If successfully connected, your iPhone's screen should look like this:
@@ -586,12 +586,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 2. Run [`webcam.py`](src/detection/webcam.py)
    * POSIX
-      ```sh
-      $(which python) src/detection/webcam.py
+      ```
+      python src/detection/webcam.py
       ```
    * Windows
-      ```sh
-      $(where python) src\detection\webcam.py
+      ```
+      python src\detection\webcam.py
       ```
 
 ### Train, Validate, and Test Model
