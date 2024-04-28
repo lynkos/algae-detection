@@ -230,12 +230,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │   ├── add_to_dataset.png
 │   │   ├── added_class.png
 │   │   ├── added_classes.png
+│   │   ├── annotation_jobs_board.png
 │   │   ├── assign_class.png
 │   │   ├── assign_images.png
 │   │   ├── bound_algae.png
 │   │   ├── create_project.png
 │   │   ├── create_version.png
 │   │   ├── create_workspace.png
+│   │   ├── dataset_constants.png
 │   │   ├── download_dataset.png
 │   │   ├── export_dataset.png
 │   │   ├── generated_dataset.png
