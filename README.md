@@ -497,7 +497,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!WARNING]
 > Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
 
-1. Scroll down and click 'Apply' to save settings
+9. Scroll down and click 'Apply' to save settings
 
 > [!IMPORTANT]
 > You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
