@@ -24,6 +24,11 @@ The system can be used to monitor water quality and as a preventative measure fo
 
 It's designed to be user-friendly and cost-effective, making it ideal for both research and educational purposes.
 
+> [!TIP]
+> Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
+> 
+> To do so, all you'd need to change is the dataset, which would be comprised of images of the new object(s) you want to detect. You'd then use the dataset to [create a new, custom object detection model](#train-validate-and-test-model).
+
 <details open>
    <summary><b>Nikon microscope with ESP32-CAM AI Thinker and illuminator</b></summary>
    <div align="center"><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></div>
@@ -399,15 +404,15 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    conda env create -f environment.yml
    ```
 
-6. Activate `algae_env`
+6. Activate `detector_env`
    ```
-   conda activate algae_env
+   conda activate detector_env
    ```
 
-7. Confirm that `algae_env` is active
-     * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
+7. Confirm that `detector_env` is active
+     * If active, `detector_env` should be in parentheses () or brackets [] before your command prompt, e.g.
        ```
-       (algae_env) $
+       (detector_env) $
        ```
      * If necessary, see which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
        ```
@@ -484,7 +489,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
  > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
 8. Update the settings and configure camera options (you can always change them later)
-   <details open>
+   <details>
       <summary><b>Camera Settings</b></summary>
       <div align="center"><img alt="Camera Settings" src="assets/esp32/config.png"></div>
    </details>
@@ -492,7 +497,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!WARNING]
 > Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
 
-9. Scroll down and click 'Apply' to save settings
+1. Scroll down and click 'Apply' to save settings
 
 > [!IMPORTANT]
 > You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
@@ -527,7 +532,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
     - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
     - HTTP Image: `http://<ESP32 IP address>/snapshot`
     - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
-    <details open>
+    <details>
       <summary><b>Home Page</b></summary>
       <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
     </details>
@@ -535,11 +540,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!CAUTION]
 > Anyone with network access to the device can see the streams and images!
 
-13. Open [`esp32.py`](src/detection/esp32.py) once finished
+13.  Open [`esp32.py`](src/detection/esp32.py) once finished
 
-14. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
+14.  Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
 
-15. Run [`esp32.py`](src/detection/esp32.py)
+15.  Run [`esp32.py`](src/detection/esp32.py)
     * POSIX
       ```sh
       $(which python) src/detection/esp32.py
@@ -592,9 +597,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 ### Train, Validate, and Test Model
 1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
 
-2. Follow the notebook's instructions
-
-3. Run notebook
+2. Follow the notebook's instructions step-by-step
 
 ## Appendix
 ### Future Work

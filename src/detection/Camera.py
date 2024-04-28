@@ -20,10 +20,10 @@ MAX_DETECTIONS: int = 100
 WIDTH: int = 1280
 HEIGHT: int = 720
 FPS: float = 30.0
-"""Default algae detection attributes"""
+"""Default detection attributes"""
 
 MODEL_PATH: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt")
-"""Default path of custom-trained algae detection model"""
+"""Default path of custom-trained detection model"""
 
 class Camera:
     def __init__(self,
@@ -45,11 +45,11 @@ class Camera:
         Args:
             camera_type (str | int): Camera used for input. Set to streaming server's URL for ESP32-CAM, `0` for Webcam, `1` for iPhone.
             title (str, optional): Window title. Defaults to "Algae Detector".
-            model_path (str, optional): Algae detection model's path. Defaults to `MODEL_PATH`.
-            device_type (device | str, optional): Device (GPU or CPU) to run algae detection model on. Defaults to `DEVICE`.
-            confidence (float, optional): Algae detection model's minimum confidence threshold. Defaults to `CONFIDENCE`.
+            model_path (str, optional): Detection model's path. Defaults to `MODEL_PATH`.
+            device_type (device | str, optional): Device (GPU or CPU) to run detection model on. Defaults to `DEVICE`.
+            confidence (float, optional): Detection model's minimum confidence threshold. Defaults to `CONFIDENCE`.
             iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to `IOU`.
-            max_detections (int, optional): Limits how many algae the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to `MAX_DETECTIONS`.
+            max_detections (int, optional): Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to `MAX_DETECTIONS`.
             video_strides (int, optional): Allows skipping frames in stream to speed up processing (at the cost of temporal resolution). Value of `1` processes every frame, higher values skip frames. Defaults to `STRIDES`.
             width (int, optional): Camera width. Defaults to `WIDTH`.
             height (int, optional): Camera height. Defaults to `HEIGHT`.
@@ -79,7 +79,7 @@ class Camera:
 
     def run(self) -> None:
         """
-        Run algae detection model with multithreaded video processing.
+        Run detection model with multithreaded video processing.
         """
         while self.camera.isOpened():
             # Process pending tasks
@@ -87,7 +87,7 @@ class Camera:
                 # Get model's inference result(s)
                 result = self._pending.popleft().get()
 
-                # Show livestream with bounding boxes over detected algae
+                # Show livestream with bounding boxes over detections
                 self._showWindow(result)
 
             # Start new task if there are less than `self._n_threads` tasks pending
@@ -107,7 +107,7 @@ class Camera:
 
     def _process_frame(self, frame: MatLike) -> list[Results]:
         """
-        Use algae detection model on frame.
+        Use detection model on frame.
 
         Args:
             frame (MatLike): Camera frame.
@@ -168,7 +168,7 @@ class Camera:
 
     def _showWindow(self, results: list[Results]) -> None:
         """
-        Show livestream with bounding boxes over detected algae.
+        Show livestream with bounding boxes over detections.
 
         Args:
             results (list[Results]): Inference results.
