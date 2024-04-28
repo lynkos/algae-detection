@@ -404,15 +404,15 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    conda env create -f environment.yml
    ```
 
-6. Activate `detector_env`
+6. Activate `algae_env`
    ```
-   conda activate detector_env
+   conda activate algae_env
    ```
 
-7. Confirm that `detector_env` is active
-     * If active, `detector_env` should be in parentheses () or brackets [] before your command prompt, e.g.
+7. Confirm that `algae_env` is active
+     * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
        ```
-       (detector_env) $
+       (algae_env) $
        ```
      * If necessary, see which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
        ```

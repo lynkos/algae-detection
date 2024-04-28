@@ -1,4 +1,4 @@
-name: detector_env
+name: algae_env
 channels:
   - defaults
 dependencies:
