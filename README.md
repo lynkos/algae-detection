@@ -410,8 +410,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > <summary><b>Shell Scripts: Conda Shortcuts</b></summary>
 > 
 > ```sh
-> #!/bin/sh
->
 > # Deactivate current conda environment
 > alias dac='conda deactivate'
 >
