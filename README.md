@@ -411,6 +411,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > 
 > ```sh
 > # Deactivate current conda environment
+> # Usage: dac
 > alias dac='conda deactivate'
 >
 > # Helper function to prompt user for 'Yes' or 'No' response
