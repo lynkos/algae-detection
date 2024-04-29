@@ -225,29 +225,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 │   │       ├── R_curve.png
 │   │       ├── results.png
 │   │       └── validation.png
-│   ├── roboflow/
-│   │   ├── add_classes.png
-│   │   ├── add_to_dataset.png
-│   │   ├── added_class.png
-│   │   ├── added_classes.png
-│   │   ├── annotation_jobs_board.png
-│   │   ├── assign_class.png
-│   │   ├── assign_images.png
-│   │   ├── bound_algae.png
-│   │   ├── create_project.png
-│   │   ├── create_version.png
-│   │   ├── create_workspace.png
-│   │   ├── dataset_constants.png
-│   │   ├── download_dataset.png
-│   │   ├── export_dataset.png
-│   │   ├── generated_dataset.png
-│   │   ├── invite_teammates.png
-│   │   ├── manual_labeling.png
-│   │   ├── smart_polygon.png
-│   │   ├── split.png
-│   │   ├── standard_smart_polygon.png
-│   │   ├── start_annotating.png
-│   │   └── upload_dataset.png
 │   ├── microscope.jpg
 │   └── user_interface.png
 ├── src/
