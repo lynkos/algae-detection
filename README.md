@@ -85,11 +85,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          </figure><br><br>
          <figure>
             <picture><img alt="Slicing Aided Fine Tuning (SAFT) framework" src="assets/diagrams/saft_framework.png"></picture><br>
-            <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Fine Tuning (SAFT) Framework</a></figcaption>
+            <figcaption><a target="_blank" href="https://arxiv.org/abs/2202.06934">Slicing Aided Fine Tuning (SAFT) Framework</a></figcaption>
          </figure><br><br>
          <figure>
             <picture><img alt="Slicing Aided Hyper Inference (SAHI) framework" src="assets/diagrams/sahi_framework.png"></picture><br>
-            <figcaption><a href="https://arxiv.org/abs/2202.06934" target="_blank">Slicing Aided Hyper Inference (SAHI) Framework</a></figcaption>
+            <figcaption><a target="_blank" href="https://arxiv.org/abs/2202.06934">Slicing Aided Hyper Inference (SAHI) Framework</a></figcaption>
          </figure><br><br>
          <figure>
             <picture><img alt="`streaming` UML" src="assets/diagrams/streaming_uml.png"></picture><br>
@@ -117,7 +117,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <th style="text-align: center;">Example Prediction</th>
       </tr>
       <tr>
-         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
+         <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
          <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
          <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x/P_curve.png"></td>
          <td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x/PR_curve.png"></td>
@@ -128,7 +128,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x/example.jpg"></td>
       </tr>
       <tr>
-         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
+         <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
          <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
          <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/P_curve.png"></td>
          <td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x_v2/PR_curve.png"></td>
@@ -139,7 +139,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
          <td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x_v2/example.png"></td>
       </tr>
       <tr>
-         <td><a href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
+         <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
          <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
          <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/P_curve.png"></td>
          <td><img alt="Precision-Recall Curve" align="center" src="assets/models/sahi_yolov8n/PR_curve.png"></td>
@@ -309,12 +309,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] Micro-USB cable
-- [x] [Algae dataset](https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0)
-- [x] [Visual Studio Code](https://code.visualstudio.com/download)
-- [x] [PlatformIO plugin for Visual Studio Code](https://platformio.org/install/ide?install=vscode)
-- [x] [Roboflow account](https://roboflow.com)
-- [x] [Google Colab account](https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com)
-- [x] [Anaconda](https://docs.continuum.io/free/anaconda/install) **OR** [Miniconda](https://docs.conda.io/projects/miniconda/en/latest)
+- [x] <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Algae dataset</a>
+- [x] <a target="_blank" href="https://code.visualstudio.com/download">Visual Studio Code</a>
+- [x] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
+- [x] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
+- [x] <a target="_blank" href="https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com">Google Colab account</a>
+- [x] <a target="_blank" href="https://docs.continuum.io/free/anaconda/install">Anaconda</a> **OR** <a target="_blank" href="https://docs.conda.io/projects/miniconda/en/latest">Miniconda</a>
 
 > [!TIP]
 > If you have trouble deciding between Anaconda and Miniconda, please refer to the table below:
@@ -376,7 +376,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > 
 > <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
 >
-> If this is the case, please download [Git LFS](https://git-lfs.com) and try cloning again. If you're still getting errors, consider [cloning via SSH](https://github.com/git-guides/git-clone#git-clone-with-ssh) (`git clone git@github.com:lynkos/algae-detection.git`) or [manually downloading the repo as a `.zip` file](https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip) and decompressing it.
+> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, consider <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">cloning via SSH</a> (`git clone git@github.com:lynkos/algae-detection.git`) or <a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">manually downloading the repo as a `.zip` file</a> and decompressing it.
 
 5. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```
@@ -565,8 +565,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > * To use your own `.pt` model, add it to [`weights`](weights).
 >
 > * To use an existing model, decompress the `.zip` file to get the `.pt` model.
->     * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
->     * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
+>     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+>     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`Camera.py`](src/detection/Camera.py)
 
@@ -580,10 +580,10 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 #### ESP32
 > [!IMPORTANT]
 > * Current implementation **requires** WiFi!
->     * This is because the ESP32-CAM livestreams to an [MJPEG server](https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming) over HTTP, which is how [`esp32.py`](src/detection/esp32.py) gets the camera input.
+>     * This is because the ESP32-CAM livestreams to an <a target="_blank" href="https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming">MJPEG server</a> over HTTP, which is how [`esp32.py`](src/detection/esp32.py) gets the camera input.
 >     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 > 
-> * If you're more of a visual learner, here's the [YouTube tutorial + demo](https://youtu.be/SxlSjRWeGuw).
+> * If you're more of a visual learner, here's the <a target="_blank" href="https://youtu.be/SxlSjRWeGuw">YouTube tutorial + demo</a>.
 >     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #1–4 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
@@ -603,7 +603,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
    <div align="center"><img alt="`ESP32CAM-RTSP` network" height="250" src="assets/esp32/choose_ap.png"></div>
 
-6. Click 'Change settings' once the browser automatically opens the home page ([`http://192.168.4.1`](http://192.168.4.1))
+6. Click 'Change settings' once the browser automatically opens the home page (<a target="_blank" href="http://192.168.4.1">`http://192.168.4.1`</a>)
    <div align="center"><img alt="Window popup" height="350" src="assets/esp32/ap_popup.png"></div>
 
 7. You **must** fill in all of the following fields:
@@ -682,8 +682,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 
 > [!NOTE]
-> See [this module](https://github.com/rzeldent/esp32cam-rtsp)'s [`README.md`](https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md) for further details on [`streaming`](src/streaming).
->
+> See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp">this module</a>'s <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md">`README.md`</a> for further details on [`streaming`](src/streaming).
+> 
 > To update to latest version, commit and push changes, then run the following command in the terminal:
 > ```sh
 > git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash
@@ -722,30 +722,30 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
       ```
 
 ### Train, Validate, and Test Model
-1. Visit [this Google Colab notebook](https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ)
+1. Visit <a target="_blank" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a>
 
 2. Follow the notebook's instructions step-by-step
 
 ## Appendix
 ### Future Work
 - [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
-   - At least [1000 images per class](https://blog.roboflow.com/model-best-practices/#dataset-size) 
-   - [All classes are balanced](https://blog.roboflow.com/handling-unbalanced-classes) (i.e., have roughly the same amount of images)
-   - [Dr. Schonna R. Manning](https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html) may help with categorizing any algae in new images
+   - At least <a target="_blank" href="https://blog.roboflow.com/model-best-practices/#dataset-size">1000 images per class</a>
+   - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
+   - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> may be able to help with categorizing any algae in new images
 - [ ] Connect to ESP32 without a server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
 - [ ] Heatsink for ESP32 to prevent overheating
 - [ ] Use DC-GAN to generate additional synthetic images for training
-- [ ] Try different models, such as [RetinaNet](https://paperswithcode.com/method/retinanet) and [YOLOv9](https://docs.ultralytics.com/models/yolov9)
+- [ ] Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
 - [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add Android compatibility (if applicable and/or necessary)
 
 ### Further Reading
-- [USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom](https://www.usgs.gov/news/national-news-release/usgs-finds-28-types-cyanobacteria-florida-algal-bloom)
-- [Cyanobacteria (Blue-Green Algae)](https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin)
-- [Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom](https://pubs.usgs.gov/publication/ofr20171054)
-- [Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images](https://www.mdpi.com/2073-4441/14/14/2219)
-- Research "[toxic cyanobacteria](https://www.google.com/search?q=toxic+cyanobacteria)"
+- <a target="_blank" href="https://www.usgs.gov/news/national-news-release/ usgs-finds-28-types-cyanobacteria-florida-algal-bloom">USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom</a>
+- <a target="_blank" href="https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin">Cyanobacteria (Blue-Green Algae)</a>
+- <a target="_blank" href="https://pubs.usgs.gov/publication/ofr20171054">Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom</a>
+- <a target="_blank" href="https://www.mdpi.com/2073-4441/14/14/2219">Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images</a>
+- Research "<a target="_blank" href="https://www.google.com/search?q=toxic+cyanobacteria">toxic cyanobacteria</a>"
 
 ### Glossary
 1. **Access Point (AP)**: Networking device that allows wireless-capable devices to connect to a WLAN; in this case, it provides WiFi to ESP32
@@ -785,6 +785,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 ## Credits
 Special thanks to:
-- [Dr. Antao Chen](https://ieeexplore.ieee.org/author/37291140300) (product owner) for his mentorship
-- [rdgbrian](https://github.com/rdgbrian) (team lead during Fall 2023) for his assistance
-- [rzeldent](https://github.com/rzeldent) for [ESP32CAM-RTSP](https://github.com/rzeldent/esp32cam-rtsp/tree/develop), which has been slightly modified and added as a git subtree in [`streaming`](src/streaming)
+
+- <a target="_blank" href="https://ieeexplore.ieee.org/author/37291140300">Dr. Antao Chen</a> (product owner) for his mentorship
+- <a target="_blank" href="https://github.com/rdgbrian">rdgbrian</a> (Fall 2023 team lead) for his assistance
+- <a target="_blank" href="https://github.com/rzeldent">rzeldent</a> for <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a>, which has been slightly modified and added as a git subtree in [`streaming`](src/streaming)
