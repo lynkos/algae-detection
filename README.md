@@ -27,7 +27,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!TIP]
 > Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
 > 
-> To do so, all you'd need to change is the dataset, which would be comprised of images of the new object(s) you want to detect. You'd then use the dataset to [create a new, custom object detection model](#train-validate-and-test-model).
+> To do so, all you'd need to change is the dataset, which would be comprised of images of the new object(s) you want to detect. You'd then use the dataset to [create a new, custom object detection model](#train-validate-and-test-model), save/download the `.pt` model, and follow the [steps to detect and classify algae](#detect-and-classify-algae).
 
 <details open>
    <summary><b>Nikon microscope with ESP32-CAM AI Thinker and illuminator</b></summary>
