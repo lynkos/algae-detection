@@ -427,7 +427,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > }
 >
 > # Create conda environment(s) from .yml / .yaml file(s) or CLI
-> # Usage (with file(s)): mkenv [file1.yml] [file2.yml] ... [fileN.yml]
+> # Usage (with file(s)): mkenv [file1] [file2] ... [fileN]
 > # Usage (without file(s)): mkenv [env_name] [package1] [package2] ... [packageN]
 > mkenv() {
 >     if ask "Create environment(s) from file(s)?"; then
@@ -514,7 +514,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > }
 >
 > # Export [explicit] spec file for building identical conda environments
-> # Usage: exp [file_name]
+> # Usage: exp [file]
 > exp() {
 >     if [ $# == 0 ]; then
 >         if ask "Export explicit specs?"; then
