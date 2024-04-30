@@ -27,7 +27,11 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > [!TIP]
 > Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
 > 
-> To do so, all you'd need to change is the dataset, which would be comprised of images of the new object(s) you want to detect. You'd then use the dataset to [create a new, custom object detection model](#train-validate-and-test-model), save/download the `.pt` model, and follow the [steps to detect and classify algae](#detect-and-classify-algae).
+> To do so, you'd need to:
+> 1. Change the dataset, which would be comprised of images of the new object(s) you want to detect (rather than the original harmful algae dataset)
+> 2. Use your dataset to [create a new, custom object detection model](#train-validate-and-test-model)
+> 3. Save/download the resulting `.pt` model
+> 4. Follow the [steps to detect and classify algae](#detect-and-classify-algae)
 
 <details open>
    <summary><b>Nikon microscope with ESP32-CAM AI Thinker and illuminator</b></summary>
@@ -403,11 +407,12 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
        ```
 
 > [!TIP]
-> Instead of manually typing out the entire conda command, you can add the following to your shell setup file (e.g., `.bashrc`, etc.) to save time.
-> 
-> **WARNING**: These have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so they may not work as expected on other shells or versions! Try testing each command individually beforehand, and use with caution!
+> Instead of manually typing out the entire conda command, you can add the following script to your shell startup file (e.g., `.bashrc`, etc.) and use it in your terminal (rather than typing the command out in its entirety) to save time.
+
 > <details open>
-> <summary><b>Shell Scripts: Conda Shortcuts</b></summary>
+> <summary><b>Conda Shortcuts</b></summary>
+> 
+> These have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so they may or may not work as expected with other shells or versions! Try testing each shortcut individually beforehand, and use with caution!
 > 
 > ```sh
 > # Deactivate current conda environment
@@ -431,7 +436,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > # Usage (with file(s)): mkenv [file1] [file2] ... [fileN]
 > # Usage (without file(s)): mkenv [env_name] [package1] [package2] ... [packageN]
 > mkenv() {
->     if ask "Create environment(s) from file(s)?"; then
+>     if ask "Create environment(s) from file(s)"; then
 >         if [ $# == 0 ]; then
 >             conda env create
 >
@@ -458,7 +463,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > # Usage: rmenv [env1] [env2] ... [envN]
 > rmenv() {
 >     for env in "$@"; do
->         if ask "Are you sure you want to delete $env?"; then
+>         if ask "Are you sure you want to delete $env"; then
 >             [ -e $(conda info --base)/envs/$env ] &&
 >             conda env remove -n $env -y &&
 >             rm -rf $(conda info --base)/envs/$env ||
@@ -518,7 +523,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > # Usage: exp [file]
 > exp() {
 >     if [ $# == 0 ]; then
->         if ask "Export explicit specs?"; then
+>         if ask "Export explicit specs"; then
 >             conda list --explicit > environment.yml
 >
 >         else
@@ -526,7 +531,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 >         fi
 >
 >     elif [ $# == 1 ]; then
->         if ask "Export explicit specs?"; then
+>         if ask "Export explicit specs"; then
 >             conda list --explicit > "$1"
 >
 >         else
@@ -541,7 +546,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > # Output [explicit] packages in conda environment
 > # Usage: lsenv
 > lsenv() {
->     if ask "List explicit specs?"; then
+>     if ask "List explicit specs"; then
 >         conda list --explicit
 >
 >     else
@@ -561,13 +566,10 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 1. Open [`weights`](weights)
 
 2. Choose the algae detection model you want to use
-
-> [!TIP]
-> * To use your own `.pt` model, add it to [`weights`](weights).
->
-> * To use an existing model, decompress the `.zip` file to get the `.pt` model.
->     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
->     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
+   * To use your own `.pt` model, add it to [`weights`](weights).
+   * To use an existing model, decompress the `.zip` file to get the `.pt` model.
+     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
+     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`Camera.py`](src/detection/Camera.py)
 
@@ -616,14 +618,8 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
  > [!NOTE]
  > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
-8. Update the settings and configure camera options (you can always change them later)
-   <details>
-      <summary><b>Camera Settings</b></summary>
-      <div align="center"><img alt="Camera Settings" src="assets/esp32/config.png"></div>
-   </details>
-
-> [!WARNING]
-> Very low number for 'JPG quality' (i.e., very high quality) may cause the ESP32 to crash or return no image!
+8. Update the settings and configure camera options (you can always change them later), though be mindful of the settings you choose as they may affect the ESP32's performance
+   <div align="center"><img height="500" alt="Camera Settings" src="assets/esp32/config.png"></div>
 
 9. Scroll down and click 'Apply' to save settings
 
@@ -640,39 +636,33 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 > - Username: `admin`
 > - Password: AP password from Step #7
 
-11. Go back to PlatformIO and click 'Monitor' to determine the ESP32's IP address
+11. Go back to PlatformIO extension, click 'Monitor', then use 'Find' keyboard shortcut to find the ESP32's IP address
+    * PC
+      ```
+      Ctrl + F
+      ```
+    * Mac
+      ```
+      ⌘ + F
+      ```
 
-> [!TIP]
-> To quickly find the IP address:
-> - PC
->   ```
->   Ctrl + F
->   ```
-> - Mac
->   ```
->   ⌘ + F
->   ```
->
-> Then type 'IP Address' in the search bar and press 'Enter'.
-> <div align="center"><img alt="IP Address" src="assets/esp32/esp32_ip.png"></div>
+12. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address
+    <div align="center"><img alt="IP address" src="assets/esp32/esp32_ip.png"></div>
 
-12. You can now stream from the ESP32
+13. You can now stream from the ESP32
     - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
     - HTTP Image: `http://<ESP32 IP address>/snapshot`
     - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
-    <details>
-      <summary><b>Home Page</b></summary>
-      <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
-    </details>
+    <div align="center"><img height="500" alt="Home Page" src="assets/esp32/index.png"></div>
 
 > [!CAUTION]
 > Anyone with network access to the device can see the streams and images!
 
-13. Open [`esp32.py`](src/detection/esp32.py) once finished
+14. Open [`esp32.py`](src/detection/esp32.py) once finished
 
-14. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
+15. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
 
-15. Run [`esp32.py`](src/detection/esp32.py)
+16. Run [`esp32.py`](src/detection/esp32.py)
     * POSIX
       ```
       python src/detection/esp32.py
@@ -734,11 +724,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
    - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
    - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> may be able to help with categorizing any algae in new images
 - [ ] Connect to ESP32 without a server (e.g., via USB, etc.), just like Webcam and iPhone OR use RTSP instead of HTTP
+  - I attemped to use RTSP, but was unable to due to errors; please see <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub issue</a> for further details
 - [ ] Heatsink for ESP32 to prevent overheating
 - [ ] Use DC-GAN to generate additional synthetic images for training
 - [ ] Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
 - [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
+- [ ] Add camera settings to UI
+   - May need to use OpenCV in C++ instead of Python?
 - [ ] Add Android compatibility (if applicable and/or necessary)
 
 ### Further Reading
@@ -786,7 +779,6 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 ## Credits
 Special thanks to:
-
 - <a target="_blank" href="https://ieeexplore.ieee.org/author/37291140300">Dr. Antao Chen</a> (product owner) for his mentorship
 - <a target="_blank" href="https://github.com/rdgbrian">rdgbrian</a> (Fall 2023 team lead) for his assistance
 - <a target="_blank" href="https://github.com/rzeldent">rzeldent</a> for <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a>, which has been slightly modified and added as a git subtree in [`streaming`](src/streaming)
