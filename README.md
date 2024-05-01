@@ -341,6 +341,8 @@ Instead of manually typing out entire conda commands, you can save time by addin
       python src\detection\esp32.py
       ```
 
+17. Press the 'Escape' key on your keyboard to terminate
+
 > [!NOTE]
 > See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp">this module</a>'s <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md">`README.md`</a> for further details on [`streaming`](src/streaming).
 > 
@@ -365,7 +367,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 3. If successfully connected, your iPhone's screen should look like this:
    <div align="center"><img alt="iPhone connected" height="350" src="assets/iphone/iphone_ui_connect.png"></div>
 
-4. Press 'Escape' on your computer or 'Disconnect' on your iPhone to exit the program
+4. Press the 'Escape' key on your keyboard or 'Disconnect' on your iPhone to terminate
    <div align="center"><img alt="iPhone disconnected" height="350" src="assets/iphone/iphone_ui_disconnect.png"></div>
 
 #### Webcam
@@ -380,6 +382,8 @@ Instead of manually typing out entire conda commands, you can save time by addin
       ```
       python src\detection\webcam.py
       ```
+
+3. Press the 'Escape' key on your keyboard to terminate
 
 ### Train, Validate, and Test Model
 1. Visit <a target="_blank" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a>
