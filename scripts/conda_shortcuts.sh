@@ -16,7 +16,7 @@ ask() {
 }
 
 # Create conda environment(s) from .yml / .yaml file(s) or CLI
-# Usage (with file(s)): mkenv [file1] [file2] ... [fileN]
+# Usage (with file(s)): mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]
 # Usage (without file(s)): mkenv [env_name] [package1] [package2] ... [packageN]
 mkenv() {
    if ask "Create environment(s) from file(s)"; then
@@ -104,7 +104,7 @@ act() {
 }
 
 # Export [explicit] spec file for building identical conda environments
-# Usage: exp [file]
+# Usage: exp [out_file]
 exp() {
    if [ $# == 0 ]; then
       if ask "Export explicit specs"; then
