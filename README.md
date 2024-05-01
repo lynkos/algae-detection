@@ -406,11 +406,13 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
        conda env list
        ```
 
-> [!TIP]
-> Instead of manually typing out entire conda commands, you can save time by adding this script to your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
+### Conda Shortcuts (Optional)
+Instead of manually typing out entire conda commands, you can save time by adding [this script](conda_shortcuts.sh) to your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
 
-<details open>
-<summary><b>Conda Shortcuts</b></summary>
+> [!WARNING]
+> These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
+> 
+> E.g., [`rmenv`](conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](conda_shortcuts.sh#L50) with backslashes `\`.
 
 <table>
 <thead>
@@ -422,17 +424,17 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 </thead>
 <tbody>
 <tr>
-<td><code>act</code></td>
+<td><a target="_blank" href="conda_shortcuts.sh#L94"><code>act</code></a></td>
 <td>Activate conda environment</td>
 <td><code>act [env_name]</code></td>
 </tr>
 <tr>
-<td><code>dac</code></td>
+<td><a target="_blank" href="conda_shortcuts.sh#L3"><code>dac</code></a></td>
 <td>Deactivate conda environment</td>
 <td><code>dac</code></td>
 </tr>
 <tr>
-<td rowspan="2"><code>mkenv</code></td>
+<td rowspan="2"><a target="_blank" href="conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
 <td rowspan="2">Create conda environment(s)</td>
 <td>From <code>.yml</code> / <code>.yaml</code> file(s): <code>mkenv [file1] [file2] ... [fileN]</code></td>
 </tr>
@@ -440,180 +442,32 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 <td>From CLI: <code>mkenv [env_name] [package1] [package2] ... [packageN]</code></td>
 </tr>
 <tr>
-<td><code>rmenv</code></td>
+<td><a target="_blank" href="conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
 <td>Remove conda environment(s)</td>
 <td><code>rmenv [env1] [env2] ... [envN] </code></td>
 </tr>
 <tr>
-<td><code>rnenv</code></td>
+<td><a target="_blank" href="conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
 <td>Rename conda environment</td>
 <td><code>rnenv [curr_name] [new_name] </code></td>
 </tr>
 <tr>
-<td><code>cpenv</code></td>
+<td><a target="_blank" href="conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
 <td>Copy conda environment</td>
 <td><code>cpenv [env_name] [copy's_name]</code></td>
 </tr>
 <tr>
-<td><code>exp</code></td>
+<td><a target="_blank" href="conda_shortcuts.sh#L108"><code>exp</code></a></td>
 <td>Export conda environment</td>
 <td><code>exp [file]</code></td>
 </tr>
 <tr>
-<td><code>lsenv</code></td>
+<td><a target="_blank" href="conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
 <td>List conda environment</td>
 <td><code>lsenv</code></td>
 </tr>
 </tbody>
 </table>
-
-> [!WARNING]
-> These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed before use.
-> 
-> E.g., `rmenv` assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in `env_path` with backslashes `\`.
-
-```sh
-# Deactivate current conda environment
-# Usage: dac
-alias dac='conda deactivate'
-
-# Helper function to prompt user for 'Yes' or 'No' response
-ask() {
-    read -p "$@ (Y/N)? " answer
-    case "${answer}" in
-    [yY] | [yY][eE][sS])
-        true
-        ;;
-    *)
-        false
-        ;;
-    esac
-}
-
-# Create conda environment(s) from .yml / .yaml file(s) or CLI
-# Usage (with file(s)): mkenv [file1] [file2] ... [fileN]
-# Usage (without file(s)): mkenv [env_name] [package1] [package2] ... [packageN]
-mkenv() {
-   if ask "Create environment(s) from file(s)"; then
-      if [ $# == 0 ]; then
-         conda env create
-      
-      else
-         for file in "$@"; do
-            [ -f "$file" ] && conda env create -f "$file" ||
-            echo "ERROR: $file doesn't exist."
-         done
-      fi
-      
-   else
-      if [ $# == 0 ]; then
-         echo "ERROR: Invalid number of args. Must include:"
-         echo "	* New env's name"
-         echo "	* [OPTIONAL] New env's package(s)"
-         
-      else
-         conda create -n "$@"
-      fi
-   fi
-}
-
-# Delete conda environment(s)
-# Usage: rmenv [env1] [env2] ... [envN]
-rmenv() {
-   for env in "$@"; do
-      if ask "Are you sure you want to delete $env"; then
-         env_path="$(conda info --base)/envs/$env"
-         [ -e "$env_path" ] &&
-         conda env remove -n "$env" -y &&
-         rm -rf "$env_path" ||
-         echo "ERROR: $env doesn't exist."
-      fi
-   done
-}
-
-# Rename conda environment
-# Usage: rnenv [curr_env_name] [new_name]
-rnenv() {
-   if [ $# == 2 ]; then
-      if [ "$CONDA_SHLVL" == 0 ]; then
-         act
-         conda rename -n "$1" "$2"
-         dac
-         
-      else
-         conda rename -n "$1" "$2"
-      fi
-      
-   else
-      echo "ERROR: Invalid number of args. Must include:"
-      echo "	* Env's current name"
-      echo "	* Env's new name"
-   fi
-}
-
-# Copy conda environment
-# Usage: cpenv [orig_env_name] [copy's_name]
-cpenv() {
-   if [ $# == 2 ]; then
-      conda create -n "$2" --clone "$1"
-      
-   else
-      echo "ERROR: Invalid number of args. Must include:"
-      echo "	* Source env's name"
-      echo "	* Env copy's name"
-   fi
-}
-
-# Activate conda environment
-# Usage: act [env_name]
-act() {
-   if [ $# == 1 ]; then
-      conda activate "$1"
-      
-   elif [ $# == 0 ]; then
-      conda activate
-      
-   else
-      echo "ERROR: Invalid number of args. At most 1 env name is required."
-   fi
-}
-
-# Export [explicit] spec file for building identical conda environments
-# Usage: exp [file]
-exp() {
-   if [ $# == 0 ]; then
-      if ask "Export explicit specs"; then
-         conda list --explicit > environment.yml
-         
-      else
-         conda env export --from-history > environment.yml
-      fi
-      
-   elif [ $# == 1 ]; then
-      if ask "Export explicit specs"; then
-         conda list --explicit > "$1"
-         
-      else
-         conda env export --from-history > "$1"
-      fi
-      
-   else
-      echo "ERROR: Invalid number of args. At most 1 file name is required."
-   fi
-}
-
-# Output [explicit] packages in conda environment
-# Usage: lsenv
-lsenv() {
-   if ask "List explicit specs"; then
-      conda list --explicit
-      
-   else
-      conda list
-   fi
-}
-```
-</details>
 
 ## Usage
 ### Detect and Classify Algae
