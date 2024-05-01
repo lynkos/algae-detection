@@ -1,7 +1,10 @@
 <div align="center">
 <h1>Using AI and Low-Cost Camera to Detect Harmful Algae</h1>
+<img alt="HTML" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=HTML&logo=HTML5&color=E34F26&labelColor=393939&logoColor=E34F26">
 <img alt="Python" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=Python+3.11.5&logo=python&color=c7a228&labelColor=393939&logoColor=4f97d1">
+<img alt="Shell" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=Shell&logo=GNU+Bash&color=4EAA25&labelColor=393939&logoColor=4EAA25">
 <img alt="C++" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=C%2B%2B&logo=c%2B%2B&color=00599c&labelColor=393939&logoColor=00599c">
+<img alt="C" src="https://img.shields.io/static/v1?label=Languages&style=flat&message=C&logo=C&color=a8b9cc&labelColor=393939&logoColor=a8b9cc">
 
 <img alt="Espressif" src="https://img.shields.io/static/v1?label=Frameworks&style=flat&message=Espressif&logo=espressif&color=E7352C&labelColor=393939&logoColor=E7352C">
 <img alt="PyTorch" src="https://img.shields.io/static/v1?label=Frameworks&style=flat&message=PyTorch&logo=pytorch&color=EE4C2C&labelColor=393939&logoColor=EE4C2C">
