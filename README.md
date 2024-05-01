@@ -407,12 +407,70 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
        ```
 
 > [!TIP]
-> Instead of manually typing out the entire conda command, you can add the following script to your shell startup file (e.g., `.bashrc`, etc.) and use it in your terminal (rather than typing the command out in its entirety) to save time.
+> Instead of manually typing out entire conda commands, you can save time by adding this script to your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
 
 <details open>
 <summary><b>Conda Shortcuts</b></summary>
 
-These have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so they may or may not work as expected with other shells or versions! Try testing each shortcut individually beforehand, and use with caution!
+<table>
+<thead>
+<tr>
+<th><center>Command</center></th>
+<th><center>Description</center></th>
+<th><center>Usage</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>act</code></td>
+<td>Activate conda environment</td>
+<td><code>act [env_name]</code></td>
+</tr>
+<tr>
+<td><code>dac</code></td>
+<td>Deactivate conda environment</td>
+<td><code>dac</code></td>
+</tr>
+<tr>
+<td rowspan="2"><code>mkenv</code></td>
+<td rowspan="2">Create conda environment(s)</td>
+<td>From <code>.yml</code> / <code>.yaml</code> file(s): <code>mkenv [file1] [file2] ... [fileN]</code></td>
+</tr>
+<tr>
+<td>From CLI: <code>mkenv [env_name] [package1] [package2] ... [packageN]</code></td>
+</tr>
+<tr>
+<td><code>rmenv</code></td>
+<td>Remove conda environment(s)</td>
+<td><code>rmenv [env1] [env2] ... [envN] </code></td>
+</tr>
+<tr>
+<td><code>rnenv</code></td>
+<td>Rename conda environment</td>
+<td><code>rnenv [curr_name] [new_name] </code></td>
+</tr>
+<tr>
+<td><code>cpenv</code></td>
+<td>Copy conda environment</td>
+<td><code>cpenv [env_name] [copy's_name]</code></td>
+</tr>
+<tr>
+<td><code>exp</code></td>
+<td>Export conda environment</td>
+<td><code>exp [file]</code></td>
+</tr>
+<tr>
+<td><code>lsenv</code></td>
+<td>List conda environment</td>
+<td><code>lsenv</code></td>
+</tr>
+</tbody>
+</table>
+
+> [!WARNING]
+> These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed before use.
+> 
+> E.g., `rmenv` assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in `env_path` with backslashes `\`.
 
 ```sh
 # Deactivate current conda environment
@@ -442,7 +500,7 @@ mkenv() {
       
       else
          for file in "$@"; do
-            [ -f $file ] && conda env create -f $file ||
+            [ -f "$file" ] && conda env create -f "$file" ||
             echo "ERROR: $file doesn't exist."
          done
       fi
@@ -464,19 +522,20 @@ mkenv() {
 rmenv() {
    for env in "$@"; do
       if ask "Are you sure you want to delete $env"; then
-         [ -e $(conda info --base)/envs/$env ] &&
-         conda env remove -n $env -y &&
-         rm -rf $(conda info --base)/envs/$env ||
+         env_path="$(conda info --base)/envs/$env"
+         [ -e "$env_path" ] &&
+         conda env remove -n "$env" -y &&
+         rm -rf "$env_path" ||
          echo "ERROR: $env doesn't exist."
       fi
    done
 }
 
 # Rename conda environment
-# Usage: rnenv [env_name] [new_name]
+# Usage: rnenv [curr_env_name] [new_name]
 rnenv() {
    if [ $# == 2 ]; then
-      if [ $CONDA_SHLVL == 0 ]; then
+      if [ "$CONDA_SHLVL" == 0 ]; then
          act
          conda rename -n "$1" "$2"
          dac
@@ -493,7 +552,7 @@ rnenv() {
 }
 
 # Copy conda environment
-# Usage: cpenv [env_name] [copy_name]
+# Usage: cpenv [orig_env_name] [copy's_name]
 cpenv() {
    if [ $# == 2 ]; then
       conda create -n "$2" --clone "$1"
@@ -535,7 +594,7 @@ exp() {
          conda list --explicit > "$1"
          
       else
-         conda env export --from-history >"$1"
+         conda env export --from-history > "$1"
       fi
       
    else
