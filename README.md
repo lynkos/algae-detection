@@ -427,46 +427,46 @@ Instead of manually typing out entire conda commands, you can save time by addin
 <tbody>
 <tr>
 <td align="center"><a target="_blank" href="scripts/conda_shortcuts.sh#L94"><code>act</code></a></td>
-<td>Activate conda environment</td>
-<td><pre>act [env_name]</pre></td>
+<td align="center">Activate conda environment</td>
+<td><p><pre>act [env_name]</pre></p></td>
 </tr>
 <tr>
 <td align="center"><a target="_blank" href="scripts/conda_shortcuts.sh#L3"><code>dac</code></a></td>
-<td>Deactivate conda environment</td>
-<td><pre>dac</pre></td>
+<td align="center">Deactivate conda environment</td>
+<td><p><pre>dac</pre></p></td>
 </tr>
 <tr>
 <td align="center" rowspan="2"><a target="_blank" href="scripts/conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
-<td rowspan="2">Create conda environment(s)</td>
-<td><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></td>
+<td rowspan="2" align="center">Create conda environment(s)</td>
+<td><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
 </tr>
 <tr>
-<td><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></td>
+<td><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
 </tr>
 <tr>
 <td align="center"><a target="_blank" href="scripts/conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
-<td>Remove conda environment(s)</td>
-<td><pre>rmenv [env1] [env2] ... [envN] </pre></td>
+<td align="center">Remove conda environment(s)</td>
+<td><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
 </tr>
 <tr>
 <td align="center"><a target="_blank" href="scripts/conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
-<td>Rename conda environment</td>
-<td><pre>rnenv [curr_name] [new_name] </pre></td>
+<td align="center">Rename conda environment</td>
+<td><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
 </tr>
 <tr>
 <td align="center"><a target="_blank" href="scripts/conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
-<td>Copy conda environment</td>
-<td><pre>cpenv [env_name] [copy's_name]</pre></td>
+<td align="center">Copy conda environment</td>
+<td><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
 </tr>
 <tr>
 <td align="center"><a target="_blank" href="scripts/conda_shortcuts.sh#L108"><code>exp</code></a></td>
-<td>Export conda environment</td>
-<td><pre>exp [out_file]</pre></td>
+<td align="center">Export conda environment</td>
+<td><p><pre>exp [out_file]</pre></p></td>
 </tr>
 <tr>
 <td align="center"><a target="_blank" href="scripts/conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
-<td>List conda environment</td>
-<td><pre>lsenv</pre></td>
+<td align="center">List conda environment</td>
+<td><p><pre>lsenv</pre></p></td>
 </tr>
 </tbody>
 </table>
