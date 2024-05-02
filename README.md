@@ -79,7 +79,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] Micro-USB cable
-- [x] <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Algae dataset</a>
+- [x] <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Algae</a> <a target="_blank" href="#dataset">dataset</a>
 - [x] <a target="_blank" href="https://code.visualstudio.com/download">Visual Studio Code</a>
 - [x] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
 - [x] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
@@ -144,26 +144,32 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > [!IMPORTANT]
 > Due to the [large] size of the repo, you may get errors such as:
 > 
-> <pre>error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output</pre>
+> ```
+> error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output
+> ```
 >
-> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, consider <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">cloning via SSH</a> (`git clone git@github.com:lynkos/algae-detection.git`) or <a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">manually downloading the repo as a `.zip` file</a> and decompressing it.
+> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, consider<a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">manually downloading the repo as a `.zip` file</a> and decompressing it **OR** <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">cloning via SSH</a>:
+> 
+> ```sh
+> git clone git@github.com:lynkos/algae-detection.git
+> ```
 
-5. Enter `algae-detection`
+1. Enter `algae-detection`
    ```sh
    cd algae-detection
    ```
 
-6. Create conda virtual environment from [`environment.yml`](environment.yml)
+2. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```sh
    conda env create -f environment.yml
    ```
 
-7. Activate `algae_env`
+3. Activate `algae_env`
    ```sh
    conda activate algae_env
    ```
 
-8. Confirm `algae_env` is active
+4. Confirm `algae_env` is active
      * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
        ```sh
        (algae_env) $
@@ -247,8 +253,8 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
    <div align="center">
       <figure>
-         <picture><img height="640" alt="User Interface" src="https://github.com/lynkos/algae-detection/assets/9407943/71e1aad9-5571-4073-b5b5-fa02d76445f8"></picture><br>
-         <figcaption><sup>Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted type, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</sup></figcaption>
+         <picture><img alt="User Interface" src="https://github.com/lynkos/algae-detection/assets/9407943/71e1aad9-5571-4073-b5b5-fa02d76445f8"></picture><br>
+         <figcaption><sup>Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</sup></figcaption>
       </figure>
    </div>
 </details>
