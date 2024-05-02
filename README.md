@@ -134,7 +134,7 @@ By (1) specifically tailoring an [AI](#AI) model ([CNN](#cnn)) to detect harmful
 
 4. Clone `algae-detection`
    ```sh
-   git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
+   git clone https://github.com/lynkos/algae-detection.git
    ```
 
 > [!IMPORTANT]
@@ -144,32 +144,37 @@ By (1) specifically tailoring an [AI](#AI) model ([CNN](#cnn)) to detect harmful
 >
 > If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, consider <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">cloning via SSH</a> (`git clone git@github.com:lynkos/algae-detection.git`) or <a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">manually downloading the repo as a `.zip` file</a> and decompressing it.
 
-5. Create conda virtual environment from [`environment.yml`](environment.yml)
+5. Enter `algae-detection`
+   ```sh
+   cd algae-detection
    ```
+
+6. Create conda virtual environment from [`environment.yml`](environment.yml)
+   ```sh
    conda env create -f environment.yml
    ```
 
-6. Activate `algae_env`
-   ```
+7. Activate `algae_env`
+   ```sh
    conda activate algae_env
    ```
 
-7. Confirm that `algae_env` is active
+8. Confirm `algae_env` is active
      * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
-       ```
+       ```sh
        (algae_env) $
        ```
      * If necessary, see which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
-       ```
+       ```sh
        conda info --envs
        ```
        **OR**
-       ```
+       ```sh
        conda env list
        ```
 
 ### (Optional) Conda Shortcuts
-Instead of manually typing out entire conda commands, you can save time by adding [this `.sh` script](scripts/conda_shortcuts.sh) to your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
+Instead of manually typing out entire conda commands, you can save time by adding [this `.sh` script](scripts/conda_shortcuts.sh) in your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
 
 > [!WARNING]
 > These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
