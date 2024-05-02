@@ -154,22 +154,22 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > git clone git@github.com:lynkos/algae-detection.git
 > ```
 
-1. Enter `algae-detection`
+5. Enter `algae-detection`
    ```sh
    cd algae-detection
    ```
 
-2. Create conda virtual environment from [`environment.yml`](environment.yml)
+6. Create conda virtual environment from [`environment.yml`](environment.yml)
    ```sh
    conda env create -f environment.yml
    ```
 
-3. Activate `algae_env`
+7. Activate `algae_env`
    ```sh
    conda activate algae_env
    ```
 
-4. Confirm `algae_env` is active
+8. Confirm `algae_env` is active
      * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
        ```sh
        (algae_env) $
