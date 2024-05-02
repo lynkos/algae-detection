@@ -244,11 +244,11 @@ Instead of manually typing out entire conda commands, you can save time by addin
 ### Detect and Classify Algae
 <details open>
    <summary><b>User Interface</b></summary>
-   
+
    <div align="center">
       <figure>
-        <picture><img alt="User Interface" src="assets/user_interface.png"></picture>
-        <figcaption><sup>Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted type, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</sup></figcaption>
+         <picture><img height="640" alt="User Interface" src="https://github.com/lynkos/algae-detection/assets/9407943/71e1aad9-5571-4073-b5b5-fa02d76445f8"></picture><br>
+         <figcaption><sup>Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted type, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</sup></figcaption>
       </figure>
    </div>
 </details>
