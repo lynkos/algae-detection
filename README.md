@@ -23,8 +23,6 @@
 </div>
 
 ## Overview
-*Quickly detect and classify [different species of harmful](#dataset) [algae](#algae) within natural water samples under a microscope in real-time via a fine-tuned <a href="#cnn">Convolutional Neural Network (CNN)</a> and inexpensive (~$10) camera (or, if preferred, smartphone).*
-
 Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the health of humans, marine life, and [aquatic] ecosystems. These blooms, often fueled by nutrient runoff and warmer temperatures, are increasing in prevalence and can negatively impact water quality and oxygen levels, hence the need to keep track of harmful [algae](#algae) / algal blooms (i.e., collect natural water sample(s) for analysis).
 
 An expensive and cumbersome microscope is often needed to view samples/slides in high-resolution. While offering very high visual fidelity, these types of microscopes do not offer a solution that can be used in the field. Conversely, affordable and light microscopes come with limitations as well, such as subpar resolution and focus. The manual nature of detection, quantification, and classification further compounds the drawbacks, resulting in time-consuming and labor-intensive procedures.
