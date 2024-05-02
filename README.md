@@ -27,7 +27,11 @@ Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the healt
 
 An expensive and cumbersome microscope is often needed to view samples/slides in high-resolution. While offering very high visual fidelity, these types of microscopes do not offer a solution that can be used in the field. Conversely, affordable and light microscopes come with limitations as well, such as subpar resolution and focus. The manual nature of detection, quantification, and classification further compounds the drawbacks, resulting in time-consuming and labor-intensive procedures.
 
-By (1) specifically tailoring an [AI](#AI) model ([CNN](#cnn)) to detect harmful [algae](#algae), and (2) leveraging the portability of smartphones and [low-cost] <a href="#esp">ESP32-CAM</a>, this project aims to provide a practical, convenient, and efficient tool to monitor water quality and mitigate / prevent harmful algal blooms in real-time. Since it's designed to be user-friendly and cost-effective, it's also suitable for both educational and research purposes.
+This project aims to provide a practical, convenient, and efficient tool to monitor water quality and mitigate / prevent harmful algal blooms in real-time by:
+- Tailoring [AI](#AI) models ([CNN](#cnn)) to detect harmful [algae](#algae)
+- Leveraging the portability of smartphones and low-cost <a href="#esp">ESP32-CAM</a>
+
+Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
 > [!TIP]
 > Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
