@@ -42,12 +42,10 @@ By (1) specifically tailoring an [AI](#AI) model ([CNN](#cnn)) to detect harmful
    <summary><b>Nikon microscope with ESP32-CAM AI Thinker and illuminator</b></summary>
 
    <div align="center">
-   <figure align="center">
-   <picture><img align="center" height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture>
-   <figcaption>
-   ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Our current version of the system allows us to see a live video of the camera via a Window with configurable model attributes via trackbars. 
-   </figcaption>
-   </figure>
+      <figure>
+         <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
+         <figcaption>ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Our current version of the system allows us to see a live video of the camera via a Window with configurable model attributes via trackbars.</figcaption>
+      </figure>
    </div>
 </details>
 
