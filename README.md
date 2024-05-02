@@ -44,7 +44,7 @@ By (1) specifically tailoring an [AI](#AI) model ([CNN](#cnn)) to detect harmful
    <div align="center">
       <figure>
          <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
-         <figcaption>ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Our current version of the system allows us to see a live video of the camera via a Window with configurable model attributes via trackbars.</figcaption>
+         <figcaption><sup>ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Our current version of the system allows us to see a live video of the camera via a Window with configurable model attributes via trackbars.</sup></figcaption>
       </figure>
    </div>
 </details>
@@ -237,12 +237,10 @@ Instead of manually typing out entire conda commands, you can save time by addin
    <summary><b>User Interface</b></summary>
    
    <div align="center">
-   <figure>
-   <picture><img alt="User Interface" src="assets/user_interface.png"></picture>
-   <figcaption>
-   Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted type, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.
-   </figcaption>
-   </figure>
+      <figure>
+        <picture><img alt="User Interface" src="assets/user_interface.png"></picture>
+        <figcaption><sup>Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted type, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</sup></figcaption>
+      </figure>
    </div>
 </details>
 
