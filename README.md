@@ -23,11 +23,13 @@
 </div>
 
 ## Overview
-Quickly detect and classify [different species of harmful algae](#dataset) within natural water samples under a microscope in real-time via a fine-tuned convolutional neural network and low-cost camera (or, if preferred, smartphone).
+*Quickly detect and classify [different species of harmful](#dataset) [algae](#algae) within natural water samples under a microscope in real-time via a fine-tuned <a href="#cnn">Convolutional Neural Network (CNN)</a> and inexpensive (~$10) camera (or, if preferred, smartphone).*
 
-The system can be used to monitor water quality and as a preventative measure for harmful algal blooms.
+Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the health of humans, marine life, and [aquatic] ecosystems. These blooms, often fueled by nutrient runoff and warmer temperatures, are increasing in prevalence and can negatively impact water quality and oxygen levels, hence the need to keep track of harmful [algae](#algae) / algal blooms (i.e., collect natural water sample(s) for analysis).
 
-It's designed to be user-friendly and cost-effective, making it ideal for both research and educational purposes.
+An expensive and cumbersome microscope is often needed to view samples/slides in high-resolution. While offering very high visual fidelity, these types of microscopes do not offer a solution that can be used in the field. Conversely, affordable and light microscopes come with limitations as well, such as subpar resolution and focus. The manual nature of detection, quantification, and classification further compounds the drawbacks, resulting in time-consuming and labor-intensive procedures.
+
+By (1) specifically tailoring an [AI](#AI) model ([CNN](#cnn)) to detect harmful [algae](#algae), and (2) leveraging the portability of smartphones and [low-cost] <a href="#esp">ESP32-CAM</a>, this project aims to provide a practical, convenient, and efficient tool to monitor water quality and mitigate / prevent harmful algal blooms in real-time. Since it's designed to be user-friendly and cost-effective, it's also suitable for both educational and research purposes.
 
 > [!TIP]
 > Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
@@ -40,7 +42,14 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
 
 <details open>
    <summary><b>Nikon microscope with ESP32-CAM AI Thinker and illuminator</b></summary>
-   <div align="center"><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></div>
+   <div align="center">
+   <figure>
+   <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture>
+   <figcaption>
+   ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Our current version of the system allows us to see a live video of the camera via a Window with configurable model attributes via trackbars. 
+   </figcaption>
+   </figure>
+   </div>
 </details>
 
 ## Requirements
@@ -162,7 +171,7 @@ It's designed to be user-friendly and cost-effective, making it ideal for both r
        conda env list
        ```
 
-### Conda Shortcuts (Optional)
+### (Optional) Conda Shortcuts
 Instead of manually typing out entire conda commands, you can save time by adding [this `.sh` script](scripts/conda_shortcuts.sh) to your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
 
 > [!WARNING]
@@ -229,7 +238,15 @@ Instead of manually typing out entire conda commands, you can save time by addin
 ### Detect and Classify Algae
 <details open>
    <summary><b>User Interface</b></summary>
-   <img align="center" alt="User Interface" src="assets/user_interface.png">
+   
+   <div align="center">
+   <figure>
+   <picture><img alt="User Interface" src="assets/user_interface.png"></picture>
+   <figcaption>
+   Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted type, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.
+   </figcaption>
+   </figure>
+   </div>
 </details>
 
 1. Open [`weights`](weights)
@@ -279,7 +296,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
    <div align="center"><img alt="Window popup" height="350" src="assets/esp32/ap_popup.png"></div>
 
 7. You **must** fill in all of the following fields:
-   - AP (i.e., Access Point) password
+   - <a href="#ap">AP (i.e., Access Point)</a> password
    - WiFi SSID
    - WiFi password (if applicable)
    <div align="center"><img alt="System config" height="350" src="assets/esp32/init_config.png"></div>
@@ -397,7 +414,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
 <tr>
 <th style="text-align: center;">[Pre-Trained] Model</th>
-<th style="text-align: center;">Confusion Matrix (Normalized)</th>
+<th style="text-align: center;"><a href="#con_mat">Confusion Matrix</a> (<a href="#norm">Normalized</a>)</th>
 <th style="text-align: center;">Precision-Confidence Curve</th>
 <th style="text-align: center;">Precision-Recall Curve</th>
 <th style="text-align: center;">Recall-Confidence Curve</th>
@@ -459,10 +476,10 @@ Instead of manually typing out entire conda commands, you can save time by addin
 <a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html"><img alt="YOLOv8 architecture" src="assets/diagrams/yolov8_architecture.jpg"></a>
 
 ### Framework
-#### <a target="_blank" href="https://arxiv.org/abs/2202.06934">SAFT</a>
+#### <a href="#saft">SAFT</a>
 <img alt="Slicing Aided Fine Tuning (SAFT) framework" src="assets/diagrams/saft_framework.png">
 
-#### <a target="_blank" href="https://arxiv.org/abs/2202.06934">SAHI</a>
+#### <a href="#sahi">SAHI</a>
 <img alt="Slicing Aided Hyper Inference (SAHI) framework" src="assets/diagrams/sahi_framework.png">
 
 ### Dataset
@@ -474,19 +491,19 @@ Instead of manually typing out entire conda commands, you can save time by addin
          <th style="text-align: center;" width="100%">Example</th>
       </tr>
       <tr>
-         <td>Closterium</td>
+         <td><a href="#closterium">Closterium</a></td>
          <td><img alt="Closterium" align="center" width="100%" src="assets/algae/closterium.jpg"></td>
       </tr>
       <tr>
-         <td>Microcystis</td>
+         <td><a href="#microcystis">Microcystis</a></td>
          <td><img alt="Microcystis" align="center" width="100%" src="assets/algae/microcystis.jpg"></td>
       </tr>
       <tr>
-         <td>Nitzschia</td>
+         <td><a href="#nitzschia">Nitzschia</a></td>
          <td><img alt="Nitzschia" align="center" width="100%" src="assets/algae/nitzschia.jpg"></td>
       </tr>
       <tr>
-         <td>Oscillatoria</td>
+         <td><a href="#oscillatoria">Oscillatoria</a></td>
          <td><img alt="Oscillatoria" align="center" width="100%" src="assets/algae/oscillatoria.jpg"></td>
       </tr>
       <tr>
@@ -653,40 +670,43 @@ Instead of manually typing out entire conda commands, you can save time by addin
 - Research "<a target="_blank" href="https://www.google.com/search?q=toxic+cyanobacteria">toxic cyanobacteria</a>"
 
 ### Glossary
-1. **Access Point (AP)**: Networking device that allows wireless-capable devices to connect to a WLAN; in this case, it provides WiFi to ESP32
-2. **Algae**: Group of mostly aquatic, photosynthetic, and nucleus-bearing organisms that lack many features of larger multicellular plants
-3. **Anaconda**: Open-source platform for managing and installing various Python packages
-4. **Artificial Intelligence (AI)**: Simulation of human intelligence in machines that can perform tasks like problem-solving, decision-making, learning, etc.
-5. **Deep Neural Network (DNN)**: ML method inspired by the human brain’s neural structure that can recognize complex patterns in data (e.g., pictures, text, sounds, etc.) to produce accurate insights and predictions
-6. **Closterium**: Type of algae identified by their elongated or crescent shape
-7. **Computer Vision (CV)**: Field of computer science that focuses on enabling computers to identify and understand objects and people in images and videos
-8. **Confusion Matrix**: Visualizes model performance (i.e., number of correct and incorrect predictions per class), where the x-axis is the true value and y-axis is the model’s predicted value; diagonal elements represent the number of points for which the predicted label is equal to the true label (higher diagonal values are better since it indicates many correct predictions), off-diagonal elements are those mislabeled by the model (lower off-diagonal elements are better since it indicates lack of incorrect predictions)
-9. **Convolutional Neural Network (CNN)**: Type of DNN specifically designed for image recognition and processing
-10. **Epoch**: One complete iteration of the entire training dataset through the ML algorithm
-11. **ESP32**: Series of low-cost, low-power system-on-chip microcontrollers with integrated WiFi and Bluetooth capabilities
-12. **Espressif**: Manufacturer of ESP32 microcontrollers 
-13. **Google Colab**: Hosted Jupyter Notebook service that requires no setup to use and provides both free and paid access to computing resources, including GPUs and TPUs
-14. **Graphics Processing Unit (GPU)**: Specialized electronic circuit that can perform mathematical calculations at high speed; useful for training AI and DNNs
-15. **Inference**: Process of using a trained ML model to make predictions, classifications, and/or detections on new data
-16. **Local Access Network (LAN)**: Group of connected computing devices within a limited area (usually sharing a centralized Internet connection) that can communicate and share resources amongst each other
-17. **Machine Learning (ML)**: Subfield of AI that involves training computer systems to learn from data and make decisions or predictions without being explicitly programmed
-18. **Microcystis**: Very toxic genus of cyanobacteria which look like clusters of small dots and is known for forming harmful algal blooms in bodies of water
-19. **Motion JPEG (MJPEG)**: Video compression format where each frame of a digital video sequence is compressed separately as a JPEG image
-20. **Weights**: Numbers associated with the connections between neurons/nodes across different layers of a DNN
-21. **Nitzschia**: Type of thin, elongated algae that can cause harmful algal blooms
-22. **Normalize**: Within the context of confusion matrices, it means the matrix elements are displayed as a percentage
-23. **Oscillatoria**: Genus of filamentous cyanobacteria that forms blue-green algal blooms
-24. **PlatformIO**: Cross-platform, cross-architecture, multi-framework tool for embedded system engineers and software engineers who write embedded applications
-25. **Python**: High-level programming language widely used for data analysis and ML
-26. **PyTorch**: ML library used for various applications, including CV
-27. **Red Tide**: Event which occurs on Florida’s coastline where algae grows uncontrollably
-28. **Roboflow**: CV developer framework for better data collection, dataset preprocessing, dataset augmentation, model training techniques, model deployment, and more
-29. **Slicing Aided Fine Tuning (SAFT)**: Novel approach that augments the fine-tuning dataset by dividing images into overlapping patches, thus providing a more balanced representation of small objects and overcoming the bias towards larger objects in the original pre-training datasets
-30. **Slicing Aided Hyper Inference (SAHI)**: Common method of improving the detection accuracy of small objects, which involves running inference over portions of an image then accumulating the results
-31. **Tensor Processing Unit (TPU)**: Google’s application-specific integrated circuit (ASIC) used to accelerate ML workloads; useful for training AI and DNNs
-32. **Ultralytics**: Company that aims to make AI model development accessible, efficient to train, and easy to deploy
-33. **Wireless Local Area Network (WLAN)**: Computer network that links two or more devices using wireless communication to form a LAN
-34. **YOLOv8**: Version 8 of You Only Look Once, a high performance real-time object detection and image segmentation model developed by Ultralytics
+<ol>
+<li id="ap"><strong>Access Point (AP)</strong>: Networking device that allows wireless-capable devices to connect to a WLAN; in this case, it provides WiFi to ESP32</li>
+<li id="algae"><strong>Algae</strong>: Group of mostly aquatic, photosynthetic, and nucleus-bearing organisms that lack many features of larger multicellular plants</li>
+<li><strong>Anaconda</strong>: Open-source platform for managing and installing various Python packages</li>
+<li><strong>Artificial Intelligence (AI)</strong>: Simulation of human intelligence in machines that can perform tasks like problem-solving, decision-making, learning, etc.</li>
+<li><strong>Deep Neural Network (DNN)</strong>: ML method inspired by the human brain’s neural structure that can recognize complex patterns in data (e.g., pictures, text, sounds, etc.) to produce accurate insights and predictions</li>
+<li id="closterium"><strong>Closterium</strong>: Type of algae identified by their elongated or crescent shape</li>
+<li><strong>Computer Vision (CV)</strong>: Field of computer science that focuses on enabling computers to identify and understand objects and people in images and videos</li>
+<li id="con_mat"><strong>Confusion Matrix</strong>: Visualizes model performance (i.e., number of correct and incorrect predictions per class), where the x-axis is the true value and y-axis is the model’s predicted value; diagonal elements represent the number of points for which the predicted label is equal to the true label (higher diagonal values are better since it indicates many correct predictions), off-diagonal elements are those mislabeled by the model (lower off-diagonal elements are better since it indicates lack of incorrect predictions)</li>
+<li id="cnn"><strong>Convolutional Neural Network (CNN)</strong>: Type of DNN specifically designed for image recognition and processing</li>
+<li><strong>Epoch</strong>: One complete iteration of the entire training dataset through the ML algorithm</li>
+<li id="esp"><strong>ESP32</strong>: Series of low-cost, low-power system-on-chip microcontrollers with integrated WiFi and Bluetooth capabilities</li>
+<li><strong>Espressif</strong>: Manufacturer of ESP32 microcontrollers </li>
+<li><strong>Google Colab</strong>: Hosted Jupyter Notebook service that requires no setup to use and provides both free and paid access to computing resources, including GPUs and TPUs</li>
+<li><strong>Graphics Processing Unit (GPU)</strong>: Specialized electronic circuit that can perform mathematical calculations at high speed; useful for training AI and DNNs</li>
+<li><strong>Inference</strong>: Process of using a trained ML model to make predictions, classifications, and/or detections on new data</li>
+<li><strong>Local Access Network (LAN)</strong>: Group of connected computing devices within a limited area (usually sharing a centralized Internet connection) that can communicate and share resources amongst each other</li>
+<li><strong>Machine Learning (ML)</strong>: Subfield of AI that involves training computer systems to learn from data and make decisions or predictions without being explicitly programmed</li>
+<li id="microcystis"><strong>Microcystis</strong>: Very toxic genus of cyanobacteria which look like clusters of small dots and is known for forming harmful algal blooms in bodies of water</li>
+<li><strong>Motion JPEG (MJPEG)</strong>: Video compression format where each frame of a digital video sequence is compressed separately as a JPEG image</li>
+<li><strong>Weights</strong>: Numbers associated with the connections between neurons/nodes across different layers of a DNN</li>
+<li id="nitzschia"><strong>Nitzschia</strong>: Type of thin, elongated algae that can cause harmful algal blooms</li>
+<li id="norm"><strong>Normalize</strong>: Within the context of confusion matrices, it means the matrix elements are displayed as a percentage</li>
+<li id="oscillatoria"><strong>Oscillatoria</strong>: Genus of filamentous cyanobacteria that forms blue-green algal blooms</li>
+<li><strong>PlatformIO</strong>: Cross-platform, cross-architecture, multi-framework tool for embedded system engineers and software engineers who write embedded applications</li>
+<li><strong>Python</strong>: High-level programming language widely used for data analysis and ML</li>
+<li><strong>PyTorch</strong>: ML library used for various applications, including CV</li>
+<li id="red_tide"><strong>Red Tide</strong>: Event which occurs on Florida’s coastline where algae grows uncontrollably</li>
+<li><strong>Roboflow</strong>: CV developer framework for better data collection, dataset preprocessing, dataset augmentation, model training techniques, model deployment, and more</li>
+<li id="saft"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Fine Tuning (SAFT)</strong></a>: Novel approach that augments the fine-tuning dataset by dividing images into overlapping patches, thus providing a more balanced representation of small objects and overcoming the bias towards larger objects in the original pre-training datasets</li>
+<li id="sahi"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Hyper Inference (SAHI)</strong></a>: Common method of improving the detection accuracy of small objects, which involves running inference over portions of an image then accumulating the results</li>
+<li><strong>System-on-Chip (SoC)</strong>: Integrated circuit that compresses all of a(n) computer/electronic system's required components onto one piece of silicon</li>
+<li><strong>Tensor Processing Unit (TPU)</strong>: Google’s application-specific integrated circuit (ASIC) used to accelerate ML workloads; useful for training AI and DNNs</li>
+<li><strong>Ultralytics</strong>: Company that aims to make AI model development accessible, efficient to train, and easy to deploy</li>
+<li><strong>Wireless Local Area Network (WLAN)</strong>: Computer network that links two or more devices using wireless communication to form a LAN</li>
+<li><strong>YOLOv8</strong>: Version 8 of You Only Look Once, a high performance real-time object detection and image segmentation model developed by Ultralytics</li>
+</ol>
 
 ## Credits
 Special thanks to:
