@@ -47,7 +47,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
    <div align="center">
       <figure>
-         <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
+         <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="docs/assets/microscope.jpg"></picture><br>
          <figcaption style="font-size: 11px;">ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Current version allows user to see a live video of the camera via a Window with configurable model attributes via trackbars.</figcaption>
       </figure>
    </div>
@@ -253,7 +253,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
    <div align="center">
       <figure>
-         <picture><img alt="User Interface" src="assets/user_interface.png"></picture><br>
+         <picture><img alt="User Interface" src="docs/assets/user_interface.png"></picture><br>
          <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
       </figure>
    </div>
@@ -286,36 +286,36 @@ Instead of manually typing out entire conda commands, you can save time by addin
 >     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #1–4 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
-   <div align="center"><img alt="Open PlatformIO project" height="350" src="assets/esp32/platformio_folder.png"></div>
+   <div align="center"><img alt="Open PlatformIO project" height="350" src="docs/assets/esp32/platformio_folder.png"></div>
 
 2. Open [`streaming`](src/streaming)
-   <div align="center"><img alt="Open `streaming`" height="350" src="assets/esp32/open_streaming.png"></div>
+   <div align="center"><img alt="Open `streaming`" height="350" src="docs/assets/esp32/open_streaming.png"></div>
 
 3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window
-   <div align="center"><img alt="Select board and port" src="assets/esp32/board_port.png"></div>
+   <div align="center"><img alt="Select board and port" src="docs/assets/esp32/board_port.png"></div>
 
 4. Build and upload code to ESP32
    - Click 'Build' to compile code
    - Click 'Upload' to flash code to ESP32
-   <div align="center"><img alt="Build, Upload, Monitor" height="350" src="assets/esp32/build_upload_monitor.png"></div>
+   <div align="center"><img alt="Build, Upload, Monitor" height="350" src="docs/assets/esp32/build_upload_monitor.png"></div>
 
 5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
-   <div align="center"><img alt="`ESP32CAM-RTSP` network" height="250" src="assets/esp32/choose_ap.png"></div>
+   <div align="center"><img alt="`ESP32CAM-RTSP` network" height="250" src="docs/assets/esp32/choose_ap.png"></div>
 
 6. Click 'Change settings' once the browser automatically opens the home page (<a target="_blank" href="http://192.168.4.1">`http://192.168.4.1`</a>)
-   <div align="center"><img alt="Window popup" height="350" src="assets/esp32/ap_popup.png"></div>
+   <div align="center"><img alt="Window popup" height="350" src="docs/assets/esp32/ap_popup.png"></div>
 
 7. You **must** fill in all of the following fields:
    - <a href="#ap">AP (i.e., Access Point)</a> password
    - WiFi SSID
    - WiFi password (if applicable)
-   <div align="center"><img alt="System config" height="350" src="assets/esp32/init_config.png"></div>
+   <div align="center"><img alt="System config" height="350" src="docs/assets/esp32/init_config.png"></div>
 
  > [!NOTE]
  > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
 8. Update the settings and configure camera options (you can always change them later), though be mindful of the settings you choose as they may affect the ESP32's performance
-   <div align="center"><img height="500" alt="Camera Settings" src="assets/esp32/config.png"></div>
+   <div align="center"><img height="500" alt="Camera Settings" src="docs/assets/esp32/config.png"></div>
 
 9. Scroll down and click 'Apply' to save settings
 
@@ -323,7 +323,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 > You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
 
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
-      <div align="center"><img alt="Disconnect" height="350" src="assets/esp32/disconnect.png"></div>
+      <div align="center"><img alt="Disconnect" height="350" src="docs/assets/esp32/disconnect.png"></div>
       
 > [!NOTE]
 > If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
@@ -343,13 +343,13 @@ Instead of manually typing out entire conda commands, you can save time by addin
       ```
 
 12. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address
-    <div align="center"><img alt="IP address" src="assets/esp32/esp32_ip.png"></div>
+    <div align="center"><img alt="IP address" src="docs/assets/esp32/esp32_ip.png"></div>
 
 13. You can now stream from the ESP32
     - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
     - HTTP Image: `http://<ESP32 IP address>/snapshot`
     - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
-    <div align="center"><img height="500" alt="Home Page" src="assets/esp32/index.png"></div>
+    <div align="center"><img height="500" alt="Home Page" src="docs/assets/esp32/index.png"></div>
 
 > [!CAUTION]
 > Anyone with network access to the device can see the streams and images!
@@ -392,10 +392,10 @@ Instead of manually typing out entire conda commands, you can save time by addin
       ```
 
 3. If successfully connected, your iPhone's screen should look like this:
-   <div align="center"><img alt="iPhone connected" height="350" src="assets/iphone/iphone_ui_connect.png"></div>
+   <div align="center"><img alt="iPhone connected" height="350" src="docs/assets/iphone/iphone_ui_connect.png"></div>
 
 4. Press the 'Escape' key on your keyboard or 'Disconnect' on your iPhone to terminate
-   <div align="center"><img alt="iPhone disconnected" height="350" src="assets/iphone/iphone_ui_disconnect.png"></div>
+   <div align="center"><img alt="iPhone disconnected" height="350" src="docs/assets/iphone/iphone_ui_disconnect.png"></div>
 
 #### Webcam
 1. Open [`webcam.py`](src/detection/webcam.py)
@@ -413,7 +413,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 3. Press the 'Escape' key on your keyboard to terminate
 
 ### Train, Validate, and Test Model
-1. Visit <a target="_blank" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a>
+1. Visit <a target="_blank" alt="Algae Detection (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a>
 
 2. Follow the notebook's instructions step-by-step
 
@@ -435,65 +435,65 @@ Instead of manually typing out entire conda commands, you can save time by addin
 </tr>
 <tr>
 <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
-<td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
-<td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x/P_curve.png"></td>
-<td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x/PR_curve.png"></td>
-<td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x/R_curve.png"></td>
-<td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x/F1_curve.png"></td>
-<td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x/results.png"></td>
-<td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x/validation.png"></td>
-<td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x/example.jpg"></td>
+<td><img alt="Confusion Matrix (Normalized)" align="center" src="docs/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
+<td><img alt="Precision-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x/P_curve.png"></td>
+<td><img alt="Precision-Recall Curve" align="center" src="docs/assets/models/custom_yolov8x/PR_curve.png"></td>
+<td><img alt="Recall-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x/R_curve.png"></td>
+<td><img alt="F1-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x/F1_curve.png"></td>
+<td><img alt="Training Results" align="center" src="docs/assets/models/custom_yolov8x/results.png"></td>
+<td><img alt="Validation Output" align="center" src="docs/assets/models/custom_yolov8x/validation.png"></td>
+<td><img alt="Example Prediction" align="center" src="docs/assets/models/custom_yolov8x/example.jpg"></td>
 </tr>
 <tr>
 <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
-<td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
-<td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/P_curve.png"></td>
-<td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x_v2/PR_curve.png"></td>
-<td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/R_curve.png"></td>
-<td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/F1_curve.png"></td>
-<td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x_v2/results.png"></td>
-<td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x_v2/validation.png"></td>
-<td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x_v2/example.png"></td>
+<td><img alt="Confusion Matrix (Normalized)" align="center" src="docs/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
+<td><img alt="Precision-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/P_curve.png"></td>
+<td><img alt="Precision-Recall Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
+<td><img alt="Recall-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/R_curve.png"></td>
+<td><img alt="F1-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
+<td><img alt="Training Results" align="center" src="docs/assets/models/custom_yolov8x_v2/results.png"></td>
+<td><img alt="Validation Output" align="center" src="docs/assets/models/custom_yolov8x_v2/validation.png"></td>
+<td><img alt="Example Prediction" align="center" src="docs/assets/models/custom_yolov8x_v2/example.png"></td>
 </tr>
 <tr>
 <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
-<td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
-<td><img alt="Precision-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/P_curve.png"></td>
-<td><img alt="Precision-Recall Curve" align="center" src="assets/models/sahi_yolov8n/PR_curve.png"></td>
-<td><img alt="Recall-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/R_curve.png"></td>
-<td><img alt="F1-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/F1_curve.png"></td>
-<td><img alt="Training Results" align="center" src="assets/models/sahi_yolov8n/results.png"></td>
-<td><img alt="Validation Output" align="center" src="assets/models/sahi_yolov8n/validation.png"></td>
-<td><img alt="Example Prediction" align="center" src="assets/models/sahi_yolov8n/example.jpg"></td>
+<td><img alt="Confusion Matrix (Normalized)" align="center" src="docs/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
+<td><img alt="Precision-Confidence Curve" align="center" src="docs/assets/models/sahi_yolov8n/P_curve.png"></td>
+<td><img alt="Precision-Recall Curve" align="center" src="docs/assets/models/sahi_yolov8n/PR_curve.png"></td>
+<td><img alt="Recall-Confidence Curve" align="center" src="docs/assets/models/sahi_yolov8n/R_curve.png"></td>
+<td><img alt="F1-Confidence Curve" align="center" src="docs/assets/models/sahi_yolov8n/F1_curve.png"></td>
+<td><img alt="Training Results" align="center" src="docs/assets/models/sahi_yolov8n/results.png"></td>
+<td><img alt="Validation Output" align="center" src="docs/assets/models/sahi_yolov8n/validation.png"></td>
+<td><img alt="Example Prediction" align="center" src="docs/assets/models/sahi_yolov8n/example.jpg"></td>
 </tr>
 </table>
 
 ### System Design
 #### ESP32-CAM
-<img alt="ESP32-CAM system design" src="assets/diagrams/esp32_sys_des.png">
+<img alt="ESP32-CAM system design" src="docs/assets/diagrams/esp32_sys_des.png">
 
 #### iPhone
-<img alt="iPhone system design" src="assets/diagrams/iphone_sys_des.png">
+<img alt="iPhone system design" src="docs/assets/diagrams/iphone_sys_des.png">
 
 ### UML
 #### [`streaming`](src/streaming)
-<img alt="`streaming` UML" src="assets/diagrams/streaming_uml.png">
+<img alt="`streaming` UML" src="docs/assets/diagrams/streaming_uml.png">
 
 #### [`detection`](src/detection/)
-<img alt="`detection` UML" src="assets/diagrams/detection_uml.png">
+<img alt="`detection` UML" src="docs/assets/diagrams/detection_uml.png">
 
 ### YOLOv8 Architecture
-<a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html"><img alt="YOLOv8 architecture" src="assets/diagrams/yolov8_architecture.jpg"></a>
+<a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html"><img alt="YOLOv8 architecture" src="docs/assets/diagrams/yolov8_architecture.jpg"></a>
 
 ### Framework
 #### <a href="#saft">SAFT</a>
-<img alt="Slicing Aided Fine Tuning (SAFT) framework" src="assets/diagrams/saft_framework.png">
+<img alt="Slicing Aided Fine Tuning (SAFT) framework" src="docs/assets/diagrams/saft_framework.png">
 
 #### <a href="#sahi">SAHI</a>
-<img alt="Slicing Aided Hyper Inference (SAHI) framework" src="assets/diagrams/sahi_framework.png">
+<img alt="Slicing Aided Hyper Inference (SAHI) framework" src="docs/assets/diagrams/sahi_framework.png">
 
 ### Dataset
-<img alt="Dataset flowchart" src="assets/diagrams/dataset_flowchart.png">
+<img alt="Dataset flowchart" src="docs/assets/diagrams/dataset_flowchart.png">
 <br><br>
    <table style="width: 100%; text-align: center;">
       <tr>
@@ -502,23 +502,23 @@ Instead of manually typing out entire conda commands, you can save time by addin
       </tr>
       <tr>
          <td><a href="#closterium">Closterium</a></td>
-         <td><img alt="Closterium" align="center" width="100%" src="assets/algae/closterium.jpg"></td>
+         <td><img alt="Closterium" align="center" width="100%" src="docs/assets/algae/closterium.jpg"></td>
       </tr>
       <tr>
          <td><a href="#microcystis">Microcystis</a></td>
-         <td><img alt="Microcystis" align="center" width="100%" src="assets/algae/microcystis.jpg"></td>
+         <td><img alt="Microcystis" align="center" width="100%" src="docs/assets/algae/microcystis.jpg"></td>
       </tr>
       <tr>
          <td><a href="#nitzschia">Nitzschia</a></td>
-         <td><img alt="Nitzschia" align="center" width="100%" src="assets/algae/nitzschia.jpg"></td>
+         <td><img alt="Nitzschia" align="center" width="100%" src="docs/assets/algae/nitzschia.jpg"></td>
       </tr>
       <tr>
          <td><a href="#oscillatoria">Oscillatoria</a></td>
-         <td><img alt="Oscillatoria" align="center" width="100%" src="assets/algae/oscillatoria.jpg"></td>
+         <td><img alt="Oscillatoria" align="center" width="100%" src="docs/assets/algae/oscillatoria.jpg"></td>
       </tr>
       <tr>
          <td>Non-Algae</td>
-         <td><img alt="Non-Algae" align="center" width="100%" src="assets/algae/non-algae.jpg"></td>
+         <td><img alt="Non-Algae" align="center" width="100%" src="docs/assets/algae/non-algae.jpg"></td>
       </tr>
    </table>
 
@@ -526,77 +526,80 @@ Instead of manually typing out entire conda commands, you can save time by addin
 </div>
 <pre>
 .
-├── assets/
-│   ├── algae/
-│   │   ├── closterium.jpg
-│   │   ├── microcystis.jpg
-│   │   ├── nitzschia.jpg
-│   │   ├── non-algae.jpg
-│   │   ├── oscillatoria.jpg
-│   │   └── testing_sample.pdf
-│   ├── diagrams/
-│   │   ├── drawio/
-│   │   │   ├── Camera_uml.drawio
-│   │   │   ├── dataset_flowchart.drawio
-│   │   │   ├── esp32_sys_design.drawio
-│   │   │   └── streaming_uml.drawio
-│   │   ├── dataset_flowchart.png
-│   │   ├── detection_uml.png
-│   │   ├── esp32_sys_des.png
-│   │   ├── iphone_sys_des.png
-│   │   ├── saft_framework.png
-│   │   ├── sahi_framework.png
-│   │   ├── streaming_uml.png
-│   │   └── yolov8_architecture.jpg
-│   ├── esp32/
-│   │   ├── ai_thinker.jpg
-│   │   ├── ap_popup.png
-│   │   ├── board_port.png
-│   │   ├── build_upload_monitor.png
-│   │   ├── choose_ap.png
-│   │   ├── config.png
-│   │   ├── disconnect.png
-│   │   ├── esp32_ip.png
-│   │   ├── index.png
-│   │   ├── init_config.png
-│   │   ├── open_streaming.png
-│   │   └── platformio_folder.png
-│   ├── iphone/
-│   │   ├── iphone_ui_connect.png
-│   │   └── iphone_ui_disconnect.png
-│   ├── models/
-│   │   ├── custom_yolov8x/
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── example.jpg
-│   │   │   ├── F1_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   ├── custom_yolov8x_v2/
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── example.jpg
-│   │   │   ├── F1_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   └── sahi_yolov8n/
-│   │       ├── confusion_matrix_normalized.png
-│   │       ├── confusion_matrix.png
-│   │       ├── example.jpg
-│   │       ├── F1_curve.png
-│   │       ├── P_curve.png
-│   │       ├── PR_curve.png
-│   │       ├── R_curve.png
-│   │       ├── results.png
-│   │       └── validation.png
-│   ├── microscope.jpg
-│   └── user_interface.png
+├── docs/
+│   ├── assets/
+│   │   ├── algae/
+│   │   │   ├── closterium.jpg
+│   │   │   ├── microcystis.jpg
+│   │   │   ├── nitzschia.jpg
+│   │   │   ├── non-algae.jpg
+│   │   │   ├── oscillatoria.jpg
+│   │   │   └── testing_sample.pdf
+│   │   ├── diagrams/
+│   │   │   ├── drawio/
+│   │   │   │   ├── Camera_uml.drawio
+│   │   │   │   ├── dataset_flowchart.drawio
+│   │   │   │   ├── esp32_sys_design.drawio
+│   │   │   │   └── streaming_uml.drawio
+│   │   │   ├── dataset_flowchart.png
+│   │   │   ├── detection_uml.png
+│   │   │   ├── esp32_sys_des.png
+│   │   │   ├── iphone_sys_des.png
+│   │   │   ├── saft_framework.png
+│   │   │   ├── sahi_framework.png
+│   │   │   ├── streaming_uml.png
+│   │   │   └── yolov8_architecture.jpg
+│   │   ├── esp32/
+│   │   │   ├── ai_thinker.jpg
+│   │   │   ├── ap_popup.png
+│   │   │   ├── board_port.png
+│   │   │   ├── build_upload_monitor.png
+│   │   │   ├── choose_ap.png
+│   │   │   ├── config.png
+│   │   │   ├── disconnect.png
+│   │   │   ├── esp32_ip.png
+│   │   │   ├── index.png
+│   │   │   ├── init_config.png
+│   │   │   ├── open_streaming.png
+│   │   │   └── platformio_folder.png
+│   │   ├── iphone/
+│   │   │   ├── iphone_ui_connect.png
+│   │   │   └── iphone_ui_disconnect.png
+│   │   ├── models/
+│   │   │   ├── custom_yolov8x/
+│   │   │   │   ├── confusion_matrix_normalized.png
+│   │   │   │   ├── confusion_matrix.png
+│   │   │   │   ├── example.jpg
+│   │   │   │   ├── F1_curve.png
+│   │   │   │   ├── P_curve.png
+│   │   │   │   ├── PR_curve.png
+│   │   │   │   ├── R_curve.png
+│   │   │   │   ├── results.png
+│   │   │   │   └── validation.png
+│   │   │   ├── custom_yolov8x_v2/
+│   │   │   │   ├── confusion_matrix_normalized.png
+│   │   │   │   ├── confusion_matrix.png
+│   │   │   │   ├── example.jpg
+│   │   │   │   ├── F1_curve.png
+│   │   │   │   ├── P_curve.png
+│   │   │   │   ├── PR_curve.png
+│   │   │   │   ├── R_curve.png
+│   │   │   │   ├── results.png
+│   │   │   │   └── validation.png
+│   │   │   └── sahi_yolov8n/
+│   │   │       ├── confusion_matrix_normalized.png
+│   │   │       ├── confusion_matrix.png
+│   │   │       ├── example.jpg
+│   │   │       ├── F1_curve.png
+│   │   │       ├── P_curve.png
+│   │   │       ├── PR_curve.png
+│   │   │       ├── R_curve.png
+│   │   │       ├── results.png
+│   │   │       └── validation.png
+│   │   ├── microscope.jpg
+│   │   └── user_interface.png
+│   ├── LICENSE.md
+│   └── README.md
 ├── scripts/
 │   └── conda_shortcuts.sh
 ├── src/
@@ -649,9 +652,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 │   └── yolov8n_sahi.pt.zip
 ├── .gitattributes
 ├── .gitignore
-├── environment.yml
-├── LICENSE.md
-└── README.md
+└── environment.yml
 </pre>
 
 ## Appendix
@@ -695,41 +696,41 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
 ### Glossary
 <ol>
-<li id="ap"><strong>Access Point (AP)</strong>: Networking device that allows wireless-capable devices to connect to a WLAN; in this case, it provides WiFi to ESP32</li>
+<li id="ap"><strong>Access Point (AP)</strong>: Networking device that allows wireless-capable devices to connect to a <a href="#wlan">WLAN</a>; in this case, it provides WiFi to ESP32</li>
 <li id="algae"><strong>Algae</strong>: Group of mostly aquatic, photosynthetic, and nucleus-bearing organisms that lack many features of larger multicellular plants</li>
 <li><strong>Anaconda</strong>: Open-source platform for managing and installing various Python packages</li>
-<li><strong>Artificial Intelligence (AI)</strong>: Simulation of human intelligence in machines that can perform tasks like problem-solving, decision-making, learning, etc.</li>
-<li id="closterium"><strong>Closterium</strong>: Type of algae identified by their elongated or crescent shape</li>
-<li><strong>Computer Vision (CV)</strong>: Field of computer science that focuses on enabling computers to identify and understand objects and people in images and videos</li>
-<li id="con_mat"><strong>Confusion Matrix</strong>: Visualizes model performance (i.e., number of correct and incorrect predictions per class), where the x-axis is the true value and y-axis is the model’s predicted value; diagonal elements represent the number of points for which the predicted label is equal to the true label (higher diagonal values are better since it indicates many correct predictions), off-diagonal elements are those mislabeled by the model (lower off-diagonal elements are better since it indicates lack of incorrect predictions)</li>
-<li id="cnn"><strong>Convolutional Neural Network (CNN)</strong>: Type of DNN specifically designed for image recognition and processing</li>
-<li id="dnn"><strong>Deep Neural Network (DNN)</strong>: ML method inspired by the human brain’s neural structure that can recognize complex patterns in data (e.g., pictures, text, sounds, etc.) to produce accurate insights and predictions</li>
-<li><strong>Epoch</strong>: One complete iteration of the entire training dataset through the ML algorithm</li>
-<li id="esp"><strong>ESP32</strong>: Series of low-cost, low-power system-on-chip microcontrollers with integrated WiFi and Bluetooth capabilities</li>
-<li><strong>Espressif</strong>: Manufacturer of ESP32 microcontrollers </li>
-<li><strong>Fine-Tuning</strong>: Process that takes a model (architecture + weights) already trained for one given task and tunes/tweaks the model to make it perform a second similar task</li>
+<li id="ai"><strong>Artificial Intelligence (AI)</strong>: Simulation of human intelligence in machines that can perform tasks like problem-solving, decision-making, learning, etc.</li>
+<li id="closterium"><strong>Closterium</strong>: Type of <a href="#algae">algae</a> identified by their elongated or crescent shape</li>
+<li id="cv"><strong>Computer Vision (CV)</strong>: Field of computer science that focuses on enabling computers to identify and understand objects and people in images and videos</li>
+<li id="con_mat"><strong>Confusion Matrix</strong>: Visualizes model performance (i.e., number of correct and incorrect predictions per class), where the x-axis is the true value and y-axis is the model's predicted value; diagonal elements represent the number of points for which the predicted label is equal to the true label (higher diagonal values are better since it indicates many correct predictions), off-diagonal elements are those mislabeled by the model (lower off-diagonal elements are better since it indicates lack of incorrect predictions)</li>
+<li id="cnn"><strong>Convolutional Neural Network (CNN)</strong>: Type of <a href="#dnn">DNN</a> specifically designed for image recognition and processing</li>
+<li id="dnn"><strong>Deep Neural Network (DNN)</strong>: <a href="#ml">ML</a> method inspired by the human brain's neural structure that can recognize complex patterns in data (e.g., pictures, text, sounds, etc.) to produce accurate insights and predictions</li>
+<li><strong>Epoch</strong>: One complete iteration of the entire training dataset through the <a href="#ml">ML</a> algorithm</li>
+<li id="esp"><strong>ESP32</strong>: Series of low-cost, low-power <a href="#soc">system-on-chip</a> microcontrollers with integrated WiFi and Bluetooth capabilities</li>
+<li><strong>Espressif</strong>: Manufacturer of <a href="#esp">ESP32</a> microcontrollers </li>
+<li id="ft"><strong>Fine-Tuning</strong>: Process that takes a model (architecture + weights) already trained for one given task and tunes/tweaks the model to make it perform a second similar task</li>
 <li><strong>Google Colab</strong>: Hosted Jupyter Notebook service that provides free and paid access to computing resources, including <a href="#gpu">GPU</a>s and <a href="#tpu">TPU</a>s, and requires no setup to use</li>
 <li id="gpu"><strong>Graphics Processing Unit (GPU)</strong>: Specialized electronic circuit that can perform mathematical calculations at high speed; useful for training <a href="#ai">AI</a> and <a href="#dnn">DNN</a>s</li>
-<li><strong>Inference</strong>: Process of using a trained ML model to make predictions, classifications, and/or detections on new data</li>
+<li id="inf"><strong>Inference</strong>: Process of using a trained <a href="#ml">ML</a> model to make predictions, classifications, and/or detections on new data</li>
 <li id="lan"><strong>Local Access Network (LAN)</strong>: Group of connected computing devices within a limited area (usually sharing a centralized Internet connection) that can communicate and share resources amongst each other</li>
-<li><strong>Machine Learning (ML)</strong>: Subfield of AI that involves training computer systems to learn from data and make decisions or predictions without being explicitly programmed</li>
+<li><strong>Machine Learning (ML)</strong>: Subfield of <a href="#ai">AI</a> that involves training computer systems to learn from data and make decisions or predictions without being explicitly programmed</li>
 <li id="microcystis"><strong>Microcystis</strong>: Very toxic genus of cyanobacteria which look like clusters of small dots and is known for forming harmful algal blooms in bodies of water</li>
 <li><strong>Motion JPEG (MJPEG)</strong>: Video compression format where each frame of a digital video sequence is compressed separately as a JPEG image</li>
-<li id="nitzschia"><strong>Nitzschia</strong>: Type of thin, elongated algae that can cause harmful algal blooms</li>
-<li id="norm"><strong>Normalize</strong>: Within the context of confusion matrices, it means the matrix elements are displayed as a percentage</li>
+<li id="nitzschia"><strong>Nitzschia</strong>: Type of thin, elongated <a href="#algae">algae</a> that can cause harmful algal blooms</li>
+<li id="norm"><strong>Normalize</strong>: Within the context of <a href="#con_mat">confusion matrices</a>, it means the matrix elements are displayed as a percentage</li>
 <li id="oscillatoria"><strong>Oscillatoria</strong>: Genus of filamentous cyanobacteria that forms blue-green algal blooms</li>
 <li><strong>PlatformIO</strong>: Cross-platform, cross-architecture, multi-framework tool for embedded system engineers and software engineers who write embedded applications</li>
-<li><strong>Python</strong>: High-level programming language widely used for data analysis and ML</li>
-<li><strong>PyTorch</strong>: ML library used for various applications, including CV</li>
-<li id="red_tide"><strong>Red Tide</strong>: Event which occurs on Florida’s coastline where algae grows uncontrollably</li>
-<li><strong>Roboflow</strong>: CV developer framework for better data collection, dataset preprocessing, dataset augmentation, model training techniques, model deployment, and more</li>
-<li id="saft"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Fine Tuning (SAFT)</strong></a>: Novel approach that augments the fine-tuning dataset by dividing images into overlapping patches, thus providing a more balanced representation of small objects and overcoming the bias towards larger objects in the original pre-training datasets</li>
-<li id="sahi"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Hyper Inference (SAHI)</strong></a>: Common method of improving the detection accuracy of small objects, which involves running inference over portions of an image then accumulating the results</li>
-<li><strong>System-on-Chip (SoC)</strong>: Integrated circuit that compresses all of a(n) computer/electronic system's required components onto one piece of silicon</li>
-<li id="tpu"><strong>Tensor Processing Unit (TPU)</strong>: Google’s application-specific integrated circuit (ASIC) used to accelerate ML workloads; useful for training AI and DNNs</li>
-<li id="ultra"><strong>Ultralytics</strong>: Company that aims to make AI model development accessible, efficient to train, and easy to deploy</li>
-<li><strong>Weights</strong>: Numbers associated with the connections between neurons/nodes across different layers of a DNN</li>
-<li><strong>Wireless Local Area Network (WLAN)</strong>: Computer network that links two or more devices using wireless communication to form a <a href="#lan">LAN</a></li>
+<li><strong>Python</strong>: High-level programming language widely used for data analysis and <a href="#ml">ML</a></li>
+<li><strong>PyTorch</strong>: <a href="#ml">ML</a> library used for various applications, including <a href="#cv">CV</a></li>
+<li id="red_tide"><strong>Red Tide</strong>: Event which occurs on Florida’s coastline where <a href="#algae">algae</a> grows uncontrollably</li>
+<li><strong>Roboflow</strong>: <a href="#cv">CV</a> developer framework for better data collection, dataset preprocessing, dataset augmentation, model training techniques, model deployment, and more</li>
+<li id="saft"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Fine Tuning (SAFT)</strong></a>: Novel approach that augments the <a href="#ft">fine-tuning</a> dataset by dividing images into overlapping patches, thus providing a more balanced representation of small objects and overcoming the bias towards larger objects in the original pre-training datasets</li>
+<li id="sahi"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Hyper Inference (SAHI)</strong></a>: Common method of improving the detection accuracy of small objects, which involves running <a href="#inf">inference</a> over portions of an image then accumulating the results</li>
+<li id="soc"><strong>System-on-Chip (SoC)</strong>: Integrated circuit that compresses all of a(n) computer/electronic system's required components onto one piece of silicon</li>
+<li id="tpu"><strong>Tensor Processing Unit (TPU)</strong>: Google’s application-specific integrated circuit (ASIC) used to accelerate <a href="#ml">ML</a> workloads; useful for training <a href="#ai">AI</a> and <a href="#dnn">DNNs</a></li>
+<li id="ultra"><strong>Ultralytics</strong>: Company that aims to make <a href="#ai">AI</a> model development accessible, efficient to train, and easy to deploy</li>
+<li><strong>Weights</strong>: Numbers associated with the connections between neurons/nodes across different layers of a <a href="#dnn">DNN</a></li>
+<li id="#wlan"><strong>Wireless Local Area Network (WLAN)</strong>: Computer network that links two or more devices using wireless communication to form a <a href="#lan">LAN</a></li>
 <li><strong>YOLOv8</strong>: Version 8 of You Only Look Once, a high performance real-time object detection and image segmentation model developed by <a href="#ultra">Ultralytics</a></li>
 </ol>
 
