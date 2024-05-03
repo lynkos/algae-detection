@@ -39,7 +39,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > To do so, you'd need to:
 > 1. Change the dataset, which would be comprised of images of the new object(s) you want to detect (rather than the original harmful algae dataset)
 > 2. Use your dataset to [create a new, custom object detection model](#train-validate-and-test-model)
-> 3. Save/download the resulting `.pt` model
+> 3. Save/download the resulting model
 > 4. Follow the [steps to detect and classify algae](#detect-and-classify-algae)
 
 <details open>
@@ -262,14 +262,14 @@ Instead of manually typing out entire conda commands, you can save time by addin
 1. Open [`weights`](weights)
 
 2. Choose the algae detection model you want to use
-   * To use your own `.pt` model, add it to [`weights`](weights).
-   * To use an existing model, decompress the `.zip` file to get the `.pt` model.
+   * To use your own model, add it to [`weights`](weights).
+   * To use an existing model, decompress the `.zip` file to get the model.
      * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
      * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
 3. Open [`Camera.py`](src/detection/Camera.py)
 
-4. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired `.pt` model
+4. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired model
 
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)
