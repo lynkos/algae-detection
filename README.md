@@ -356,7 +356,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
 14. Open [`esp32.py`](src/detection/esp32.py) once finished
 
-15. Set [`URL`](src/detection/esp32.py#L3) to ESP32's IP address (i.e., `http://10.0.0.111` in this example)
+15. Assign ESP32 stream link shown in Step 13 to [`URL`](src/detection/esp32.py#L3); HTTP by default
 
 16. Run [`esp32.py`](src/detection/esp32.py)
     * POSIX
