@@ -668,6 +668,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 - [ ] Use DC-GAN to generate additional synthetic images for training
 - [ ] Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
+- [ ] Add argument parsers so users can specify model, camera, etc. from the command line instead of hardcoding them
 - [ ] Add camera settings to UI
    - Use C++ instead of Python for OpenCV?
 - [ ] Improve model performance and run model on ESP32-CAM (instead of computer) with <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format
@@ -694,7 +695,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
 ### Glossary
 <ol>
-<li id="ap"><strong>Access Point (AP)</strong>: Networking device that allows wireless-capable devices to connect to a <a href="#wlan">WLAN</a>; in this case, it provides WiFi to ESP32</li>
+<li id="ap"><strong>Access Point (AP)</strong>: Networking device that allows wireless-capable devices to connect to a <a href="#wlan">WLAN</a>; in this case, it provides WiFi to <a href="#esp">ESP32</a></li>
 <li id="algae"><strong>Algae</strong>: Group of mostly aquatic, photosynthetic, and nucleus-bearing organisms that lack many features of larger multicellular plants</li>
 <li><strong>Anaconda</strong>: Open-source platform for managing and installing various Python packages</li>
 <li id="ai"><strong>Artificial Intelligence (AI)</strong>: Simulation of human intelligence in machines that can perform tasks like problem-solving, decision-making, learning, etc.</li>
