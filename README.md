@@ -526,80 +526,77 @@ Instead of manually typing out entire conda commands, you can save time by addin
 </div>
 <pre>
 .
-├── docs/
-│   ├── assets/
-│   │   ├── algae/
-│   │   │   ├── closterium.jpg
-│   │   │   ├── microcystis.jpg
-│   │   │   ├── nitzschia.jpg
-│   │   │   ├── non-algae.jpg
-│   │   │   ├── oscillatoria.jpg
-│   │   │   └── testing_sample.pdf
-│   │   ├── diagrams/
-│   │   │   ├── drawio/
-│   │   │   │   ├── Camera_uml.drawio
-│   │   │   │   ├── dataset_flowchart.drawio
-│   │   │   │   ├── esp32_sys_design.drawio
-│   │   │   │   └── streaming_uml.drawio
-│   │   │   ├── dataset_flowchart.png
-│   │   │   ├── detection_uml.png
-│   │   │   ├── esp32_sys_des.png
-│   │   │   ├── iphone_sys_des.png
-│   │   │   ├── saft_framework.png
-│   │   │   ├── sahi_framework.png
-│   │   │   ├── streaming_uml.png
-│   │   │   └── yolov8_architecture.jpg
-│   │   ├── esp32/
-│   │   │   ├── ai_thinker.jpg
-│   │   │   ├── ap_popup.png
-│   │   │   ├── board_port.png
-│   │   │   ├── build_upload_monitor.png
-│   │   │   ├── choose_ap.png
-│   │   │   ├── config.png
-│   │   │   ├── disconnect.png
-│   │   │   ├── esp32_ip.png
-│   │   │   ├── index.png
-│   │   │   ├── init_config.png
-│   │   │   ├── open_streaming.png
-│   │   │   └── platformio_folder.png
-│   │   ├── iphone/
-│   │   │   ├── iphone_ui_connect.png
-│   │   │   └── iphone_ui_disconnect.png
-│   │   ├── models/
-│   │   │   ├── custom_yolov8x/
-│   │   │   │   ├── confusion_matrix_normalized.png
-│   │   │   │   ├── confusion_matrix.png
-│   │   │   │   ├── example.jpg
-│   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── P_curve.png
-│   │   │   │   ├── PR_curve.png
-│   │   │   │   ├── R_curve.png
-│   │   │   │   ├── results.png
-│   │   │   │   └── validation.png
-│   │   │   ├── custom_yolov8x_v2/
-│   │   │   │   ├── confusion_matrix_normalized.png
-│   │   │   │   ├── confusion_matrix.png
-│   │   │   │   ├── example.jpg
-│   │   │   │   ├── F1_curve.png
-│   │   │   │   ├── P_curve.png
-│   │   │   │   ├── PR_curve.png
-│   │   │   │   ├── R_curve.png
-│   │   │   │   ├── results.png
-│   │   │   │   └── validation.png
-│   │   │   └── sahi_yolov8n/
-│   │   │       ├── confusion_matrix_normalized.png
-│   │   │       ├── confusion_matrix.png
-│   │   │       ├── example.jpg
-│   │   │       ├── F1_curve.png
-│   │   │       ├── P_curve.png
-│   │   │       ├── PR_curve.png
-│   │   │       ├── R_curve.png
-│   │   │       ├── results.png
-│   │   │       └── validation.png
-│   │   ├── microscope.jpg
-│   │   └── user_interface.png
-│   ├── LICENSE.md
-│   └── README.md
+├── assets/
+│   ├── algae/
+│   │   ├── closterium.jpg
+│   │   ├── microcystis.jpg
+│   │   ├── nitzschia.jpg
+│   │   ├── non-algae.jpg
+│   │   ├── oscillatoria.jpg
+│   │   └── testing_sample.pdf
+│   ├── diagrams/
+│   │   ├── drawio/
+│   │   │   ├── Camera_uml.drawio
+│   │   │   ├── dataset_flowchart.drawio
+│   │   │   ├── esp32_sys_design.drawio
+│   │   │   └── streaming_uml.drawio
+│   │   ├── dataset_flowchart.png
+│   │   ├── detection_uml.png
+│   │   ├── esp32_sys_des.png
+│   │   ├── iphone_sys_des.png
+│   │   ├── saft_framework.png
+│   │   ├── sahi_framework.png
+│   │   ├── streaming_uml.png
+│   │   └── yolov8_architecture.jpg
+│   ├── esp32/
+│   │   ├── ai_thinker.jpg
+│   │   ├── ap_popup.png
+│   │   ├── board_port.png
+│   │   ├── build_upload_monitor.png
+│   │   ├── choose_ap.png
+│   │   ├── config.png
+│   │   ├── disconnect.png
+│   │   ├── esp32_ip.png
+│   │   ├── index.png
+│   │   ├── init_config.png
+│   │   ├── open_streaming.png
+│   │   └── platformio_folder.png
+│   ├── iphone/
+│   │   ├── iphone_ui_connect.png
+│   │   └── iphone_ui_disconnect.png
+│   ├── models/
+│   │   ├── custom_yolov8x/
+│   │   │   ├── confusion_matrix_normalized.png
+│   │   │   ├── confusion_matrix.png
+│   │   │   ├── example.jpg
+│   │   │   ├── F1_curve.png
+│   │   │   ├── P_curve.png
+│   │   │   ├── PR_curve.png
+│   │   │   ├── R_curve.png
+│   │   │   ├── results.png
+│   │   │   └── validation.png
+│   │   ├── custom_yolov8x_v2/
+│   │   │   ├── confusion_matrix_normalized.png
+│   │   │   ├── confusion_matrix.png
+│   │   │   ├── example.jpg
+│   │   │   ├── F1_curve.png
+│   │   │   ├── P_curve.png
+│   │   │   ├── PR_curve.png
+│   │   │   ├── R_curve.png
+│   │   │   ├── results.png
+│   │   │   └── validation.png
+│   │   └── sahi_yolov8n/
+│   │       ├── confusion_matrix_normalized.png
+│   │       ├── confusion_matrix.png
+│   │       ├── example.jpg
+│   │       ├── F1_curve.png
+│   │       ├── P_curve.png
+│   │       ├── PR_curve.png
+│   │       ├── R_curve.png
+│   │       ├── results.png
+│   │       └── validation.png
+│   ├── microscope.jpg
+│   └── user_interface.png
 ├── scripts/
 │   └── conda_shortcuts.sh
 ├── src/
@@ -652,7 +649,9 @@ Instead of manually typing out entire conda commands, you can save time by addin
 │   └── yolov8n_sahi.pt.zip
 ├── .gitattributes
 ├── .gitignore
-└── environment.yml
+├── environment.yml
+├── LICENSE.md
+└── README.md
 </pre>
 
 ## Appendix
