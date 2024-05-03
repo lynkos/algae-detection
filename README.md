@@ -48,7 +48,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    <div align="center">
       <figure>
          <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
-         <figcaption><sup>ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Current version allows user to see a live video of the camera via a Window with configurable model attributes via trackbars.</sup></figcaption>
+         <figcaption style="font-size: 11px;">ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Current version allows user to see a live video of the camera via a Window with configurable model attributes via trackbars.</figcaption>
       </figure>
    </div>
 </details>
@@ -253,8 +253,8 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
    <div align="center">
       <figure>
-         <picture><img alt="User Interface" src="https://github.com/lynkos/algae-detection/assets/9407943/71e1aad9-5571-4073-b5b5-fa02d76445f8"></picture><br>
-         <figcaption><sup>Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</sup></figcaption>
+         <picture><img alt="User Interface" src="assets/user_interface.png"></picture><br>
+         <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
       </figure>
    </div>
 </details>
@@ -420,7 +420,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 ## Diagrams
 <div align="center">
 
-### Model Performance
+### Performance
 <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
 <tr>
 <th style="text-align: center;">[Pre-Trained] Model</th>
@@ -656,10 +656,12 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
 ## Appendix
 ### Future Work
-- [ ] Increase dataset and improve model accuracy and versatility by taking quality images of various types of algae
+- [ ] Increase dataset and improve model versatility by taking quality images of various types of algae
    - At least <a target="_blank" href="https://blog.roboflow.com/model-best-practices/#dataset-size">1000 images per class</a>
    - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
    - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> may be able to help with categorizing any algae in new images
+- [ ] Increase and improve model accuracy + performance
+   - Use <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format — optimized and designed to use minimal power while delivering fast performance for neural networks — so the custom detection model can perform well on various mobile and embedded devices with limited computational power (i.e., ESP32-CAM)
 - [ ] Connect to ESP32 without a server (e.g., via USB, etc.) **OR** use RTSP instead of HTTP
   - I attemped — but was unable — to use RTSP
   - See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub Issue</a> for further details
@@ -685,22 +687,22 @@ Instead of manually typing out entire conda commands, you can save time by addin
 <li id="algae"><strong>Algae</strong>: Group of mostly aquatic, photosynthetic, and nucleus-bearing organisms that lack many features of larger multicellular plants</li>
 <li><strong>Anaconda</strong>: Open-source platform for managing and installing various Python packages</li>
 <li><strong>Artificial Intelligence (AI)</strong>: Simulation of human intelligence in machines that can perform tasks like problem-solving, decision-making, learning, etc.</li>
-<li><strong>Deep Neural Network (DNN)</strong>: ML method inspired by the human brain’s neural structure that can recognize complex patterns in data (e.g., pictures, text, sounds, etc.) to produce accurate insights and predictions</li>
 <li id="closterium"><strong>Closterium</strong>: Type of algae identified by their elongated or crescent shape</li>
 <li><strong>Computer Vision (CV)</strong>: Field of computer science that focuses on enabling computers to identify and understand objects and people in images and videos</li>
 <li id="con_mat"><strong>Confusion Matrix</strong>: Visualizes model performance (i.e., number of correct and incorrect predictions per class), where the x-axis is the true value and y-axis is the model’s predicted value; diagonal elements represent the number of points for which the predicted label is equal to the true label (higher diagonal values are better since it indicates many correct predictions), off-diagonal elements are those mislabeled by the model (lower off-diagonal elements are better since it indicates lack of incorrect predictions)</li>
 <li id="cnn"><strong>Convolutional Neural Network (CNN)</strong>: Type of DNN specifically designed for image recognition and processing</li>
+<li id="dnn"><strong>Deep Neural Network (DNN)</strong>: ML method inspired by the human brain’s neural structure that can recognize complex patterns in data (e.g., pictures, text, sounds, etc.) to produce accurate insights and predictions</li>
 <li><strong>Epoch</strong>: One complete iteration of the entire training dataset through the ML algorithm</li>
 <li id="esp"><strong>ESP32</strong>: Series of low-cost, low-power system-on-chip microcontrollers with integrated WiFi and Bluetooth capabilities</li>
 <li><strong>Espressif</strong>: Manufacturer of ESP32 microcontrollers </li>
-<li><strong>Google Colab</strong>: Hosted Jupyter Notebook service that requires no setup to use and provides both free and paid access to computing resources, including GPUs and TPUs</li>
-<li><strong>Graphics Processing Unit (GPU)</strong>: Specialized electronic circuit that can perform mathematical calculations at high speed; useful for training AI and DNNs</li>
+<li><strong>Fine-Tuning</strong>: Process that takes a model (architecture + weights) already trained for one given task and tunes/tweaks the model to make it perform a second similar task</li>
+<li><strong>Google Colab</strong>: Hosted Jupyter Notebook service that provides free and paid access to computing resources, including <a href="#gpu">GPU</a>s and <a href="#tpu">TPU</a>s, and requires no setup to use</li>
+<li id="gpu"><strong>Graphics Processing Unit (GPU)</strong>: Specialized electronic circuit that can perform mathematical calculations at high speed; useful for training <a href="#ai">AI</a> and <a href="#dnn">DNN</a>s</li>
 <li><strong>Inference</strong>: Process of using a trained ML model to make predictions, classifications, and/or detections on new data</li>
-<li><strong>Local Access Network (LAN)</strong>: Group of connected computing devices within a limited area (usually sharing a centralized Internet connection) that can communicate and share resources amongst each other</li>
+<li id="lan"><strong>Local Access Network (LAN)</strong>: Group of connected computing devices within a limited area (usually sharing a centralized Internet connection) that can communicate and share resources amongst each other</li>
 <li><strong>Machine Learning (ML)</strong>: Subfield of AI that involves training computer systems to learn from data and make decisions or predictions without being explicitly programmed</li>
 <li id="microcystis"><strong>Microcystis</strong>: Very toxic genus of cyanobacteria which look like clusters of small dots and is known for forming harmful algal blooms in bodies of water</li>
 <li><strong>Motion JPEG (MJPEG)</strong>: Video compression format where each frame of a digital video sequence is compressed separately as a JPEG image</li>
-<li><strong>Weights</strong>: Numbers associated with the connections between neurons/nodes across different layers of a DNN</li>
 <li id="nitzschia"><strong>Nitzschia</strong>: Type of thin, elongated algae that can cause harmful algal blooms</li>
 <li id="norm"><strong>Normalize</strong>: Within the context of confusion matrices, it means the matrix elements are displayed as a percentage</li>
 <li id="oscillatoria"><strong>Oscillatoria</strong>: Genus of filamentous cyanobacteria that forms blue-green algal blooms</li>
@@ -712,10 +714,11 @@ Instead of manually typing out entire conda commands, you can save time by addin
 <li id="saft"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Fine Tuning (SAFT)</strong></a>: Novel approach that augments the fine-tuning dataset by dividing images into overlapping patches, thus providing a more balanced representation of small objects and overcoming the bias towards larger objects in the original pre-training datasets</li>
 <li id="sahi"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Hyper Inference (SAHI)</strong></a>: Common method of improving the detection accuracy of small objects, which involves running inference over portions of an image then accumulating the results</li>
 <li><strong>System-on-Chip (SoC)</strong>: Integrated circuit that compresses all of a(n) computer/electronic system's required components onto one piece of silicon</li>
-<li><strong>Tensor Processing Unit (TPU)</strong>: Google’s application-specific integrated circuit (ASIC) used to accelerate ML workloads; useful for training AI and DNNs</li>
-<li><strong>Ultralytics</strong>: Company that aims to make AI model development accessible, efficient to train, and easy to deploy</li>
-<li><strong>Wireless Local Area Network (WLAN)</strong>: Computer network that links two or more devices using wireless communication to form a LAN</li>
-<li><strong>YOLOv8</strong>: Version 8 of You Only Look Once, a high performance real-time object detection and image segmentation model developed by Ultralytics</li>
+<li id="tpu"><strong>Tensor Processing Unit (TPU)</strong>: Google’s application-specific integrated circuit (ASIC) used to accelerate ML workloads; useful for training AI and DNNs</li>
+<li id="ultra"><strong>Ultralytics</strong>: Company that aims to make AI model development accessible, efficient to train, and easy to deploy</li>
+<li><strong>Weights</strong>: Numbers associated with the connections between neurons/nodes across different layers of a DNN</li>
+<li><strong>Wireless Local Area Network (WLAN)</strong>: Computer network that links two or more devices using wireless communication to form a <a href="#lan">LAN</a></li>
+<li><strong>YOLOv8</strong>: Version 8 of You Only Look Once, a high performance real-time object detection and image segmentation model developed by <a href="#ultra">Ultralytics</a></li>
 </ol>
 
 ## Credits
