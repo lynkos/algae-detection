@@ -269,7 +269,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
 3. Open [`Camera.py`](src/detection/Camera.py)
 
-4. Set [`MODEL_PATH`](src/detection/Camera.py#L25) to path of desired model
+4. Set [`model_name`](src/detection/Camera.py#L20) to name of model chosen in Step 2
 
 5. Read the following depending on which camera you'll use
    * [ESP32](#esp32)

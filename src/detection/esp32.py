@@ -1,6 +1,6 @@
 from Camera import Camera
 
-URL = "http://10.1.10.114/stream"
+URL: str = "http://10.1.10.114/stream"
 """Stream URL"""
 
 if __name__ == "__main__":
