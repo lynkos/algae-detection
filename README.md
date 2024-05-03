@@ -661,6 +661,15 @@ Instead of manually typing out entire conda commands, you can save time by addin
    - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
    - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> and/or <a href="mailto:335761@dadeschools.net">Mr. Q</a> may [or may not] be able to help with categorizing any algae in new images
 - [ ] Increase model accuracy
+- [ ] Connect to ESP32 without a server (e.g., via USB, etc.) **OR** use RTSP instead of HTTP
+  - I attemped — but was unable — to use RTSP
+  - See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub Issue</a> for further details
+- [ ] Heatsink for ESP32 to prevent overheating
+- [ ] Use DC-GAN to generate additional synthetic images for training
+- [ ] Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
+- [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
+- [ ] Add camera settings to UI
+   - Use C++ instead of Python for OpenCV?
 - [ ] Improve model performance and run model on ESP32-CAM (instead of computer) with <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format
    - Optimized Performance on Edge Devices
      - Achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization
@@ -675,19 +684,9 @@ Instead of manually typing out entire conda commands, you can save time by addin
      - On-Device: Directly deploy on mobile and embedded devices, which allows the models to execute directly on the hardware (eliminating the need for cloud connectivity)
      - Edge Computing with Cloud TensorFlow TPUs: Offload inference tasks to cloud servers equipped with TPUs for scenarios where edge devices have limited processing capabilities
      - Hybrid: Versatile and scalable solution for deploying ML models; includes on-device processing for quick responses and cloud deployment/computing for more complex computations 
-- [ ] Connect to ESP32 without a server (e.g., via USB, etc.) **OR** use RTSP instead of HTTP
-  - I attemped — but was unable — to use RTSP
-  - See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub Issue</a> for further details
-- [ ] Heatsink for ESP32 to prevent overheating
-- [ ] Use DC-GAN to generate additional synthetic images for training
-- [ ] Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
-- [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
-- [ ] Add camera settings to UI
-   - Use C++ instead of Python for OpenCV?
 - [ ] Add Android compatibility (if applicable and/or necessary)
 
 ### Further Reading
-- <a target="_blank" href="https://www.usgs.gov/news/national-news-release/ usgs-finds-28-types-cyanobacteria-florida-algal-bloom">USGS Finds 28 Types of Cyanobacteria in Florida Algal Bloom</a>
 - <a target="_blank" href="https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin">Cyanobacteria (Blue-Green Algae)</a>
 - <a target="_blank" href="https://pubs.usgs.gov/publication/ofr20171054">Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom</a>
 - <a target="_blank" href="https://www.mdpi.com/2073-4441/14/14/2219">Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images</a>
