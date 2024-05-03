@@ -47,7 +47,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
    <div align="center">
       <figure>
-         <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="docs/assets/microscope.jpg"></picture><br>
+         <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
          <figcaption style="font-size: 11px;">ESP32-CAM inside a custom 3D printed lens attachment is mounted onto the microscope's eyepiece. Current version allows user to see a live video of the camera via a Window with configurable model attributes via trackbars.</figcaption>
       </figure>
    </div>
@@ -253,7 +253,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
    <div align="center">
       <figure>
-         <picture><img alt="User Interface" src="docs/assets/user_interface.png"></picture><br>
+         <picture><img alt="User Interface" src="assets/user_interface.png"></picture><br>
          <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
       </figure>
    </div>
@@ -286,36 +286,36 @@ Instead of manually typing out entire conda commands, you can save time by addin
 >     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #1–4 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
-   <div align="center"><img alt="Open PlatformIO project" height="350" src="docs/assets/esp32/platformio_folder.png"></div>
+   <div align="center"><img alt="Open PlatformIO project" height="350" src="assets/esp32/platformio_folder.png"></div>
 
 2. Open [`streaming`](src/streaming)
-   <div align="center"><img alt="Open `streaming`" height="350" src="docs/assets/esp32/open_streaming.png"></div>
+   <div align="center"><img alt="Open `streaming`" height="350" src="assets/esp32/open_streaming.png"></div>
 
 3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window
-   <div align="center"><img alt="Select board and port" src="docs/assets/esp32/board_port.png"></div>
+   <div align="center"><img alt="Select board and port" src="assets/esp32/board_port.png"></div>
 
 4. Build and upload code to ESP32
    - Click 'Build' to compile code
    - Click 'Upload' to flash code to ESP32
-   <div align="center"><img alt="Build, Upload, Monitor" height="350" src="docs/assets/esp32/build_upload_monitor.png"></div>
+   <div align="center"><img alt="Build, Upload, Monitor" height="350" src="assets/esp32/build_upload_monitor.png"></div>
 
 5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
-   <div align="center"><img alt="`ESP32CAM-RTSP` network" height="250" src="docs/assets/esp32/choose_ap.png"></div>
+   <div align="center"><img alt="`ESP32CAM-RTSP` network" height="250" src="assets/esp32/choose_ap.png"></div>
 
 6. Click 'Change settings' once the browser automatically opens the home page (<a target="_blank" href="http://192.168.4.1">`http://192.168.4.1`</a>)
-   <div align="center"><img alt="Window popup" height="350" src="docs/assets/esp32/ap_popup.png"></div>
+   <div align="center"><img alt="Window popup" height="350" src="assets/esp32/ap_popup.png"></div>
 
 7. You **must** fill in all of the following fields:
    - <a href="#ap">AP (i.e., Access Point)</a> password
    - WiFi SSID
    - WiFi password (if applicable)
-   <div align="center"><img alt="System config" height="350" src="docs/assets/esp32/init_config.png"></div>
+   <div align="center"><img alt="System config" height="350" src="assets/esp32/init_config.png"></div>
 
  > [!NOTE]
  > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
 8. Update the settings and configure camera options (you can always change them later), though be mindful of the settings you choose as they may affect the ESP32's performance
-   <div align="center"><img height="500" alt="Camera Settings" src="docs/assets/esp32/config.png"></div>
+   <div align="center"><img height="500" alt="Camera Settings" src="assets/esp32/config.png"></div>
 
 9. Scroll down and click 'Apply' to save settings
 
@@ -323,7 +323,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 > You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
 
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
-      <div align="center"><img alt="Disconnect" height="350" src="docs/assets/esp32/disconnect.png"></div>
+      <div align="center"><img alt="Disconnect" height="350" src="assets/esp32/disconnect.png"></div>
       
 > [!NOTE]
 > If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
@@ -343,13 +343,13 @@ Instead of manually typing out entire conda commands, you can save time by addin
       ```
 
 12. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address
-    <div align="center"><img alt="IP address" src="docs/assets/esp32/esp32_ip.png"></div>
+    <div align="center"><img alt="IP address" src="assets/esp32/esp32_ip.png"></div>
 
 13. You can now stream from the ESP32
     - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
     - HTTP Image: `http://<ESP32 IP address>/snapshot`
     - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
-    <div align="center"><img height="500" alt="Home Page" src="docs/assets/esp32/index.png"></div>
+    <div align="center"><img height="500" alt="Home Page" src="assets/esp32/index.png"></div>
 
 > [!CAUTION]
 > Anyone with network access to the device can see the streams and images!
@@ -392,10 +392,10 @@ Instead of manually typing out entire conda commands, you can save time by addin
       ```
 
 3. If successfully connected, your iPhone's screen should look like this:
-   <div align="center"><img alt="iPhone connected" height="350" src="docs/assets/iphone/iphone_ui_connect.png"></div>
+   <div align="center"><img alt="iPhone connected" height="350" src="assets/iphone/iphone_ui_connect.png"></div>
 
 4. Press the 'Escape' key on your keyboard or 'Disconnect' on your iPhone to terminate
-   <div align="center"><img alt="iPhone disconnected" height="350" src="docs/assets/iphone/iphone_ui_disconnect.png"></div>
+   <div align="center"><img alt="iPhone disconnected" height="350" src="assets/iphone/iphone_ui_disconnect.png"></div>
 
 #### Webcam
 1. Open [`webcam.py`](src/detection/webcam.py)
@@ -435,65 +435,65 @@ Instead of manually typing out entire conda commands, you can save time by addin
 </tr>
 <tr>
 <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
-<td><img alt="Confusion Matrix (Normalized)" align="center" src="docs/assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
-<td><img alt="Precision-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x/P_curve.png"></td>
-<td><img alt="Precision-Recall Curve" align="center" src="docs/assets/models/custom_yolov8x/PR_curve.png"></td>
-<td><img alt="Recall-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x/R_curve.png"></td>
-<td><img alt="F1-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x/F1_curve.png"></td>
-<td><img alt="Training Results" align="center" src="docs/assets/models/custom_yolov8x/results.png"></td>
-<td><img alt="Validation Output" align="center" src="docs/assets/models/custom_yolov8x/validation.png"></td>
-<td><img alt="Example Prediction" align="center" src="docs/assets/models/custom_yolov8x/example.jpg"></td>
+<td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
+<td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x/P_curve.png"></td>
+<td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x/PR_curve.png"></td>
+<td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x/R_curve.png"></td>
+<td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x/F1_curve.png"></td>
+<td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x/results.png"></td>
+<td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x/validation.png"></td>
+<td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x/example.jpg"></td>
 </tr>
 <tr>
 <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
-<td><img alt="Confusion Matrix (Normalized)" align="center" src="docs/assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
-<td><img alt="Precision-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/P_curve.png"></td>
-<td><img alt="Precision-Recall Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/PR_curve.png"></td>
-<td><img alt="Recall-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/R_curve.png"></td>
-<td><img alt="F1-Confidence Curve" align="center" src="docs/assets/models/custom_yolov8x_v2/F1_curve.png"></td>
-<td><img alt="Training Results" align="center" src="docs/assets/models/custom_yolov8x_v2/results.png"></td>
-<td><img alt="Validation Output" align="center" src="docs/assets/models/custom_yolov8x_v2/validation.png"></td>
-<td><img alt="Example Prediction" align="center" src="docs/assets/models/custom_yolov8x_v2/example.png"></td>
+<td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
+<td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/P_curve.png"></td>
+<td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x_v2/PR_curve.png"></td>
+<td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/R_curve.png"></td>
+<td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/F1_curve.png"></td>
+<td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x_v2/results.png"></td>
+<td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x_v2/validation.png"></td>
+<td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x_v2/example.png"></td>
 </tr>
 <tr>
 <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
-<td><img alt="Confusion Matrix (Normalized)" align="center" src="docs/assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
-<td><img alt="Precision-Confidence Curve" align="center" src="docs/assets/models/sahi_yolov8n/P_curve.png"></td>
-<td><img alt="Precision-Recall Curve" align="center" src="docs/assets/models/sahi_yolov8n/PR_curve.png"></td>
-<td><img alt="Recall-Confidence Curve" align="center" src="docs/assets/models/sahi_yolov8n/R_curve.png"></td>
-<td><img alt="F1-Confidence Curve" align="center" src="docs/assets/models/sahi_yolov8n/F1_curve.png"></td>
-<td><img alt="Training Results" align="center" src="docs/assets/models/sahi_yolov8n/results.png"></td>
-<td><img alt="Validation Output" align="center" src="docs/assets/models/sahi_yolov8n/validation.png"></td>
-<td><img alt="Example Prediction" align="center" src="docs/assets/models/sahi_yolov8n/example.jpg"></td>
+<td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
+<td><img alt="Precision-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/P_curve.png"></td>
+<td><img alt="Precision-Recall Curve" align="center" src="assets/models/sahi_yolov8n/PR_curve.png"></td>
+<td><img alt="Recall-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/R_curve.png"></td>
+<td><img alt="F1-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/F1_curve.png"></td>
+<td><img alt="Training Results" align="center" src="assets/models/sahi_yolov8n/results.png"></td>
+<td><img alt="Validation Output" align="center" src="assets/models/sahi_yolov8n/validation.png"></td>
+<td><img alt="Example Prediction" align="center" src="assets/models/sahi_yolov8n/example.jpg"></td>
 </tr>
 </table>
 
 ### System Design
 #### ESP32-CAM
-<img alt="ESP32-CAM system design" src="docs/assets/diagrams/esp32_sys_des.png">
+<img alt="ESP32-CAM system design" src="assets/diagrams/esp32_sys_des.png">
 
 #### iPhone
-<img alt="iPhone system design" src="docs/assets/diagrams/iphone_sys_des.png">
+<img alt="iPhone system design" src="assets/diagrams/iphone_sys_des.png">
 
 ### UML
 #### [`streaming`](src/streaming)
-<img alt="`streaming` UML" src="docs/assets/diagrams/streaming_uml.png">
+<img alt="`streaming` UML" src="assets/diagrams/streaming_uml.png">
 
 #### [`detection`](src/detection/)
-<img alt="`detection` UML" src="docs/assets/diagrams/detection_uml.png">
+<img alt="`detection` UML" src="assets/diagrams/detection_uml.png">
 
 ### YOLOv8 Architecture
-<a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html"><img alt="YOLOv8 architecture" src="docs/assets/diagrams/yolov8_architecture.jpg"></a>
+<a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html"><img alt="YOLOv8 architecture" src="assets/diagrams/yolov8_architecture.jpg"></a>
 
 ### Framework
 #### <a href="#saft">SAFT</a>
-<img alt="Slicing Aided Fine Tuning (SAFT) framework" src="docs/assets/diagrams/saft_framework.png">
+<img alt="Slicing Aided Fine Tuning (SAFT) framework" src="assets/diagrams/saft_framework.png">
 
 #### <a href="#sahi">SAHI</a>
-<img alt="Slicing Aided Hyper Inference (SAHI) framework" src="docs/assets/diagrams/sahi_framework.png">
+<img alt="Slicing Aided Hyper Inference (SAHI) framework" src="assets/diagrams/sahi_framework.png">
 
 ### Dataset
-<img alt="Dataset flowchart" src="docs/assets/diagrams/dataset_flowchart.png">
+<img alt="Dataset flowchart" src="assets/diagrams/dataset_flowchart.png">
 <br><br>
    <table style="width: 100%; text-align: center;">
       <tr>
@@ -502,23 +502,23 @@ Instead of manually typing out entire conda commands, you can save time by addin
       </tr>
       <tr>
          <td><a href="#closterium">Closterium</a></td>
-         <td><img alt="Closterium" align="center" width="100%" src="docs/assets/algae/closterium.jpg"></td>
+         <td><img alt="Closterium" align="center" width="100%" src="assets/algae/closterium.jpg"></td>
       </tr>
       <tr>
          <td><a href="#microcystis">Microcystis</a></td>
-         <td><img alt="Microcystis" align="center" width="100%" src="docs/assets/algae/microcystis.jpg"></td>
+         <td><img alt="Microcystis" align="center" width="100%" src="assets/algae/microcystis.jpg"></td>
       </tr>
       <tr>
          <td><a href="#nitzschia">Nitzschia</a></td>
-         <td><img alt="Nitzschia" align="center" width="100%" src="docs/assets/algae/nitzschia.jpg"></td>
+         <td><img alt="Nitzschia" align="center" width="100%" src="assets/algae/nitzschia.jpg"></td>
       </tr>
       <tr>
          <td><a href="#oscillatoria">Oscillatoria</a></td>
-         <td><img alt="Oscillatoria" align="center" width="100%" src="docs/assets/algae/oscillatoria.jpg"></td>
+         <td><img alt="Oscillatoria" align="center" width="100%" src="assets/algae/oscillatoria.jpg"></td>
       </tr>
       <tr>
          <td>Non-Algae</td>
-         <td><img alt="Non-Algae" align="center" width="100%" src="docs/assets/algae/non-algae.jpg"></td>
+         <td><img alt="Non-Algae" align="center" width="100%" src="assets/algae/non-algae.jpg"></td>
       </tr>
    </table>
 
