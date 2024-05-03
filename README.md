@@ -659,16 +659,28 @@ Instead of manually typing out entire conda commands, you can save time by addin
 - [ ] Increase dataset and improve model versatility by taking quality images of various types of algae
    - At least <a target="_blank" href="https://blog.roboflow.com/model-best-practices/#dataset-size">1000 images per class</a>
    - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
-   - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> may be able to help with categorizing any algae in new images
-- [ ] Increase and improve model accuracy + performance
-   - Use <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format — optimized and designed to use minimal power while delivering fast performance for neural networks — so the custom detection model can perform well on various mobile and embedded devices with limited computational power (i.e., ESP32-CAM)
+   - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> and/or <a href="mailto:335761@dadeschools.net">Mr. Q</a> may [or may not] be able to help with categorizing any algae in new images
+- [ ] Increase model accuracy
+- [ ] Improve model performance and run model on ESP32-CAM (instead of computer) with <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format
+   - Optimized Performance on Edge Devices
+     - Achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization
+     - Minimalistic architecture contributes to its smaller size and cost-efficiency
+   - High Computational Throughput
+     - Combines specialized hardware acceleration and efficient runtime execution to achieve high computational throughput
+     - Well-suited for deploying ML models with stringent performance requirements on edge devices
+   - Efficient Matrix Computations
+     - Optimized for matrix operations (crucial for neural network computations)
+     - This efficiency is key in ML models, particularly those requiring numerous and complex matrix multiplications and transformations
+   - Deployment
+     - On-Device: Directly deploy on mobile and embedded devices, which allows the models to execute directly on the hardware (eliminating the need for cloud connectivity)
+     - Edge Computing with Cloud TensorFlow TPUs: Offload inference tasks to cloud servers equipped with TPUs for scenarios where edge devices have limited processing capabilities
+     - Hybrid: Versatile and scalable solution for deploying ML models; includes on-device processing for quick responses and cloud deployment/computing for more complex computations 
 - [ ] Connect to ESP32 without a server (e.g., via USB, etc.) **OR** use RTSP instead of HTTP
   - I attemped — but was unable — to use RTSP
   - See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub Issue</a> for further details
 - [ ] Heatsink for ESP32 to prevent overheating
 - [ ] Use DC-GAN to generate additional synthetic images for training
 - [ ] Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
-- [ ] Run model on ESP32 rather than on computer
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
 - [ ] Add camera settings to UI
    - Use C++ instead of Python for OpenCV?
