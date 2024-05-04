@@ -184,9 +184,29 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
       conda env list
       ```
 
-### [Optional] Conda Shortcuts
+### [Optional] Conda Shortcut Commands
 > [!TIP]
-> Instead of manually typing out entire conda commands, you can save time by adding [this `.sh` script](src/detection/conda_shortcuts.sh) in your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
+> Instead of manually typing out entire conda commands, you can save time with shortcuts.
+> 
+> Append [this `.sh` script](src/detection/conda_shortcuts.sh) to your shell startup file (e.g., `.bashrc`)
+> * POSIX
+>   ```sh
+>   cat src/detection/conda_shortcuts.sh >> ~/.bashrc
+>   ```
+> * Windows
+>   ```sh
+>   type src\detection\conda_shortcuts.sh >> C:\Users\user\path\to\.bashrc
+>   ```
+> After appending the script, restart your terminal or source your shell startup file (e.g., `.bashrc`) to apply changes
+> * POSIX
+>   ```sh
+>   source ~/.bashrc
+>   ```
+> * Windows
+>   ```sh
+>   source C:\Users\user\path\to\.bashrc
+>   ```
+> You can now execute Conda shortcut commands in your terminal.
 
 <table>
    <thead>
@@ -244,7 +264,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </table>
 
 > [!WARNING]
-> These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
+> Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
 > 
 > E.g., [`rmenv`](src/detection/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](src/detection/conda_shortcuts.sh#L50) with backslashes `\`.
 
