@@ -373,19 +373,19 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    </ul>
 </p>
 
-<details open>
+<details open id="s12">
    <summary>12. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address</summary>
    <div align="center"><img alt="IP address" src="assets/esp32/esp32_ip.png"></div>
 </details>
 
- <details open id="s13">
+ <details id="s13">
     <summary>13. You can now stream from the ESP32</summary>
     <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
  </details>
   <ul>
-     <li>HTTP Motion JPEG Streamer: <code>http://&lt;ESP32 IP address&gt;/snapshot</code></li>
-     <li>HTTP Image: <code>http://&lt;ESP32 IP address&gt;/snapshot</code></li>
-     <li>RTSP: <code>rtsp://&lt;ESP32 IP address&gt;:554/mjpeg/1</code></li>
+     <li>HTTP Motion JPEG Streamer: <code>http://&lt;IP address from <a href="#s12">Step #12</a>&gt;/snapshot</code></li>
+     <li>HTTP Image: <code>http://&lt;IP address from <a href="#s12">Step #12</a>&gt;/snapshot</code></li>
+     <li>RTSP: <code>rtsp://&lt;IP address from <a href="#s12">Step #12</a>&gt;:554/mjpeg/1</code></li>
   </ul>
 
 > [!CAUTION]
@@ -393,7 +393,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 <p>14. Open <a href="src/detection/esp32.py"><code>esp32.py</code></a> once finished</p>
 
-<p>15. Assign ESP32 stream link listed in <a href="#s13">Step 13</a> to <a href="src/detection/esp32.py#L13"><code>URL</code></a>; HTTP by default</p>
+<p>15. Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s13">Step 13</a> to <a href="src/detection/esp32.py#L13"><code>URL</code></a></p>
 
 <p>16. Run <a href="src/detection/esp32.py"><code>esp32.py</code></a>
    <ul>
@@ -684,7 +684,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </pre>
 
 ## Appendix
-### Future Work
+<h3><a target="_blank" alt="Repo's GitHub 'Issues' page" href="https://github.com/lynkos/algae-detection/issues">Future Work</a></h3>
+
 - [ ] Increase dataset and improve model versatility by taking quality images of various types of algae
    - At least <a target="_blank" href="https://blog.roboflow.com/model-best-practices/#dataset-size">1000 images per class</a>
    - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
@@ -696,19 +697,37 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
   - Attempted — but unable — to use RTSP
   - See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub Issue</a> for further details
 - [ ] Improve model performance and run model on ESP32-CAM (instead of computer) with <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format
-   - Optimized Performance on Edge Devices
-     - Achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization
-     - Minimalistic architecture contributes to its smaller size and cost-efficiency
-   - High Computational Throughput
-     - Combines specialized hardware acceleration and efficient runtime execution to achieve high computational throughput
-     - Well-suited for deploying ML models with stringent performance requirements on edge devices
-   - Efficient Matrix Computations
-     - Optimized for matrix operations (crucial for neural network computations)
-     - This efficiency is key in ML models, particularly those requiring numerous and complex matrix multiplications and transformations
-   - Deployment
-     - On-Device: Directly deploy on mobile and embedded devices, which allows the models to execute directly on the hardware (eliminating the need for cloud connectivity)
-     - Edge Computing with Cloud TensorFlow TPUs: Offload inference tasks to cloud servers equipped with TPUs for scenarios where edge devices have limited processing capabilities
-     - Hybrid: Versatile and scalable solution for deploying ML models; includes on-device processing for quick responses and cloud deployment/computing for more complex computations 
+  <details open>
+    <summary>Advantages</summary>
+    <ul>
+      <li>Optimized Performance on Edge Devices
+        <ul>
+          <li>Achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization</li>
+          <li>Minimalistic architecture contributes to its smaller size and cost-efficiency</li>
+        </ul>
+      </li>
+      <li>High Computational Throughput
+        <ul>
+          <li>Combines specialized hardware acceleration and efficient runtime execution to achieve high computational throughput</li>
+          <li>Well-suited for deploying ML models with stringent performance requirements on edge devices</li>
+        </ul>
+      </li>
+      <li>Efficient Matrix Computations
+        <ul>
+          <li>Optimized for matrix operations (crucial for neural network computations)</li>
+          <li>This efficiency is key in ML models, particularly those requiring numerous and complex matrix multiplications and transformations</li>
+        </ul>
+      </li>
+      <li>Deployment
+        <ul>
+          <li>On-Device: Directly deploy on mobile and embedded devices, which allows the models to execute directly on the hardware (eliminating the need for cloud connectivity)</li>
+          <li>Edge Computing with Cloud TensorFlow TPUs: Offload inference tasks to cloud servers equipped with TPUs for scenarios where edge devices have limited processing capabilities</li>
+          <li>Hybrid: Versatile and scalable solution for deploying ML models; includes on-device processing for quick responses and cloud deployment/computing for more complex computations </li>
+        </ul>
+      </li>
+    </ul>
+  </details>
+
 - [ ] Heatsink for ESP32 to prevent overheating
 
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
