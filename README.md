@@ -47,7 +47,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
    <div align="center">
       <figure>
-         <picture><img height="550" alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
+         <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
          <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
       </figure>
    </div>
