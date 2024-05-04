@@ -159,12 +159,12 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    cd algae-detection
    ```
 
-6. Create conda virtual environment from [`environment.yml`](environment.yml)
+6. Create virtual environment from [`environment.yml`](environment.yml)
    ```sh
    conda env create -f environment.yml
    ```
 
-7. Activate `algae_env`
+7. Activate `algae_env` (i.e., virtual environment)
    ```sh
    conda activate algae_env
    ```
@@ -260,17 +260,24 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    </div>
 </details>
 
-1. Open [`weights`](weights)
-
-2. Choose the algae detection model you want to use
-   * To use your own model, add it to [`weights`](weights).
-   * To use an existing model, decompress the `.zip` file to get the model.
-     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
-     * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
-
-3. Open [`camera.py`](src/detection/camera.py)
-
-4. Set default [`model_name`](src/detection/camera.py#L30) to name of model chosen in Step 2
+<ol>
+<li><p>Open <a href="weights"><code>weights</code></a></p>
+</li>
+<li id="s2"><p>Choose the algae detection model you want to use</p>
+<ul>
+<li>To use your own model, add it to <a href="weights"><code>weights</code></a>.</li>
+<li>To use an existing model, decompress the <code>.zip</code> file to get the model.<ul>
+<li><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: <a href="weights/yolov8n_sahi.pt.zip"><code>yolov8n_sahi.pt.zip</code></a></li>
+<li><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: <a href="weights/custom_yolov8x.pt.zip"><code>custom_yolov8x.pt.zip</code></a>, <a href="weights/custom_yolov8x_v2.pt.zip"><code>custom_yolov8x_v2.pt.zip</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Open <a href="src/detection/camera.py"><code>camera.py</code></a></p>
+</li>
+<li><p>Set default value for <a href="src/detection/camera.py#L30"><code>model</code></a> to the path of the model chosen in <a href="#s2">Step 2</a></p>
+</li>
+</ol>
 
 #### ESP32
 > [!IMPORTANT]
@@ -352,7 +359,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 14. Open [`esp32.py`](src/detection/esp32.py) once finished
 
-15. Assign ESP32 stream link shown in Step 13 to [`URL`](src/detection/esp32.py#L3); HTTP by default
+15. Assign ESP32 stream link shown in Step 13 to [`URL`](src/detection/esp32.py#L13); HTTP by default
 
 16. Run [`esp32.py`](src/detection/esp32.py)
     * POSIX
