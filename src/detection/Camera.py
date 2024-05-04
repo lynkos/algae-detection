@@ -1,3 +1,13 @@
+"""
+Base class for object detection.
+
+Simple usage example:
+    ```python
+    cam = camera.Camera("0", "Primary Camera", width = 640, height = 640)
+    cam.run()
+    ```
+"""
+
 from argparse import ArgumentParser, Namespace
 from collections import deque
 from multiprocessing.pool import ThreadPool
@@ -15,8 +25,8 @@ from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin, get
 
 class Camera:
     def __init__(self,
-                 camera_type: str | None = None,
-                 title: str = "Algae Detector",
+                 camera_type: str,
+                 title: str = "Detector",
                  model_name: str = "custom_yolov8x_v2.pt",
                  device_type: str = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu",
                  confidence: float = 0.25,
@@ -28,11 +38,11 @@ class Camera:
                  fps: float = 30.0,
                  n_threads: int = getNumberOfCPUs()):
         """
-        Base class for camera object detection.
+        Base class for object detection.
 
         Args:
-            camera_type (str | None): Camera used for input. Set to streaming server's URL for ESP32-CAM, "0" for Webcam, "1" for iPhone.
-            title (str, optional): Window title. Defaults to "Algae Detector".
+            camera_type (str): Camera used for input. Set to streaming server's URL for ESP32-CAM, "0" for primary camera, "1" for secondary camera.
+            title (str, optional): Window title. Defaults to "Real time detection".
             model_name (str, optional): Detection model's name. Defaults to a model in `weights`.
             device_type (str, optional): Device to run detection model on. Options include: "cuda", "mps", and "cpu". Defaults to whichever option is available.
             confidence (float, optional): Detection model's minimum confidence threshold. Defaults to 0.25.
@@ -63,7 +73,7 @@ class Camera:
         self._pending: deque = deque()
 
     def _init_parser(self,
-                    camera_type: str | None,
+                    camera_type: str,
                     device: str,
                     title: str,
                     model: str,
@@ -76,10 +86,10 @@ class Camera:
                     fps: float,
                     n_threads: int) -> None:
         """
-        Helper method to initialize command line parser.
+        Helper method to initialize command line argument parser.
 
         Args:
-            camera_type (str | None): Camera used for input. If None (i.e., hasn't been declared in instance), then it is a required command line argument.
+            camera_type (str): Camera used for input.
             device (str): Device to run detection model on.
             title (str): Window title
             model_name (str): Detection model's name.
@@ -94,8 +104,8 @@ class Camera:
         """
         self._parser.add_argument("-C", "--camera",
                                   default = camera_type,
-                                  required = True if camera_type is None else False,
-                                  help = "Camera used for input. Set to streaming server's URL for ESP32-CAM, 0 for Webcam, 1 for iPhone.")
+                                  required = False,
+                                  help = "Camera used for input. Set to streaming server's URL for ESP32-CAM, '0' for primary camera, '1' for secondary camera.")
 
         self._parser.add_argument("-T", "--title",
                                   type = str,
@@ -282,4 +292,4 @@ class Camera:
 
 if __name__ == "__main__":
     # Start detection program
-    Camera("1").run()
+    Camera("0").run()

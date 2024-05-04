@@ -1,4 +1,4 @@
-from Camera import Camera
+from camera import Camera
 
 URL: str = "http://10.1.10.114/stream"
 """Stream URL"""

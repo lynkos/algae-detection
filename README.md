@@ -267,14 +267,9 @@ Instead of manually typing out entire conda commands, you can save time by addin
      * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: [`yolov8n_sahi.pt.zip`](weights/yolov8n_sahi.pt.zip)
      * <a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: [`custom_yolov8x.pt.zip`](weights/custom_yolov8x.pt.zip), [`custom_yolov8x_v2.pt.zip`](weights/custom_yolov8x_v2.pt.zip)
 
-3. Open [`Camera.py`](src/detection/Camera.py)
+3. Open [`camera.py`](src/detection/camera.py)
 
-4. Set [`model_name`](src/detection/Camera.py#L20) to name of model chosen in Step 2
-
-5. Read the following depending on which camera you'll use
-   * [ESP32](#esp32)
-   * [iPhone](#iphone)
-   * [Webcam](#webcam)
+4. Set default [`model_name`](src/detection/camera.py#L20) to name of model chosen in Step 2
 
 #### ESP32
 > [!IMPORTANT]
@@ -379,16 +374,16 @@ Instead of manually typing out entire conda commands, you can save time by addin
 > ```
 
 #### iPhone
-1. Open [`iphone.py`](src/detection/iphone.py)
+1. Open [`camera.py`](src/detection/camera.py)
 
-2. Run [`iphone.py`](src/detection/iphone.py)
+2. Run [`camera.py`](src/detection/camera.py)
    * POSIX
       ```
-      python src/detection/iphone.py
+      python src/detection/camera.py -C "1" -W 640 -H 640
       ```
    * Windows
       ```
-      python src\detection\iphone.py
+      python src\detection\camera.py -C "1" -W 640 -H 640
       ```
 
 3. If successfully connected, your iPhone's screen should look like this:
@@ -398,16 +393,16 @@ Instead of manually typing out entire conda commands, you can save time by addin
    <div align="center"><img alt="iPhone disconnected" height="350" src="assets/iphone/iphone_ui_disconnect.png"></div>
 
 #### Webcam
-1. Open [`webcam.py`](src/detection/webcam.py)
+1. Open [`camera.py`](src/detection/camera.py)
 
-2. Run [`webcam.py`](src/detection/webcam.py)
+2. Run [`camera.py`](src/detection/camera.py)
    * POSIX
       ```
-      python src/detection/webcam.py
+      python src/detection/camera.py
       ```
    * Windows
       ```
-      python src\detection\webcam.py
+      python src\detection\camera.py
       ```
 
 3. Press the 'Escape' key on your keyboard to terminate
@@ -601,10 +596,8 @@ Instead of manually typing out entire conda commands, you can save time by addin
 │   └── conda_shortcuts.sh
 ├── src/
 │   ├── detection/
-│   │   ├── Camera.py
-│   │   ├── esp32.py
-│   │   ├── iphone.py
-│   │   └── webcam.py
+│   │   ├── camera.py
+│   │   └── esp32.py
 │   └── streaming/
 │       ├── boards/
 │       │   ├── esp32cam_ai_thinker.json
@@ -668,7 +661,6 @@ Instead of manually typing out entire conda commands, you can save time by addin
 - [ ] Use DC-GAN to generate additional synthetic images for training
 - [ ] Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
 - [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
-- [ ] Add argument parsers so users can specify model, camera, etc. from the command line instead of hardcoding them
 - [ ] Add camera settings to UI
    - Use C++ instead of Python for OpenCV?
 - [ ] Improve model performance and run model on ESP32-CAM (instead of computer) with <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format
