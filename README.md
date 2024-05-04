@@ -250,7 +250,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 ## Usage
 ### Detect and Classify Algae
 <details open>
-   <summary><b>User Interface</b></summary>
+   <summary>User Interface</summary>
 
    <div align="center">
       <figure>
@@ -264,8 +264,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    <li><p>Open <a href="weights"><code>weights</code></a></p></li>
    <li id="s2"><p>Choose the algae detection model you want to use</p>
      <ul>
-       <li>To use your own model, add it to <a href="weights"><code>weights</code></a>.</li>
-       <li>To use an existing model, decompress the <code>.zip</code> file to get the model.
+       <li>To use your own model, add it to <a href="weights"><code>weights</code></a></li>
+       <li>To use an existing model, decompress the <code>.zip</code> file to get the model
          <ul>
              <li><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: <a href="weights/yolov8n_sahi.pt.zip"><code>yolov8n_sahi.pt.zip</code></a></li>
              <li><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: <a href="weights/custom_yolov8x.pt.zip"><code>custom_yolov8x.pt.zip</code></a>, <a href="weights/custom_yolov8x_v2.pt.zip"><code>custom_yolov8x_v2.pt.zip</code></a></li>
