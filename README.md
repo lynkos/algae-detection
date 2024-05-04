@@ -269,7 +269,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
 
 3. Open [`camera.py`](src/detection/camera.py)
 
-4. Set default [`model_name`](src/detection/camera.py#L20) to name of model chosen in Step 2
+4. Set default [`model_name`](src/detection/camera.py#L30) to name of model chosen in Step 2
 
 #### ESP32
 > [!IMPORTANT]
@@ -379,11 +379,11 @@ Instead of manually typing out entire conda commands, you can save time by addin
 2. Run [`camera.py`](src/detection/camera.py)
    * POSIX
       ```
-      python src/detection/camera.py -A "1" -W 640 -H 640
+      python src/detection/camera.py --cam "1" -W 640 -H 640
       ```
    * Windows
       ```
-      python src\detection\camera.py -A "1" -W 640 -H 640
+      python src\detection\camera.py --cam "1" -W 640 -H 640
       ```
 
 3. Connect to iPhone

@@ -25,10 +25,10 @@ from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin, get
 
 class Camera:
     def __init__(self,
-                 camera_type: str,
+                 camera: str,
                  title: str = "Custom Object Detection",
-                 model_name: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt"),
-                 device_type: str = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu",
+                 model: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt"),
+                 device: str = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu",
                  confidence: float = 0.25,
                  iou: float = 0.5,
                  max_detections: int = 100,
@@ -41,25 +41,25 @@ class Camera:
         Base class for object detection with a fine-tuned Convolutional Neural Network (CNN) model.
 
         Args:
-            camera_type (str): Camera used for input. Set to streaming server's URL for ESP32-CAM, "0" for primary camera, "1" for secondary camera.
+            camera (str): Camera used for input. Set to streaming server's URL for ESP32-CAM, "0" for primary camera, "1" for secondary camera.
             title (str, optional): Window title. Defaults to "Custom Object Detection".
-            model_name (str, optional): Detection model's name. Defaults to a model in `weights`.
-            device_type (str, optional): Device to run detection model on. Options include: "cuda", "mps", and "cpu". Defaults to whichever option is available.
+            model (str, optional): Detection model's path. Defaults to a model in weights.
+            device (str, optional): Device to run detection model on. Options include: "cpu", "cuda", and "mps". Defaults to available option.
             confidence (float, optional): Detection model's minimum confidence threshold. Defaults to 0.25.
             iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to 0.5.
             max_detections (int, optional): Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to 100.
-            video_strides (int, optional): Allows skipping frames in stream to speed up processing (at the cost of temporal resolution). 1 processes every frame, higher values skip frames. Defaults to 5.
+            video_strides (int, optional): Skip frames to speed up processing (at the cost of temporal resolution). Value of 1 processes every frame, higher values skip frames. Defaults to 5.
             width (int, optional): Camera width. Defaults to 640.
             height (int, optional): Camera height. Defaults to 640.
             fps (float, optional): Camera FPS. Defaults to 30.0.
             n_threads (int, optional): Number of threads for video processing. Defaults to number of logical CPUs available.
         """
         self._parser: ArgumentParser = ArgumentParser(description = "Command line parser for `camera.py`")
-        self._init_parser(camera_type, device_type, title, model_name, confidence, iou, max_detections, video_strides, width, height, fps, n_threads)
+        self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, n_threads)
         self._args: Namespace = self._parser.parse_args()
         
         self._camera: VideoCapture = VideoCapture(int(self._args.camera) if self._args.camera.isdigit() else self._args.camera)
-        self._yolo_model: YOLO = YOLO(self._args.path, task = "detect")
+        self._model: YOLO = YOLO(self._args.path, task = "detect")
         self.confidence: float = self._args.conf
         self.iou: float = self._args.iou
         self.max_detections: int = self._args.max
@@ -73,13 +73,13 @@ class Camera:
         self._pending: deque = deque()
 
     def _init_parser(self,
-                    camera_type: str,
+                    cam: str,
                     device: str,
                     title: str,
                     model: str,
-                    confidence: float,
+                    conf: float,
                     iou: float,
-                    max_detects: int,
+                    max: int,
                     strides: int,
                     width: int,
                     height: int,
@@ -89,14 +89,14 @@ class Camera:
         Helper method to initialize command line argument parser.
 
         Args:
-            camera_type (str): Camera used for input.
+            cam (str): Camera used for input.
             device (str): Device to run detection model on.
-            title (str): Window title
+            title (str): Window title.
             model (str): Detection model's path.
-            confidence (float): Detection model's minimum confidence threshold.
+            conf (float): Detection model's minimum confidence threshold.
             iou (float): Lower values result in fewer detections by eliminating overlapping boxes.
-            max_detects (int): Limits how much the model can detect in a single frame.
-            strides (int): Allows skipping frames in stream to speed up processing (at the cost of temporal resolution).
+            detects (int): Limits how much the model can detect in a single frame.
+            strides (int): Skip frames to speed up processing.
             width (int): Camera width.
             height (int): Camera height.
             fps (float): Camera FPS.
@@ -104,7 +104,7 @@ class Camera:
         """
         self._parser.add_argument("-A", "--camera",
                                   type = str,
-                                  default = camera_type,
+                                  default = cam,
                                   help = "Camera used for input. Set to streaming server's URL for ESP32-CAM, '0' for primary camera, '1' for secondary camera.")
 
         self._parser.add_argument("-T", "--title",
@@ -124,8 +124,8 @@ class Camera:
 
         self._parser.add_argument("-C", "--confidence",
                                   type = float,
-                                  default = confidence,
-                                  help = f"Detection model's minimum confidence threshold. Defaults to {confidence}.")
+                                  default = conf,
+                                  help = f"Detection model's minimum confidence threshold. Defaults to {conf}.")
 
         self._parser.add_argument("-I", "--iou",
                                   type = float,
@@ -134,8 +134,8 @@ class Camera:
 
         self._parser.add_argument("-M", "--max",
                                   type = int,
-                                  default = max_detects,
-                                  help = f"Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to {max_detects}.")
+                                  default = max,
+                                  help = f"Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to {max}.")
 
         self._parser.add_argument("-S", "--strides",
                                   type = int,
@@ -200,7 +200,7 @@ class Camera:
         Returns:
             list[Results]: Inference results.
         """
-        return self._yolo_model(frame,
+        return self._model(frame,
                                 stream = True,
                                 device = device(self._args.device),
                                 stream_buffer = True,
