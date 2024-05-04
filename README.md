@@ -148,7 +148,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output
 > ```
 >
-> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, consider<a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">manually downloading the repo as a `.zip` file</a> and decompressing it **OR** <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">cloning via SSH</a>:
+> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, consider <a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">manually downloading the repo as a `.zip` file</a> and decompressing it **OR** <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">cloning via SSH</a>:
 > 
 > ```sh
 > git clone git@github.com:lynkos/algae-detection.git
@@ -368,7 +368,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 > [!NOTE]
 > See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp">this module</a>'s <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md">`README.md`</a> for further details on [`streaming`](src/streaming).
-> 
+
+> [!IMPORTANT]
 > To update to latest version, commit and push changes, then run the following command in the terminal:
 > ```sh
 > git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash
