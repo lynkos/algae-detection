@@ -43,21 +43,21 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > 4. Follow the [steps to detect and classify algae](#detect-and-classify-algae)
 
 <details open>
-   <summary>Nikon microscope with ESP32-CAM AI Thinker and illuminator</summary>
+   <summary>Nikon microscope with <a href="#esp">ESP32</a>-CAM <a href="#ai">AI</a> Thinker and illuminator</summary>
 
    <div align="center">
       <figure>
          <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
-         <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
+         <figcaption style="font-size: 11px;"><a href="#esp">ESP32</a>-CAM <a href="#ai">AI</a> Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
       </figure>
    </div>
 </details>
 
 ## Requirements
 <details>
-   <summary>ESP32-CAM (or similar)</summary>
+   <summary><a href="#esp">ESP32</a>-CAM (or similar)</summary>
       <ul>
-         <li>AI Thinker</li>
+         <li><a href="#ai">AI</a> Thinker</li>
          <li>Espressif ESP-EYE</li>
          <li>Espressif ESP32S2-CAM</li>
          <li>Espressif ESP32S3-CAM-LCD</li>
@@ -155,22 +155,22 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >     git clone git@github.com:lynkos/algae-detection.git
 >     ```
 
-1. Enter `algae-detection`
+5. Enter `algae-detection`
    ```sh
    cd algae-detection
    ```
 
-2. Create virtual environment from [`environment.yml`](environment.yml)
+6. Create virtual environment from [`environment.yml`](environment.yml)
    ```sh
    conda env create -f environment.yml
    ```
 
-3. Activate `algae_env` (i.e., virtual environment)
+7. Activate `algae_env` (i.e., virtual environment)
    ```sh
    conda activate algae_env
    ```
 
-4. Confirm `algae_env` is active
+8. Confirm `algae_env` is active
    * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
       ```sh
       (algae_env) $
@@ -294,7 +294,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
      </ul>
    </li>
    <li><p>Open <a href="src/detection/camera.py"><code>camera.py</code></a></p></li>
-   <li id="s4"><p>Set default value for <a href="src/detection/camera.py#L30"><code>model</code></a> to the path of the model chosen in <a href="#s2">Step 2</a></p></li>
+   <li id="s4"><p>Set <a href="src/detection/camera.py#L30"><code>model</code></a> default value to the path of the model chosen in <a href="#s2">Step 2</a></p></li>
 </ol>
 
 #### ESP32
@@ -352,7 +352,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <p style="text-align:left;">9. Scroll down and click 'Apply' to save settings</p>
 
 > [!IMPORTANT]
-> You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
+> You must reset the [ESP32](#esp) (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
 
 <details open>
    <summary>10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP</summary>
