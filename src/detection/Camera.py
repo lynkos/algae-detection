@@ -1,5 +1,5 @@
 """
-Base class for object detection.
+Base class for object detection with a fine-tuned Convolutional Neural Network (CNN) model.
 
 Simple usage example:
     ```python
@@ -26,7 +26,7 @@ from cv2 import (VideoCapture, namedWindow, imshow, waitKey, setTrackbarMin, get
 class Camera:
     def __init__(self,
                  camera_type: str,
-                 title: str = "Detector",
+                 title: str = "Custom Object Detection",
                  model_name: str = "custom_yolov8x_v2.pt",
                  device_type: str = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu",
                  confidence: float = 0.25,
@@ -38,11 +38,11 @@ class Camera:
                  fps: float = 30.0,
                  n_threads: int = getNumberOfCPUs()):
         """
-        Base class for object detection.
+        Base class for object detection with a fine-tuned Convolutional Neural Network (CNN) model.
 
         Args:
             camera_type (str): Camera used for input. Set to streaming server's URL for ESP32-CAM, "0" for primary camera, "1" for secondary camera.
-            title (str, optional): Window title. Defaults to "Real time detection".
+            title (str, optional): Window title. Defaults to "Custom Object Detection".
             model_name (str, optional): Detection model's name. Defaults to a model in `weights`.
             device_type (str, optional): Device to run detection model on. Options include: "cuda", "mps", and "cpu". Defaults to whichever option is available.
             confidence (float, optional): Detection model's minimum confidence threshold. Defaults to 0.25.
@@ -54,11 +54,11 @@ class Camera:
             fps (float, optional): Camera FPS. Defaults to 30.0.
             n_threads (int, optional): Number of threads for video processing. Defaults to number of logical CPUs available.
         """
-        self._parser: ArgumentParser = ArgumentParser(description = "Command line parser for object detection.")
+        self._parser: ArgumentParser = ArgumentParser(description = "Command line parser for `camera.py`")
         self._init_parser(camera_type, device_type, title, model_name, confidence, iou, max_detections, video_strides, width, height, fps, n_threads)
         self._args: Namespace = self._parser.parse_args()
         
-        self._camera: VideoCapture = VideoCapture(int(self._args.camera) if self._args.camera is not None and self._args.camera.isdigit() else self._args.camera)
+        self._camera: VideoCapture = VideoCapture(int(self._args.camera) if self._args.camera.isdigit() else self._args.camera)
         self._yolo_model: YOLO = YOLO(join(abspath(curdir), "weights", self._args.name), task = "detect")
         self.confidence: float = self._args.conf
         self.iou: float = self._args.iou
@@ -103,74 +103,63 @@ class Camera:
             n_threads (int): Number of threads for video processing.
         """
         self._parser.add_argument("-C", "--camera",
+                                  type = str,
                                   default = camera_type,
-                                  required = False,
                                   help = "Camera used for input. Set to streaming server's URL for ESP32-CAM, '0' for primary camera, '1' for secondary camera.")
 
         self._parser.add_argument("-T", "--title",
                                   type = str,
                                   default = title,
-                                  required = False,
                                   help = f"Window title. Defaults to {title}.")
 
         self._parser.add_argument("-N", "--name",
                                   type = str,
                                   default = model,
-                                  required = False,
                                   help = f"Detection model's name. Defaults to {model}.")
 
         self._parser.add_argument("-D", "--device",
                                   type = str,
                                   default = device,
-                                  required = False,
                                   help = f"Device to run detection model on. Options include: 'cuda', 'mps', and 'cpu'. Defaults to {device}.")
 
         self._parser.add_argument("--conf", "--confidence",
                                   type = float,
                                   default = confidence,
-                                  required = False,
                                   help = f"Detection model's minimum confidence threshold. Defaults to {confidence}.")
 
         self._parser.add_argument("-I", "--iou",
                                   type = float,
                                   default = iou,
-                                  required = False,
                                   help = f"Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to {iou}.")
 
         self._parser.add_argument("-M", "--max",
                                   type = int,
                                   default = max_detects,
-                                  required = False,
                                   help = f"Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to {max_detects}.")
 
         self._parser.add_argument("-S", "--strides",
                                   type = int,
                                   default = strides,
-                                  required = False,
                                   help = f"Skips frames in stream to speed up processing, but at the cost of temporal resolution. 1 processes every frame, higher values skip frames. Defaults to {strides}.")
 
         self._parser.add_argument("-W", "--width",
                                   type = int,
                                   default = width,
-                                  required = False,
                                   help = f"Camera width. Defaults to {width}.")
 
         self._parser.add_argument("-H", "--height",
                                   type = int,
                                   default = height,
-                                  required = False,
                                   help = f"Camera height. Defaults to {height}.")
 
         self._parser.add_argument("-F", "--fps",
                                   type = float,
                                   default = fps,
-                                  required = False,
                                   help = f"Camera FPS. Defaults to {fps}.")
 
         self._parser.add_argument("--threads",
                                   type = int,
                                   default = n_threads,
-                                  required = False,
                                   help = f"Number of threads for video processing. Defaults to {n_threads}.")
 
     def run(self) -> None:
