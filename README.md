@@ -148,28 +148,29 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output
 > ```
 >
-> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, consider <a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">manually downloading the repo as a `.zip` file</a> and decompressing it **OR** <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">cloning via SSH</a>:
-> 
-> ```sh
-> git clone git@github.com:lynkos/algae-detection.git
-> ```
+> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, try another option:
+> * <a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">Manually download the repo as a `.zip` file</a>, then decompress it
+> * <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">Cloning via SSH</a>
+>     ```sh
+>     git clone git@github.com:lynkos/algae-detection.git
+>     ```
 
-5. Enter `algae-detection`
+1. Enter `algae-detection`
    ```sh
    cd algae-detection
    ```
 
-6. Create virtual environment from [`environment.yml`](environment.yml)
+2. Create virtual environment from [`environment.yml`](environment.yml)
    ```sh
    conda env create -f environment.yml
    ```
 
-7. Activate `algae_env` (i.e., virtual environment)
+3. Activate `algae_env` (i.e., virtual environment)
    ```sh
    conda activate algae_env
    ```
 
-8. Confirm `algae_env` is active
+4. Confirm `algae_env` is active
    * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
       ```sh
       (algae_env) $
