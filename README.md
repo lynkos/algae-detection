@@ -188,7 +188,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > [!TIP]
 > Instead of manually typing out entire conda commands, you can save time with shortcuts.
 > 
-> Append [this `.sh` script](src/detection/conda_shortcuts.sh) to your shell startup file (e.g., `.bashrc`)
+> Add [this `.sh` script](src/detection/conda_shortcuts.sh) to your shell startup file (e.g., `.bashrc`)
 > * POSIX
 >   ```sh
 >   cat src/detection/conda_shortcuts.sh >> ~/.bashrc
