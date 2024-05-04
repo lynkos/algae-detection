@@ -188,7 +188,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > [!TIP]
 > Instead of manually typing out entire conda commands, you can save time with shortcuts.
 > 
-> Add contents of [`conda_shortcuts.sh`](src/detection/conda_shortcuts.sh) to shell startup file (e.g., `.bashrc`).
+> Add [`conda_shortcuts.sh`](src/detection/conda_shortcuts.sh) to shell startup file (e.g., `.bashrc`).
 > * POSIX
 >   ```sh
 >   cat src/detection/conda_shortcuts.sh >> ~/.bashrc
@@ -281,7 +281,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
 
 <ol>
-   <li><p>Open <a href="weights"><code>weights</code></a></p></li>
+   <li id="s1"><p>Open <a href="weights"><code>weights</code></a></p></li>
    <li id="s2"><p>Choose the algae detection model you want to use</p>
      <ul>
        <li>To use your own model, add it to <a href="weights"><code>weights</code></a></li>
@@ -294,7 +294,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
      </ul>
    </li>
    <li><p>Open <a href="src/detection/camera.py"><code>camera.py</code></a></p></li>
-   <li><p>Set default value for <a href="src/detection/camera.py#L30"><code>model</code></a> to the path of the model chosen in <a href="#s2">Step 2</a></p></li>
+   <li id="s4"><p>Set default value for <a href="src/detection/camera.py#L30"><code>model</code></a> to the path of the model chosen in <a href="#s2">Step 2</a></p></li>
 </ol>
 
 #### ESP32
@@ -304,7 +304,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 > 
 > * If you're more of a visual learner, here's the <a target="_blank" href="https://youtu.be/SxlSjRWeGuw">YouTube tutorial + demo</a>.
->     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #1–4 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
+>     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #[1](#s1)–[4](#s4) of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 <details open>
    <summary>1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'</summary>
@@ -321,7 +321,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    <div align="center"><img alt="Select board and port" src="assets/esp32/board_port.png"></div>
 </details>
 
-<details open>
+<details open id="s4">
    <summary>4. Click 'Build' to compile code, then click 'Upload' to flash code to ESP32</summary>
    <div align="center"><img alt="Build, Upload, Monitor" src="assets/esp32/build_upload_monitor.png"></div>
 </details>
@@ -342,7 +342,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
 
 > [!NOTE]
-> If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
+> If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow [Step #4](#s4) and onwards again.
 
 <details open>
    <summary>8. Update the settings and configure camera options (you can always change them later), though be mindful of the settings you choose as they may affect the ESP32's performance</summary>
@@ -360,7 +360,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
       
 > [!NOTE]
-> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
+> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in [Step #7](#s7)).
 >
 > Connect to the SSID, go to the ESP32's IP address and enter your credentials:
 > - Username: `admin`
