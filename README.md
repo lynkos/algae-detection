@@ -289,32 +289,32 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <details open>
    <summary>1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'</summary>
    <div align="center"><img alt="Open PlatformIO project" src="assets/esp32/platformio_folder.png"></div>
-</details><br>
+</details>
 
 <details open>
    <summary>2. Open <a href="src/streaming"><code>streaming</code></a></summary>
    <div align="center"><img alt="Open `streaming`" src="assets/esp32/open_streaming.png"></div>
-</details><br>
+</details>
 
 <details open>
    <summary>3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window</summary>
    <div align="center"><img alt="Select board and port" src="assets/esp32/board_port.png"></div>
-</details><br>
+</details>
 
 <details open>
    <summary>4. Click 'Build' to compile code, then click 'Upload' to flash code to ESP32</summary>
    <div align="center"><img alt="Build, Upload, Monitor" src="assets/esp32/build_upload_monitor.png"></div>
-</details><br>
+</details>
 
 <details open>
    <summary>5. To connect initially to the device, connect to the WiFi network starting with <code>ESP32CAM-RTSP</code></summary>
    <div align="center"><img alt="ESP32CAM-RTSP network" src="assets/esp32/choose_ap.png"></div>
-</details><br>
+</details>
 
 <details open>
    <summary>6. Click 'Change settings' once the browser automatically opens the home page (<a target="_blank" href="http://192.168.4.1">http://192.168.4.1</a>)</summary>
    <div align="center"><img alt="Window popup" src="assets/esp32/ap_popup.png"></div>
-</details><br>
+</details>
 
 <details open id="s7">
    <summary>7. You <b>must</b> fill in (1) <a href="#ap">AP (i.e., Access Point)</a> password, (2) WiFi SSID, and, if applicable, (3) WiFi password</summary>
@@ -356,7 +356,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <details open>
    <summary>12. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address</summary>
    <div align="center"><img alt="IP address" src="assets/esp32/esp32_ip.png"></div>
-</details><br>
+</details>
 
  <details open>
     <summary>13. You can now stream from the ESP32</summary>
@@ -406,7 +406,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <details>
    <summary>3. Connect to iPhone</summary>
    <div align="center"><img alt="iPhone connected" src="assets/iphone/iphone_ui_connect.png"></div>
-</details><br>
+</details>
 
 <details>
    <summary>4. Press 'Escape' on keyboard or 'Disconnect' on iPhone to terminate</summary>
