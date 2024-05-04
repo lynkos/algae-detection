@@ -188,11 +188,6 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > [!TIP]
 > Instead of manually typing out entire conda commands, you can save time by adding [this `.sh` script](src/detection/conda_shortcuts.sh) in your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
 
-> [!WARNING]
-> These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
-> 
-> E.g., [`rmenv`](src/detection/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](src/detection/conda_shortcuts.sh#L50) with backslashes `\`.
-
 <table>
    <thead>
      <tr>
@@ -247,6 +242,11 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
      </tr>
    </tbody>
 </table>
+
+> [!WARNING]
+> These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
+> 
+> E.g., [`rmenv`](src/detection/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](src/detection/conda_shortcuts.sh#L50) with backslashes `\`.
 
 ## Usage
 ### Detect and Classify Algae
