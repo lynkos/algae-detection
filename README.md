@@ -183,8 +183,9 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
        conda env list
        ```
 
-### (Optional) Conda Shortcuts
-Instead of manually typing out entire conda commands, you can save time by adding [this `.sh` script](scripts/conda_shortcuts.sh) in your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
+### [Optional] Conda Shortcuts
+> [!TIP]
+> Instead of manually typing out entire conda commands, you can save time by adding [this `.sh` script](scripts/conda_shortcuts.sh) in your shell startup file (e.g., `.bashrc`, etc.) and using it in your terminal.
 
 > [!WARNING]
 > These shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
