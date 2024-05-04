@@ -386,10 +386,10 @@ Instead of manually typing out entire conda commands, you can save time by addin
       python src\detection\camera.py -C "1" -W 640 -H 640
       ```
 
-3. If successfully connected, your iPhone's screen should look like this:
+3. Connect to iPhone
    <div align="center"><img alt="iPhone connected" height="350" src="assets/iphone/iphone_ui_connect.png"></div>
 
-4. Press the 'Escape' key on your keyboard or 'Disconnect' on your iPhone to terminate
+4. Press 'Escape' on keyboard or 'Disconnect' on iPhone to terminate
    <div align="center"><img alt="iPhone disconnected" height="350" src="assets/iphone/iphone_ui_disconnect.png"></div>
 
 #### Webcam
@@ -405,7 +405,7 @@ Instead of manually typing out entire conda commands, you can save time by addin
       python src\detection\camera.py
       ```
 
-3. Press the 'Escape' key on your keyboard to terminate
+3. Press 'Escape' key to terminate
 
 ### Train, Validate, and Test Model
 1. Visit <a target="_blank" alt="Algae Detection (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a>
