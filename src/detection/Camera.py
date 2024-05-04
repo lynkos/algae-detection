@@ -27,7 +27,7 @@ class Camera:
     def __init__(self,
                  camera_type: str,
                  title: str = "Custom Object Detection",
-                 model_name: str = "custom_yolov8x_v2.pt",
+                 model_name: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt"),
                  device_type: str = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu",
                  confidence: float = 0.25,
                  iou: float = 0.5,
@@ -59,7 +59,7 @@ class Camera:
         self._args: Namespace = self._parser.parse_args()
         
         self._camera: VideoCapture = VideoCapture(int(self._args.camera) if self._args.camera.isdigit() else self._args.camera)
-        self._yolo_model: YOLO = YOLO(join(abspath(curdir), "weights", self._args.name), task = "detect")
+        self._yolo_model: YOLO = YOLO(self._args.path, task = "detect")
         self.confidence: float = self._args.conf
         self.iou: float = self._args.iou
         self.max_detections: int = self._args.max
@@ -92,7 +92,7 @@ class Camera:
             camera_type (str): Camera used for input.
             device (str): Device to run detection model on.
             title (str): Window title
-            model_name (str): Detection model's name.
+            model (str): Detection model's path.
             confidence (float): Detection model's minimum confidence threshold.
             iou (float): Lower values result in fewer detections by eliminating overlapping boxes.
             max_detects (int): Limits how much the model can detect in a single frame.
@@ -102,7 +102,7 @@ class Camera:
             fps (float): Camera FPS.
             n_threads (int): Number of threads for video processing.
         """
-        self._parser.add_argument("-C", "--camera",
+        self._parser.add_argument("-A", "--camera",
                                   type = str,
                                   default = camera_type,
                                   help = "Camera used for input. Set to streaming server's URL for ESP32-CAM, '0' for primary camera, '1' for secondary camera.")
@@ -112,17 +112,17 @@ class Camera:
                                   default = title,
                                   help = f"Window title. Defaults to {title}.")
 
-        self._parser.add_argument("-N", "--name",
+        self._parser.add_argument("-P", "--path",
                                   type = str,
                                   default = model,
-                                  help = f"Detection model's name. Defaults to {model}.")
+                                  help = f"Detection model's path. Defaults to {model}.")
 
         self._parser.add_argument("-D", "--device",
                                   type = str,
                                   default = device,
                                   help = f"Device to run detection model on. Options include: 'cuda', 'mps', and 'cpu'. Defaults to {device}.")
 
-        self._parser.add_argument("--conf", "--confidence",
+        self._parser.add_argument("-C", "--confidence",
                                   type = float,
                                   default = confidence,
                                   help = f"Detection model's minimum confidence threshold. Defaults to {confidence}.")
@@ -157,7 +157,7 @@ class Camera:
                                   default = fps,
                                   help = f"Camera FPS. Defaults to {fps}.")
 
-        self._parser.add_argument("--threads",
+        self._parser.add_argument("-R, --threads",
                                   type = int,
                                   default = n_threads,
                                   help = f"Number of threads for video processing. Defaults to {n_threads}.")

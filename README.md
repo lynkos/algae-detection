@@ -379,11 +379,11 @@ Instead of manually typing out entire conda commands, you can save time by addin
 2. Run [`camera.py`](src/detection/camera.py)
    * POSIX
       ```
-      python src/detection/camera.py -C "1" -W 640 -H 640
+      python src/detection/camera.py -A "1" -W 640 -H 640
       ```
    * Windows
       ```
-      python src\detection\camera.py -C "1" -W 640 -H 640
+      python src\detection\camera.py -A "1" -W 640 -H 640
       ```
 
 3. Connect to iPhone
