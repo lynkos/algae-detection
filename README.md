@@ -358,7 +358,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    <div align="center"><img alt="IP address" src="assets/esp32/esp32_ip.png"></div>
 </details>
 
- <details open>
+ <details open id="s13">
     <summary>13. You can now stream from the ESP32</summary>
     <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
  </details>
@@ -373,7 +373,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 <p>14. Open <a href="src/detection/esp32.py"><code>esp32.py</code></a> once finished</p>
 
-<p>15. Assign ESP32 stream link shown in Step 13 to <a href="src/detection/esp32.py#L13"><code>URL</code></a>; HTTP by default</p>
+<p>15. Assign ESP32 stream link listed in <a href="#s13">Step 13</a> to <a href="src/detection/esp32.py#L13"><code>URL</code></a>; HTTP by default</p>
 
 <p>16. Run <a href="src/detection/esp32.py"><code>esp32.py</code></a>
    <ul>
@@ -426,9 +426,9 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <p> 3. Press 'Escape' key to terminate</p>
 
 ### Train, Validate, and Test Model
-1. Visit <a target="_blank" alt="Algae Detection (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a>
+<p>1. Visit <a target="_blank" alt="Algae Detection (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a></p>
 
-2. Follow the notebook's instructions step-by-step
+<p>2. Follow the notebook's instructions step-by-step</p>
 
 ## Diagrams
 <div align="center">
