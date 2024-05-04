@@ -289,10 +289,10 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #1–4 of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'
-   <div align="center"><img alt="Open PlatformIO project" height="350" src="assets/esp32/platformio_folder.png"></div>
+   <div align="center"><img alt="Open PlatformIO project" width="75%" height="75%" src="assets/esp32/platformio_folder.png"></div>
 
 2. Open [`streaming`](src/streaming)
-   <div align="center"><img alt="Open `streaming`" height="350" src="assets/esp32/open_streaming.png"></div>
+   <div align="center"><img alt="Open `streaming`" width="90%" height="90%" src="assets/esp32/open_streaming.png"></div>
 
 3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window
    <div align="center"><img alt="Select board and port" src="assets/esp32/board_port.png"></div>
@@ -300,25 +300,25 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 4. Build and upload code to ESP32
    - Click 'Build' to compile code
    - Click 'Upload' to flash code to ESP32
-   <div align="center"><img alt="Build, Upload, Monitor" height="350" src="assets/esp32/build_upload_monitor.png"></div>
+   <div align="center"><img alt="Build, Upload, Monitor" width="50%" height="50%"src="assets/esp32/build_upload_monitor.png"></div>
 
 5. To connect initially to the device, connect to the WiFi network starting with `ESP32CAM-RTSP`
-   <div align="center"><img alt="`ESP32CAM-RTSP` network" height="250" src="assets/esp32/choose_ap.png"></div>
+   <div align="center"><img alt="`ESP32CAM-RTSP` network" width="90%" height="90%" src="assets/esp32/choose_ap.png"></div>
 
 6. Click 'Change settings' once the browser automatically opens the home page (<a target="_blank" href="http://192.168.4.1">`http://192.168.4.1`</a>)
-   <div align="center"><img alt="Window popup" height="350" src="assets/esp32/ap_popup.png"></div>
+   <div align="center"><img alt="Window popup" width="90%" height="90%" src="assets/esp32/ap_popup.png"></div>
 
 7. You **must** fill in all of the following fields:
    - <a href="#ap">AP (i.e., Access Point)</a> password
    - WiFi SSID
    - WiFi password (if applicable)
-   <div align="center"><img alt="System config" height="350" src="assets/esp32/init_config.png"></div>
+   <div align="center"><img alt="System config" width="85%" height="85%" src="assets/esp32/init_config.png"></div>
 
  > [!NOTE]
  > If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow steps 4 and onwards again.
 
 8. Update the settings and configure camera options (you can always change them later), though be mindful of the settings you choose as they may affect the ESP32's performance
-   <div align="center"><img height="500" alt="Camera Settings" src="assets/esp32/config.png"></div>
+   <div align="center"><img width="50%" height="50%" alt="Camera Settings" src="assets/esp32/config.png"></div>
 
 9. Scroll down and click 'Apply' to save settings
 
@@ -326,7 +326,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > You must reset the ESP32 (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
 
 10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP
-      <div align="center"><img alt="Disconnect" height="350" src="assets/esp32/disconnect.png"></div>
+      <div align="center"><img alt="Disconnect" width="85%" height="85%" src="assets/esp32/disconnect.png"></div>
       
 > [!NOTE]
 > If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in Step #7).
@@ -352,7 +352,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
     - HTTP Motion JPEG Streamer: `http://<ESP32 IP address>/stream`
     - HTTP Image: `http://<ESP32 IP address>/snapshot`
     - RTSP: `rtsp://<ESP32 IP address>:554/mjpeg/1`
-    <div align="center"><img height="500" alt="Home Page" src="assets/esp32/index.png"></div>
+    <div align="center"><img width="60%" height="60%" alt="Home Page" src="assets/esp32/index.png"></div>
 
 > [!CAUTION]
 > Anyone with network access to the device can see the streams and images!
@@ -396,10 +396,10 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
       ```
 
 3. Connect to iPhone
-   <div align="center"><img alt="iPhone connected" height="350" src="assets/iphone/iphone_ui_connect.png"></div>
+   <div align="center"><img alt="iPhone connected" width="45%" height="45%" src="assets/iphone/iphone_ui_connect.png"></div>
 
 4. Press 'Escape' on keyboard or 'Disconnect' on iPhone to terminate
-   <div align="center"><img alt="iPhone disconnected" height="350" src="assets/iphone/iphone_ui_disconnect.png"></div>
+   <div align="center"><img alt="iPhone disconnected" width="45%" height="45%" src="assets/iphone/iphone_ui_disconnect.png"></div>
 
 #### Webcam
 1. Open [`camera.py`](src/detection/camera.py)
