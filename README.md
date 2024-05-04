@@ -317,7 +317,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
 
 <details open id="s7">
-   <summary>7. You <b>must</b> fill in (1) <a href="#ap">AP (i.e., Access Point)</a> password, (2) WiFi SSID, and, if applicable, (3) WiFi password</summary>
+   <summary>7. You <b>MUST</b> fill in (1) <a href="#ap"><b>AP (i.e., Access Point)</a> password</a></b>, (2) <b>WiFi SSID</b>, and, if applicable, (3) <b>WiFi password</b></summary>
    <div align="center"><img alt="System config" src="assets/esp32/init_config.png"></div>
 </details>
 
