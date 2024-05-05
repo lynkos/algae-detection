@@ -101,6 +101,10 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >    <td>Familiar with conda and/or Python</td>
 >   </tr>
 >   <tr>
+>    <td>Not familiar with using terminal and prefer GUI</td>
+>    <td>Comfortable using terminal</td>
+>   </tr>
+>   <tr>
 >    <td>Like the convenience of having Python and 1,500+ scientific packages automatically installed at once</td>
 >    <td>Want fast access to Python and the conda commands and plan to sort out the other programs later</td>
 >   </tr>
@@ -221,7 +225,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 > 
 > * If you're more of a visual learner, here's the <a target="_blank" href="https://youtu.be/SxlSjRWeGuw">YouTube tutorial + demo</a>.
->     * Make sure you've [installed the necessary software](#installation) **AND** have completed Step #[1](#s1)–[4](#s4) of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
+>     * Make sure you've [installed the necessary software](#installation) **AND** have completed Steps [1](#s1) – [4](#s4) of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
 
 <details open>
    <summary>1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'</summary>
@@ -259,7 +263,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
 
 > [!NOTE]
-> If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow [Step #4](#s4) and onwards again.
+> If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow [Step 4](#s4) and onwards again.
 
 <details open>
    <summary>8. Update the settings and configure camera options (you can always change them later), though be mindful of the settings you choose as they may affect the ESP32's performance</summary>
@@ -277,11 +281,11 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
       
 > [!NOTE]
-> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in [Step #7](#s7)).
+> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in [Step 7](#s7)).
 >
 > Connect to the SSID, go to the ESP32's IP address and enter your credentials:
 > - Username: `admin`
-> - Password: AP password from [Step #7](#s7)
+> - Password: AP password from [Step 7](#s7)
 
 <p>11. Go back to PlatformIO extension, click 'Monitor', then use 'Find' keyboard shortcut to find the ESP32's IP address
    <ul>
@@ -300,9 +304,9 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
     <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
  </details>
   <ul>
-     <li>HTTP Motion JPEG Streamer: <code>http://&lt;IP address from <a href="#s12">Step #12</a>&gt;/snapshot</code></li>
-     <li>HTTP Image: <code>http://&lt;IP address from <a href="#s12">Step #12</a>&gt;/snapshot</code></li>
-     <li>RTSP: <code>rtsp://&lt;IP address from <a href="#s12">Step #12</a>&gt;:554/mjpeg/1</code></li>
+     <li>HTTP Motion JPEG Streamer: <code>http://&lt;IP address from <a href="#s12">Step 12</a>&gt;/snapshot</code></li>
+     <li>HTTP Image: <code>http://&lt;IP address from <a href="#s12">Step 12</a>&gt;/snapshot</code></li>
+     <li>RTSP: <code>rtsp://&lt;IP address from <a href="#s12">Step 12</a>&gt;:554/mjpeg/1</code></li>
   </ul>
 
 > [!CAUTION]
