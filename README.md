@@ -184,82 +184,6 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
       conda env list
       ```
 
-### [Optional] Conda Shortcut Commands
-> [!TIP]
-> Instead of manually typing out entire conda commands, you can save time with shortcuts.
-> 
-> Add [`conda_shortcuts.sh`](src/detection/conda_shortcuts.sh) then source shell startup file (e.g., `.bashrc`) or restart terminal to apply changes.
-> * POSIX
->   ```sh
->   cat src/detection/conda_shortcuts.sh >> ~/.bashrc
->   source ~/.bashrc
->   ```
-> * Windows
->   ```sh
->   type src/detection/conda_shortcuts.sh >> C:\Users\user\path\to\.bashrc
->   source C:\Users\user\path\to\.bashrc
->   ```
-
-<table>
-   <thead>
-     <tr>
-       <th><center>Command</center></th>
-       <th><center>Description</center></th>
-       <th><center>Usage</center></th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L94"><code>act</code></a></td>
-       <td align="center">Activate conda environment</td>
-       <td><p><pre>act [env_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L3"><code>dac</code></a></td>
-       <td align="center">Deactivate conda environment</td>
-       <td><p><pre>dac</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center" rowspan="2"><a target="_blank" href="src/detection/conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
-       <td rowspan="2" align="center">Create conda environment(s)</td>
-       <td><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
-     </tr>
-     <tr>
-       <td><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
-       <td align="center">Remove conda environment(s)</td>
-       <td><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
-       <td align="center">Rename conda environment</td>
-       <td><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
-       <td align="center">Copy conda environment</td>
-       <td><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L108"><code>exp</code></a></td>
-       <td align="center">Export conda environment</td>
-       <td><p><pre>exp [out_file]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
-       <td align="center">List conda environment</td>
-       <td><p><pre>lsenv</pre></p></td>
-     </tr>
-   </tbody>
-</table>
-
-> [!WARNING]
-> Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
-> 
-> E.g., [`rmenv`](src/detection/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](src/detection/conda_shortcuts.sh#L50) with backslashes `\`.
-
 ## Usage
 ### Detect and Classify Algae
 <details open>
@@ -728,6 +652,82 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 - [ ] Add camera settings to UI (C++ instead of Python for OpenCV?)
 
 - [ ] Add Android compatibility (if applicable and/or necessary)
+
+### [Optional] Conda Shortcut Commands
+> [!TIP]
+> Instead of manually typing out entire conda commands, you can save time with shortcuts.
+> 
+> Add [`conda_shortcuts.sh`](src/detection/conda_shortcuts.sh) then source shell startup file (e.g., `.bashrc`) or restart terminal to apply changes.
+> * POSIX
+>   ```sh
+>   cat src/detection/conda_shortcuts.sh >> ~/.bashrc
+>   source ~/.bashrc
+>   ```
+> * Windows
+>   ```sh
+>   type src/detection/conda_shortcuts.sh >> C:\Users\user\path\to\.bashrc
+>   source C:\Users\user\path\to\.bashrc
+>   ```
+
+<table>
+   <thead>
+     <tr>
+       <th><center>Command</center></th>
+       <th><center>Description</center></th>
+       <th><center>Usage</center></th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L94"><code>act</code></a></td>
+       <td align="center">Activate conda environment</td>
+       <td><p><pre>act [env_name]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L3"><code>dac</code></a></td>
+       <td align="center">Deactivate conda environment</td>
+       <td><p><pre>dac</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center" rowspan="2"><a target="_blank" href="src/detection/conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
+       <td rowspan="2" align="center">Create conda environment(s)</td>
+       <td><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
+     </tr>
+     <tr>
+       <td><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
+       <td align="center">Remove conda environment(s)</td>
+       <td><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
+       <td align="center">Rename conda environment</td>
+       <td><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
+       <td align="center">Copy conda environment</td>
+       <td><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L108"><code>exp</code></a></td>
+       <td align="center">Export conda environment</td>
+       <td><p><pre>exp [out_file]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="src/detection/conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
+       <td align="center">List conda environment</td>
+       <td><p><pre>lsenv</pre></p></td>
+     </tr>
+   </tbody>
+</table>
+
+> [!WARNING]
+> Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
+> 
+> E.g., [`rmenv`](src/detection/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](src/detection/conda_shortcuts.sh#L50) with backslashes `\`.
 
 ### Further Reading
 - <a target="_blank" href="https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin">Cyanobacteria (Blue-Green Algae)</a>
