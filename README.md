@@ -32,7 +32,7 @@ This project aims to provide a practical, convenient, and efficient tool to moni
 - [x] Leveraging the portability of smartphone cameras and low-cost [ESP32](#esp)-CAM
 
 Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s) as the system's eyes and the detection model as its brain:
-   - This project applies [computer vision](#cv) (subfield of [AI](#ai)) to fetch visual data from the camera(s)
+   - This project applies [computer vision](#cv) (subfield of [AI](#ai)) techniques to fetch visual data from the camera(s)
    - The type of model being used (i.e., [CNN](#cnn), which is a subset of [DNN](#dnn)) is loosely inspired by the human brain
    - In both cases, eyes / camera(s) see / get the input and send it to the brain / model for processing
 
@@ -226,8 +226,110 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
      </ul>
    </li>
    <li><p>Open <a href="src/detection/camera.py"><code>camera.py</code></a></p></li>
-   <li id="s4"><p>Set <a href="src/detection/camera.py#L30"><code>model</code></a> default value to the path of the model chosen in <a href="#s2">Step 2</a></p></li>
+   <li id="s4"><p>Set <a href="src/detection/camera.py#L29"><code>model</code></a> default value to the path of the model chosen in <a href="#s2">Step 2</a></p></li>
 </ol>
+
+<details>
+   <summary>Command Line Arguments</summary>
+   <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
+      <thead>
+        <tr>
+          <th><center>Option</center></th>
+          <th><center>Type</center></th>
+          <th><center>Description</center></th>
+          <th><center>Default</center></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="white-space: nowrap;"><code>-H, --help</code></td>
+          <td align="center"></td>
+          <td align="center">Show help message and exit</td>
+          <td align="center"></td>
+        </tr>
+        <tr>
+          <td id="camera" align="center" style="white-space: nowrap;"><code>-C, --cam &lt;camera&gt;</code></td>
+          <td align="center"><code>str</code></td>
+          <td align="center">Set to <a alt="Livestream URL" href="">livestream URL</a> for ESP32-CAM, <code>0</code> for primary camera, <code>1</code> for secondary camera</td>
+          <td align="center"></td>
+        </tr>
+        <tr>
+          <td align="center" style="white-space: nowrap;"><code>-T, --title &lt;title&gt;</code></td>
+          <td align="center"><code>str</code></td>
+          <td align="center">Window title</td>
+          <td align="center">"Custom Object Detection"</td>
+        </tr>
+        <tr>
+          <td id="modpath" align="center" style="white-space: nowrap;"><code>-p, --path &lt;path&gt;</code></td>
+          <td align="center"><code>str</code></td>
+          <td align="center">Detection model's <a href="src/detection/camera.py#L29">path</a></td>
+          <td align="center"><a href="weights"><code>weights/custom_yolov8x_v2.pt</code></a></td>
+        </tr>
+        <tr>
+          <td align="center" style="white-space: nowrap;"><code>-c, --conf &lt;confidence&gt;</code></td>
+          <td align="center"><code>float</code></td>
+          <td align="center">Detection model's minimum confidence threshold</td>
+          <td align="center"><code>0.25</code></td>
+        </tr>
+        <tr>
+           <td align="center" style="white-space: nowrap;"><code>-d, --device &lt;device&gt;</code></td>
+           <td align="center"><code>str</code></td>
+           <td align="center">Device running detection model</td>
+           <td align="center">Available device</td>
+        </tr>
+        <tr>
+           <td align="center" style="white-space: nowrap;"><code>-i, --iou &lt;iou&gt;</code></td>
+           <td align="center"><code>float</code></td>
+           <td align="center">Lower values eliminate overlapping boxes</td>
+           <td align="center"><code>0.5</code></td>
+        </tr>
+        <tr>
+            <td align="center" style="white-space: nowrap;"><code>-m, --max &lt;max-detections&gt;</code></td>
+            <td align="center"><code>int</code></td>
+            <td align="center">Limit number of detections per frame</td>
+            <td align="center"><code>100</code></td>
+        </tr>
+        <tr>
+           <td align="center" style="white-space: nowrap;"><code>-s, --strides &lt;strides&gt;</code></td>
+           <td align="center"><code>int</code></td>
+           <td align="center"><code>1</code> processes every frame, higher values skip frames</td>
+           <td align="center"><code>1</code></td>
+        </tr>
+        <tr>
+           <td align="center" style="white-space: nowrap;"><code>-w, --width &lt;width&gt;</code></td>
+           <td align="center"><code>int</code></td>
+           <td align="center">Camera width</td>
+           <td align="center"><code>640</code></td>
+        </tr>
+        <tr>
+           <td align="center" style="white-space: nowrap;"><code>-h, --height &lt;height&gt;</code></td>
+           <td align="center"><code>int</code></td>
+           <td align="center">Camera height</td>
+           <td align="center"><code>640</code></td>
+        </tr>
+        <tr>
+           <td align="center" style="white-space: nowrap;"><code>-f, --fps &lt;fps&gt;</code></td>
+           <td align="center"><code>float</code></td>
+           <td align="center">Camera frames per second</td>
+           <td align="center"><code>30.0</code></td>
+        </tr>
+        <tr>
+           <td id="mtvp" align="center" style="white-space: nowrap;"><code>-t, --threads</code></td>
+           <td align="center"><code>bool</code></td>
+           <td align="center">Toggle multithreaded video processing</td>
+           <td align="center"><code>False</code></td>
+        </tr>
+        <tr>
+           <td id="nthreads" align="center" style="white-space: nowrap;"><code>-n, --n-threads &lt;threads&gt;</code></td>
+           <td align="center"><code>int</code></td>
+           <td align="center">Number of video processing threads</td>
+           <td align="center"><code>16</code></td>
+        </tr>
+      </tbody>
+   </table>
+   Example: Use primary <a href="#camera">camera</a> with <a href="#modpath">model located</a> at <code>weights/yolov8n.pt</code>, <a href="#mtvp">multithreaded video processing</a> toggled on, and 8 <a href="#nthreads">threads</a>
+   <pre>python src/detection/camera.py -C 0 -p weights/yolov8n.pt -t -n 8</pre>
+</details>
 
 #### ESP32
 > [!IMPORTANT]
@@ -689,7 +791,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >   source C:\Users\user\path\to\.bashrc
 >   ```
 
-<table>
+<table align="center" style="width: 100%; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
    <thead>
      <tr>
        <th><center>Command</center></th>
@@ -701,45 +803,45 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
      <tr>
        <td align="center"><a target="_blank" href="conda_shortcuts.sh#L94"><code>act</code></a></td>
        <td align="center">Activate conda environment</td>
-       <td><p><pre>act [env_name]</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>act [env_name]</pre></p></td>
      </tr>
      <tr>
        <td align="center"><a target="_blank" href="conda_shortcuts.sh#L3"><code>dac</code></a></td>
        <td align="center">Deactivate conda environment</td>
-       <td><p><pre>dac</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>dac</pre></p></td>
      </tr>
      <tr>
        <td align="center" rowspan="2"><a target="_blank" href="conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
        <td rowspan="2" align="center">Create conda environment(s)</td>
-       <td><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
      </tr>
      <tr>
-       <td><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
      </tr>
      <tr>
        <td align="center"><a target="_blank" href="conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
        <td align="center">Remove conda environment(s)</td>
-       <td><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
      </tr>
      <tr>
        <td align="center"><a target="_blank" href="conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
        <td align="center">Rename conda environment</td>
-       <td><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
      </tr>
      <tr>
        <td align="center"><a target="_blank" href="conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
        <td align="center">Copy conda environment</td>
-       <td><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
      </tr>
      <tr>
        <td align="center"><a target="_blank" href="conda_shortcuts.sh#L108"><code>exp</code></a></td>
        <td align="center">Export conda environment</td>
-       <td><p><pre>exp [out_file]</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>exp [out_file]</pre></p></td>
      </tr>
      <tr>
        <td align="center"><a target="_blank" href="conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
        <td align="center">List conda environment</td>
-       <td><p><pre>lsenv</pre></p></td>
+       <td style="white-space: nowrap;"><p><pre>lsenv</pre></p></td>
      </tr>
    </tbody>
 </table>

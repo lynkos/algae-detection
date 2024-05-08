@@ -1,5 +1,5 @@
 """
-Base class for object detection with a fine-tuned Convolutional Neural Network (CNN) model.
+Base class for real-time object detection using a fine-tuned Convolutional Neural Network (CNN) model and computer vision library OpenCV.
 
 Simple usage example:
     ```python
@@ -27,33 +27,33 @@ class Camera:
                  camera: str,
                  title: str = "Custom Object Detection",
                  model: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt"),
-                 device: str = "mps" if is_mps_available() else "cuda" if is_cuda_available() else "cpu",
+                 device: str = "cuda" if is_cuda_available() else "mps" if is_mps_available() else "cpu",
                  confidence: float = 0.25,
                  iou: float = 0.5,
                  max_detections: int = 100,
-                 video_strides: int = 5,
+                 video_strides: int = 1,
                  width: int = 640,
                  height: int = 640,
                  fps: float = 30.0,
                  threading: bool = False,
                  n_threads: int = getNumberOfCPUs()):
         """
-        Base class for object detection with a fine-tuned Convolutional Neural Network (CNN) model.
+        Base class for real-time object detection using a fine-tuned Convolutional Neural Network (CNN) model and computer vision library OpenCV.
 
         Args:
-            camera (str): Camera used for input. Set to streaming server's `URL` for ESP32-CAM, `0` for primary camera, `1` for secondary camera.
+            camera (str): Camera used for input. Must be streaming server `URL` for ESP32-CAM, `0` for primary camera, or `1` for secondary camera.
             title (str, optional): Window title. Defaults to "Custom Object Detection".
             model (str, optional): Detection model's path. Defaults to a model in weights.
             device (str, optional): Device running detection model. Options include: `cpu`, `cuda`, and `mps`. Defaults to available option.
             confidence (float, optional): Detection model's minimum confidence threshold. Defaults to 0.25.
             iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to 0.5.
             max_detections (int, optional): Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to 100.
-            video_strides (int, optional): Skip frames to speed up processing (at the cost of temporal resolution). Value of 1 processes every frame, higher values skip frames. Defaults to 5.
+            video_strides (int, optional): Skip frames to speed up processing (at the cost of temporal resolution). Value of 1 processes every frame, higher values skip frames. Defaults to 1.
             width (int, optional): Camera width. Defaults to 640.
             height (int, optional): Camera height. Defaults to 640.
             fps (float, optional): Camera FPS. Defaults to 30.0.
             threading (bool, optional): Whether or not to use multithreaded video processing. Defaults to False.
-            n_threads (int, optional): Number of threads for video processing. Defaults to number of logical CPUs available.
+            n_threads (int, optional): Number of threads for video processing; only applicable when `threading = True`. Defaults to number of logical CPUs available.
         """
         self._parser: ArgumentParser = ArgumentParser(description = "Run object detection model via command line", add_help = False)
         self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, threading, n_threads)
@@ -132,6 +132,13 @@ class Camera:
                                   metavar = "<path>",
                                   help = f"detection model's path (default: {model})")
 
+        self._parser.add_argument("-c, --conf",
+                                  type = float,
+                                  default = conf,
+                                  dest = "conf",
+                                  metavar = "<confidence>",
+                                  help = f"detection model's minimum confidence threshold (default: {conf})")
+
         self._parser.add_argument("-d, --device",
                                   type = str,
                                   default = device,
@@ -139,13 +146,6 @@ class Camera:
                                   metavar = "<device>",
                                   choices = [ "cuda", "mps", "cpu" ],
                                   help = f"device running detection model (default: {device})")
-
-        self._parser.add_argument("-c, --conf",
-                                  type = float,
-                                  default = conf,
-                                  dest = "conf",
-                                  metavar = "<confidence>",
-                                  help = f"detection model's minimum confidence threshold (default: {conf})")
 
         self._parser.add_argument("-i, --iou",
                                   type = float,
@@ -187,7 +187,7 @@ class Camera:
                                   default = fps,
                                   dest = "fps",
                                   metavar = "<fps>",
-                                  help = f"camera fps (default: {fps})")
+                                  help = f"camera frames per second (default: {fps})")
 
         self._parser.add_argument("-t, --threads",
                                   action = BooleanOptionalAction,
@@ -242,13 +242,13 @@ class Camera:
 
     def _process_frame(self, frame: MatLike) -> list[Results]:
         """
-        Use detection model on frame.
+        Run inference on frame with detection model.
 
         Args:
             frame (MatLike): Camera frame.
 
         Returns:
-            list[Results]: Inference results.
+            list[Results]: Detection model's prediction(s).
         """
         return self._model(frame,
                            stream = True,
