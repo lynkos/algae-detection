@@ -28,19 +28,30 @@ Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the healt
 An expensive and cumbersome microscope is often needed to view samples/slides in high-resolution. While offering very high visual fidelity, these types of microscopes do not offer a solution that can be used in the field. Conversely, affordable and light microscopes come with limitations as well, such as subpar resolution and focus. The manual nature of detection, quantification, and classification further compounds the drawbacks, resulting in time-consuming and labor-intensive procedures.
 
 This project aims to provide a practical, convenient, and efficient tool to monitor water quality and mitigate / prevent harmful algal blooms in real-time by:
-- [x] Tailoring [AI](#AI) models ([CNN](#cnn)) to detect harmful [algae](#algae)
-- [x] Leveraging the portability of smartphones and low-cost <a href="#esp">ESP32-CAM</a>
+- [x] Fine-tuning pre-trained [AI](#AI) models to detect harmful [algae](#algae)
+- [x] Leveraging the portability of smartphone cameras and low-cost [ESP32](#esp)-CAM
+
+Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s) as the system's eyes and the detection model as its brain:
+   - This project applies [computer vision](#cv) (subfield of [AI](#ai)) to fetch visual data from the camera(s)
+   - The type of model being used (i.e., [CNN](#cnn), which is a subset of [DNN](#dnn)) is loosely inspired by the human brain
+   - In both cases, eyes / camera(s) see / get the input and send it to the brain / model for processing
 
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
 > [!TIP]
 > Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
 > 
-> To do so, you'd need to:
-> 1. Change the dataset, which would be comprised of images of the new object(s) you want to detect (rather than the original harmful algae dataset)
-> 2. Use your dataset to [create a new, custom object detection model](#train-validate-and-test-model)
-> 3. Save/download the resulting model
-> 4. Follow the [steps to detect and classify algae](#detect-and-classify-algae)
+> To do so, you may forgo these [requirements](#requirements):
+> - [ ] Modded microscope
+> - [ ] Algae dataset
+> - [ ] [ESP32](#esp)-CAM
+> - [ ] Micro-USB cable
+> - [ ] [PlatformIO](#platformio) Visual Studio Code extension
+> 
+> If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and only forgo the microscope and algae dataset. Then:
+> 1. Use your own dataset — comprised of [images of] the object(s) you want your custom model to detect — to [create a new, custom object detection model](#train-validate-and-test-model)
+> 2. Save/download the resulting model once finished
+> 3. [Integrate the model with camera(s) for real-time detection and classification](#detect-and-classify-algae)
 
 <details open>
    <summary>Nikon microscope with <a href="#esp">ESP32</a>-CAM <a href="#ai">AI</a> Thinker and illuminator</summary>
@@ -272,14 +283,14 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 <p style="text-align:left;">9. Scroll down and click 'Apply' to save settings</p>
 
-> [!IMPORTANT]
-> You must reset the [ESP32](#esp) (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
-
 <details open>
    <summary>10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP</summary>
    <div align="center"><img alt="Disconnect" src="assets/esp32/disconnect.png"></div>
 </details>
-      
+
+> [!IMPORTANT]
+> You must reset the [ESP32](#esp) (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
+
 > [!NOTE]
 > If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in [Step 7](#s7)).
 >
@@ -367,7 +378,12 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <p> 3. Press 'Escape' key to terminate</p>
 
 ### Train, Validate, and Test Model
-<p>1. Visit <a target="_blank" alt="Algae Detection (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">this Google Colab notebook</a></p>
+<p>1. Visit one of these Google Colab notebooks, depending on the version of <a href="#yolo">YOLO</a> you want to use
+   <ul>
+      <li><a target="_blank" alt="Algae detection Google Colab notebook (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">Algae Detection (YOLOv8).ipynb</a></li>
+      <li><a target="_blank" alt="Algae detection Google Colab notebook (YOLOv9)" href="https://colab.research.google.com/drive/1abvT_xQ7MhkYLTMTGvqAkGuDdehZ-u80">Algae Detection (YOLOv9).ipynb</a></li>
+   </ul>
+</p>
 
 <p>2. Follow the notebook's instructions step-by-step</p>
 
@@ -776,7 +792,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
   <li id="ultra"><strong>Ultralytics</strong>: Company that aims to make <a href="#ai">AI</a> model development accessible, efficient to train, and easy to deploy</li>
   <li><strong>Weights</strong>: Numbers associated with the connections between neurons/nodes across different layers of a <a href="#dnn">DNN</a></li>
   <li id="#wlan"><strong>Wireless Local Area Network (WLAN)</strong>: Computer network that links two or more devices using wireless communication to form a <a href="#lan">LAN</a></li>
-  <li><strong>YOLOv8</strong>: Version 8 of You Only Look Once, a high performance real-time object detection and image segmentation model developed by <a href="#ultra">Ultralytics</a></li>
+  <li id="yolo"><strong>You Only Look Once (YOLO)</strong>: High performance, real-time object detection and image segmentation model developed by <a href="#ultra">Ultralytics</a></li>
 </ol>
 
 ## Credits
