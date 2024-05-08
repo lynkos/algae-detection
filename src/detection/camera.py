@@ -7,7 +7,6 @@ Simple usage example:
     cam.run()
     ```
 """
-
 from argparse import ArgumentParser, Namespace, BooleanOptionalAction
 from collections import deque
 from multiprocessing.pool import ThreadPool
@@ -56,7 +55,7 @@ class Camera:
             threading (bool, optional): Whether or not to use multithreaded video processing. Defaults to False.
             n_threads (int, optional): Number of threads for video processing. Defaults to number of logical CPUs available.
         """
-        self._parser: ArgumentParser = ArgumentParser(description = "Command line parser for `camera.py`")
+        self._parser: ArgumentParser = ArgumentParser(description = "Run object detection model via command line", add_help = False)
         self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, threading, n_threads)
         self._args: Namespace = self._parser.parse_args()
         
@@ -107,88 +106,94 @@ class Camera:
             threading (bool): Toggle multithreaded video processing.
             n_threads (int): Number of threads for video processing.
         """
+        self._parser.add_argument("-H, --help",
+                                  action = "help",
+                                  help = "show this help message and exit")
+
         self._parser.add_argument("-C, --cam",
                                   type = str,
                                   default = cam,
                                   dest = "cam",
                                   metavar = "<camera>",
-                                  help = "Camera used for input. Set to streaming server's `URL` for ESP32-CAM, `0` for primary camera, `1` for secondary camera.")
+                                  required = True if not cam else False,
+                                  help = "set to livestream `URL` for ESP32-CAM, `0` for primary camera, or `1` for secondary camera")
 
-        self._parser.add_argument("-t, --title",
+        self._parser.add_argument("-T, --title",
                                   type = str,
                                   default = title,
                                   dest = "title",
-                                  metavar = "<window-title>",
-                                  help = f"Window title. Defaults to {title}.")
+                                  metavar = "<title>",
+                                  help = f"window title (default: {title})")
 
         self._parser.add_argument("-p, --path",
                                   type = str,
                                   default = model,
                                   dest = "path",
-                                  metavar = "<model-path>",
-                                  help = f"Detection model's path. Defaults to {model}.")
+                                  metavar = "<path>",
+                                  help = f"detection model's path (default: {model})")
 
         self._parser.add_argument("-d, --device",
                                   type = str,
                                   default = device,
                                   dest = "device",
                                   metavar = "<device>",
-                                  help = f"Device running detection model. Options include: `cuda`, `mps`, and `cpu`. Defaults to {device}.")
+                                  choices = [ "cuda", "mps", "cpu" ],
+                                  help = f"device running detection model (default: {device})")
 
         self._parser.add_argument("-c, --conf",
                                   type = float,
                                   default = conf,
                                   dest = "conf",
                                   metavar = "<confidence>",
-                                  help = f"Detection model's minimum confidence threshold. Defaults to {conf}.")
+                                  help = f"detection model's minimum confidence threshold (default: {conf})")
 
         self._parser.add_argument("-i, --iou",
                                   type = float,
                                   default = iou,
                                   dest = "iou",
                                   metavar = "<iou>",
-                                  help = f"Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to {iou}.")
+                                  help = f"lower values eliminate overlapping boxes (default: {iou})")
 
         self._parser.add_argument("-m, --max",
                                   type = int,
                                   default = max,
                                   dest = "max",
                                   metavar = "<max-detections>",
-                                  help = f"Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to {max}.")
+                                  help = f"limit number of detections per frame (default: {max})")
 
         self._parser.add_argument("-s, --strides",
                                   type = int,
                                   default = strides,
                                   dest = "strides",
-                                  metavar = "<video-strides>",
-                                  help = f"Skips frames in stream to speed up processing (at the cost of temporal resolution). `1` processes every frame, higher values skip frames. Defaults to {strides}.")
+                                  metavar = "<strides>",
+                                  help = f"1 processes every frame, higher values skip frames (default: {strides})")
 
         self._parser.add_argument("-w, --width",
                                   type = int,
                                   default = width,
                                   dest = "width",
                                   metavar = "<width>",
-                                  help = f"Camera width. Defaults to {width}.")
+                                  help = f"camera width (default: {width})")
 
         self._parser.add_argument("-h, --height",
                                   type = int,
                                   default = height,
                                   dest = "height",
                                   metavar = "<height>",
-                                  help = f"Camera height. Defaults to {height}.")
+                                  help = f"camera height (default: {height})")
 
         self._parser.add_argument("-f, --fps",
                                   type = float,
                                   default = fps,
                                   dest = "fps",
                                   metavar = "<fps>",
-                                  help = f"Camera FPS. Defaults to {fps}.")
+                                  help = f"camera fps (default: {fps})")
 
-        self._parser.add_argument("-T, --threads",
+        self._parser.add_argument("-t, --threads",
                                   action = BooleanOptionalAction,
                                   default = threading,
                                   dest = "threads",
-                                  help = f"Whether or not to use multithreaded video processing. Defaults to {threading}.")
+                                  help = f"toggle multithreaded video processing (default: {threading})")
 
         self._parser.add_argument("-n, --n-threads",
                                   type = int,
@@ -196,7 +201,7 @@ class Camera:
                                   dest = "n_threads",
                                   metavar = "<threads>",
                                   choices = range(1, getNumberOfCPUs() + 1),
-                                  help = f"Number of threads for video processing. Defaults to {n_threads}.")
+                                  help = f"number of video processing threads (default: {n_threads})")
 
     def run(self) -> None:
         """
