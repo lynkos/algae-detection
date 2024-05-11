@@ -195,7 +195,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 <p>3. Press the 'Escape' key on your keyboard to terminate</p>
 
-<p>4. See <a href="docs/manual.md">User Manual</a> and/or <a href="docs/appendix.md">Appendix</a> for further details</p>
+> [!IMPORTANT]
+> See <b><a href="docs/manual.md">User Manual</a></b> and/or <b><a href="docs/appendix.md">Appendix</a></b> for further details!
 
 ## Credits
 Special thanks to:
