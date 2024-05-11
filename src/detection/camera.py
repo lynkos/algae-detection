@@ -1,5 +1,5 @@
 """
-Base class for real-time object detection using a fine-tuned Convolutional Neural Network (CNN) model and computer vision library OpenCV.
+Base class for real-time object detection using a Convolutional Neural Network (CNN) and computer vision library.
 
 Simple usage example:
     ```python
@@ -28,39 +28,40 @@ class Camera:
                  title: str = "Custom Object Detection",
                  model: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt"),
                  device: str = "cuda" if is_cuda_available() else "mps" if is_mps_available() else "cpu",
-                 confidence: float = 0.25,
-                 iou: float = 0.5,
+                 confidence: float = 0.5,
+                 iou: float = 0.25,
                  max_detections: int = 100,
                  video_strides: int = 1,
                  width: int = 640,
                  height: int = 640,
                  fps: float = 30.0,
+                 buffer: bool = True,
                  threading: bool = False,
                  n_threads: int = getNumberOfCPUs()):
         """
-        Base class for real-time object detection using a fine-tuned Convolutional Neural Network (CNN) model and computer vision library OpenCV.
+        Base class for real-time object detection using a Convolutional Neural Network (CNN) and computer vision library.
 
         Args:
             camera (str): Camera used for input. Must be streaming server `URL` for ESP32-CAM, `0` for primary camera, or `1` for secondary camera.
             title (str, optional): Window title. Defaults to "Custom Object Detection".
             model (str, optional): Detection model's path. Defaults to a model in weights.
             device (str, optional): Device running detection model. Options include: `cpu`, `cuda`, and `mps`. Defaults to available option.
-            confidence (float, optional): Detection model's minimum confidence threshold. Defaults to 0.25.
-            iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to 0.5.
+            confidence (float, optional): Detection model's minimum confidence threshold. Defaults to 0.5.
+            iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to 0.25.
             max_detections (int, optional): Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to 100.
             video_strides (int, optional): Skip frames to speed up processing (at the cost of temporal resolution). Value of 1 processes every frame, higher values skip frames. Defaults to 1.
             width (int, optional): Camera width. Defaults to 640.
             height (int, optional): Camera height. Defaults to 640.
             fps (float, optional): Camera FPS. Defaults to 30.0.
+            buffer (bool, optional): Determines if all frames should be buffered when processing video streams, or if the model should return the most recent frame. Defaults to True.
             threading (bool, optional): Whether or not to use multithreaded video processing. Defaults to False.
-            n_threads (int, optional): Number of threads for video processing; only applicable when `threading = True`. Defaults to number of logical CPUs available.
+            n_threads (int, optional): Number of threads for multithreaded video processing (only applicable when `threading = True`). Defaults to number of logical CPUs available.
         """
         self._parser: ArgumentParser = ArgumentParser(description = "Run object detection model via command line", add_help = False)
-        self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, threading, n_threads)
+        self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, buffer, threading, n_threads)
         self._args: Namespace = self._parser.parse_args()
         
         self._camera: VideoCapture = VideoCapture(int(self._args.cam) if self._args.cam.isdigit() else self._args.cam)
-        self._model: YOLO = YOLO(self._args.path, task = "detect")
         self.confidence: float = self._args.conf
         self.iou: float = self._args.iou
         self.max_detections: int = self._args.max
@@ -74,6 +75,9 @@ class Camera:
             self._pool: ThreadPool = ThreadPool(self._args.n_threads)
             self._pending: deque = deque()
 
+        else:
+            self._model: YOLO = YOLO(self._args.path, task = "detect")
+
     def _init_parser(self,
                     cam: str,
                     device: str,
@@ -86,6 +90,7 @@ class Camera:
                     width: int,
                     height: int,
                     fps: float,
+                    buff: bool,
                     threading: bool,
                     n_threads: int) -> None:
         """
@@ -103,6 +108,7 @@ class Camera:
             width (int): Camera width.
             height (int): Camera height.
             fps (float): Camera FPS.
+            buff (bool): Toggle stream buffering.
             threading (bool): Toggle multithreaded video processing.
             n_threads (int): Number of threads for video processing.
         """
@@ -123,7 +129,7 @@ class Camera:
                                   default = title,
                                   dest = "title",
                                   metavar = "<title>",
-                                  help = f"window title (default: {title})")
+                                  help = f"window title (default: \"{title}\")")
 
         self._parser.add_argument("-p, --path",
                                   type = str,
@@ -189,6 +195,12 @@ class Camera:
                                   metavar = "<fps>",
                                   help = f"camera frames per second (default: {fps})")
 
+        self._parser.add_argument("-b, --buffer",
+                                  action = BooleanOptionalAction,
+                                  default = buff,
+                                  dest = "buffer",
+                                  help = f"toggle livestream buffering (default: {buff})")
+
         self._parser.add_argument("-t, --threads",
                                   action = BooleanOptionalAction,
                                   default = threading,
@@ -250,17 +262,20 @@ class Camera:
         Returns:
             list[Results]: Detection model's prediction(s).
         """
-        return self._model(frame,
+        # Ensures it's thread-safe
+        local_model = YOLO(self._args.path, task = "detect") if self._args.threads else self._model
+        
+        return local_model(frame,
                            stream = True,
                            device = device(self._args.device),
-                           stream_buffer = True,
+                           stream_buffer = self._args.buffer,
                            vid_stride = self._args.strides,
                            conf = self.confidence,
                            iou = self.iou,
                            max_det = self.max_detections,
                            imgsz = (self._args.height, self._args.width),
                            agnostic_nms = True)
-    
+
     def _quit(self) -> None:
         """
         When `Escape` is pressed:
@@ -292,14 +307,14 @@ class Camera:
         """
         self.iou = new_iou / 100.0
         
-    def _change_max_detections(self, new_max_det: int) -> None:
+    def _change_max_detections(self, new_max: int) -> None:
         """
         Callback function for max detections trackbar.
 
         Args:
-            new_max_det (int): New max detections value.
+            new_max (int): New max detections value.
         """
-        self.max_detections = new_max_det
+        self.max_detections = new_max
 
     def _show_window(self, results: list[Results]) -> None:
         """
@@ -316,7 +331,7 @@ class Camera:
         createTrackbar("IoU", self._args.title, int(self.iou * 100), 100, self._change_iou)
         createTrackbar("Max Detects", self._args.title, self.max_detections, self._args.max, self._change_max_detections)
 
-        # Ensure confidence and IOU are at least 1% to avoid program from hanging/freezing
+        # Ensure confidence and IOU are at least 1% so program doesn't hang/freeze
         setTrackbarMin("Confidence", self._args.title, 1)
         setTrackbarMin("IoU", self._args.title, 1)
         
@@ -331,4 +346,4 @@ class Camera:
 
 if __name__ == "__main__":
     # Start detection program
-    Camera("0").run()
+    Camera("0", width = 320, height = 320).run()
