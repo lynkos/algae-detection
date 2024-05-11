@@ -20,55 +20,43 @@
 <img alt="Last Commit" src="https://img.shields.io/github/last-commit/lynkos/algae-detection?style=flat&label=Last+Commit&labelColor=393939&color=be0000">
 <img alt="Commit Activity" src="https://img.shields.io/github/commit-activity/t/lynkos/algae-detection?style=flat&label=Commit+Activity&labelColor=393939&color=b30086">
 <img alt="Repo Size" src="https://img.shields.io/github/repo-size/lynkos/algae-detection?style=flat&label=Repo+Size&labelColor=393939&color=ff62b1">
+<a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/model/"><img alt="Try model badge" src="https://app.roboflow.com/images/try-model-badge.svg"/></a>
 </div>
 
 ## Overview
-Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the health of humans, marine life, and [aquatic] ecosystems. These blooms, often fueled by nutrient runoff and warmer temperatures, are increasing in prevalence and can negatively impact water quality and oxygen levels, hence the need to keep track of harmful [algae](#algae) / algal blooms (i.e., collect natural water sample(s) for analysis).
-
-An expensive and cumbersome microscope is often needed to view samples/slides in high-resolution. While offering very high visual fidelity, these types of microscopes do not offer a solution that can be used in the field. Conversely, affordable and light microscopes come with limitations as well, such as subpar resolution and focus. The manual nature of detection, quantification, and classification further compounds the drawbacks, resulting in time-consuming and labor-intensive procedures.
-
 This project aims to provide a practical, convenient, and efficient tool to monitor water quality and mitigate / prevent harmful algal blooms in real-time by:
-- [x] Fine-tuning pre-trained [AI](#AI) models to detect harmful [algae](#algae)
-- [x] Leveraging the portability of smartphone cameras and low-cost [ESP32](#esp)-CAM
-
-Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s) as the system's eyes and the detection model as its brain:
-   - This project applies [computer vision](#cv) (subfield of [AI](#ai)) techniques to fetch visual data from the camera(s)
-   - The type of model being used (i.e., [CNN](#cnn), which is a subset of [DNN](#dnn)) is loosely inspired by the human brain
-   - In both cases, eyes / camera(s) see / get the input and send it to the brain / model for processing
+- [x] Fine-tuning pre-trained AI models to detect harmful algae
+- [x] Leveraging the portability of smartphone cameras and low-cost ESP32-CAM
 
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
-> [!TIP]
-> Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
-> 
-> To do so, you may forgo these [requirements](#requirements):
-> - [ ] Modded microscope
-> - [ ] Algae dataset
-> - [ ] [ESP32](#esp)-CAM
-> - [ ] Micro-USB cable
-> - [ ] [PlatformIO](#platformio) Visual Studio Code extension
-> 
-> If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and only forgo the microscope and algae dataset. Then:
-> 1. Use your own dataset — comprised of [images of] the object(s) you want your custom model to detect — to [create a new, custom object detection model](#train-validate-and-test-model)
-> 2. Save/download the resulting model once finished
-> 3. [Integrate the model with camera(s) for real-time detection and classification](#detect-and-classify-algae)
+<details open>
+   <summary>User Interface</summary>
+
+   <div align="center">
+      <figure>
+         <picture><img alt="User Interface" src="assets/user_interface.png"></picture><br>
+         <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
+      </figure>
+   </div>
+</details>
 
 <details open>
-   <summary>Nikon microscope with <a href="#esp">ESP32</a>-CAM <a href="#ai">AI</a> Thinker and illuminator</summary>
+   <summary>Nikon microscope with ESP32-CAM AI Thinker and illuminator</summary>
 
    <div align="center">
       <figure>
          <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
-         <figcaption style="font-size: 11px;"><a href="#esp">ESP32</a>-CAM <a href="#ai">AI</a> Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
+         <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
       </figure>
    </div>
 </details>
 
 ## Requirements
 <details>
-   <summary><a href="#esp">ESP32</a>-CAM (or similar)</summary>
+   <summary>ESP32-CAM (or similar)</summary>
       <ul>
-         <li><a href="#ai">AI</a> Thinker</li>
+         <li>AI Thinker</li>
          <li>Espressif ESP-EYE</li>
          <li>Espressif ESP32S2-CAM</li>
          <li>Espressif ESP32S3-CAM-LCD</li>
@@ -90,7 +78,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 - [x] Nikon microscope with 3D printed lens attachment and illuminator
 - [x] Micro-USB cable
-- [x] <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Algae</a> <a target="_blank" href="#dataset">dataset</a>
+- [x] <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Algae</a> <a target="_blank" href="docs/appendix.md#dataset">dataset</a>
 - [x] <a target="_blank" href="https://code.visualstudio.com/download">Visual Studio Code</a>
 - [x] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
 - [x] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
@@ -164,7 +152,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > ```
 >
 > If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, try another option:
-> * <a target="_blank" href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">Manually download the repo as a `.zip` file</a>, then decompress it
+> * <a href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">Manually download the repo as a `.zip` file</a>, then decompress it
 > * <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">Cloning via SSH</a>
 >     ```sh
 >     git clone git@github.com:lynkos/algae-detection.git
@@ -180,722 +168,53 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    conda env create -f environment.yml
    ```
 
-7. Activate `algae_env` (i.e., virtual environment)
+## Quick Start
+1. Activate `algae_env` (i.e., virtual environment)
    ```sh
    conda activate algae_env
    ```
 
-8. Confirm `algae_env` is active
-   * If active, `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
-      ```sh
-      (algae_env) $
-      ```
-   * If necessary, see which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
-      ```sh
-      conda info --envs
-      ```
-      **OR**
-      ```sh
-      conda env list
-      ```
-
-## Usage
-### Detect and Classify Algae
-<details open>
-   <summary>User Interface</summary>
-
-   <div align="center">
-      <figure>
-         <picture><img alt="User Interface" src="assets/user_interface.png"></picture><br>
-         <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
-      </figure>
-   </div>
-</details>
-
-<ol>
-   <li id="s1"><p>Open <a href="weights"><code>weights</code></a></p></li>
-   <li id="s2"><p>Choose the algae detection model you want to use</p>
-     <ul>
-       <li>To use your own model, add it to <a href="weights"><code>weights</code></a></li>
-       <li>To use an existing model, decompress the <code>.zip</code> file to get the model
-         <ul>
-             <li><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a>: <a href="weights/yolov8n_sahi.pt.zip"><code>yolov8n_sahi.pt.zip</code></a></li>
-             <li><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large: <a href="weights/custom_yolov8x.pt.zip"><code>custom_yolov8x.pt.zip</code></a>, <a href="weights/custom_yolov8x_v2.pt.zip"><code>custom_yolov8x_v2.pt.zip</code></a></li>
-         </ul>
-       </li>
-     </ul>
-   </li>
-   <li><p>Open <a href="src/detection/camera.py"><code>camera.py</code></a></p></li>
-   <li id="s4"><p>Set <a href="src/detection/camera.py#L29"><code>model</code></a> default value to the path of the model chosen in <a href="#s2">Step 2</a></p></li>
-</ol>
-
-<details>
-   <summary>Command Line Arguments</summary>
-   <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
-      <thead>
-        <tr>
-          <th><center>Option</center></th>
-          <th><center>Type</center></th>
-          <th><center>Description</center></th>
-          <th><center>Default</center></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="white-space: nowrap;"><code>-H, --help</code></td>
-          <td align="center"></td>
-          <td align="center">Show help message and exit</td>
-          <td align="center"></td>
-        </tr>
-        <tr>
-          <td id="camera" align="center" style="white-space: nowrap;"><code>-C, --cam &lt;camera&gt;</code></td>
-          <td align="center"><code>str</code></td>
-          <td align="center">Set to <a alt="Livestream URL" href="">livestream URL</a> for ESP32-CAM, <code>0</code> for primary camera, <code>1</code> for secondary camera</td>
-          <td align="center"></td>
-        </tr>
-        <tr>
-          <td align="center" style="white-space: nowrap;"><code>-T, --title &lt;title&gt;</code></td>
-          <td align="center"><code>str</code></td>
-          <td align="center">Window title</td>
-          <td align="center">"Custom Object Detection"</td>
-        </tr>
-        <tr>
-          <td id="modpath" align="center" style="white-space: nowrap;"><code>-p, --path &lt;path&gt;</code></td>
-          <td align="center"><code>str</code></td>
-          <td align="center">Detection model's <a href="src/detection/camera.py#L29">path</a></td>
-          <td align="center"><a href="weights"><code>weights/custom_yolov8x_v2.pt</code></a></td>
-        </tr>
-        <tr>
-          <td align="center" style="white-space: nowrap;"><code>-c, --conf &lt;confidence&gt;</code></td>
-          <td align="center"><code>float</code></td>
-          <td align="center">Detection model's minimum confidence threshold</td>
-          <td align="center"><code>0.25</code></td>
-        </tr>
-        <tr>
-           <td align="center" style="white-space: nowrap;"><code>-d, --device &lt;device&gt;</code></td>
-           <td align="center"><code>str</code></td>
-           <td align="center">Device running detection model</td>
-           <td align="center">Available device</td>
-        </tr>
-        <tr>
-           <td align="center" style="white-space: nowrap;"><code>-i, --iou &lt;iou&gt;</code></td>
-           <td align="center"><code>float</code></td>
-           <td align="center">Lower values eliminate overlapping boxes</td>
-           <td align="center"><code>0.5</code></td>
-        </tr>
-        <tr>
-            <td align="center" style="white-space: nowrap;"><code>-m, --max &lt;max-detections&gt;</code></td>
-            <td align="center"><code>int</code></td>
-            <td align="center">Limit number of detections per frame</td>
-            <td align="center"><code>100</code></td>
-        </tr>
-        <tr>
-           <td align="center" style="white-space: nowrap;"><code>-s, --strides &lt;strides&gt;</code></td>
-           <td align="center"><code>int</code></td>
-           <td align="center"><code>1</code> processes every frame, higher values skip frames</td>
-           <td align="center"><code>1</code></td>
-        </tr>
-        <tr>
-           <td align="center" style="white-space: nowrap;"><code>-w, --width &lt;width&gt;</code></td>
-           <td align="center"><code>int</code></td>
-           <td align="center">Camera width</td>
-           <td align="center"><code>640</code></td>
-        </tr>
-        <tr>
-           <td align="center" style="white-space: nowrap;"><code>-h, --height &lt;height&gt;</code></td>
-           <td align="center"><code>int</code></td>
-           <td align="center">Camera height</td>
-           <td align="center"><code>640</code></td>
-        </tr>
-        <tr>
-           <td align="center" style="white-space: nowrap;"><code>-f, --fps &lt;fps&gt;</code></td>
-           <td align="center"><code>float</code></td>
-           <td align="center">Camera frames per second</td>
-           <td align="center"><code>30.0</code></td>
-        </tr>
-        <tr>
-           <td id="mtvp" align="center" style="white-space: nowrap;"><code>-t, --threads</code></td>
-           <td align="center"><code>bool</code></td>
-           <td align="center">Toggle multithreaded video processing</td>
-           <td align="center"><code>False</code></td>
-        </tr>
-        <tr>
-           <td id="nthreads" align="center" style="white-space: nowrap;"><code>-n, --n-threads &lt;threads&gt;</code></td>
-           <td align="center"><code>int</code></td>
-           <td align="center">Number of video processing threads</td>
-           <td align="center"><code>16</code></td>
-        </tr>
-      </tbody>
-   </table>
-   Example: Use primary <a href="#camera">camera</a> with <a href="#modpath">model located</a> at <code>weights/yolov8n.pt</code>, <a href="#mtvp">multithreaded video processing</a> toggled on, and 8 <a href="#nthreads">threads</a>
-   <pre>python src/detection/camera.py -C 0 -p weights/yolov8n.pt -t -n 8</pre>
-</details>
-
-#### ESP32
-> [!IMPORTANT]
-> * Current implementation **requires** WiFi!
->     * This is because the ESP32-CAM livestreams to an <a target="_blank" href="https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming">MJPEG server</a> over HTTP, which is how [`esp32.py`](src/detection/esp32.py) gets the camera input.
->     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
+> [!TIP]
+> Always activate `algae_env` before running the program, and deactivate upon termination. Convenient [shortcut commands](docs/appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](scripts/conda_shortcuts.sh).
 > 
-> * If you're more of a visual learner, here's the <a target="_blank" href="https://youtu.be/SxlSjRWeGuw">YouTube tutorial + demo</a>.
->     * Make sure you've [installed the necessary software](#installation) **AND** have completed Steps [1](#s1) – [4](#s4) of the [Detect and Classify Algae section](#detect-and-classify-algae) before following the tutorial.
-
-<details open>
-   <summary>1. Click the PlatformIO icon in the activity bar, then click 'Pick a folder'</summary>
-   <div align="center"><img alt="Open PlatformIO project" src="assets/esp32/platformio_folder.png"></div>
-</details>
-
-<details open>
-   <summary>2. Open <a href="src/streaming"><code>streaming</code></a></summary>
-   <div align="center"><img alt="Open `streaming`" src="assets/esp32/open_streaming.png"></div>
-</details>
-
-<details open>
-   <summary>3. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window</summary>
-   <div align="center"><img alt="Select board and port" src="assets/esp32/board_port.png"></div>
-</details>
-
-<details open id="s4">
-   <summary>4. Click 'Build' to compile code, then click 'Upload' to flash code to ESP32</summary>
-   <div align="center"><img alt="Build, Upload, Monitor" src="assets/esp32/build_upload_monitor.png"></div>
-</details>
-
-<details open>
-   <summary>5. To connect initially to the device, connect to the WiFi network starting with <code>ESP32CAM-RTSP</code></summary>
-   <div align="center"><img alt="ESP32CAM-RTSP network" src="assets/esp32/choose_ap.png"></div>
-</details>
-
-<details open>
-   <summary>6. Click 'Change settings' once the browser automatically opens the home page (<a target="_blank" href="http://192.168.4.1">http://192.168.4.1</a>)</summary>
-   <div align="center"><img alt="Window popup" src="assets/esp32/ap_popup.png"></div>
-</details>
-
-<details open id="s7">
-   <summary>7. You <b>MUST</b> fill in (1) <a href="#ap"><b>AP (i.e., Access Point)</a> password</a></b>, (2) <b>WiFi SSID</b>, and, if applicable, (3) <b>WiFi password</b></summary>
-   <div align="center"><img alt="System config" src="assets/esp32/init_config.png"></div>
-</details>
-
-> [!NOTE]
-> If you ever lose/forget the AP password, click 'Erase flash' (in PlatformIO's extension UI) to erase and reset the device, then follow [Step 4](#s4) and onwards again.
-
-<details open>
-   <summary>8. Update the settings and configure camera options (you can always change them later), though be mindful of the settings you choose as they may affect the ESP32's performance</summary>
-   <div align="center"><img alt="Camera Settings" src="assets/esp32/config.png"></div>
-</details>
-
-<p style="text-align:left;">9. Scroll down and click 'Apply' to save settings</p>
-
-<details open>
-   <summary>10. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP</summary>
-   <div align="center"><img alt="Disconnect" src="assets/esp32/disconnect.png"></div>
-</details>
-
-> [!IMPORTANT]
-> You must reset the [ESP32](#esp) (i.e., press its 'Reset' button) everytime you change the settings for it to take effect.
-
-> [!NOTE]
-> If there's an error screen saying it's unable to make a connection, try resetting the ESP32 first. It'll wait 30 seconds for a connection (can be changed in system configuration's 'Startup delay (seconds)' setting, shown in [Step 7](#s7)).
+> To check if `algae_env` is active:
+> 
+> * `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
+>     ```sh
+>     (algae_env) $
+>     ```
 >
-> Connect to the SSID, go to the ESP32's IP address and enter your credentials:
-> - Username: `admin`
-> - Password: AP password from [Step 7](#s7)
+> * See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
+>     ```sh
+>     conda info --envs
+>     ```
+>     **OR**
+>     ```sh
+>     conda env list
+>     ```
 
-<p>11. Go back to PlatformIO extension, click 'Monitor', then use 'Find' keyboard shortcut to find the ESP32's IP address
-   <ul>
-      <li>PC<br><pre>Ctrl + F</pre></li>
-      <li>Mac<br><pre>⌘ + F</pre></li>
-   </ul>
-</p>
-
-<details open id="s12">
-   <summary>12. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address</summary>
-   <div align="center"><img alt="IP address" src="assets/esp32/esp32_ip.png"></div>
-</details>
-
- <details id="s13">
-    <summary>13. You can now stream from the ESP32</summary>
-    <div align="center"><img alt="Home Page" src="assets/esp32/index.png"></div>
- </details>
-  <ul>
-     <li>HTTP Motion JPEG Streamer: <code>http://&lt;IP address from <a href="#s12">Step 12</a>&gt;/snapshot</code></li>
-     <li>HTTP Image: <code>http://&lt;IP address from <a href="#s12">Step 12</a>&gt;/snapshot</code></li>
-     <li>RTSP: <code>rtsp://&lt;IP address from <a href="#s12">Step 12</a>&gt;:554/mjpeg/1</code></li>
-  </ul>
-
-> [!CAUTION]
-> Anyone with network access to the device can see the streams and images!
-
-<p>14. Open <a href="src/detection/esp32.py"><code>esp32.py</code></a> once finished</p>
-
-<p>15. Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s13">Step 13</a> to <a href="src/detection/esp32.py#L13"><code>URL</code></a></p>
-
-<p>16. Run <a href="src/detection/esp32.py"><code>esp32.py</code></a>
-   <ul>
-      <li>POSIX<br><pre>python src/detection/esp32.py</pre></li>
-      <li>Windows<br><pre>python src\detection\esp32.py</pre></li>
-   </ul>
-</p>
-
-<p>17. Press the 'Escape' key on your keyboard to terminate</p>
-
-> [!NOTE]
-> See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp">this module</a>'s <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md">`README.md`</a> for further details on [`streaming`](src/streaming).
-
-> [!IMPORTANT]
-> To update to latest version, commit and push changes, then run the following command in the terminal:
-> ```sh
-> git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash
-> ```
-
-#### iPhone
-<p>1. Open <a href="src/detection/camera.py"><code>camera.py</code></a></p>
-
-<p>2. Run <a href="src/detection/camera.py"><code>camera.py</code></a>
-   <ul>
-      <li>POSIX<br><pre>python src/detection/camera.py --cam "1" -W 640 -H 640</pre></li>
-      <li>Windows<br><pre>python src\detection\camera.py --cam "1" -W 640 -H 640</pre></li>
-   </ul>
-</p>
-
-<details>
-   <summary>3. Connect to iPhone</summary>
-   <div align="center"><img alt="iPhone connected" src="assets/iphone/iphone_ui_connect.png"></div>
-</details>
-
-<details>
-   <summary>4. Press 'Escape' on keyboard or 'Disconnect' on iPhone to terminate</summary>
-   <div align="center"><img alt="iPhone disconnected" src="assets/iphone/iphone_ui_disconnect.png"></div>
-</details>
-
-#### Webcam
-<p>1. Open <a href="src/detection/camera.py"><code>camera.py</code></a></p>
-
-<p>2. Run <a href="src/detection/camera.py"><code>camera.py</code></a>
+<p id="s2">2. Run <a href="src/detection/camera.py"><code>camera.py</code></a>
    <ul>
       <li>POSIX<br><pre>python src/detection/camera.py</pre></li>
       <li>Windows<br><pre>python src\detection\camera.py</pre></li>
    </ul>
 </p>
 
-<p> 3. Press 'Escape' key to terminate</p>
-
-### Train, Validate, and Test Model
-<p>1. Visit one of these Google Colab notebooks, depending on the version of <a href="#yolo">YOLO</a> you want to use
-   <ul>
-      <li><a target="_blank" alt="Algae detection Google Colab notebook (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">Algae Detection (YOLOv8).ipynb</a></li>
-      <li><a target="_blank" alt="Algae detection Google Colab notebook (YOLOv9)" href="https://colab.research.google.com/drive/1abvT_xQ7MhkYLTMTGvqAkGuDdehZ-u80">Algae Detection (YOLOv9).ipynb</a></li>
-   </ul>
-</p>
-
-<p>2. Follow the notebook's instructions step-by-step</p>
-
-## Diagrams
-<div align="center">
-
-### Performance
-<table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; margin: 0 auto; overflow-x: auto; white-space: nowrap;">
-   <tr>
-      <th style="text-align: center;">[Pre-Trained] Model</th>
-      <th style="text-align: center;"><a href="#con_mat">Confusion Matrix</a> (<a href="#norm">Normalized</a>)</th>
-      <th style="text-align: center;">Precision-Confidence Curve</th>
-      <th style="text-align: center;">Precision-Recall Curve</th>
-      <th style="text-align: center;">Recall-Confidence Curve</th>
-      <th style="text-align: center;">F1-Confidence Curve</th>
-      <th style="text-align: center;">Training Results</th>
-      <th style="text-align: center;">Validation Output</th>
-      <th style="text-align: center;">Example Prediction</th>
-   </tr>
-   <tr>
-      <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
-      <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
-      <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x/P_curve.png"></td>
-      <td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x/PR_curve.png"></td>
-      <td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x/R_curve.png"></td>
-      <td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x/F1_curve.png"></td>
-      <td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x/results.png"></td>
-      <td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x/validation.png"></td>
-      <td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x/example.jpg"></td>
-   </tr>
-   <tr>
-      <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
-      <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
-      <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/P_curve.png"></td>
-      <td><img alt="Precision-Recall Curve" align="center" src="assets/models/custom_yolov8x_v2/PR_curve.png"></td>
-      <td><img alt="Recall-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/R_curve.png"></td>
-      <td><img alt="F1-Confidence Curve" align="center" src="assets/models/custom_yolov8x_v2/F1_curve.png"></td>
-      <td><img alt="Training Results" align="center" src="assets/models/custom_yolov8x_v2/results.png"></td>
-      <td><img alt="Validation Output" align="center" src="assets/models/custom_yolov8x_v2/validation.png"></td>
-      <td><img alt="Example Prediction" align="center" src="assets/models/custom_yolov8x_v2/example.png"></td>
-   </tr>
-   <tr>
-      <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
-      <td><img alt="Confusion Matrix (Normalized)" align="center" src="assets/models/sahi_yolov8n/confusion_matrix_normalized.png"></td>
-      <td><img alt="Precision-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/P_curve.png"></td>
-      <td><img alt="Precision-Recall Curve" align="center" src="assets/models/sahi_yolov8n/PR_curve.png"></td>
-      <td><img alt="Recall-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/R_curve.png"></td>
-      <td><img alt="F1-Confidence Curve" align="center" src="assets/models/sahi_yolov8n/F1_curve.png"></td>
-      <td><img alt="Training Results" align="center" src="assets/models/sahi_yolov8n/results.png"></td>
-      <td><img alt="Validation Output" align="center" src="assets/models/sahi_yolov8n/validation.png"></td>
-      <td><img alt="Example Prediction" align="center" src="assets/models/sahi_yolov8n/example.jpg"></td>
-   </tr>
-</table>
-
-### System Design
-#### ESP32-CAM
-<img alt="ESP32-CAM system design" src="assets/diagrams/esp32_sys_des.png">
-
-#### iPhone
-<img alt="iPhone system design" src="assets/diagrams/iphone_sys_des.png">
-
-### UML
-#### [`streaming`](src/streaming)
-<img alt="`streaming` UML" src="assets/diagrams/streaming_uml.png">
-
-#### [`detection`](src/detection/)
-<img alt="`detection` UML" src="assets/diagrams/detection_uml.png">
-
-### YOLOv8 Architecture
-<a target="_blank" href="https://mmyolo.readthedocs.io/en/latest/recommended_topics/algorithm_descriptions/yolov8_description.html"><img alt="YOLOv8 architecture" src="assets/diagrams/yolov8_architecture.jpg"></a>
-
-### Framework
-#### <a href="#saft">SAFT</a>
-<img alt="Slicing Aided Fine Tuning (SAFT) framework" src="assets/diagrams/saft_framework.png">
-
-#### <a href="#sahi">SAHI</a>
-<img alt="Slicing Aided Hyper Inference (SAHI) framework" src="assets/diagrams/sahi_framework.png">
-
-### Dataset
-<img alt="Dataset flowchart" src="assets/diagrams/dataset_flowchart.png"><br><br>
-<table style="width: 100%; text-align: center;">
-   <tr>
-      <th style="text-align: center;">Class</th>
-      <th style="text-align: center;" width="100%">Example</th>
-   </tr>
-   <tr>
-      <td><a href="#closterium">Closterium</a></td>
-      <td><img alt="Closterium" align="center" width="100%" src="assets/algae/closterium.jpg"></td>
-   </tr>
-   <tr>
-      <td><a href="#microcystis">Microcystis</a></td>
-      <td><img alt="Microcystis" align="center" width="100%" src="assets/algae/microcystis.jpg"></td>
-   </tr>
-   <tr>
-      <td><a href="#nitzschia">Nitzschia</a></td>
-      <td><img alt="Nitzschia" align="center" width="100%" src="assets/algae/nitzschia.jpg"></td>
-   </tr>
-   <tr>
-      <td><a href="#oscillatoria">Oscillatoria</a></td>
-      <td><img alt="Oscillatoria" align="center" width="100%" src="assets/algae/oscillatoria.jpg"></td>
-   </tr>
-   <tr>
-      <td>Non-Algae</td>
-      <td><img alt="Non-Algae" align="center" width="100%" src="assets/algae/non-algae.jpg"></td>
-   </tr>
-</table>
-
-### Repository Structure
-</div>
-<pre>
-.
-├── assets/
-│   ├── algae/
-│   │   ├── closterium.jpg
-│   │   ├── microcystis.jpg
-│   │   ├── nitzschia.jpg
-│   │   ├── non-algae.jpg
-│   │   ├── oscillatoria.jpg
-│   │   └── testing_sample.pdf
-│   ├── diagrams/
-│   │   ├── drawio/
-│   │   │   ├── Camera_uml.drawio
-│   │   │   ├── dataset_flowchart.drawio
-│   │   │   ├── esp32_sys_design.drawio
-│   │   │   └── streaming_uml.drawio
-│   │   ├── dataset_flowchart.png
-│   │   ├── detection_uml.png
-│   │   ├── esp32_sys_des.png
-│   │   ├── iphone_sys_des.png
-│   │   ├── saft_framework.png
-│   │   ├── sahi_framework.png
-│   │   ├── streaming_uml.png
-│   │   └── yolov8_architecture.jpg
-│   ├── esp32/
-│   │   ├── ai_thinker.jpg
-│   │   ├── ap_popup.png
-│   │   ├── board_port.png
-│   │   ├── build_upload_monitor.png
-│   │   ├── choose_ap.png
-│   │   ├── config.png
-│   │   ├── disconnect.png
-│   │   ├── esp32_ip.png
-│   │   ├── index.png
-│   │   ├── init_config.png
-│   │   ├── open_streaming.png
-│   │   └── platformio_folder.png
-│   ├── iphone/
-│   │   ├── iphone_ui_connect.png
-│   │   └── iphone_ui_disconnect.png
-│   ├── models/
-│   │   ├── custom_yolov8x/
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── example.jpg
-│   │   │   ├── F1_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   ├── custom_yolov8x_v2/
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── example.jpg
-│   │   │   ├── F1_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   └── sahi_yolov8n/
-│   │       ├── confusion_matrix_normalized.png
-│   │       ├── confusion_matrix.png
-│   │       ├── example.jpg
-│   │       ├── F1_curve.png
-│   │       ├── P_curve.png
-│   │       ├── PR_curve.png
-│   │       ├── R_curve.png
-│   │       ├── results.png
-│   │       └── validation.png
-│   ├── microscope.jpg
-│   └── user_interface.png
-├── src/
-│   ├── detection/
-│   │   ├── camera.py
-│   │   └── esp32.py
-│   └── streaming/
-│       ├── boards/
-│       │   ├── esp32cam_ai_thinker.json
-│       │   ├── esp32cam_espressif_esp_eye.json
-│       │   ├── esp32cam_espressif_esp32s2_cam_board.json
-│       │   ├── esp32cam_espressif_esp32s2_cam_header.json
-│       │   ├── esp32cam_espressif_esp32s3_cam_lcd.json
-│       │   ├── esp32cam_espressif_esp32s3_eye.json
-│       │   ├── esp32cam_freenove_s3_wroom_n8r8.json
-│       │   ├── esp32cam_freenove_wrover_kit.json
-│       │   ├── esp32cam_m5stack_camera_psram.json
-│       │   ├── esp32cam_m5stack_camera.json
-│       │   ├── esp32cam_m5stack_esp32cam.json
-│       │   ├── esp32cam_m5stack_unitcam.json
-│       │   ├── esp32cam_m5stack_unitcams3.json
-│       │   ├── esp32cam_m5stack_wide.json
-│       │   ├── esp32cam_seeed_xiao_esp32s3_sense.json
-│       │   ├── esp32cam_ttgo_t_camera.json
-│       │   └── esp32cam_ttgo_t_journal.json
-│       ├── html/
-│       │   ├── index.html
-│       │   └── index.min.html
-│       ├── include/
-│       │   ├── format_duration.h
-│       │   ├── format_number.h
-│       │   ├── lookup_camera_effect.h
-│       │   ├── lookup_camera_frame_size.h
-│       │   ├── lookup_camera_gainceiling.h
-│       │   ├── lookup_camera_wb_mode.h
-│       │   └── settings.h
-│       ├── lib/
-│       │   └── rtsp_server/
-│       │       ├── library.json
-│       │       ├── rtsp_server.cpp
-│       │       └── rtsp_server.h
-│       ├── src/
-│       │   └── main.cpp
-│       └── platformio.ini
-├── weights/
-│   ├── custom_yolov8x_v2.pt.zip
-│   ├── custom_yolov8x.pt.zip
-│   └── yolov8n_sahi.pt.zip
-├── .gitattributes
-├── .gitignore
-├── conda_shortcuts.sh
-├── environment.yml
-├── LICENSE.md
-└── README.md
-</pre>
-
-## Appendix
-<h3><a target="_blank" alt="Repo's GitHub 'Issues' page" href="https://github.com/lynkos/algae-detection/issues">Future Work</a></h3>
-
-- [ ] Increase dataset and improve model versatility by taking quality images of various types of algae
-   - At least <a target="_blank" href="https://blog.roboflow.com/model-best-practices/#dataset-size">1000 images per class</a>
-   - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
-   - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> and/or <a href="mailto:335761@dadeschools.net">Mr. Q</a> may [or may not] be able to help with categorizing any algae in new images
-- [ ] Increase model accuracy
-  - Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
-  - Use DC-GAN to generate additional synthetic images for training
-- [ ] Connect to ESP32 without a server (e.g., via USB, etc.) **OR** use RTSP instead of HTTP
-  - Attempted — but unable — to use RTSP
-  - See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub Issue</a> for further details
-- [ ] Improve model performance and run model on ESP32-CAM (instead of computer) with <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format
-  <details open>
-    <summary>Advantages</summary>
-    <ul>
-      <li>Optimized Performance on Edge Devices
-        <ul>
-          <li>Achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization</li>
-          <li>Minimalistic architecture contributes to its smaller size and cost-efficiency</li>
-        </ul>
-      </li>
-      <li>High Computational Throughput
-        <ul>
-          <li>Combines specialized hardware acceleration and efficient runtime execution to achieve high computational throughput</li>
-          <li>Well-suited for deploying ML models with stringent performance requirements on edge devices</li>
-        </ul>
-      </li>
-      <li>Efficient Matrix Computations
-        <ul>
-          <li>Optimized for matrix operations (crucial for neural network computations)</li>
-          <li>This efficiency is key in ML models, particularly those requiring numerous and complex matrix multiplications and transformations</li>
-        </ul>
-      </li>
-      <li>Deployment
-        <ul>
-          <li>On-Device: Directly deploy on mobile and embedded devices, which allows the models to execute directly on the hardware (eliminating the need for cloud connectivity)</li>
-          <li>Edge Computing with Cloud TensorFlow TPUs: Offload inference tasks to cloud servers equipped with TPUs for scenarios where edge devices have limited processing capabilities</li>
-          <li>Hybrid: Versatile and scalable solution for deploying ML models; includes on-device processing for quick responses and cloud deployment/computing for more complex computations </li>
-        </ul>
-      </li>
-    </ul>
-  </details>
-
-- [ ] Heatsink for ESP32 to prevent overheating
-
-- [ ] Update microscope's 3D printed lens attachment by making it adjustable **AND/OR** create multiple ones for different devices, e.g., iPhone, Android, etc.
-
-- [ ] Add camera settings to UI (C++ instead of Python for OpenCV?)
-
-- [ ] Add Android compatibility (if applicable and/or necessary)
-
-### [Optional] Conda Shortcut Commands
-> [!TIP]
-> Instead of manually typing out entire conda commands, you can save time with shortcuts.
+> [!NOTE]
+> Automatically uses computer's default camera (i.e., webcam). For a different camera:
 > 
-> Add [`conda_shortcuts.sh`](conda_shortcuts.sh) then source shell startup file (e.g., `.bashrc`) or restart terminal to apply changes.
-> * POSIX
->   ```sh
->   cat conda_shortcuts.sh >> ~/.bashrc
->   source ~/.bashrc
->   ```
-> * Windows
->   ```sh
->   type conda_shortcuts.sh >> C:\Users\user\path\to\.bashrc
->   source C:\Users\user\path\to\.bashrc
->   ```
+> * **ESP32-CAM**
+>    * Follow all [steps in `manual.md`](docs/manual.md#esp32-cam)
+> * **iPhone**
+>     * Requires macOS v13+ and iOS v16+
+>     * Connect iPhone to Mac via USB before [Step #2](#s2)
+>     * Run [`camera.py`](src/detection/camera.py) with argument `--cam 1`
+>     * See [this user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
+>     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="assets/iphone/iphone_ui_connect.png"></div></details>
 
-<table align="center" style="width: 100%; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
-   <thead>
-     <tr>
-       <th><center>Command</center></th>
-       <th><center>Description</center></th>
-       <th><center>Usage</center></th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td align="center"><a target="_blank" href="conda_shortcuts.sh#L94"><code>act</code></a></td>
-       <td align="center">Activate conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>act [env_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="conda_shortcuts.sh#L3"><code>dac</code></a></td>
-       <td align="center">Deactivate conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>dac</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center" rowspan="2"><a target="_blank" href="conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
-       <td rowspan="2" align="center">Create conda environment(s)</td>
-       <td style="white-space: nowrap;"><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
-     </tr>
-     <tr>
-       <td style="white-space: nowrap;"><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
-       <td align="center">Remove conda environment(s)</td>
-       <td style="white-space: nowrap;"><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
-       <td align="center">Rename conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
-       <td align="center">Copy conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="conda_shortcuts.sh#L108"><code>exp</code></a></td>
-       <td align="center">Export conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>exp [out_file]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
-       <td align="center">List conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>lsenv</pre></p></td>
-     </tr>
-   </tbody>
-</table>
+<p>3. Press the 'Escape' key on your keyboard to terminate</p>
 
-> [!WARNING]
-> Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
-> 
-> E.g., [`rmenv`](conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](conda_shortcuts.sh#L50) with backslashes `\`.
-
-### Further Reading
-- <a target="_blank" href="https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin">Cyanobacteria (Blue-Green Algae)</a>
-- <a target="_blank" href="https://pubs.usgs.gov/publication/ofr20171054">Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom</a>
-- <a target="_blank" href="https://www.mdpi.com/2073-4441/14/14/2219">Computer Vision Based Deep Learning Approach for the Detection and Classification of Algae Species Using Microscopic Images</a>
-- Research "<a target="_blank" href="https://www.google.com/search?q=toxic+cyanobacteria">toxic cyanobacteria</a>"
-
-### Glossary
-<ol>
-  <li id="ap"><strong>Access Point (AP)</strong>: Networking device that allows wireless-capable devices to connect to a <a href="#wlan">WLAN</a>; in this case, it provides WiFi to <a href="#esp">ESP32</a></li>
-  <li id="algae"><strong>Algae</strong>: Group of mostly aquatic, photosynthetic, and nucleus-bearing organisms that lack many features of larger multicellular plants</li>
-  <li><strong>Anaconda</strong>: Open-source platform for managing and installing various Python packages</li>
-  <li id="ai"><strong>Artificial Intelligence (AI)</strong>: Simulation of human intelligence in machines that can perform tasks like problem-solving, decision-making, learning, etc.</li>
-  <li id="closterium"><strong>Closterium</strong>: Type of <a href="#algae">algae</a> identified by their elongated or crescent shape</li>
-  <li id="cv"><strong>Computer Vision (CV)</strong>: Field of computer science that focuses on enabling computers to identify and understand objects and people in images and videos</li>
-  <li id="con_mat"><strong>Confusion Matrix</strong>: Visualizes model performance (i.e., number of correct and incorrect predictions per class), where the x-axis is the true value and y-axis is the model's predicted value; diagonal elements represent the number of points for which the predicted label is equal to the true label (higher diagonal values are better since it indicates many correct predictions), off-diagonal elements are those mislabeled by the model (lower off-diagonal elements are better since it indicates lack of incorrect predictions)</li>
-  <li id="cnn"><strong>Convolutional Neural Network (CNN)</strong>: Type of <a href="#dnn">DNN</a> specifically designed for image recognition and processing</li>
-  <li id="dnn"><strong>Deep Neural Network (DNN)</strong>: <a href="#ml">ML</a> method inspired by the human brain's neural structure that can recognize complex patterns in data (e.g., pictures, text, sounds, etc.) to produce accurate insights and predictions</li>
-  <li><strong>Epoch</strong>: One complete iteration of the entire training dataset through the <a href="#ml">ML</a> algorithm</li>
-  <li id="esp"><strong>ESP32</strong>: Series of low-cost, low-power <a href="#soc">system-on-chip</a> microcontrollers with integrated WiFi and Bluetooth capabilities</li>
-  <li><strong>Espressif</strong>: Manufacturer of <a href="#esp">ESP32</a> microcontrollers </li>
-  <li id="ft"><strong>Fine-Tuning</strong>: Process that takes a model (architecture + weights) already trained for one given task and tunes/tweaks the model to make it perform a second similar task</li>
-  <li><strong>Google Colab</strong>: Hosted Jupyter Notebook service that provides free and paid access to computing resources, including <a href="#gpu">GPU</a>s and <a href="#tpu">TPU</a>s, and requires no setup to use</li>
-  <li id="gpu"><strong>Graphics Processing Unit (GPU)</strong>: Specialized electronic circuit that can perform mathematical calculations at high speed; useful for training <a href="#ai">AI</a> and <a href="#dnn">DNN</a>s</li>
-  <li id="inf"><strong>Inference</strong>: Process of using a trained <a href="#ml">ML</a> model to make predictions, classifications, and/or detections on new data</li>
-  <li id="lan"><strong>Local Access Network (LAN)</strong>: Group of connected computing devices within a limited area (usually sharing a centralized Internet connection) that can communicate and share resources amongst each other</li>
-  <li><strong>Machine Learning (ML)</strong>: Subfield of <a href="#ai">AI</a> that involves training computer systems to learn from data and make decisions or predictions without being explicitly programmed</li>
-  <li id="microcystis"><strong>Microcystis</strong>: Very toxic genus of cyanobacteria which look like clusters of small dots and is known for forming harmful algal blooms in bodies of water</li>
-  <li><strong>Motion JPEG (MJPEG)</strong>: Video compression format where each frame of a digital video sequence is compressed separately as a JPEG image</li>
-  <li id="nitzschia"><strong>Nitzschia</strong>: Type of thin, elongated <a href="#algae">algae</a> that can cause harmful algal blooms</li>
-  <li id="norm"><strong>Normalize</strong>: Within the context of <a href="#con_mat">confusion matrices</a>, it means the matrix elements are displayed as a percentage</li>
-  <li id="oscillatoria"><strong>Oscillatoria</strong>: Genus of filamentous cyanobacteria that forms blue-green algal blooms</li>
-  <li><strong>PlatformIO</strong>: Cross-platform, cross-architecture, multi-framework tool for embedded system engineers and software engineers who write embedded applications</li>
-  <li><strong>Python</strong>: High-level programming language widely used for data analysis and <a href="#ml">ML</a></li>
-  <li><strong>PyTorch</strong>: <a href="#ml">ML</a> library used for various applications, including <a href="#cv">CV</a></li>
-  <li id="red_tide"><strong>Red Tide</strong>: Event which occurs on Florida’s coastline where <a href="#algae">algae</a> grows uncontrollably</li>
-  <li><strong>Roboflow</strong>: <a href="#cv">CV</a> developer framework for better data collection, dataset preprocessing, dataset augmentation, model training techniques, model deployment, and more</li>
-  <li id="saft"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Fine Tuning (SAFT)</strong></a>: Novel approach that augments the <a href="#ft">fine-tuning</a> dataset by dividing images into overlapping patches, thus providing a more balanced representation of small objects and overcoming the bias towards larger objects in the original pre-training datasets</li>
-  <li id="sahi"><a target="_blank" href="https://arxiv.org/abs/2202.06934"><strong>Slicing Aided Hyper Inference (SAHI)</strong></a>: Common method of improving the detection accuracy of small objects, which involves running <a href="#inf">inference</a> over portions of an image then accumulating the results</li>
-  <li id="soc"><strong>System-on-Chip (SoC)</strong>: Integrated circuit that compresses all of a(n) computer/electronic system's required components onto one piece of silicon</li>
-  <li id="tpu"><strong>Tensor Processing Unit (TPU)</strong>: Google’s application-specific integrated circuit (ASIC) used to accelerate <a href="#ml">ML</a> workloads; useful for training <a href="#ai">AI</a> and <a href="#dnn">DNNs</a></li>
-  <li id="ultra"><strong>Ultralytics</strong>: Company that aims to make <a href="#ai">AI</a> model development accessible, efficient to train, and easy to deploy</li>
-  <li><strong>Weights</strong>: Numbers associated with the connections between neurons/nodes across different layers of a <a href="#dnn">DNN</a></li>
-  <li id="#wlan"><strong>Wireless Local Area Network (WLAN)</strong>: Computer network that links two or more devices using wireless communication to form a <a href="#lan">LAN</a></li>
-  <li id="yolo"><strong>You Only Look Once (YOLO)</strong>: High performance, real-time object detection and image segmentation model developed by <a href="#ultra">Ultralytics</a></li>
-</ol>
+<p>4. See <a href="docs/manual.md">User Manual</a> and/or <a href="docs/appendix.md">Appendix</a> for further details</p>
 
 ## Credits
 Special thanks to:
