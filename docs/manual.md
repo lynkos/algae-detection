@@ -3,8 +3,7 @@
 1. Open <a href="../weights"><code>weights</code></a>
 
 2. Get path of the algae detection model you want to use
-    * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Nano with [SAHI](https://docs.ultralytics.com/guides/sahi-tiled-inference): <a href="../weights/yolov8n_sahi.pt"><code>yolov8n_sahi.pt</code></a>
-    * [YOLOv8](https://docs.ultralytics.com/models/yolov8) Extra-Large: <a href="../weights/custom_yolov8x.pt"><code>custom_yolov8x.pt</code></a>, <a href="../weights/custom_yolov8x_v2.pt"><code>custom_yolov8x_v2.pt</code></a>
+    * Download weight(s) from <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">repo releases</a>, then add to <a href="../weights"><code>weights</code></a>
     * To use your own, <a href="#train-validate-and-test-model">create custom model</a> then add to <a href="../weights"><code>weights</code></a>
 
 3. [Optional] Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L29"><code>model</code></a>(i.e., default model's path) accordingly
