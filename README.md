@@ -35,7 +35,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
    <div align="center">
       <figure>
-         <picture><img alt="User Interface" src="assets/user_interface.png"></picture><br>
+         <picture><img alt="User Interface" src="assets/misc/user_interface.png"></picture><br>
          <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
       </figure>
    </div>
@@ -46,7 +46,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
    <div align="center">
       <figure>
-         <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/microscope.jpg"></picture><br>
+         <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/misc/microscope.jpg"></picture><br>
          <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
       </figure>
    </div>
@@ -139,31 +139,12 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
       cd C:\Users\user\path\to\directory
       ```
 
-4. Clone `algae-detection`
+4. Clone and enter `algae-detection`
    ```sh
-   git clone https://github.com/lynkos/algae-detection.git
+   git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-> [!IMPORTANT]
-> Due to the [large] size of the repo, you may get errors such as:
-> 
-> ```
-> error: RPC failed; curl 56 Recv failure: Connection reset by peer error: 6022 bytes of body are still expected fetch-pack: unexpected disconnect while reading sideband packet fatal: early EOF fatal: fetch-pack: invalid index-pack output
-> ```
->
-> If this is the case, please download <a target="_blank" href="https://git-lfs.com">Git LFS</a> and try cloning again. If you're still getting errors, try another option:
-> * <a href="https://github.com/lynkos/algae-detection/archive/refs/heads/main.zip">Manually download the repo as a `.zip` file</a>, then decompress it
-> * <a target="_blank" href="https://github.com/git-guides/git-clone#git-clone-with-ssh">Cloning via SSH</a>
->     ```sh
->     git clone git@github.com:lynkos/algae-detection.git
->     ```
-
-5. Enter `algae-detection`
-   ```sh
-   cd algae-detection
-   ```
-
-6. Create virtual environment from [`environment.yml`](environment.yml)
+5. Create virtual environment from [`environment.yml`](environment.yml)
    ```sh
    conda env create -f environment.yml
    ```
@@ -210,7 +191,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >     * Connect iPhone to Mac via USB before [Step #2](#s2)
 >     * Run [`camera.py`](src/detection/camera.py) with argument `--cam 1`
 >     * See [this user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
->     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="assets/iphone/iphone_ui_connect.png"></div></details>
+>     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="assets/misc/iphone_ui_connect.png"></div></details>
 
 <p>3. Press the 'Escape' key on your keyboard to terminate</p>
 
