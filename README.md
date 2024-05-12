@@ -31,17 +31,6 @@ This project aims to provide a practical, convenient, and efficient tool to moni
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
 <details open>
-   <summary>User Interface</summary>
-
-   <div align="center">
-      <figure>
-         <picture><img alt="User Interface" src="assets/misc/user_interface.png"></picture><br>
-         <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
-      </figure>
-   </div>
-</details>
-
-<details open>
    <summary>Nikon microscope with ESP32-CAM AI Thinker and illuminator</summary>
 
    <div align="center">
@@ -50,6 +39,24 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
          <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
       </figure>
    </div>
+</details>
+
+<details open>
+   <summary><a href="weights/custom_yolov8n.pt"><code>custom_yolov8n</code></a> Validation Result</summary>
+   
+   <div align="center">
+      <table style="width: 100%; text-align: center;">
+         <tr>
+            <th style="text-align: center;">Predict</th>
+            <th style="text-align: center;">Correct</th>
+        </tr>
+        <tr>
+            <td><img alt="custom_yolov8n's inference results" align="center" src="assets/models/custom_yolov8n/val_pred.jpg"></td>
+            <td><img alt="Actual labels" align="center" src="assets/models/custom_yolov8n/val_label.jpg"></td>
+        </tr>
+    </table>
+   </div>
+   <p style="font-size: 11px; text-align: center;">Though it may appear so, these aren't duplicates! The left image shows what the model detected, while the right image shows the correct labels. The original images are from one of the batches in the model's validation dataset.</p>
 </details>
 
 ## Requirements
@@ -150,6 +157,17 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    ```
 
 ## Quick Start
+<details open>
+   <summary>User Interface</summary>
+
+   <div align="center">
+      <figure>
+         <picture><img alt="User Interface" src="assets/misc/user_interface.png"></picture><br>
+         <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
+      </figure>
+   </div>
+</details>
+
 1. Activate `algae_env` (i.e., virtual environment)
    ```sh
    conda activate algae_env
