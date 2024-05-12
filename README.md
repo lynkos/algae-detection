@@ -198,6 +198,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > [!IMPORTANT]
 > See <b><a href="docs/manual.md">User Manual</a></b> and/or <b><a href="docs/appendix.md">Appendix</a></b> for further details!
 
+## Contributing
+
 ## Credits
 Special thanks to:
 - <a target="_blank" href="https://ieeexplore.ieee.org/author/37291140300">Dr. Antao Chen</a> (product owner) for his mentorship

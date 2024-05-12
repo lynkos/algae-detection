@@ -1,15 +1,16 @@
 # Manual
 ## Select Model
-1. Open <a href="../weights"><code>weights</code></a>
+> [!IMPORTANT]
+> All models are available at and can be downloaded from <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">this repo's releases</a>!
 
-2. Get path of the algae detection model you want to use
-    * Download weight(s) from <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">repo releases</a>, then add to <a href="../weights"><code>weights</code></a>
+1. Get path of the algae detection model you want to use
+    * <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">Download weight(s)</a>, then add to <a href="../weights"><code>weights</code></a>
     * To use your own, <a href="#train-validate-and-test-model">create custom model</a> then add to <a href="../weights"><code>weights</code></a>
 
-3. [Optional] Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L29"><code>model</code></a>(i.e., default model's path) accordingly
+2. [Optional] Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L29"><code>model</code></a>(i.e., default model's path) accordingly
 
 ## ESP32-CAM
-> [!IMPORTANT]
+> [!NOTE]
 > * Current implementation **requires** WiFi!
 >     * This is because the ESP32-CAM livestreams to an <a target="_blank" href="https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming">MJPEG server</a> over HTTP, which is how [`esp32.py`](../src/detection/esp32.py) gets the camera input.
 >     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
