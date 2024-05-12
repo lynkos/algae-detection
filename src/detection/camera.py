@@ -346,4 +346,4 @@ class Camera:
 
 if __name__ == "__main__":
     # Start detection program
-    Camera("0", width = 256, height = 256).run()
+    Camera("0").run()

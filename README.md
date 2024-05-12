@@ -42,7 +42,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
 
 <details open>
-   <summary><a href="weights/custom_yolov8n.pt"><code>custom_yolov8n</code></a> Validation Result</summary>
+   <summary><a href="weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a> Validation Result</summary>
    
    <div align="center">
       <table style="width: 100%; text-align: center;">
@@ -203,7 +203,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > Automatically uses computer's default camera (i.e., webcam). For a different camera:
 > 
 > * **ESP32-CAM**
->    * Follow all [steps in `manual.md`](docs/manual.md#esp32-cam)
+>    * Follow all steps in the [ESP32-CAM section](docs/manual.md#esp32-cam) of [`manual.md`](docs/manual.md)
 > * **iPhone**
 >     * Requires macOS v13+ and iOS v16+
 >     * Connect iPhone to Mac via USB before [Step #2](#s2)
@@ -214,7 +214,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <p>3. Press the 'Escape' key on your keyboard to terminate</p>
 
 > [!IMPORTANT]
-> See <b><a href="docs/manual.md">User Manual</a></b> and/or <b><a href="docs/appendix.md">Appendix</a></b> for further details!
+> See <code><a href="docs/manual.md">manual.md</a></code> and/or <code><a href="docs/appendix.md">appendix.md</a></code> for further details.
 
 ## Contributing
 1. Fork this repo
@@ -230,7 +230,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    ```sh
    git push origin branch_name
    ```
-5. Open Pull Request
+5. Open <a target="_blank" href="https://github.com/lynkos/algae-detection/pulls">Pull Request</a>
 
 ## Credits
 Special thanks to:
