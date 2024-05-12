@@ -20,7 +20,7 @@
 <img alt="Last Commit" src="https://img.shields.io/github/last-commit/lynkos/algae-detection?style=flat&label=Last+Commit&labelColor=393939&color=be0000">
 <img alt="Commit Activity" src="https://img.shields.io/github/commit-activity/t/lynkos/algae-detection?style=flat&label=Commit+Activity&labelColor=393939&color=b30086">
 <img alt="Repo Size" src="https://img.shields.io/github/repo-size/lynkos/algae-detection?style=flat&label=Repo+Size&labelColor=393939&color=ff62b1">
-<a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/model/"><img alt="Try model badge" src="https://app.roboflow.com/images/try-model-badge.svg"/></a>
+<a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/model"><img alt="Try YOLOv8 model on Roboflow" src="https://app.roboflow.com/images/try-model-badge.svg"/></a>
 </div>
 
 ## Overview
@@ -200,7 +200,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </p>
 
 > [!NOTE]
-> Automatically uses computer's default camera (i.e., webcam). For a different camera:
+> Automatically uses computer's default camera (i.e., webcam). To use a different camera:
 > 
 > * **ESP32-CAM**
 >    * Follow all steps in the [ESP32-CAM section](docs/manual.md#esp32-cam) of [`manual.md`](docs/manual.md)
