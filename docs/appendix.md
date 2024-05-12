@@ -1,27 +1,92 @@
 # Appendix
-Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the health of humans, marine life, and [aquatic] ecosystems. These blooms, often fueled by nutrient runoff and warmer temperatures, are increasing in prevalence and can negatively impact water quality and oxygen levels, hence the need to keep track of harmful [algae](#algae) / algal blooms (i.e., collect natural water sample(s) for analysis).
+<details>
+  <summary>Background</summary>
 
-An expensive and cumbersome microscope is often needed to view samples/slides in high-resolution. While offering very high visual fidelity, these types of microscopes do not offer a solution that can be used in the field. Conversely, affordable and light microscopes come with limitations as well, such as subpar resolution and focus. The manual nature of detection, quantification, and classification further compounds the drawbacks, resulting in time-consuming and labor-intensive procedures.
+  Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the health of humans, marine life, and [aquatic] ecosystems. These blooms, often fueled by nutrient runoff and warmer temperatures, are increasing in prevalence and can negatively impact water quality and oxygen levels, hence the need to keep track of harmful [algae](#algae) / algal blooms (i.e., collect natural water sample(s) for analysis).
 
-Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s) as the system's eyes and the detection model as its brain:
-   - This project applies [computer vision](#cv) (subfield of [AI](#ai)) techniques to fetch visual data from the camera(s)
-   - The type of model being used (i.e., [CNN](#cnn), which is a subset of [DNN](#dnn)) is loosely inspired by the human brain
-   - In both cases, eyes / camera(s) see / get the input and send it to the brain / model for processing
+  An expensive and cumbersome microscope is often needed to view samples/slides in high-resolution. While offering very high visual fidelity, these types of microscopes do not offer a solution that can be used in the field. Conversely, affordable and light microscopes come with limitations as well, such as subpar resolution and focus. The manual nature of detection, quantification, and classification further compounds the drawbacks, resulting in time-consuming and labor-intensive procedures.
 
+  Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s) as the system's eyes and the detection model as its brain:
+    - This project applies [computer vision](#cv) (subfield of [AI](#ai)) techniques to fetch visual data from the camera(s)
+    - The type of model being used (i.e., [CNN](#cnn), which is a subset of [DNN](#dnn)) is loosely inspired by the human brain
+    - In both cases, eyes / camera(s) see / get the input and send it to the brain / model for processing
+</details>
+
+## Conda Shortcuts
 > [!TIP]
-> Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
+> Instead of manually typing out entire conda commands, you can save time with shortcuts.
 > 
-> To do so, you may forgo these [requirements](../README.md#requirements):
-> - [ ] Modded microscope
-> - [ ] Algae dataset
-> - [ ] [ESP32](#esp)-CAM
-> - [ ] Micro-USB cable
-> - [ ] [PlatformIO](#platformio) Visual Studio Code extension
+> Add [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh) then source shell startup file (e.g., `.bashrc`) or restart terminal to apply changes.
+> * POSIX
+>   ```sh
+>   cat scripts/conda_shortcuts.sh >> ~/.bashrc
+>   source ~/.bashrc
+>   ```
+> * Windows
+>   ```sh
+>   type scripts/conda_shortcuts.sh >> C:\Users\user\path\to\.bashrc
+>   source C:\Users\user\path\to\.bashrc
+>   ```
+
+<table align="center" style="width: 100%; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
+   <thead>
+     <tr>
+       <th><center>Command</center></th>
+       <th><center>Description</center></th>
+       <th><center>Usage</center></th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L94"><code>act</code></a></td>
+       <td align="center">Activate conda environment</td>
+       <td style="white-space: nowrap;"><p><pre>act [env_name]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L3"><code>dac</code></a></td>
+       <td align="center">Deactivate conda environment</td>
+       <td style="white-space: nowrap;"><p><pre>dac</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center" rowspan="2"><a target="_blank" href="../scripts/conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
+       <td rowspan="2" align="center">Create conda environment(s)</td>
+       <td style="white-space: nowrap;"><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
+     </tr>
+     <tr>
+       <td style="white-space: nowrap;"><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
+       <td align="center">Remove conda environment(s)</td>
+       <td style="white-space: nowrap;"><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
+       <td align="center">Rename conda environment</td>
+       <td style="white-space: nowrap;"><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
+       <td align="center">Copy conda environment</td>
+       <td style="white-space: nowrap;"><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L108"><code>exp</code></a></td>
+       <td align="center">Export conda environment</td>
+       <td style="white-space: nowrap;"><p><pre>exp [out_file]</pre></p></td>
+     </tr>
+     <tr>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
+       <td align="center">List conda environment</td>
+       <td style="white-space: nowrap;"><p><pre>lsenv</pre></p></td>
+     </tr>
+   </tbody>
+</table>
+
+> [!WARNING]
+> Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
 > 
-> If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and only forgo the microscope and algae dataset. Then:
-> 1. Use your own dataset — comprised of [images of] the object(s) you want your custom model to detect — to [create a new, custom object detection model](manual.md#train-validate-and-test-model)
-> 2. Save/download the resulting model once finished
-> 3. [Integrate the model with camera(s) for real-time detection and classification](manual.md#select-model)
+> E.g., [`rmenv`](../scripts/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](../scripts/conda_shortcuts.sh#L50) with backslashes `\`.
 
 ## Diagrams
 <details open>
@@ -288,81 +353,21 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
   </div>
 </details>
 
-## Conda Shortcuts
-> [!TIP]
-> Instead of manually typing out entire conda commands, you can save time with shortcuts.
-> 
-> Add [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh) then source shell startup file (e.g., `.bashrc`) or restart terminal to apply changes.
-> * POSIX
->   ```sh
->   cat scripts/conda_shortcuts.sh >> ~/.bashrc
->   source ~/.bashrc
->   ```
-> * Windows
->   ```sh
->   type scripts/conda_shortcuts.sh >> C:\Users\user\path\to\.bashrc
->   source C:\Users\user\path\to\.bashrc
->   ```
+## Customization
+Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
 
-<table align="center" style="width: 100%; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
-   <thead>
-     <tr>
-       <th><center>Command</center></th>
-       <th><center>Description</center></th>
-       <th><center>Usage</center></th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L94"><code>act</code></a></td>
-       <td align="center">Activate conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>act [env_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L3"><code>dac</code></a></td>
-       <td align="center">Deactivate conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>dac</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center" rowspan="2"><a target="_blank" href="../scripts/conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
-       <td rowspan="2" align="center">Create conda environment(s)</td>
-       <td style="white-space: nowrap;"><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
-     </tr>
-     <tr>
-       <td style="white-space: nowrap;"><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
-       <td align="center">Remove conda environment(s)</td>
-       <td style="white-space: nowrap;"><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
-       <td align="center">Rename conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
-       <td align="center">Copy conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L108"><code>exp</code></a></td>
-       <td align="center">Export conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>exp [out_file]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
-       <td align="center">List conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>lsenv</pre></p></td>
-     </tr>
-   </tbody>
-</table>
+To do so, you may forgo these [requirements](../README.md#requirements):
+- [ ] Modded microscope
+- [ ] Algae dataset
+- [ ] [ESP32](#esp)-CAM
+- [ ] Micro-USB cable
+- [ ] [PlatformIO](#platformio) Visual Studio Code extension
 
-> [!WARNING]
-> Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
-> 
-> E.g., [`rmenv`](../scripts/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](../scripts/conda_shortcuts.sh#L50) with backslashes `\`.
+If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and only forgo the microscope and algae dataset. Then:
+
+1. Use your own dataset — comprised of [images of] the object(s) you want your custom model to detect — to [create a new, custom object detection model](manual.md#train-validate-and-test-model)
+2. Save/download the resulting model once finished
+3. [Use the model with camera(s) for real-time detection and classification](manual.md#optional-select-model)
 
 <h2><a target="_blank" alt="Repo's GitHub 'Issues' page" href="https://github.com/lynkos/algae-detection/issues">Future Work</a></h3>
 
