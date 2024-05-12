@@ -199,6 +199,20 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > See <b><a href="docs/manual.md">User Manual</a></b> and/or <b><a href="docs/appendix.md">Appendix</a></b> for further details!
 
 ## Contributing
+1. Fork this repo
+2. Create new branch
+   ```sh
+   git checkout -b branch_name
+   ```
+3. Commit changes
+   ```sh
+   git commit -m "Commit message here"
+   ```
+4. Push to branch
+   ```sh
+   git push origin branch_name
+   ```
+5. Open Pull Request
 
 ## Credits
 Special thanks to:
