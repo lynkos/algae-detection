@@ -26,7 +26,7 @@ class Camera:
     def __init__(self,
                  camera: str,
                  title: str = "Custom Object Detection",
-                 model: str = join(abspath(curdir), "weights", "custom_yolov8x_v2.pt"),
+                 model: str = join(abspath(curdir), "weights", "custom_yolov8n.pt"),
                  device: str = "cuda" if is_cuda_available() else "mps" if is_mps_available() else "cpu",
                  confidence: float = 0.5,
                  iou: float = 0.25,
@@ -346,4 +346,4 @@ class Camera:
 
 if __name__ == "__main__":
     # Start detection program
-    Camera("0", width = 320, height = 320).run()
+    Camera("0", width = 256, height = 256).run()
