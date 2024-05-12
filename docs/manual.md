@@ -197,13 +197,13 @@
         <td align="center" style="white-space: nowrap;"><code>-w, --width &lt;width&gt;</code></td>
         <td align="center"><code>int</code></td>
         <td align="center">Camera width</td>
-        <td align="center"><code>640</code></td>
+        <td align="center"><code>256</code></td>
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-h, --height &lt;height&gt;</code></td>
         <td align="center"><code>int</code></td>
         <td align="center">Camera height</td>
-        <td align="center"><code>640</code></td>
+        <td align="center"><code>256</code></td>
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-f, --fps &lt;fps&gt;</code></td>

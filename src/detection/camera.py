@@ -32,8 +32,8 @@ class Camera:
                  iou: float = 0.25,
                  max_detections: int = 100,
                  video_strides: int = 1,
-                 width: int = 640,
-                 height: int = 640,
+                 width: int = 256,
+                 height: int = 256,
                  fps: float = 30.0,
                  buffer: bool = True,
                  threading: bool = False,
@@ -50,8 +50,8 @@ class Camera:
             iou (float, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to 0.25.
             max_detections (int, optional): Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to 100.
             video_strides (int, optional): Skip frames to speed up processing (at the cost of temporal resolution). Value of 1 processes every frame, higher values skip frames. Defaults to 1.
-            width (int, optional): Camera width. Defaults to 640.
-            height (int, optional): Camera height. Defaults to 640.
+            width (int, optional): Camera width. Defaults to 256.
+            height (int, optional): Camera height. Defaults to 256.
             fps (float, optional): Camera FPS. Defaults to 30.0.
             buffer (bool, optional): Determines if all frames should be buffered when processing video streams, or if the model should return the most recent frame. Defaults to True.
             threading (bool, optional): Whether or not to use multithreaded video processing. Defaults to False.
