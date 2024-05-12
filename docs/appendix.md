@@ -145,8 +145,7 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
 │   │   ├── microcystis.jpg
 │   │   ├── nitzschia.jpg
 │   │   ├── non-algae.jpg
-│   │   ├── oscillatoria.jpg
-│   │   └── testing_sample.pdf
+│   │   └── oscillatoria.jpg
 │   ├── diagrams/
 │   │   ├── drawio/
 │   │   │   ├── Camera_uml.drawio
@@ -174,42 +173,47 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
 │   │   ├── init_config.png
 │   │   ├── open_streaming.png
 │   │   └── platformio_folder.png
-│   ├── iphone/
+│   ├── misc/
 │   │   ├── iphone_ui_connect.png
-│   │   └── iphone_ui_disconnect.png
-│   ├── models/
-│   │   ├── custom_yolov8x/
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── example.jpg
-│   │   │   ├── F1_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   ├── custom_yolov8x_v2/
-│   │   │   ├── confusion_matrix_normalized.png
-│   │   │   ├── confusion_matrix.png
-│   │   │   ├── example.jpg
-│   │   │   ├── F1_curve.png
-│   │   │   ├── P_curve.png
-│   │   │   ├── PR_curve.png
-│   │   │   ├── R_curve.png
-│   │   │   ├── results.png
-│   │   │   └── validation.png
-│   │   └── sahi_yolov8n/
-│   │       ├── confusion_matrix_normalized.png
-│   │       ├── confusion_matrix.png
-│   │       ├── example.jpg
-│   │       ├── F1_curve.png
-│   │       ├── P_curve.png
-│   │       ├── PR_curve.png
-│   │       ├── R_curve.png
-│   │       ├── results.png
-│   │       └── validation.png
-│   ├── microscope.jpg
-│   └── user_interface.png
+│   │   ├── microscope.jpg
+│   │   └── user_interface.png
+│   └── models/
+│       ├── custom_yolov8x/
+│       │   ├── confusion_matrix_normalized.png
+│       │   ├── confusion_matrix.png
+│       │   ├── example.jpg
+│       │   ├── F1_curve.png
+│       │   ├── P_curve.png
+│       │   ├── PR_curve.png
+│       │   ├── R_curve.png
+│       │   ├── results.png
+│       │   └── validation.png
+│       ├── custom_yolov8x_v2/
+│       │   ├── confusion_matrix_normalized.png
+│       │   ├── confusion_matrix.png
+│       │   ├── example.jpg
+│       │   ├── F1_curve.png
+│       │   ├── P_curve.png
+│       │   ├── PR_curve.png
+│       │   ├── R_curve.png
+│       │   ├── results.png
+│       │   └── validation.png
+│       └── sahi_yolov8n/
+│           ├── confusion_matrix_normalized.png
+│           ├── confusion_matrix.png
+│           ├── example.jpg
+│           ├── F1_curve.png
+│           ├── P_curve.png
+│           ├── PR_curve.png
+│           ├── R_curve.png
+│           ├── results.png
+│           └── validation.png
+├── docs/
+│   ├── appendix.md
+│   ├── manual.md
+│   └── test_samples.pdf
+├── scripts/
+│   └── conda_shortcuts.sh
 ├── src/
 │   ├── detection/
 │   │   ├── camera.py
@@ -253,12 +257,9 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
 │       │   └── main.cpp
 │       └── platformio.ini
 ├── weights/
-│   ├── custom_yolov8x_v2.pt
-│   ├── custom_yolov8x.pt
-│   └── yolov8n_sahi.pt
+│   └── custom_yolov8n.pt
 ├── .gitattributes
 ├── .gitignore
-├── conda_shortcuts.sh
 ├── environment.yml
 ├── LICENSE.md
 └── README.md
