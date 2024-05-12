@@ -55,11 +55,14 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
             <td><img alt="Actual labels" align="center" src="assets/models/custom_yolov8n/val_label.jpg"></td>
         </tr>
     </table>
+   <p style="font-size: 11px;">Though it may appear so, these aren't duplicates! The left image shows what the model detected, while the right image shows the correct labels. The original images are from one of the batches in the model's validation dataset.</p>
    </div>
-   <p style="font-size: 11px; text-align: center;">Though it may appear so, these aren't duplicates! The left image shows what the model detected, while the right image shows the correct labels. The original images are from one of the batches in the model's validation dataset.</p>
 </details>
 
 ## Requirements
+> [!NOTE]
+> Refer to [Customization](docs/appendix.md#customization) in [`appendix.md`](docs/appendix.md) if you can't or don't want to use a(n) ESP32-CAM and/or microscope.
+
 <details>
    <summary>ESP32-CAM (or similar)</summary>
       <ul>
@@ -230,7 +233,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    ```sh
    git push origin branch_name
    ```
-5. Open <a target="_blank" href="https://github.com/lynkos/algae-detection/pulls">Pull Request</a>
+5. Open a <a target="_blank" href="https://github.com/lynkos/algae-detection/pulls">Pull Request</a>
 
 ## Credits
 Special thanks to:
