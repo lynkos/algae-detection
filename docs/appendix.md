@@ -40,6 +40,17 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
           <th style="text-align: center;">Example Prediction</th>
       </tr>
       <tr>
+          <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano</td>
+          <td><img alt="Confusion Matrix (Normalized)" align="center" src="../assets/models/custom_yolov8n/confusion_matrix_normalized.png"></td>
+          <td><img alt="Precision-Confidence Curve" align="center" src="../assets/models/custom_yolov8n/P_curve.png"></td>
+          <td><img alt="Precision-Recall Curve" align="center" src="../assets/models/custom_yolov8n/PR_curve.png"></td>
+          <td><img alt="Recall-Confidence Curve" align="center" src="../assets/models/custom_yolov8n/R_curve.png"></td>
+          <td><img alt="F1-Confidence Curve" align="center" src="../assets/models/custom_yolov8n/F1_curve.png"></td>
+          <td><img alt="Training Results" align="center" src="../assets/models/custom_yolov8n/results.png"></td>
+          <td><img alt="Validation Output" align="center" src="../assets/models/custom_yolov8n/validation.png"></td>
+          <td><img alt="Example Prediction" align="center" src="../assets/models/custom_yolov8n/example.jpg"></td>
+      </tr>
+      <tr>
           <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large</td>
           <td><img alt="Confusion Matrix (Normalized)" align="center" src="../assets/models/custom_yolov8x/confusion_matrix_normalized.png"></td>
           <td><img alt="Precision-Confidence Curve" align="center" src="../assets/models/custom_yolov8x/P_curve.png"></td>
@@ -48,18 +59,7 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
           <td><img alt="F1-Confidence Curve" align="center" src="../assets/models/custom_yolov8x/F1_curve.png"></td>
           <td><img alt="Training Results" align="center" src="../assets/models/custom_yolov8x/results.png"></td>
           <td><img alt="Validation Output" align="center" src="../assets/models/custom_yolov8x/validation.png"></td>
-          <td><img alt="Example Prediction" align="center" src="../assets/models/custom_yolov8x/example.jpg"></td>
-      </tr>
-      <tr>
-          <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Extra-Large v2</td>
-          <td><img alt="Confusion Matrix (Normalized)" align="center" src="../assets/models/custom_yolov8x_v2/confusion_matrix_normalized.png"></td>
-          <td><img alt="Precision-Confidence Curve" align="center" src="../assets/models/custom_yolov8x_v2/P_curve.png"></td>
-          <td><img alt="Precision-Recall Curve" align="center" src="../assets/models/custom_yolov8x_v2/PR_curve.png"></td>
-          <td><img alt="Recall-Confidence Curve" align="center" src="../assets/models/custom_yolov8x_v2/R_curve.png"></td>
-          <td><img alt="F1-Confidence Curve" align="center" src="../assets/models/custom_yolov8x_v2/F1_curve.png"></td>
-          <td><img alt="Training Results" align="center" src="../assets/models/custom_yolov8x_v2/results.png"></td>
-          <td><img alt="Validation Output" align="center" src="../assets/models/custom_yolov8x_v2/validation.png"></td>
-          <td><img alt="Example Prediction" align="center" src="../assets/models/custom_yolov8x_v2/example.png"></td>
+          <td><img alt="Example Prediction" align="center" src="../assets/models/custom_yolov8x/example.png"></td>
       </tr>
       <tr>
           <td><a target="_blank" href="https://docs.ultralytics.com/models/yolov8">YOLOv8</a> Nano with <a target="_blank" href="https://docs.ultralytics.com/guides/sahi-tiled-inference">SAHI</a></td>
@@ -178,7 +178,7 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
 │   │   ├── microscope.jpg
 │   │   └── user_interface.png
 │   └── models/
-│       ├── custom_yolov8x/
+│       ├── custom_yolov8n/
 │       │   ├── confusion_matrix_normalized.png
 │       │   ├── confusion_matrix.png
 │       │   ├── example.jpg
@@ -187,8 +187,10 @@ Although it certainly isn't a 1 : 1 comparison, I like to think of the camera(s)
 │       │   ├── PR_curve.png
 │       │   ├── R_curve.png
 │       │   ├── results.png
+│       │   ├── val_label.jpg
+│       │   ├── val_pred.jpg
 │       │   └── validation.png
-│       ├── custom_yolov8x_v2/
+│       ├── custom_yolov8x/
 │       │   ├── confusion_matrix_normalized.png
 │       │   ├── confusion_matrix.png
 │       │   ├── example.jpg
