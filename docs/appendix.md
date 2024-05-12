@@ -367,7 +367,7 @@ If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and 
 
 1. Use your own dataset — comprised of [images of] the object(s) you want your custom model to detect — to [create a new, custom object detection model](manual.md#train-validate-and-test-model)
 2. Save/download the resulting model once finished
-3. [Use the model with camera(s) for real-time detection and classification](manual.md#optional-select-model)
+3. [Use the model with camera(s) for real-time detection and classification](manual.md#select-model)
 
 <h2><a target="_blank" alt="Repo's GitHub 'Issues' page" href="https://github.com/lynkos/algae-detection/issues">Future Work</a></h3>
 

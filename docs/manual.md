@@ -231,7 +231,7 @@
 
 <p>2. Follow the notebook's instructions step-by-step</p>
 
-## [Optional] Select Model
+## Select Model
 > [!IMPORTANT]
 > All models are available at and can be downloaded from <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">this repo's releases</a>!
 

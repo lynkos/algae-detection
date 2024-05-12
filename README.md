@@ -20,7 +20,9 @@
 <img alt="Last Commit" src="https://img.shields.io/github/last-commit/lynkos/algae-detection?style=flat&label=Last+Commit&labelColor=393939&color=be0000">
 <img alt="Commit Activity" src="https://img.shields.io/github/commit-activity/t/lynkos/algae-detection?style=flat&label=Commit+Activity&labelColor=393939&color=b30086">
 <img alt="Repo Size" src="https://img.shields.io/github/repo-size/lynkos/algae-detection?style=flat&label=Repo+Size&labelColor=393939&color=ff62b1">
+<br>
 <a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/model"><img alt="Try YOLOv8 model on Roboflow" src="https://app.roboflow.com/images/try-model-badge.svg"/></a>
+<a target="_blank" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
 </div>
 
 ## Overview
