@@ -1,13 +1,14 @@
 # Manual
-## Select Model
+## [Optional] Select Model
 > [!IMPORTANT]
 > All models are available at and can be downloaded from <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">this repo's releases</a>!
 
 1. Get path of the algae detection model you want to use
     * <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">Download weight(s)</a>, then add to <a href="../weights"><code>weights</code></a>
     * To use your own, <a href="#train-validate-and-test-model">create custom model</a> then add to <a href="../weights"><code>weights</code></a>
+    * Default weight is <a href="../weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a>
 
-2. [Optional] Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L29"><code>model</code></a>(i.e., default model's path) accordingly
+2. Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L29"><code>model</code></a> (i.e., default model's path) accordingly
 
 ## ESP32-CAM
 > [!NOTE]
@@ -160,7 +161,7 @@
         <td id="modpath" align="center" style="white-space: nowrap;"><code>-p, --path &lt;path&gt;</code></td>
         <td align="center"><code>str</code></td>
         <td align="center">Detection model's <a href="../src/detection/camera.py#L29">path</a></td>
-        <td align="center"><a href="../weights/custom_yolov8x_v2.pt"><code>weights/custom_yolov8x_v2.pt</code></a></td>
+        <td align="center"><a href="../weights/custom_yolov8n.pt"><code>weights/custom_yolov8n.pt</code></a></td>
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-c, --conf &lt;confidence&gt;</code></td>
