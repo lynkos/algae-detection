@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-        html,
-        body {
+        html, body {
             font-family: Arial, Verdana, Helvetica, sans-serif;
             min-height: 100%;
         }
@@ -16,7 +14,7 @@
             grid-template-columns: repeat(auto-fill, 25%);
         }
 
-        .flex-table>.row {
+        .flex-table > .row {
             grid-column-start: 2;
             grid-column-end: 3;
         }
@@ -236,7 +234,6 @@
     </div>
     {{/CameraInitialized}}
 
-
     <h2 class="text-center">Special URLs / API</h2>
     <div class="flex-table">
         <div class="row">RTSP camera stream:</div>
@@ -246,7 +243,5 @@
         <div class="row">Snapshot of the camera:</div>
         <div><a href="http://{{IPv4}}/snapshot " target="_blank" rel="noopener">http://{{IPv4}}/snapshot</a> </div>
     </div>
-
 </body>
-
 </html>
