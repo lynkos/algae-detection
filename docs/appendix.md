@@ -12,6 +12,142 @@
     - In both cases, eyes / camera(s) see / get the input and send it to the brain / model for processing
 </details>
 
+## Boards
+The following boards are compatible with this project:
+<table align="center" style="width: 100%; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
+  <thead>
+    <tr>
+      <th><center>Board</center></th>
+      <th><center>MCU</center></th>
+      <th><center>SRAM</center></th>
+      <th><center>Flash</center></th>
+      <th><center>PSRAM</center></th>
+      <th><center>Camera</center></th>
+      <th><center>Microphone</center></th>
+    </tr>
+  </thead>
+  <tbody align="center">
+    <tr>
+      <td>Espressif ESP32-Wrover CAM</td>
+      <td>ESP32</td>
+      <td>520 KB</td>
+      <td>4 Mb</td>
+      <td>4 MB</td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://docs.ai-thinker.com/esp32-cam">AI Thinker ESP32-CAM</a></td>
+      <td>ESP32-S</td>
+      <td>520 KB</td>
+      <td>4 Mb</td>
+      <td>4 MB</td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Espressif ESP-EYE</td>
+      <td>ESP32</td>
+      <td>520 KB</td>
+      <td>4 Mb</td>
+      <td>4 MB</td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://www.espressif.com/en/products/devkits/esp-eye/overview">Espressif ESP-S3-EYE</a></td>
+      <td>ESP32-S3</td>
+      <td>520 KB</td>
+      <td>4 Mb</td>
+      <td>4 MB</td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>LilyGo camera module</td>
+      <td>ESP32 Wrover</td>
+      <td>520 KB</td>
+      <td>4 Mb</td>
+      <td>4 MB</td>
+      <td>OV2640 / OV5640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>LilyGo Simcam</td>
+      <td>ESP32-S3R8</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>LilyGo TTGO-T Camera</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://docs.m5stack.com/en/unit/esp32cam">M5Stack ESP32CAM</a></td>
+      <td>ESP32</td>
+      <td>520 Kb</td>
+      <td>4 Mb</td>
+      <td></td>
+      <td>OV2640</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://docs.m5stack.com/en/unit/unit_cam">M5Stack UnitCam</a></td>
+      <td>ESP32-WROOM-32E</td>
+      <td>520 KB</td>
+      <td>4 Mb</td>
+      <td></td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://docs.m5stack.com/en/unit/m5camera">M5Stack Camera</a></td>
+      <td>ESP32</td>
+      <td>520 Kb</td>
+      <td>4 Mb</td>
+      <td></td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://docs.m5stack.com/en/unit/m5camera">M5Stack Camera PSRAM</a></td>
+      <td>ESP32</td>
+      <td>520 Kb</td>
+      <td>4 Mb</td>
+      <td>4 Mb</td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://docs.m5stack.com/en/unit/Unit-CamS3">M5Stack UnitCamS3</a></td>
+      <td>ESP32-S3-WROOM-1-N16R8</td>
+      <td>520 Kb</td>
+      <td>16 Mb</td>
+      <td>8 Mb</td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html">Seeed studio Xiao ESP32S3 Sense</a></td>
+      <td>ESP32-S3R8</td>
+      <td>520 KB</td>
+      <td>8 Mb</td>
+      <td>8 MB</td>
+      <td>OV2640</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+(Software tested with <b>ESP32-CAM AI Thinker</b> and <b>ESP32-S3-EYE</b>)
+
 ## Conda Shortcuts
 > [!TIP]
 > Instead of manually typing out entire conda commands, you can save time with shortcuts.
@@ -407,6 +543,20 @@ If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and 
 - [ ] Add camera settings to UI (C++ instead of Python for OpenCV?)
 
 - [ ] Add Android compatibility (if applicable and/or necessary)
+
+- [ ] Write cross-platform script to automate ESP32 setup
+
+- [ ] Use `roboflow.js` to integrate project + streaming (which has its own web UI)?
+  - Realtime on-device inference available via `roboflow.js`
+  - This will load your model to run realtime inference directly in your users' web-browser using WebGL instead of passing images to the server-side
+
+- [ ] Save streaming URL after entering it once in CLI?
+
+- [ ] CLI for `esp32.py` too? Or combine with `camera.py`?
+
+- [ ] Add option / args for running model locally (i.e., without internet) vs hosted API (i.e., with internet)
+
+- [ ] Active learning to improve model performance?
 
 ## Further Reading
 - <a target="_blank" href="https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin">Cyanobacteria (Blue-Green Algae)</a>

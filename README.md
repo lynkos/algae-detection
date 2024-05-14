@@ -16,10 +16,6 @@
 <img alt="Conda" src="https://img.shields.io/static/v1?label=Tools&style=flat&message=Conda&logo=anaconda&color=44A833&labelColor=393939&logoColor=44A833">
 <img alt="PlatformIO" src="https://img.shields.io/static/v1?label=Tools&style=flat&message=PlatformIO&logo=platformio&color=F5822A&labelColor=393939&logoColor=F5822A">
 <img alt="Colab" src="https://img.shields.io/static/v1?label=Tools&style=flat&message=Colab&logo=google+colab&color=F9AB00&labelColor=393939&logoColor=F9AB00">
-<br>
-<img alt="Last Commit" src="https://img.shields.io/github/last-commit/lynkos/algae-detection?style=flat&label=Last+Commit&labelColor=393939&color=be0000">
-<img alt="Commit Activity" src="https://img.shields.io/github/commit-activity/t/lynkos/algae-detection?style=flat&label=Commit+Activity&labelColor=393939&color=b30086">
-<img alt="Repo Size" src="https://img.shields.io/badge/Repo%20Size-21.4%20MB-ff62b1?style=flat&labelColor=393939">
 <br><br>
 <a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/model"><img width="auto" height="25px" alt="Try YOLOv8 model on Roboflow" src="https://app.roboflow.com/images/try-model-badge.svg"/></a>
 <a target="_blank" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ"><img width="150px" height="auto" alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
@@ -28,7 +24,9 @@
 ## Overview
 This project aims to provide a practical, convenient, and efficient tool to monitor water quality and mitigate / prevent harmful algal blooms in real-time by:
 - [x] Fine-tuning pre-trained AI models to detect harmful algae
-- [x] Leveraging the portability of smartphone cameras and low-cost ESP32-CAM
+- [x] Leveraging the portability of smartphones and low-cost cameras
+   - Tested with ESP32-CAM AI Thinker and ESP32-S3-EYE, but compatible with many others
+   - See [Requirements](#requirements) for full list of compatible cameras
 
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
@@ -63,38 +61,20 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
 ## Requirements
 > [!NOTE]
-> Refer to [Customization](docs/appendix.md#customization) in [`appendix.md`](docs/appendix.md) if you can't or don't want to use a(n) ESP32-CAM and/or microscope.
+> <a target="_blank" href="https://docs.conda.io/en/latest">Conda</a> is technically the only hard requirement, though by itself provides a barebones experience and doesn't show the program's full functionality.
+> 
+> Refer to [Customization](docs/appendix.md#customization) in [`appendix.md`](docs/appendix.md) if you don't want to or can't use a(n) ESP32-CAM and/or microscope.
 
-<details>
-   <summary>ESP32-CAM (or similar)</summary>
-      <ul>
-         <li>AI Thinker</li>
-         <li>Espressif ESP-EYE</li>
-         <li>Espressif ESP32S2-CAM</li>
-         <li>Espressif ESP32S3-CAM-LCD</li>
-         <li>Espressif ESP32S3-EYE</li>
-         <li>Freenove ESP32-WROVER</li>
-         <li>M5Stack</li>
-         <li>M5Stack ESP32CAM</li>
-         <li>M5Stack PSRAM</li>
-         <li>M5Stack Unit Cam</li>
-         <li>M5Stack Unit CamS3</li>
-         <li>M5Stack PSRAM</li>
-         <li>M5Stack PSRAM 2.0</li>
-         <li>M5Stack WIDE</li>
-         <li>Seeed Studio XIAO ESP32S3 Sense</li>
-         <li>TTGO T-Camera</li>
-         <li>TTGO T-Journal</li>
-      </ul>
-</details>
-
-- [x] Nikon microscope with 3D printed lens attachment and illuminator
-- [x] Micro-USB cable
-- [x] <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Algae</a> <a target="_blank" href="docs/appendix.md#dataset">dataset</a>
-- [x] <a target="_blank" href="https://code.visualstudio.com/download">Visual Studio Code</a>
-- [x] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
-- [x] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
-- [x] <a target="_blank" href="https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com">Google Colab account</a>
+- [ ] Any of the [boards](docs/appendix.md#boards) listed in [`appendix.md`](docs/appendix.md)
+- [ ] Nikon microscope with 3D printed lens attachment and illuminator
+- [ ] Micro-USB cable
+- [ ] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
+- [ ] Dataset
+   *  <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Google Drive</a>: Original and unedited
+   * <a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/dataset">Roboflow</a>: Includes annotations, pre-processing, and augmentation
+- [ ] <a target="_blank" href="https://code.visualstudio.com/download">Visual Studio Code</a>
+- [ ] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
+- [ ] <a target="_blank" href="https://accounts.google.com/ServiceLogin?passive=true&continue=https%3A%2F%2Fcolab.research.google.com">Google Colab account</a>
 - [x] <a target="_blank" href="https://docs.continuum.io/free/anaconda/install">Anaconda</a> **OR** <a target="_blank" href="https://docs.conda.io/projects/miniconda/en/latest">Miniconda</a>
 
 > [!TIP]
@@ -179,50 +159,49 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    ```
 
 > [!TIP]
-> Always activate `algae_env` before running the program, and deactivate upon termination. Convenient [shortcut commands](docs/appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](scripts/conda_shortcuts.sh).
-> 
-> To check if `algae_env` is active:
-> 
-> * `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
->     ```sh
->     (algae_env) $
->     ```
->
-> * See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
->     ```sh
->     conda info --envs
->     ```
->     **OR**
->     ```sh
->     conda env list
->     ```
+> Convenient [Conda shortcut commands](docs/appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](scripts/conda_shortcuts.sh).
 
-<p id="s2">2. Run <a href="src/detection/camera.py"><code>camera.py</code></a>
+2. Confirm `algae_env` is active
+   * `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
+     ```sh
+     (algae_env) $
+     ```
+   * See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
+     ```sh
+     conda info --envs
+     ```
+     **OR**
+     ```sh
+     conda env list
+     ```
+
+<p id="s3">3. Run <a href="src/detection/camera.py"><code>camera.py</code></a>
+
+> [!NOTE]
+> Automatically uses computer's default camera (i.e., webcam). To use different cameras:
+> 
+> * **ESP32-CAM**
+>    * Follow all steps in the [ESP32-CAM section](docs/manual.md#esp32-cam) of [`manual.md`](docs/manual.md)
+> * **iPhone**
+>     * Requires macOS v13+ and iOS v16+
+>     * Connect iPhone to Mac via USB before following [Step #3](#s3)
+>     * Run [`camera.py`](src/detection/camera.py) with argument `--cam 1`
+>     * See [Apple's user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
+>     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="assets/misc/iphone_ui_connect.png"></div></details>
+
    <ul>
       <li>POSIX<br><pre>python src/detection/camera.py</pre></li>
       <li>Windows<br><pre>python src\detection\camera.py</pre></li>
    </ul>
 </p>
 
-> [!NOTE]
-> Automatically uses computer's default camera (i.e., webcam). To use a different camera:
-> 
-> * **ESP32-CAM**
->    * Follow all steps in the [ESP32-CAM section](docs/manual.md#esp32-cam) of [`manual.md`](docs/manual.md)
-> * **iPhone**
->     * Requires macOS v13+ and iOS v16+
->     * Connect iPhone to Mac via USB before [Step #2](#s2)
->     * Run [`camera.py`](src/detection/camera.py) with argument `--cam 1`
->     * See [this user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
->     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="assets/misc/iphone_ui_connect.png"></div></details>
-
-<p>3. Press the 'Escape' key on your keyboard to terminate</p>
+<p>4. Press the 'Escape' key on your keyboard to terminate</p>
 
 > [!IMPORTANT]
 > See <code><a href="docs/manual.md">manual.md</a></code> and/or <code><a href="docs/appendix.md">appendix.md</a></code> for further details.
 
 ## Contributing
-1. Fork this repo
+1. [Fork this repo (i.e., `algae-detection`) on GitHub](https://github.com/lynkos/algae-detection/fork)
 2. Create new branch
    ```sh
    git checkout -b branch_name
