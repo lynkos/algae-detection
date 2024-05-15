@@ -441,7 +441,6 @@ The following boards are compatible with this project:
 │       │   ├── esp32cam_ttgo_t_camera.json
 │       │   └── esp32cam_ttgo_t_journal.json
 │       ├── html/
-│       │   ├── index.html
 │       │   └── index.min.html
 │       ├── include/
 │       │   ├── format_duration.h
