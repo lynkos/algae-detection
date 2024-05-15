@@ -222,7 +222,7 @@ The following boards are compatible with this project:
 > [!WARNING]
 > Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
 > 
-> E.g., [`rmenv`](../scripts/conda_shortcuts.sh#L47) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](../scripts/conda_shortcuts.sh#L50) with backslashes `\`.
+> E.g., [`rmenv`](../scripts/conda_shortcuts.sh#L69) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](../scripts/conda_shortcuts.sh#L72) with backslashes `\`.
 
 ## Diagrams
 <details open>
@@ -566,7 +566,7 @@ def _process_frame(self, frame: MatLike) -> None:
 
 - [ ] Save streaming URL after entering it once in CLI?
 
-- [ ] CLI for `esp32.py` too? Or combine with `camera.py`?
+- [ ] CLI for [`esp32.py`](../src/detection/esp32.py) too? Or combine with [`camera.py`](../src/detection/camera.py)?
 
 - [ ] Add option / args for running model locally (i.e., without internet) vs hosted API (i.e., with internet)
 
