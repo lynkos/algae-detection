@@ -35,9 +35,8 @@ class Camera:
                  width: int = 256,
                  height: int = 256,
                  fps: float = 30.0,
-                 buffer: bool = True,
-                 threading: bool = False,
-                 n_threads: int = getNumberOfCPUs()):
+                 n_threads: int = 0,
+                 buffer: bool = True):
         """
         Base class for real-time object detection using a Convolutional Neural Network (CNN) and computer vision library.
 
@@ -53,24 +52,24 @@ class Camera:
             width (int, optional): Camera width. Defaults to 256.
             height (int, optional): Camera height. Defaults to 256.
             fps (float, optional): Camera FPS. Defaults to 30.0.
+            n_threads (int, optional): Number of threads for multithreaded video processing. If set to 0, multithreaded video processing is disabled. Defaults to 0.
             buffer (bool, optional): Determines if all frames should be buffered when processing video streams, or if the model should return the most recent frame. Defaults to True.
-            threading (bool, optional): Whether or not to use multithreaded video processing. Defaults to False.
-            n_threads (int, optional): Number of threads for multithreaded video processing (only applicable when `threading = True`). Defaults to number of logical CPUs available.
         """
         self._parser: ArgumentParser = ArgumentParser(description = "Run object detection model via command line", add_help = False)
-        self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, buffer, threading, n_threads)
+        self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, n_threads, buffer)
         self._args: Namespace = self._parser.parse_args()
         
         self._camera: VideoCapture = VideoCapture(int(self._args.cam) if self._args.cam.isdigit() else self._args.cam)
         self.confidence: float = self._args.conf
         self.iou: float = self._args.iou
         self.max_detections: int = self._args.max
-        
+
+        # TODO Diff vars for Windows dims / camera resolution / resolution of img passed to model
         self._camera.set(CAP_PROP_FRAME_WIDTH, self._args.width)
         self._camera.set(CAP_PROP_FRAME_HEIGHT, self._args.height)
         self._camera.set(CAP_PROP_FPS, self._args.fps)
 
-        if self._args.threads:
+        if self._args.n_threads > 0:
             setNumThreads(self._args.n_threads)
             self._pool: ThreadPool = ThreadPool(self._args.n_threads)
             self._pending: deque = deque()
@@ -90,9 +89,8 @@ class Camera:
                     width: int,
                     height: int,
                     fps: float,
-                    buff: bool,
-                    threading: bool,
-                    n_threads: int) -> None:
+                    n_threads: int,
+                    buff: bool) -> None:
         """
         Helper method to initialize command line argument parser.
 
@@ -108,9 +106,8 @@ class Camera:
             width (int): Camera width.
             height (int): Camera height.
             fps (float): Camera FPS.
-            buff (bool): Toggle stream buffering.
-            threading (bool): Toggle multithreaded video processing.
             n_threads (int): Number of threads for video processing.
+            buff (bool): Toggle stream buffering.
         """
         self._parser.add_argument("-H, --help",
                                   action = "help",
@@ -195,25 +192,19 @@ class Camera:
                                   metavar = "<fps>",
                                   help = f"camera frames per second (default: {fps})")
 
-        self._parser.add_argument("-b, --buffer",
-                                  action = BooleanOptionalAction,
-                                  default = buff,
-                                  dest = "buffer",
-                                  help = f"toggle livestream buffering (default: {buff})")
-
-        self._parser.add_argument("-t, --threads",
-                                  action = BooleanOptionalAction,
-                                  default = threading,
-                                  dest = "threads",
-                                  help = f"toggle multithreaded video processing (default: {threading})")
-
         self._parser.add_argument("-n, --n-threads",
                                   type = int,
                                   default = n_threads,
                                   dest = "n_threads",
                                   metavar = "<threads>",
                                   choices = range(1, getNumberOfCPUs() + 1),
-                                  help = f"number of video processing threads (default: {n_threads})")
+                                  help = f"number of video processing threads; if set to 0, multithreaded video processing is disabled (default: {n_threads})")
+
+        self._parser.add_argument("-b, --buffer",
+                                  action = BooleanOptionalAction,
+                                  default = buff,
+                                  dest = "buffer",
+                                  help = f"toggle livestream buffering (default: {buff})")
 
     def run(self) -> None:
         """
@@ -225,7 +216,7 @@ class Camera:
 
             if success:
                 # If multithreaded video processing is enabled
-                if self._args.threads:
+                if self._args.n_threads > 0:
                     # Process pending tasks
                     while len(self._pending) > 0 and self._pending[0].ready():
                         # Get model's inference result(s)
@@ -263,7 +254,7 @@ class Camera:
             list[Results]: Detection model's prediction(s).
         """
         # Ensures it's thread-safe
-        local_model = YOLO(self._args.path, task = "detect") if self._args.threads else self._model
+        local_model = YOLO(self._args.path, task = "detect") if self._args.n_threads > 0 else self._model
         
         return local_model(frame,
                            stream = True,
