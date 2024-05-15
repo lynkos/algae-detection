@@ -96,6 +96,8 @@
 > Anyone with network access to the device can see the streams and images!
 
 > [!NOTE]
+> Once the ESP32-CAM is setup successfully, you don't have to repeat these steps again; just plug in the ESP32-CAM and it's good to go! Stream URL remains the same as usual.
+> 
 > See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp">this module</a>'s <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/blob/main/README.md">`README.md`</a> for further details on [`streaming`](../src/streaming).
 >
 > To update to latest version, commit and push changes, then run the following command in the terminal:
@@ -106,18 +108,30 @@
 ### Usage
 <p>1. <a href="#initial-setup">Successfully setup the ESP32-CAM</a></p>
 
-<p>2. Open <a href="../src/detection/esp32.py"><code>esp32.py</code></a></p>
+<p>2. Activate <code>algae_env</code> (i.e., virtual environment)<br><pre>conda activate algae_env</pre></p>
 
-<p>3. Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L13"><code>URL</code></a></p>
+> [!TIP]
+> Convenient [Conda shortcut commands](../docs/appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh).
 
-<p>4. Run <a href="../src/detection/esp32.py"><code>esp32.py</code></a>
+<p>3. Confirm <code>algae_env</code> is active</a>
+   <ul>
+      <li><code>algae_env</code> should be in parentheses () or brackets [] before your command prompt, e.g.<br><pre>(algae_env) $</pre></li>
+      <li>See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))<br><pre>conda info --envs</pre><b>OR</b><br><pre>conda env list</pre></li>
+   </ul>
+</p>
+
+<p>4. Open <a href="../src/detection/esp32.py"><code>esp32.py</code></a></p>
+
+<p>5. Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L13"><code>URL</code></a></p>
+
+<p>6. Run <a href="../src/detection/esp32.py"><code>esp32.py</code></a>
    <ul>
       <li>POSIX<br><pre>python src/detection/esp32.py</pre></li>
       <li>Windows<br><pre>python src\detection\esp32.py</pre></li>
    </ul>
 </p>
 
-<p>5. Press the 'Escape' key on your keyboard to terminate</p>
+<p>7. Press the 'Escape' key on your keyboard to terminate</p>
 
 ## Command Line Arguments
 <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
