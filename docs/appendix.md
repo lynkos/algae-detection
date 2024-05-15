@@ -174,7 +174,7 @@ The following boards are compatible with this project:
    </thead>
    <tbody>
      <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L94"><code>act</code></a></td>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L7"><code>act</code></a></td>
        <td align="center">Activate conda environment</td>
        <td style="white-space: nowrap;"><p><pre>act [env_name]</pre></p></td>
      </tr>
@@ -184,7 +184,7 @@ The following boards are compatible with this project:
        <td style="white-space: nowrap;"><p><pre>dac</pre></p></td>
      </tr>
      <tr>
-       <td align="center" rowspan="2"><a target="_blank" href="../scripts/conda_shortcuts.sh#L21"><code>mkenv</code></a></td>
+       <td align="center" rowspan="2"><a target="_blank" href="../scripts/conda_shortcuts.sh#L38"><code>mkenv</code></a></td>
        <td rowspan="2" align="center">Create conda environment(s)</td>
        <td style="white-space: nowrap;"><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
      </tr>
@@ -192,27 +192,27 @@ The following boards are compatible with this project:
        <td style="white-space: nowrap;"><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
      </tr>
      <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L47"><code>rmenv</code></a></td>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L69"><code>rmenv</code></a></td>
        <td align="center">Remove conda environment(s)</td>
        <td style="white-space: nowrap;"><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
      </tr>
      <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L61"><code>rnenv</code></a></td>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L83"><code>rnenv</code></a></td>
        <td align="center">Rename conda environment</td>
        <td style="white-space: nowrap;"><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
      </tr>
      <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L81"><code>cpenv</code></a></td>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L103"><code>cpenv</code></a></td>
        <td align="center">Copy conda environment</td>
        <td style="white-space: nowrap;"><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
      </tr>
      <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L108"><code>exp</code></a></td>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L116"><code>exp</code></a></td>
        <td align="center">Export conda environment</td>
        <td style="white-space: nowrap;"><p><pre>exp [out_file]</pre></p></td>
      </tr>
      <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L132"><code>lsenv</code></a></td>
+       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L140"><code>lsenv</code></a></td>
        <td align="center">List conda environment</td>
        <td style="white-space: nowrap;"><p><pre>lsenv</pre></p></td>
      </tr>

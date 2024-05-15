@@ -2,6 +2,20 @@
 # Usage: dac
 alias dac='conda deactivate'
 
+# Activate conda environment
+# Usage: act [env_name]
+act() {
+   if [ $# == 1 ]; then
+      conda activate "$1"
+      
+   elif [ $# == 0 ]; then
+      conda activate
+      
+   else
+      echo "ERROR: Invalid number of args. At most 1 env name is required."
+   fi
+}
+
 # Helper function to prompt user for 'Yes' or 'No' response
 ask() {
     read -p "$@ (Y/N)? " answer
@@ -15,29 +29,37 @@ ask() {
     esac
 }
 
-# Create conda environment(s) from .yml / .yaml file(s) or CLI
-# Usage (with file(s)): mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]
-# Usage (without file(s)): mkenv [env_name] [package1] [package2] ... [packageN]
+# Create conda environment(s) from .yml file(s) or CLI
+#
+# mkenv
+# mkenv [file1.yml] ... [fileN.yml]
+# mkenv [env_name] [package1] ... [packageN]
+# mkenv ... [file1.yml] ... [env_name] [package1] ... [packageN] ... [fileN.yml] ...
 mkenv() {
-   if ask "Create environment(s) from file(s)"; then
-      if [ $# == 0 ]; then
-         conda env create
-      
-      else
-         for file in "$@"; do
-            [ -f "$file" ] && conda env create -f "$file" ||
-            echo "ERROR: $file doesn't exist."
-         done
-      fi
+   if [ $# == 0 ]; then
+      conda env create
       
    else
-      if [ $# == 0 ]; then
-         echo "ERROR: Invalid number of args. Must include:"
-         echo "	* New env's name"
-         echo "	* [OPTIONAL] New env's package(s)"
-         
-      else
-         conda create -n "$@"
+      cmd=()
+      for arg in "$@"; do
+         case "${arg}" in *.yml | *.YML | *.yaml | *.YAML)
+            if [ ${#cmd[@]} != 0 ]; then
+               conda create -n "${cmd[@]}"
+               unset cmd
+            fi
+            
+            [ -f "$arg" ] && conda env create -f "$arg" ||
+            echo "ERROR: $arg doesn't exist."
+            ;;
+            
+         *)
+            cmd+=("${arg}")
+            ;;
+         esac
+      done
+      
+      if [ ${#cmd[@]} != 0 ]; then
+         conda create -n "${cmd[@]}"
       fi
    fi
 }
@@ -86,20 +108,6 @@ cpenv() {
       echo "ERROR: Invalid number of args. Must include:"
       echo "	* Source env's name"
       echo "	* Env copy's name"
-   fi
-}
-
-# Activate conda environment
-# Usage: act [env_name]
-act() {
-   if [ $# == 1 ]; then
-      conda activate "$1"
-      
-   elif [ $# == 0 ]; then
-      conda activate
-      
-   else
-      echo "ERROR: Invalid number of args. At most 1 env name is required."
    fi
 }
 
