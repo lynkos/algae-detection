@@ -104,18 +104,20 @@
 > ```
 
 ### Usage
-<p>1. Open <a href="../src/detection/esp32.py"><code>esp32.py</code></a></p>
+<p>1. <a href="#initial-setup">Successfully setup the ESP32-CAM</a></p>
 
-<p>2. Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L13"><code>URL</code></a></p>
+<p>2. Open <a href="../src/detection/esp32.py"><code>esp32.py</code></a></p>
 
-<p>3. Run <a href="../src/detection/esp32.py"><code>esp32.py</code></a>
+<p>3. Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L13"><code>URL</code></a></p>
+
+<p>4. Run <a href="../src/detection/esp32.py"><code>esp32.py</code></a>
    <ul>
       <li>POSIX<br><pre>python src/detection/esp32.py</pre></li>
       <li>Windows<br><pre>python src\detection\esp32.py</pre></li>
    </ul>
 </p>
 
-<p>4. Press the 'Escape' key on your keyboard to terminate</p>
+<p>5. Press the 'Escape' key on your keyboard to terminate</p>
 
 ## Command Line Arguments
 <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
@@ -201,22 +203,16 @@
         <td align="center"><code>30.0</code></td>
     </tr>
     <tr>
+        <td id="nthreads" align="center" style="white-space: nowrap;"><code>-n, --n-threads &lt;threads&gt;</code></td>
+        <td align="center"><code>int</code></td>
+        <td align="center">Number of video processing threads</td>
+        <td align="center"><code>0</code></td>
+    </tr>
+    <tr>
         <td align="center" style="white-space: nowrap;"><code>-b, --buffer</code></td>
         <td align="center"><code>bool</code></td>
         <td align="center"><code>True</code>: All frames are buffered during video stream processing; <code>False</code>: Model should return most recent frame</td>
         <td align="center"><code>True</code></td>
-    </tr>
-    <tr>
-        <td id="mtvp" align="center" style="white-space: nowrap;"><code>-t, --threads</code></td>
-        <td align="center"><code>bool</code></td>
-        <td align="center">Toggle multithreaded video processing</td>
-        <td align="center"><code>False</code></td>
-    </tr>
-    <tr>
-        <td id="nthreads" align="center" style="white-space: nowrap;"><code>-n, --n-threads &lt;threads&gt;</code></td>
-        <td align="center"><code>int</code></td>
-        <td align="center">Number of video processing threads</td>
-        <td align="center"><code>16</code></td>
     </tr>
     </tbody>
 </table>
