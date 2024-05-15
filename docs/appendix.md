@@ -505,36 +505,50 @@ If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and 
 2. Save/download the resulting model once finished
 3. [Use the model with camera(s) for real-time detection and classification](manual.md#select-model)
 
+## Inference Deployed Model
+Using `inference` library in [`camera.py`](../src/detection/camera.py) would look similar to:
+```python
+from cv2 import imshow
+from inference import get_model
+from supervision import Detections, BoundingBoxAnnotator, LabelAnnotator
+
+def _process_frame(self, frame: MatLike) -> None:
+  # Annotators
+  label, bbox = LabelAnnotator(), BoundingBoxAnnotator()
+
+  # Load model via Roboflow
+  model = get_model(model_id = f"algae-detection-1opyx/22", api_key = "hgJXUeytoTeH8achgueb")
+
+  # Process frames
+  for result in model.infer(frame):
+    # Get detected object(s)
+    detection = Detections.from_inference(result)
+
+    # Annotate the frame with its result, then show in window
+    imshow(self._args.title, label.annotate(scene = bbox.annotate(frame, detection), detections = detection))
+```
+
 <h2><a target="_blank" alt="Repo's GitHub 'Issues' page" href="https://github.com/lynkos/algae-detection/issues">Future Work</a></h3>
 
 - [ ] Increase dataset and improve model versatility by taking quality images of various types of algae
    - At least <a target="_blank" href="https://blog.roboflow.com/model-best-practices/#dataset-size">1000 images per class</a>
    - <a target="_blank" href="https://blog.roboflow.com/handling-unbalanced-classes">All classes are balanced</a> (i.e., have roughly the same amount of images)
    - <a target="_blank" href="https://case.fiu.edu/about/directory/profiles/manning-schonna-r..html">Dr. Schonna R. Manning</a> and/or <a href="mailto:335761@dadeschools.net">Mr. Q</a> may [or may not] be able to help with categorizing any algae in new images
+
 - [ ] Increase model accuracy
   - Try different models, such as <a target="_blank" href="https://paperswithcode.com/method/retinanet">RetinaNet</a> and <a target="_blank" href="https://docs.ultralytics.com/models/yolov9">YOLOv9</a>
   - Use DC-GAN to generate additional synthetic images for training
+
 - [ ] Connect to ESP32 without a server (e.g., via USB, etc.) **OR** use RTSP instead of HTTP
   - Attempted — but unable — to use RTSP
   - See <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/issues/122">this GitHub Issue</a> for further details
   - Use <a target="_blank" href="https://inference.roboflow.com/quickstart/run_model_on_rtsp_webcam">Roboflow Inference with video, webcam, or RTSP stream</a>
-- [ ] Improve model performance and run model on ESP32-CAM (instead of computer) with <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a> format
-  <details>
-    <summary>Advantages</summary>
-    <ul>
-      <li>Achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization</li>
-      <li>Minimalistic architecture contributes to its smaller size and cost-efficiency</li>
-      <li>Combines specialized hardware acceleration and efficient runtime execution to achieve high computational throughput</li>
-      <li>Well-suited for deploying ML models with stringent performance requirements on edge devices</li>
-      <li>Deployment
-        <ul>
-          <li>On-Device: Directly deploy on mobile and embedded devices, which allows the models to execute directly on the hardware (eliminating the need for cloud connectivity)</li>
-          <li>Edge Computing with Cloud TensorFlow TPUs: Offload inference tasks to cloud servers equipped with TPUs for scenarios where edge devices have limited processing capabilities</li>
-          <li>Hybrid: Versatile and scalable solution for deploying ML models; includes on-device processing for quick responses and cloud deployment/computing for more complex computations </li>
-        </ul>
-      </li>
-    </ul>
-  </details>
+
+- [ ] Improve + optimize model for inference on ESP32 (aka edge device instead of computer); <a target="_blank" href="https://docs.ultralytics.com/integrations/edge-tpu">TFLite Edge TPU</a>?
+  -  Convert to a C binary
+       - Use [standard tools](https://www.tensorflow.org/lite/microcontrollers/build_convert#convert_to_a_c_array) to store it in a read-only program memory on device for [TF Lite](https://www.tensorflow.org/lite)
+       - Use [DeepSea library](https://www.ai-tech.systems/deepsea) for PyTorch
+  -  Use [TF Lite Micro API](https://www.tensorflow.org/lite/microcontrollers)'s [C++ Library](https://www.tensorflow.org/lite/microcontrollers/library) to run inference
 
 - [ ] Heatsink for ESP32 to prevent overheating
 

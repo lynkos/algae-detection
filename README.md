@@ -26,7 +26,7 @@ This project aims to provide a practical, convenient, and efficient tool to moni
 - [x] Fine-tuning pre-trained AI models to detect harmful algae
 - [x] Leveraging the portability of smartphones and low-cost cameras
    - Tested with ESP32-CAM AI Thinker and ESP32-S3-EYE, but compatible with many others
-   - See [Requirements](#requirements) for full list of compatible cameras
+   - See ['Boards' section](docs/appendix.md#boards) in [`appendix.md`](docs/appendix.md) for full list of compatible cameras
 
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
@@ -198,7 +198,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <p>4. Press the 'Escape' key on your keyboard to terminate</p>
 
 > [!IMPORTANT]
-> See <code><a href="docs/manual.md">manual.md</a></code> and/or <code><a href="docs/appendix.md">appendix.md</a></code> for further details.
+> See [`manual.md`](docs/manual.md) and/or [`appendix.md`](docs/appendix.md) for further details.
 
 ## Contributing
 1. [Fork this repo (i.e., `algae-detection`) on GitHub](https://github.com/lynkos/algae-detection/fork)
