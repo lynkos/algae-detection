@@ -152,9 +152,9 @@
     </tr>
     <tr>
         <td id="camera" align="center" style="white-space: nowrap;"><code>-C, --cam &lt;camera&gt;</code></td>
-        <td align="center"><code>str</code></td>
+        <td align="center"><code>str</code>, <code>int</code></td>
         <td align="center">Set to livestream URL for ESP32-CAM, <code>0</code> for primary camera, <code>1</code> for secondary camera</td>
-        <td align="center"></td>
+        <td align="center"><code>0</code></td>
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-T, --title &lt;title&gt;</code></td>
@@ -170,9 +170,9 @@
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-c, --conf &lt;confidence&gt;</code></td>
-        <td align="center"><code>float</code></td>
+        <td align="center"><code>int</code></td>
         <td align="center">Detection model's minimum confidence threshold</td>
-        <td align="center"><code>0.5</code></td>
+        <td align="center"><code>50</code></td>
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-d, --device &lt;device&gt;</code></td>
@@ -182,9 +182,9 @@
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-i, --iou &lt;iou&gt;</code></td>
-        <td align="center"><code>float</code></td>
+        <td align="center"><code>int</code></td>
         <td align="center">Lower values eliminate overlapping boxes</td>
-        <td align="center"><code>0.25</code></td>
+        <td align="center"><code>25</code></td>
     </tr>
     <tr>
         <td align="center" style="white-space: nowrap;"><code>-m, --max &lt;max-detections&gt;</code></td>
