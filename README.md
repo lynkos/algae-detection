@@ -31,18 +31,18 @@ This project aims to provide a practical, convenient, and efficient tool to moni
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
 <details open>
-   <summary>Nikon microscope with ESP32-CAM AI Thinker and illuminator</summary>
+   <summary>Project Demo</summary>
 
    <div align="center">
       <figure>
-         <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/misc/microscope.jpg"></picture><br>
-         <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
+         <picture><img alt="Program demo" src="assets/misc/demo.gif"></picture><br>
+         <figcaption style="font-size: 11px;">Detected algae are annotated with a bounding box, predicted class/category, and the AI model's confidence in its prediction(s). Trackbars allow user to configure the AI model's attributes — Confidence, IoU (i.e., Intersection over Union), and Max Detections — in real time.</figcaption>
       </figure>
    </div>
 </details>
 
 <details open>
-   <summary><a href="weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a> Validation Result</summary>
+   <summary><a href="weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a> (i.e., custom AI model) validation results</summary>
    
    <div align="center">
       <table style="width: 100%; text-align: center;">
@@ -59,6 +59,17 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    </div>
 </details>
 
+<details>
+   <summary>Nikon microscope with ESP32-CAM AI Thinker and illuminator</summary>
+
+   <div align="center">
+      <figure>
+         <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/misc/microscope.jpg"></picture><br>
+         <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
+      </figure>
+   </div>
+</details>
+
 ## Requirements
 > [!NOTE]
 > <a target="_blank" href="https://docs.conda.io/en/latest">Conda</a> is technically the only hard requirement, though by itself provides a barebones experience and doesn't show the program's full functionality.
@@ -70,7 +81,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 - [ ] Micro-USB cable
 - [ ] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
 - [ ] Dataset
-   *  <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Google Drive</a>: Original and unedited
+   * <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Google Drive</a>: Original and unedited
    * <a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/dataset">Roboflow</a>: Includes annotations, pre-processing, and augmentation
 - [ ] <a target="_blank" href="https://code.visualstudio.com/download">Visual Studio Code</a>
 - [ ] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
@@ -142,17 +153,6 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    ```
 
 ## Quick Start
-<details open>
-   <summary>User Interface</summary>
-
-   <div align="center">
-      <figure>
-         <picture><img alt="User Interface" src="assets/misc/user_interface.png"></picture><br>
-         <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
-      </figure>
-   </div>
-</details>
-
 1. Activate `algae_env` (i.e., virtual environment)
    ```sh
    conda activate algae_env
@@ -188,6 +188,17 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >     * Run [`camera.py`](src/detection/camera.py) with argument `--cam 1`
 >     * See [Apple's user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
 >     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="assets/misc/iphone_ui_connect.png"></div></details>
+> 
+> <details open>
+>   <summary>User Interface</summary>
+>
+>   <div align="center">
+>    <figure>
+>    <picture><img alt="User Interface" src="assets/misc/user_interface.png"></picture><br>
+>    <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
+>    </figure>
+>   </div>
+> </details>
 
    <ul>
       <li>POSIX<br><pre>python src/detection/camera.py</pre></li>
@@ -198,7 +209,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <p>4. Press the 'Escape' key on your keyboard to terminate</p>
 
 > [!IMPORTANT]
-> See [`manual.md`](docs/manual.md) and/or [`appendix.md`](docs/appendix.md) for further details.
+> See [`manual.md`](docs/manual.md) and/or [`appendix.md`](docs/appendix.md) for further details!
 
 ## Contributing
 1. [Fork this repo (i.e., `algae-detection`) on GitHub](https://github.com/lynkos/algae-detection/fork)

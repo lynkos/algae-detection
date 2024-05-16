@@ -165,7 +165,7 @@
     <tr>
         <td id="modpath" align="center" style="white-space: nowrap;"><code>-p, --path &lt;path&gt;</code></td>
         <td align="center"><code>str</code></td>
-        <td align="center">Detection model's <a href="../src/detection/camera.py#L29">path</a></td>
+        <td align="center">Detection model's <a href="../src/detection/camera.py#L33">path</a></td>
         <td align="center"><a href="../weights/custom_yolov8n.pt"><code>weights/custom_yolov8n.pt</code></a></td>
     </tr>
     <tr>
@@ -234,8 +234,8 @@
 ## Train, Validate, and Test Model
 <p>1. Visit one of these Google Colab notebooks, depending on the version of YOLO you want to use
    <ul>
-      <li><a target="_blank" alt="Algae detection Google Colab notebook (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">Algae Detection (YOLOv8).ipynb</a></li>
-      <li><a target="_blank" alt="Algae detection Google Colab notebook (YOLOv9)" href="https://colab.research.google.com/drive/1abvT_xQ7MhkYLTMTGvqAkGuDdehZ-u80">Algae Detection (YOLOv9).ipynb</a></li>
+      <li><a target="_blank" alt="Object detection Google Colab notebook (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">Object Detection (YOLOv8).ipynb</a></li>
+      <li><a target="_blank" alt="Object detection Google Colab notebook (YOLOv9)" href="https://colab.research.google.com/drive/1abvT_xQ7MhkYLTMTGvqAkGuDdehZ-u80">Object Detection (YOLOv9).ipynb</a></li>
    </ul>
 </p>
 
@@ -250,4 +250,4 @@
     * To use your own, <a href="#train-validate-and-test-model">create custom model</a> then add to <a href="../weights"><code>weights</code></a>
     * Default weight is <a href="../weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a>
 
-2. Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L29"><code>model</code></a> (i.e., default model's path) accordingly
+2. Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L33"><code>model</code></a> (i.e., default model's path) accordingly

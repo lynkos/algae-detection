@@ -375,6 +375,7 @@ The following boards are compatible with this project:
 │   │   ├── open_streaming.png
 │   │   └── platformio_folder.png
 │   ├── misc/
+│   │   ├── demo.gif
 │   │   ├── iphone_ui_connect.png
 │   │   ├── microscope.jpg
 │   │   └── user_interface.png
