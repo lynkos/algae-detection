@@ -1,4 +1,16 @@
-# Manual
+---
+title: Manual
+shortTitle: Manual
+intro: 'Detect and classify harmful algae with AI in real-time'
+product: "{{ ESP32-CAM }}"
+type: tutorial
+topics: # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - Developer
+  - Python
+versions:
+  - fpt: '*'
+---
+
 ## ESP32-CAM
 > [!NOTE]
 > * Current implementation **requires** WiFi!
