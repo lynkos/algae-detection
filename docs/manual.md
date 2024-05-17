@@ -153,7 +153,7 @@
     </thead>
     <tbody>
     <tr>
-        <td style="white-space: nowrap;"><code>-H, --help</code></td>
+        <td align="center" style="white-space: nowrap;"><code>-H, --help</code></td>
         <td align="center"></td>
         <td align="center">Show help message and exit</td>
         <td align="center"></td>
