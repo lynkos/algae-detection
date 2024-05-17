@@ -120,6 +120,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >   </tr>
 >  </tbody>
 > </table>
+>
+> Convenient [Conda shortcut commands](appendix.md#conda-shortcuts) available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh)!
 
 ## Installation
 1. Verify that conda is installed
@@ -155,12 +157,6 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 ## Quick Start
 <ol>
    <li>Activate <code>algae_env</code> (i.e., virtual environment)<pre>conda activate algae_env</pre></li>
-</ol>
-
-> [!TIP]
-> Convenient [Conda shortcut commands](appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh).
-
-<ol start="2">
    <li>Confirm <code>algae_env</code> is active
       <ul>
         <li><code>algae_env</code> should be in parentheses () or brackets [] before your command prompt, e.g.<pre>(algae_env) $</pre></li>
