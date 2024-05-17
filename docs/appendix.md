@@ -414,7 +414,9 @@ The following boards are compatible with this project:
 │           └── validation.png
 ├── docs/
 │   ├── appendix.md
+│   ├── CONTRIBUTING.md
 │   ├── manual.md
+│   ├── README.md
 │   └── test_samples.pdf
 ├── scripts/
 │   └── conda_shortcuts.sh
@@ -464,8 +466,7 @@ The following boards are compatible with this project:
 ├── .gitattributes
 ├── .gitignore
 ├── environment.yml
-├── LICENSE.md
-└── README.md
+└── LICENSE.md
 </pre>
 </details>
 
@@ -566,7 +567,7 @@ def _process_frame(self, frame: MatLike) -> None:
 
 - [ ] Save streaming URL after entering it once in CLI?
 
-- [ ] CLI for [`esp32.py`](../src/detection/esp32.py) too? Or combine with [`camera.py`](../src/detection/camera.py)?
+- [ ] If calling model via Roboflow API, incorporate [auth](https://docs.roboflow.com/api-reference/authentication) (API key or login creds/token?)
 
 - [ ] Add option / args for running model locally (i.e., without internet) vs hosted API (i.e., with internet)
 
