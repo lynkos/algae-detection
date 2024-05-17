@@ -26,7 +26,7 @@ This project aims to provide a practical, convenient, and efficient tool to moni
 - [x] Fine-tuning pre-trained AI models to detect harmful algae
 - [x] Leveraging the portability of smartphones and low-cost cameras
    - Tested with ESP32-CAM AI Thinker and ESP32-S3-EYE, but compatible with many others
-   - See ['Boards' section](docs/appendix.md#boards) in [`appendix.md`](docs/appendix.md) for full list of compatible cameras
+   - See ['Boards' section](appendix.md#boards) in [`appendix.md`](appendix.md) for full list of compatible cameras
 
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
@@ -35,14 +35,14 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
    <div align="center">
       <figure>
-         <picture><img alt="Program demo" src="assets/misc/demo.gif"></picture><br>
+         <picture><img alt="Program demo" src="../assets/misc/demo.gif"></picture><br>
          <figcaption style="font-size: 11px;">Detected algae are annotated with a bounding box, predicted class/category, and the AI model's confidence in its prediction(s). Trackbars allow user to configure the AI model's attributes — Confidence, IoU (i.e., Intersection over Union), and Max Detections — in real time.</figcaption>
       </figure>
    </div>
 </details>
 
 <details open>
-   <summary><a href="weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a> (i.e., custom AI model) validation results</summary>
+   <summary><a href="../weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a> (i.e., custom AI model) validation results</summary>
    
    <div align="center">
       <table style="width: 100%; text-align: center;">
@@ -51,8 +51,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
             <th style="text-align: center;">Correct</th>
         </tr>
         <tr>
-            <td><img alt="custom_yolov8n's inference results" align="center" src="assets/models/custom_yolov8n/val_pred.jpg"></td>
-            <td><img alt="Actual labels" align="center" src="assets/models/custom_yolov8n/val_label.jpg"></td>
+            <td><img alt="custom_yolov8n's inference results" align="center" src="../assets/models/custom_yolov8n/val_pred.jpg"></td>
+            <td><img alt="Actual labels" align="center" src="../assets/models/custom_yolov8n/val_label.jpg"></td>
         </tr>
     </table>
    <p style="font-size: 11px;">Though it may appear so, these aren't duplicates! The left image shows what the model detected, while the right image shows the correct labels. The original images are from one of the batches in the model's validation dataset.</p>
@@ -64,7 +64,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 
    <div align="center">
       <figure>
-         <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="assets/misc/microscope.jpg"></picture><br>
+         <picture><img alt="Nikon microscope equipped with ESP32-CAM AI Thinker and illuminator" src="../assets/misc/microscope.jpg"></picture><br>
          <figcaption style="font-size: 11px;">ESP32-CAM AI Thinker inside a custom 3D printed lens attachment atop the microscope's eyepiece.</figcaption>
       </figure>
    </div>
@@ -74,9 +74,9 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > [!NOTE]
 > <a target="_blank" href="https://docs.conda.io/en/latest">Conda</a> is technically the only hard requirement, though by itself provides a barebones experience and doesn't show the program's full functionality.
 > 
-> Refer to [Customization](docs/appendix.md#customization) in [`appendix.md`](docs/appendix.md) if you don't want to or can't use a(n) ESP32-CAM and/or microscope.
+> Refer to [Customization](appendix.md#customization) in [`appendix.md`](appendix.md) if you don't want to or can't use a(n) ESP32-CAM and/or microscope.
 
-- [ ] Any of the [boards](docs/appendix.md#boards) listed in [`appendix.md`](docs/appendix.md)
+- [ ] Any of the [boards](appendix.md#boards) listed in [`appendix.md`](appendix.md)
 - [ ] Nikon microscope with 3D printed lens attachment and illuminator
 - [ ] Micro-USB cable
 - [ ] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
@@ -147,7 +147,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    git clone https://github.com/lynkos/algae-detection.git && cd algae-detection
    ```
 
-5. Create virtual environment from [`environment.yml`](environment.yml)
+5. Create virtual environment from [`environment.yml`](../environment.yml)
    ```sh
    conda env create -f environment.yml
    ```
@@ -159,7 +159,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    ```
 
 > [!TIP]
-> Convenient [Conda shortcut commands](docs/appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](scripts/conda_shortcuts.sh).
+> Convenient [Conda shortcut commands](appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh).
 
 2. Confirm `algae_env` is active
    * `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
@@ -175,26 +175,26 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
      conda env list
      ```
 
-<p id="s3">3. Run <a href="src/detection/camera.py"><code>camera.py</code></a>
+<p id="s3">3. Run <a href="../src/detection/camera.py"><code>camera.py</code></a>
 
 > [!NOTE]
 > Automatically uses computer's default camera (i.e., webcam). To use different cameras:
 > 
 > * **ESP32-CAM**
->    * Follow all steps in the [ESP32-CAM section](docs/manual.md#esp32-cam) of [`manual.md`](docs/manual.md)
+>    * Follow all steps in the [ESP32-CAM section](manual.md#esp32-cam) of [`manual.md`](manual.md)
 > * **iPhone**
 >     * Requires macOS v13+ and iOS v16+
 >     * Connect iPhone to Mac via USB before following [Step #3](#s3)
->     * Run [`camera.py`](src/detection/camera.py) with argument `--cam 1`
+>     * Run [`camera.py`](../src/detection/camera.py) with argument `--cam 1`
 >     * See [Apple's user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
->     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="assets/misc/iphone_ui_connect.png"></div></details>
+>     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="../assets/misc/iphone_ui_connect.png"></div></details>
 > 
 > <details open>
 >   <summary>User Interface</summary>
 >
 >   <div align="center">
 >    <figure>
->    <picture><img alt="User Interface" src="assets/misc/user_interface.png"></picture><br>
+>    <picture><img alt="User Interface" src="../assets/misc/user_interface.png"></picture><br>
 >    <figcaption style="font-size: 11px;">Users can view live footage from the camera. Detected algae are annotated with a bounding box, predicted class/category, and the model's confidence. Trackbars allow user to configure detection model attributes in real time.</figcaption>
 >    </figure>
 >   </div>
@@ -209,26 +209,10 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 <p>4. Press the 'Escape' key on your keyboard to terminate</p>
 
 > [!IMPORTANT]
-> See [`manual.md`](docs/manual.md) and/or [`appendix.md`](docs/appendix.md) for further details!
-
-## Contributing
-1. [Fork this repo (i.e., `algae-detection`) on GitHub](https://github.com/lynkos/algae-detection/fork)
-2. Create new branch
-   ```sh
-   git checkout -b branch_name
-   ```
-3. Commit changes
-   ```sh
-   git commit -m "Commit message here"
-   ```
-4. Push to branch
-   ```sh
-   git push origin branch_name
-   ```
-5. Open a <a target="_blank" href="https://github.com/lynkos/algae-detection/pulls">Pull Request</a>
+> See [`manual.md`](manual.md) and/or [`appendix.md`](appendix.md) for further details!
 
 ## Credits
 Special thanks to:
 - <a target="_blank" href="https://ieeexplore.ieee.org/author/37291140300">Dr. Antao Chen</a> (product owner) for his mentorship
 - <a target="_blank" href="https://github.com/rdgbrian">rdgbrian</a> (Fall 2023 team lead) for his assistance
-- <a target="_blank" href="https://github.com/rzeldent">rzeldent</a> for <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a>, which has been slightly modified and added as a git subtree in [`streaming`](src/streaming)
+- <a target="_blank" href="https://github.com/rzeldent">rzeldent</a> for <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a>, which has been slightly modified and added as a git subtree in [`streaming`](../src/streaming)
