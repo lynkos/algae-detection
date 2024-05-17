@@ -1,11 +1,19 @@
 # Manual
 ## ESP32-CAM
 > [!NOTE]
-> * Current implementation **requires** WiFi!
->     * This is because the ESP32-CAM livestreams to an <a target="_blank" href="https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming">MJPEG server</a> over HTTP, which is how [`esp32.py`](../src/detection/esp32.py) gets the camera input.
->     * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
+> Current implementation **requires** WiFi!
+> * This is because the ESP32-CAM livestreams to an <a target="_blank" href="https://en.wikipedia.org/wiki/Motion_JPEG#Video_streaming">MJPEG server</a> over HTTP, which is how [`esp32.py`](../src/detection/esp32.py) gets the camera input.
+> * Unfortunately, WiFi connections from hotspots or SSOs are — in my experience — incompatible.
 > 
-> * If you're more of a visual learner, here's the <a target="_blank" href="https://youtu.be/SxlSjRWeGuw">YouTube tutorial + demo</a>.
+> Steps starting with:
+> * ▶ (i.e., Black Right-Pointing Triangle)
+>     * Show an accompanying image when clicked to help guide you through the process
+>     * Example: [Step #8](#s8)
+> * ▼ (i.e., Black Down-Pointing Triangle)
+>     * Already have an image displayed that can be toggled off (i.e., hidden) when clicked
+>     * Example: [Step #4](#s4)
+>
+> If you're more of a visual learner, here's the <a target="_blank" href="https://youtu.be/SxlSjRWeGuw">YouTube tutorial + demo</a>.
 
 ### Initial Setup
 <p>1. Complete all <a href="../README.md#installation">installation steps</a></p>
@@ -15,7 +23,7 @@
    <div align="center"><img alt="Open PlatformIO project" src="../assets/esp32/platformio_folder.png"></div>
 </details>
 
-<details open>
+<details>
    <summary>3. Open <a href="../src/streaming"><code>streaming</code></a></summary>
    <div align="center"><img alt="Open `streaming`" src="../assets/esp32/open_streaming.png"></div>
 </details>
@@ -30,7 +38,7 @@
    <div align="center"><img alt="Build, Upload, Monitor" src="../assets/esp32/build_upload_monitor.png"></div>
 </details>
 
-<details open>
+<details>
    <summary>6. To connect initially to the device, connect to the WiFi network starting with <code>ESP32CAM-RTSP</code></summary>
    <div align="center"><img alt="ESP32CAM-RTSP network" src="../assets/esp32/choose_ap.png"></div>
 </details>
@@ -40,7 +48,7 @@
    <div align="center"><img alt="Window popup" src="../assets/esp32/ap_popup.png"></div>
 </details>
 
-<details open id="s8">
+<details id="s8">
    <summary>8. You <b>MUST</b> fill in (1) <b>AP (i.e., Access Point) password</b>, (2) <b>WiFi SSID</b>, and, if applicable, (3) <b>WiFi password</b></summary>
    <div align="center"><img alt="System config" src="../assets/esp32/init_config.png"></div>
 </details>
@@ -55,7 +63,7 @@
 
 <p style="text-align:left;">10. Scroll down and click 'Apply' to save settings</p>
 
-<details open>
+<details>
    <summary>11. Disconnect from the current network and reconnect to your WiFi in order to reset ESP32 and connect to the AP</summary>
    <div align="center"><img alt="Disconnect" src="../assets/esp32/disconnect.png"></div>
 </details>
@@ -78,7 +86,7 @@
 </p>
 
 <details open id="s13">
-   <summary>13. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address</summary>
+   <summary>13. After invoking the shortcut, type 'IP address' in the find box, press 'Enter', and copy the resulting IP address [preceded by 'WiFi connected']</summary>
    <div align="center"><img alt="IP address" src="../assets/esp32/esp32_ip.png"></div>
 </details>
 
