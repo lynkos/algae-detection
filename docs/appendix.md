@@ -569,7 +569,7 @@ def _process_frame(self, frame: MatLike) -> None:
 
 - [ ] If calling model via Roboflow API, incorporate [auth](https://docs.roboflow.com/api-reference/authentication) (API key or login creds/token?)
 
-- [ ] Add option / args for running model locally (i.e., without internet) vs hosted API (i.e., with internet)
+- [ ] Add option / args for running model locally (i.e., without internet aka default) vs hosted API (i.e., with internet)
 
 - [ ] Active learning to improve model performance?
 

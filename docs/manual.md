@@ -114,32 +114,57 @@
 > ```
 
 ### Usage
-<p>1. <a href="#initial-setup">Successfully setup the ESP32-CAM</a></p>
-
-<p>2. Activate <code>algae_env</code> (i.e., virtual environment)<br><pre>conda activate algae_env</pre></p>
+<ol>
+   <li><a href="#initial-setup">Successfully setup the ESP32-CAM</a></li>
+   <li>Activate <code>algae_env</code> (i.e., virtual environment)<br><pre>conda activate algae_env</pre></li>
+</ol>
 
 > [!TIP]
 > Convenient [Conda shortcut commands](../docs/appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh).
 
-<p>3. Confirm <code>algae_env</code> is active</a>
-   <ul>
-      <li><code>algae_env</code> should be in parentheses () or brackets [] before your command prompt, e.g.<br><pre>(algae_env) $</pre></li>
-      <li>See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))<br><pre>conda info --envs</pre><b>OR</b><br><pre>conda env list</pre></li>
-   </ul>
-</p>
+<ol start="3">
+   <li>Confirm <code>algae_env</code> is active</a>
+      <ul>
+         <li><code>algae_env</code> should be in parentheses () or brackets [] before your command prompt, e.g.<br><pre>(algae_env) $</pre></li>
+         <li>See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))<br><pre>conda info --envs</pre><b>OR</b><br><pre>conda env list</pre></li>
+      </ul>
+   </li>
+   <li>Open <a href="../src/detection/esp32.py"><code>esp32.py</code></a></li>
+   <li>Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L13"><code>URL</code></a></li>
+   <li>Run <a href="../src/detection/esp32.py"><code>esp32.py</code></a>
+      <ul>
+         <li>POSIX<br><pre>python src/detection/esp32.py</pre></li>
+         <li>Windows<br><pre>python src\detection\esp32.py</pre></li>
+      </ul>
+   </li>
+   <li>Press the 'Escape' key on your keyboard to terminate</li>
+</ol>
 
-<p>4. Open <a href="../src/detection/esp32.py"><code>esp32.py</code></a></p>
+## Train, Validate, and Test Model
+<ol>
+   <li>Visit one of these Google Colab notebooks, depending on the version of YOLO you want to use
+      <ul>
+         <li><a target="_blank" alt="Object detection Google Colab notebook (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">Object Detection (YOLOv8).ipynb</a></li>
+         <li><a target="_blank" alt="Object detection Google Colab notebook (YOLOv9)" href="https://colab.research.google.com/drive/1abvT_xQ7MhkYLTMTGvqAkGuDdehZ-u80">Object Detection (YOLOv9).ipynb</a></li>
+      </ul>
+   </li>
+   <li>Follow the notebook's instructions step-by-step</li>
+</ol>
 
-<p>5. Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L13"><code>URL</code></a></p>
+## Select Model
+> [!IMPORTANT]
+> All models are available at and can be downloaded from <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">this repo's releases</a>!
 
-<p>6. Run <a href="../src/detection/esp32.py"><code>esp32.py</code></a>
-   <ul>
-      <li>POSIX<br><pre>python src/detection/esp32.py</pre></li>
-      <li>Windows<br><pre>python src\detection\esp32.py</pre></li>
-   </ul>
-</p>
-
-<p>7. Press the 'Escape' key on your keyboard to terminate</p>
+<ol>
+   <li>Get path of the algae detection model you want to use
+      <ul>
+         <li><a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">Download weight(s)</a>, then add to <a href="../weights"><code>weights</code></a></li>
+         <li>To use your own, <a href="#train-validate-and-test-model">create custom model</a> then add to <a href="../weights"><code>weights</code></a></li>
+         <li>Default weight is <a href="../weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a></li>
+      </ul>
+   </li>
+   <li>Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L33"><code>model</code></a> (i.e., default model's path) accordingly</li>
+</ol>
 
 ## Command Line Arguments
 <table align="center" style="width: 100%; text-align: center; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
@@ -238,24 +263,3 @@
     </tr>
     </tbody>
 </table>
-
-## Train, Validate, and Test Model
-<p>1. Visit one of these Google Colab notebooks, depending on the version of YOLO you want to use
-   <ul>
-      <li><a target="_blank" alt="Object detection Google Colab notebook (YOLOv8)" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">Object Detection (YOLOv8).ipynb</a></li>
-      <li><a target="_blank" alt="Object detection Google Colab notebook (YOLOv9)" href="https://colab.research.google.com/drive/1abvT_xQ7MhkYLTMTGvqAkGuDdehZ-u80">Object Detection (YOLOv9).ipynb</a></li>
-   </ul>
-</p>
-
-<p>2. Follow the notebook's instructions step-by-step</p>
-
-## Select Model
-> [!IMPORTANT]
-> All models are available at and can be downloaded from <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">this repo's releases</a>!
-
-1. Get path of the algae detection model you want to use
-    * <a target="_blank" href="https://github.com/lynkos/algae-detection/releases/tag/weights">Download weight(s)</a>, then add to <a href="../weights"><code>weights</code></a>
-    * To use your own, <a href="#train-validate-and-test-model">create custom model</a> then add to <a href="../weights"><code>weights</code></a>
-    * Default weight is <a href="../weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a>
-
-2. Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L33"><code>model</code></a> (i.e., default model's path) accordingly

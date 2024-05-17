@@ -153,29 +153,22 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    ```
 
 ## Quick Start
-1. Activate `algae_env` (i.e., virtual environment)
-   ```sh
-   conda activate algae_env
-   ```
+<ol>
+   <li>Activate <code>algae_env</code> (i.e., virtual environment)<pre>conda activate algae_env</pre></li>
+</ol>
 
 > [!TIP]
 > Convenient [Conda shortcut commands](appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh).
 
-2. Confirm `algae_env` is active
-   * `algae_env` should be in parentheses () or brackets [] before your command prompt, e.g.
-     ```sh
-     (algae_env) $
-     ```
-   * See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))
-     ```sh
-     conda info --envs
-     ```
-     **OR**
-     ```sh
-     conda env list
-     ```
-
-<p id="s3">3. Run <a href="../src/detection/camera.py"><code>camera.py</code></a>
+<ol start="2">
+   <li>Confirm <code>algae_env</code> is active
+      <ul>
+        <li><code>algae_env</code> should be in parentheses () or brackets [] before your command prompt, e.g.<pre>(algae_env) $</pre></li>
+        <li>See which virtual environments are available and/or currently active (active environment denoted with asterisk (*))<pre>conda info --envs</pre> <b>OR</b> <pre>conda env list</pre></li>
+      </ul>
+   </li>
+   <li id="s3">Run <a href="../src/detection/camera.py"><code>camera.py</code></a></li>
+</ol>
 
 > [!NOTE]
 > Automatically uses computer's default camera (i.e., webcam). To use different cameras:
@@ -206,7 +199,9 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    </ul>
 </p>
 
-<p>4. Press the 'Escape' key on your keyboard to terminate</p>
+<ol start="4">
+   <li>Press the 'Escape' key on your keyboard to terminate</li>
+</ol>
 
 > [!IMPORTANT]
 > See [`manual.md`](manual.md) and/or [`appendix.md`](appendix.md) for further details!
