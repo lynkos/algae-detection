@@ -26,7 +26,7 @@ This project aims to provide a practical, convenient, and efficient tool to moni
 - [x] Fine-tuning pre-trained AI models to detect harmful algae
 - [x] Leveraging the portability of smartphones and low-cost cameras
    - Tested with ESP32-CAM AI Thinker and ESP32-S3-EYE, but compatible with many others
-   - See ['Boards' section](appendix.md#boards) in [`appendix.md`](appendix.md) for full list of compatible cameras
+   - See '[Boards](appendix.md#boards)' section in [`appendix.md`](appendix.md) for full list of compatible cameras
 
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
 
@@ -121,7 +121,21 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >  </tbody>
 > </table>
 >
-> Convenient [Conda shortcut commands](appendix.md#conda-shortcuts) available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh)!
+> Typing out entire Conda commands can sometimes be tedious, so I wrote a shell script ([`conda_shortcuts.sh` on GitHub Gist](https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8)) to define shortcuts for commonly used Conda commands.
+> <details>
+>   <summary>Example: Delete/remove a conda environment named <code>test_env</code></summary>
+>
+> * Shortcut command
+>     ```
+>     rmenv test_env
+>     ```
+> * Manually typing out the entire command
+>     ```sh
+>     conda env remove -n test_env && rm -rf $(conda info --base)/envs/test_env
+>     ```
+>
+> The shortcut has 80.8% fewer characters!
+> </details>
 
 ## Installation
 1. Verify that conda is installed

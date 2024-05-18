@@ -120,7 +120,21 @@
 </ol>
 
 > [!TIP]
-> Convenient [Conda shortcut commands](../docs/appendix.md#conda-shortcuts) are available in [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh).
+> Typing out entire Conda commands can sometimes be tedious, so I wrote a shell script ([`conda_shortcuts.sh` on GitHub Gist](https://gist.github.com/lynkos/7a4ce7f9e38bb56174360648461a3dc8)) to define shortcuts for commonly used Conda commands.
+> <details>
+>   <summary>Example: Delete/remove a conda environment named <code>test_env</code></summary>
+>
+> * Shortcut command
+>     ```
+>     rmenv test_env
+>     ```
+> * Manually typing out the entire command
+>     ```sh
+>     conda env remove -n test_env && rm -rf $(conda info --base)/envs/test_env
+>     ```
+>
+> The shortcut has 80.8% fewer characters!
+> </details>
 
 <ol start="3">
    <li>Confirm <code>algae_env</code> is active</a>

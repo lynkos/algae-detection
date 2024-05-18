@@ -148,82 +148,6 @@ The following boards are compatible with this project:
 </table>
 (Software tested with <b>ESP32-CAM AI Thinker</b> and <b>ESP32-S3-EYE</b>)
 
-## Conda Shortcuts
-> [!TIP]
-> Instead of manually typing out entire conda commands, you can save time with shortcuts.
-> 
-> Add [`conda_shortcuts.sh`](../scripts/conda_shortcuts.sh) then source shell startup file (e.g., `.bashrc`) or restart terminal to apply changes.
-> * POSIX
->   ```sh
->   cat scripts/conda_shortcuts.sh >> ~/.bashrc
->   source ~/.bashrc
->   ```
-> * Windows
->   ```sh
->   type scripts/conda_shortcuts.sh >> C:\Users\user\path\to\.bashrc
->   source C:\Users\user\path\to\.bashrc
->   ```
-
-<table align="center" style="width: 100%; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
-   <thead>
-     <tr>
-       <th><center>Command</center></th>
-       <th><center>Description</center></th>
-       <th><center>Usage</center></th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L7"><code>act</code></a></td>
-       <td align="center">Activate conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>act [env_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L3"><code>dac</code></a></td>
-       <td align="center">Deactivate conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>dac</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center" rowspan="2"><a target="_blank" href="../scripts/conda_shortcuts.sh#L38"><code>mkenv</code></a></td>
-       <td rowspan="2" align="center">Create conda environment(s)</td>
-       <td style="white-space: nowrap;"><p><pre>mkenv [yaml_file1] [yaml_file2] ... [yaml_fileN]</pre></p></td>
-     </tr>
-     <tr>
-       <td style="white-space: nowrap;"><p><pre>mkenv [env_name] [package1] [package2] ... [packageN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L69"><code>rmenv</code></a></td>
-       <td align="center">Remove conda environment(s)</td>
-       <td style="white-space: nowrap;"><p><pre>rmenv [env1] [env2] ... [envN]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L83"><code>rnenv</code></a></td>
-       <td align="center">Rename conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>rnenv [curr_name] [new_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L103"><code>cpenv</code></a></td>
-       <td align="center">Copy conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>cpenv [env_name] [copy's_name]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L116"><code>exp</code></a></td>
-       <td align="center">Export conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>exp [out_file]</pre></p></td>
-     </tr>
-     <tr>
-       <td align="center"><a target="_blank" href="../scripts/conda_shortcuts.sh#L140"><code>lsenv</code></a></td>
-       <td align="center">List conda environment</td>
-       <td style="white-space: nowrap;"><p><pre>lsenv</pre></p></td>
-     </tr>
-   </tbody>
-</table>
-
-> [!WARNING]
-> Conda shortcut commands have **ONLY** been tested on `bash v5.2.26(1)-release` with `aarch64-apple-darwin23.2.0` architecture, so — just to be safe — test and make changes as needed.
-> 
-> E.g., [`rmenv`](../scripts/conda_shortcuts.sh#L69) assumes the path delimeter is forward slash `/` (POSIX systems); if you use Windows (path delimeter is backslash `\`), replace forward slashes `/` in [`env_path`](../scripts/conda_shortcuts.sh#L72) with backslashes `\`.
-
 ## Diagrams
 <details open>
   <summary>Model Performance</summary>
@@ -418,8 +342,6 @@ The following boards are compatible with this project:
 │   ├── manual.md
 │   ├── README.md
 │   └── test_samples.pdf
-├── scripts/
-│   └── conda_shortcuts.sh
 ├── src/
 │   ├── detection/
 │   │   ├── camera.py
