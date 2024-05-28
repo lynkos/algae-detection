@@ -180,7 +180,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    <li id="s3">Run <a href="../src/detection/camera.py"><code>camera.py</code></a></li>
 </ol>
 
-> [!NOTE]
+> [!IMPORTANT]
 > Automatically uses computer's default camera (i.e., webcam). To use different cameras:
 > 
 > * **ESP32-CAM**
@@ -192,7 +192,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >     * See [Apple's user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
 >     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="../assets/misc/iphone_ui_connect.png"></div></details>
 > 
-> <details open>
+> <details>
 >   <summary>User Interface</summary>
 >
 >   <div align="center">
@@ -202,6 +202,8 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >    </figure>
 >   </div>
 > </details>
+>
+> See '[Command Line Arguments](manual.md#command-line-arguments)' section in [`manual.md`](manual.md) for full list of command line arguments!
 
    <ul>
       <li>POSIX<br><pre>python src/detection/camera.py</pre></li>
@@ -213,8 +215,9 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    <li>Press the 'Escape' key on your keyboard to terminate</li>
 </ol>
 
-> [!IMPORTANT]
-> See [`manual.md`](manual.md) and/or [`appendix.md`](appendix.md) for further details!
+## Further Reading
+- [Appendix](appendix)
+- [Manual](manual.md)
 
 ## Credits
 Special thanks to:
