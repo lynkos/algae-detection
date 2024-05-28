@@ -184,12 +184,11 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 > Automatically uses computer's default camera (i.e., webcam). To use different cameras:
 > 
 > * **ESP32-CAM**
->    * Follow all steps in the [ESP32-CAM section](manual.md#esp32-cam) of [`manual.md`](manual.md)
+>    * Refer to [ESP32-CAM tutorial](manual.md#esp32-cam) in [`manual.md`](manual.md)
 > * **iPhone**
->     * Requires macOS v13+ and iOS v16+
+>     * Requires macOS v13+ and iOS v16+ (see [Apple's user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for further details)
 >     * Connect iPhone to Mac via USB before following [Step #3](#s3)
 >     * Run [`camera.py`](../src/detection/camera.py) with argument `--cam 1`
->     * See [Apple's user guide](https://support.apple.com/guide/mac-help/use-iphone-as-a-webcam-mchl77879b8a/mac) for more information
 >     * <details><summary>Connected iPhone</summary><div align="center"><img alt="iPhone connected" src="../assets/misc/iphone_ui_connect.png"></div></details>
 > 
 > <details>
@@ -203,7 +202,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 >   </div>
 > </details>
 >
-> See '[Command Line Arguments](manual.md#command-line-arguments)' section in [`manual.md`](manual.md) for full list of command line arguments!
+> See [Command Line Arguments table](manual.md#command-line-arguments) in [`manual.md`](manual.md) for all possible arguments!
 
    <ul>
       <li>POSIX<br><pre>python src/detection/camera.py</pre></li>
@@ -216,7 +215,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </ol>
 
 ## Further Reading
-- [Appendix](appendix)
+- [Appendix](appendix.md)
 - [Manual](manual.md)
 
 ## Credits
