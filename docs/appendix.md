@@ -436,7 +436,7 @@ from cv2.typing import MatLike
 from inference import get_model
 from supervision import Detections, BoundingBoxAnnotator, LabelAnnotator
 
-API_KEY = "YOUR_API_KEY"
+API_KEY = "REPLACE_THIS_WITH_YOUR_API_KEY"
 PROJECT_NAME = "algae-detection-1opyx"
 VERSION = 22
 
