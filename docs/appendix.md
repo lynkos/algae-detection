@@ -1,5 +1,5 @@
 # Appendix
-<details>
+<details open>
   <summary>Background</summary>
 
   Algal blooms (e.g., <a href="#red_tide">Red Tide</a>) pose a threat to the health of humans, marine life, and [aquatic] ecosystems. These blooms, often fueled by nutrient runoff and warmer temperatures, are increasing in prevalence and can negatively impact water quality and oxygen levels, hence the need to keep track of harmful [algae](#algae) / algal blooms (i.e., collect natural water sample(s) for analysis).
