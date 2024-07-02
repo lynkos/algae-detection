@@ -429,7 +429,7 @@ If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and 
 3. [Use the model with camera(s) for real-time detection and classification](manual.md#select-model)
 
 ## Inference Deployed Model
-Using `inference` library in [`camera.py`](../src/detection/camera.py) would look similar to:
+Sample usage of `inference` library in [`camera.py`](../src/detection/camera.py):
 ```python
 from cv2 import imshow
 from cv2.typing import MatLike
@@ -441,13 +441,21 @@ PROJECT_NAME = "algae-detection-1opyx"
 VERSION = 22
 
 def _process_frame(self, frame: MatLike) -> None:
+"""
+1. Run inference (Roboflow detection model) on frame.
+2. Annotate frame with result(s).
+3. Show annotated frame in new window.
+
+Args:
+    frame (MatLike): Frame to run inference on.
+"""
   # Annotators
   label, bbox = LabelAnnotator(), BoundingBoxAnnotator()
 
   # Load model via Roboflow
   model = get_model(model_id = f"{PROJECT_NAME}/{VERSION}", api_key = API_KEY)
 
-  # Process frames
+  # Run inference on (i.e. process) frame
   for result in model.infer(frame):
     # Get detected object(s)
     detection = Detections.from_inference(result)
