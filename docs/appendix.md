@@ -432,15 +432,20 @@ If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and 
 Using `inference` library in [`camera.py`](../src/detection/camera.py) would look similar to:
 ```python
 from cv2 import imshow
+from cv2.typing import MatLike
 from inference import get_model
 from supervision import Detections, BoundingBoxAnnotator, LabelAnnotator
+
+API_KEY = "YOUR_API_KEY"
+PROJECT_NAME = "algae-detection-1opyx"
+VERSION = 22
 
 def _process_frame(self, frame: MatLike) -> None:
   # Annotators
   label, bbox = LabelAnnotator(), BoundingBoxAnnotator()
 
   # Load model via Roboflow
-  model = get_model(model_id = f"algae-detection-1opyx/22", api_key = "hgJXUeytoTeH8achgueb")
+  model = get_model(model_id = f"{PROJECT_NAME}/{VERSION}", api_key = API_KEY)
 
   # Process frames
   for result in model.infer(frame):
@@ -450,6 +455,7 @@ def _process_frame(self, frame: MatLike) -> None:
     # Annotate the frame with its result, then show in window
     imshow(self._args.title, label.annotate(scene = bbox.annotate(frame, detection), detections = detection))
 ```
+See '<a target="_blank" alt="'Deploy custom model' section in the Colab notebook used to train the model" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ#scrollTo=43nDTz1Oc7_Z">Deploy custom model</a>' section in the <a target="_blank" alt="Colab notebook used to train the model" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ">Colab notebook used to train the model</a> for further details.
 
 <h2><a target="_blank" alt="Repo's GitHub 'Issues' page" href="https://github.com/lynkos/algae-detection/issues">Future Work</a></h3>
 
