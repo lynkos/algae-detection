@@ -60,7 +60,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
 
 <details>
-   <summary>Nikon microscope with ESP32-CAM AI Thinker and illuminator</summary>
+   <summary>Hardware: Nikon microscope with ESP32-CAM AI Thinker and illuminator</summary>
 
    <div align="center">
       <figure>
