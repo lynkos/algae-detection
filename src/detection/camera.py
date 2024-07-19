@@ -3,7 +3,8 @@ Base class for real-time object detection using a Convolutional Neural Network (
 
 Simple usage example:
     ```python
-    cam = camera.Camera("0", "Primary Camera", width = 640, height = 640)
+    from camera import Camera
+    cam = Camera("0", "Primary Camera", width = 640, height = 640)
     cam.run()
     ```
 
