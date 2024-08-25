@@ -7,7 +7,6 @@ Simple usage example:
     esp32.run()
     ```
 """
-
 from camera import Camera
 
 URL: str = "http://10.1.10.114/stream"
