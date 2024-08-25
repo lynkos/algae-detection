@@ -415,18 +415,28 @@ The following boards are compatible with this project:
 ## Customization
 Due to its modular, generalizable design, this project can be easily adapted and used to detect any and as many object(s) of your choosing (i.e., it's not limited to harmful algae).
 
-To do so, you may forgo these [requirements](../README.md#requirements):
-- [ ] Modded microscope
-- [ ] Algae dataset
-- [ ] [ESP32](#esp)-CAM
-- [ ] Micro-USB cable
-- [ ] [PlatformIO](#platformio) Visual Studio Code extension
+Depending on how you want to use this program, you may forgo any or all of the <b>unchecked</b> [requirements](README.md#requirements) in [`README.md`](README.md) (remember, <a target="_blank" href="https://docs.conda.io/en/latest">Conda</a> is the only hard [requirement](README.md#requirements)). Additional information can be found in [`manual.md`](manual.md).
 
-If you still want to use an [ESP32](#esp)-CAM, disregard the last 3 bullets and only forgo the microscope and algae dataset. Then:
+### Custom Dataset
+If you want to use your own dataset (i.e. images of the object(s) you want your custom model to detect):
 
-1. Use your own dataset — comprised of [images of] the object(s) you want your custom model to detect — to [create a new, custom object detection model](manual.md#train-validate-and-test-model)
+1. Follow [instructions for creating new, custom object detection models](manual.md#train-validate-and-test-model)
 2. Save/download the resulting model once finished
-3. [Use the model with camera(s) for real-time detection and classification](manual.md#select-model)
+3. Follow [instructions to use the model with camera(s) for real-time detection](manual.md#select-model)
+
+### ESP32-CAM
+Refer to this section if you want to use an [ESP32](#esp)-CAM as camera.
+> [!NOTE]
+> Full details listed in [ESP32-CAM](manual.md#esp32-cam) section of [`manual.md`](manual.md).
+
+**Requirements** (alongside <a target="_blank" href="https://docs.conda.io/en/latest">Conda</a>)
+- [x] Any of these [boards](appendix.md#boards)
+- [x] Micro-USB cable (to connect board to computer)
+- [x] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
+
+**Instructions**
+1. [Setup ESP32-CAM](manual.md#initial-setup)
+2. [Use ESP32-CAM](manual.md#usage)
 
 ## Inference Deployed Model
 Sample usage of `inference` library in [`camera.py`](../src/detection/camera.py):

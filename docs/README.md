@@ -71,14 +71,14 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </details>
 
 ## Requirements
-> [!NOTE]
+> [!IMPORTANT]
 > <a target="_blank" href="https://docs.conda.io/en/latest">Conda</a> is technically the only hard requirement, though by itself provides a barebones experience and doesn't show the program's full functionality.
 > 
 > Refer to [Customization](appendix.md#customization) in [`appendix.md`](appendix.md) if you don't want to or can't use a(n) ESP32-CAM and/or microscope.
 
 - [ ] Any of the [boards](appendix.md#boards) listed in [`appendix.md`](appendix.md)
 - [ ] Nikon microscope with 3D printed lens attachment and illuminator
-- [ ] Micro-USB cable
+- [ ] Micro-USB cable (to connect board to computer)
 - [ ] <a target="_blank" href="https://roboflow.com">Roboflow account</a>
 - [ ] Dataset
    * <a target="_blank" href="https://drive.google.com/drive/folders/1gd85o6dpcjDwWJUUi4x9slhjHHuoY4K0">Google Drive</a>: Original and unedited
