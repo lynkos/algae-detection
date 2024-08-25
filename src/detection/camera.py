@@ -46,7 +46,7 @@ class Camera:
         Base class for real-time object detection using a Convolutional Neural Network (CNN) and computer vision library.
 
         Args:
-            camera (str): Camera used for input. Must be streaming server `URL` for ESP32-CAM, `0` for primary camera, or `1` for secondary camera. Defaults to 0.
+            camera (str | int, optional): Camera used for input. Must be streaming server `URL` for ESP32-CAM, `0` for primary camera, or `1` for secondary camera. Defaults to 0.
             title (str, optional): Window title. Defaults to "Custom Object Detection".
             model (str, optional): Detection model's path. Defaults to a model in `weights` directory.
             device (str, optional): Device running detection model. Options include: `cpu`, `cuda`, and `mps`. Defaults to available option.
