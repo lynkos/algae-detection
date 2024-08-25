@@ -54,8 +54,8 @@ class Camera:
             iou (int, optional): Lower values result in fewer detections by eliminating overlapping boxes (useful for reducing duplicates). Defaults to 25.
             max_detections (int, optional): Limits how much the model can detect in a single frame (prevents excessive outputs in dense scenes). Defaults to 100.
             video_strides (int, optional): Skip frames to speed up processing (at the cost of temporal resolution). Value of 1 processes every frame, higher values skip frames. Defaults to 1.
-            width (int, optional): Camera width. Defaults to 256.
-            height (int, optional): Camera height. Defaults to 256.
+            width (int, optional): Camera width. Defaults to 640.
+            height (int, optional): Camera height. Defaults to 480.
             fps (float, optional): Camera FPS. Defaults to 30.0.
             n_threads (int, optional): Number of threads for multithreaded video processing. If set to 0, multithreaded video processing is disabled. Defaults to 0.
             buffer (bool, optional): Determines if all frames should be buffered when processing video streams, or if the model should return the most recent frame. Defaults to True.
@@ -63,7 +63,8 @@ class Camera:
         self._parser: ArgumentParser = ArgumentParser(description = "Run object detection model via command line", add_help = False)
         self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, n_threads, buffer)
         self._args: Namespace = self._parser.parse_args()
-        
+
+        # TODO Update boolean logic
         self._camera: VideoCapture = VideoCapture(self._args.cam if type(self._args.cam) is int else int(self._args.cam) if self._args.cam.isdigit() else self._args.cam)
         self.confidence: int = self._args.conf
         self.iou: int = self._args.iou
