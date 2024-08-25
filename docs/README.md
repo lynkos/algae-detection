@@ -215,9 +215,27 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </ol>
 
 ## Further Reading
-- [Appendix](appendix.md)
-- [Manual](manual.md)
+- <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a> ([credit: rzeldent](#credits))
 
+### [Appendix](appendix.md)
+- [Boards](appendix.md#boards)
+- [Diagrams](appendix.md#diagrams)
+- [Customization](appendix.md#customization)
+  - [Custom Dataset](appendix.md#custom-dataset)
+  - [ESP32-CAM](appendix.md#esp32-cam)
+- [Inference Deployed Model](appendix.md#inference-deployed-model)
+- [Future Work](appendix.md#future-work)
+- [Further Reading](appendix.md#further-reading)
+- [Glossary](appendix.md#glossary)
+
+### [Manual](manual.md)
+- [Command Line Arguments](manual.md#command-line-arguments)
+- [ESP32-CAM](manual.md#esp32-cam)
+  - [Initial Setup](manual.md#initial-setup)
+  - [Usage](manual.md#usage)
+- [Train, Validate, and Test Model](manual.md#train-validate-and-test-model)
+- [Select Model](manual.md#select-model)
+  
 ## Credits
 Special thanks to:
 - <a target="_blank" href="https://ieeexplore.ieee.org/author/37291140300">Dr. Antao Chen</a> (product owner) for his mentorship

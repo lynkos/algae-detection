@@ -13,7 +13,10 @@
 </details>
 
 ## Boards
-The following boards are compatible with this project:
+The following boards are compatible with this project
+> [!IMPORTANT]
+> Refer to <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop#boards">boards</a> section of <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a>'s <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/blob/develop/README.md"><code>README.md</code></a> ([credit: rzeldent](README.md#credits)) for most up-to-date information.
+
 <table align="center" style="width: 100%; display: block; max-width: -moz-fit-content; max-width: fit-content; overflow-x: auto;">
   <thead>
     <tr>
