@@ -131,7 +131,7 @@ Steps starting with:
    <div align="center"><img alt="Open `streaming`" src="../assets/esp32/open_streaming.png"></div>
 </details>
 
-<details open>
+<details open id="s4">
    <summary>4. Connect the ESP32 to your computer with the Micro-USB cable, then select its board type and USB port at the bottom of the window</summary>
    <div align="center"><img alt="Select board and port" src="../assets/esp32/board_port.png"></div>
 </details>
@@ -251,7 +251,7 @@ Steps starting with:
       </ul>
    </li>
    <li>Open <a href="../src/detection/esp32.py"><code>esp32.py</code></a></li>
-   <li>Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L13"><code>URL</code></a></li>
+   <li>Assign HTTP (default) or RTSP ESP32 streaming link listed in <a href="#s14">Step 14</a> to <a href="../src/detection/esp32.py#L16"><code>URL</code></a></li>
    <li>Run <a href="../src/detection/esp32.py"><code>esp32.py</code></a>
       <ul>
          <li>POSIX<br><pre>python src/detection/esp32.py</pre></li>
