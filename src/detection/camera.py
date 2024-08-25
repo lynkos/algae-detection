@@ -4,12 +4,12 @@ Base class for real-time object detection using a Convolutional Neural Network (
 Simple usage example:
     ```python
     from camera import Camera
-    cam = Camera("0", "Primary Camera", width = 640, height = 640)
+    cam = Camera("0", "Primary Camera", width = 256, height = 256)
     cam.run()
     ```
 
     ```sh
-    python camera.py -C 0 -T "Primary Camera" -w 640 -h 640
+    python camera.py -C 0 -T "Primary Camera" -w 256 -h 256
     ```
 """
 from argparse import ArgumentParser, Namespace, BooleanOptionalAction
@@ -37,8 +37,8 @@ class Camera:
                  iou: int = 25,
                  max_detections: int = 100,
                  video_strides: int = 1,
-                 width: int = 256,
-                 height: int = 256,
+                 width: int = 640,
+                 height: int = 480,
                  fps: float = 30.0,
                  n_threads: int = 0,
                  buffer: bool = True):
@@ -64,7 +64,7 @@ class Camera:
         self._init_parser(camera, device, title, model, confidence, iou, max_detections, video_strides, width, height, fps, n_threads, buffer)
         self._args: Namespace = self._parser.parse_args()
         
-        self._camera: VideoCapture = VideoCapture(int(self._args.cam) if self._args.cam.isdigit() else self._args.cam)
+        self._camera: VideoCapture = VideoCapture(self._args.cam if type(self._args.cam) is int else int(self._args.cam) if self._args.cam.isdigit() else self._args.cam)
         self.confidence: int = self._args.conf
         self.iou: int = self._args.iou
         self.max_detections: int = self._args.max
@@ -215,7 +215,7 @@ class Camera:
     def run(self) -> None:
         """
         Run detection model.
-        """                
+        """
         while self._camera.isOpened():
             # Fetch camera frame
             success, frame = self._camera.read()
