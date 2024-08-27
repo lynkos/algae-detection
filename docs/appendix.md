@@ -433,7 +433,7 @@ Refer to this section if you want to use an [ESP32](#esp)-CAM as camera.
 > Full details listed in [ESP32-CAM](manual.md#esp32-cam) section of [`manual.md`](manual.md).
 
 **Requirements** (alongside <a target="_blank" href="https://docs.conda.io/en/latest">Conda</a>)
-- [x] Any of these [boards](appendix.md#boards)
+- [x] Any of [these boards](appendix.md#boards)
 - [x] Micro-USB cable (to connect board to computer)
 - [x] <a target="_blank" href="https://platformio.org/install/ide?install=vscode">PlatformIO plugin for Visual Studio Code</a>
 
