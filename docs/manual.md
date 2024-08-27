@@ -31,7 +31,7 @@
     <tr>
         <td id="modpath" align="center" style="white-space: nowrap;"><code>-p, --path &lt;path&gt;</code></td>
         <td align="center"><code>str</code></td>
-        <td align="center">Detection model's <a href="../src/detection/camera.py#L33">path</a></td>
+        <td align="center">Detection model's <a href="../src/detection/camera.py#L34">path</a></td>
         <td align="center"><a href="../weights/custom_yolov8n.pt"><code>weights/custom_yolov8n.pt</code></a></td>
     </tr>
     <tr>
@@ -284,5 +284,5 @@ Steps starting with:
          <li>Default weight is <a href="../weights/custom_yolov8n.pt"><code>custom_yolov8n.pt</code></a></li>
       </ul>
    </li>
-   <li>Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L33"><code>model</code></a> (i.e., default model's path) accordingly</li>
+   <li>Update <a href="../src/detection/camera.py"><code>camera.py</code></a>'s constructor parameter <a href="../src/detection/camera.py#L34"><code>model</code></a> (i.e., default model's path) accordingly</li>
 </ol>
