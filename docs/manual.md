@@ -214,11 +214,6 @@ Steps starting with:
 
 > [!NOTE]
 > Once the ESP32-CAM is setup successfully, you don't have to repeat these steps again; just plug in the ESP32-CAM and it's good to go! Stream URL remains the same as usual.
->
-> To update to latest version of <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a> ([credit: rzeldent](README.md#credits)), commit and push changes, then run the following command in the terminal:
-> ```sh
-> git subtree pull --prefix src/streaming https://github.com/rzeldent/esp32cam-rtsp.git develop --squash
-> ```
 
 ### Usage
 <ol>
