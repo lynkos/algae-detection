@@ -139,6 +139,15 @@ The following boards are compatible with this project
       <td>No</td>
     </tr>
     <tr>
+      <td><a target="_blank" href="https://docs.m5stack.com/en/unit/poecam-w">M5Stack M5PoECAM-W</a></td>
+      <td>ESP32-D0WDQ6-V3</td>
+      <td>520 kB</td>
+      <td>16 MB</td>
+      <td>8 MB</td>
+      <td>OV2640</td>
+      <td>No</td>
+    </tr>
+    <tr>
       <td><a target="_blank" href="https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html">Seeed studio Xiao ESP32S3 Sense</a></td>
       <td>ESP32-S3R8</td>
       <td>520 KB</td>
