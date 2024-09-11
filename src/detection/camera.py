@@ -41,7 +41,7 @@ class Camera:
                  height: int = 480,
                  fps: float = 30.0,
                  n_threads: int = 0,
-                 buffer: bool = True):
+                 buffer: bool = True) -> None:
         """
         Base class for real-time object detection using a Convolutional Neural Network (CNN) and computer vision library.
 
@@ -75,6 +75,7 @@ class Camera:
         self._camera.set(CAP_PROP_FRAME_HEIGHT, self._args.height)
         self._camera.set(CAP_PROP_FPS, self._args.fps)
 
+        # If multithreaded video processing is enabled
         if self._args.n_threads > 0:
             setNumThreads(self._args.n_threads)
             self._pool: ThreadPool = ThreadPool(self._args.n_threads)
