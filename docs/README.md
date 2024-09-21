@@ -25,7 +25,7 @@
 This project aims to provide a practical, convenient, and efficient tool to monitor water quality and mitigate / prevent harmful algal blooms in real-time by:
 - [x] Fine-tuning pre-trained AI models to detect harmful algae
 - [x] Leveraging the portability of smartphones and low-cost cameras
-   - Tested with ESP32-CAM AI Thinker and ESP32-S3-EYE, but compatible with a large variety of other boards/SoCs
+   - Tested with [ESP32-CAM AI Thinker](https://docs.ai-thinker.com/en/esp32-cam) and [ESP32-S3-EYE](https://www.espressif.com/en/products/devkits/esp-eye/overview), but compatible with a large variety of other boards/SoCs
    - See '[Boards](appendix.md#boards)' section in [`appendix.md`](appendix.md) for full list of compatible cameras
 
 Since it's designed to be user-friendly and cost-effective, it's also suitable for educational and research purposes.
