@@ -214,7 +214,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
    <li>Press the 'Escape' key on your keyboard to terminate</li>
 </ol>
 
-## Further Reading
+## Additional Information
 - <a target="_blank" href="https://github.com/rzeldent/esp32cam-rtsp/tree/develop">ESP32CAM-RTSP</a> ([credit: rzeldent](#credits))
 
 ### [Appendix](appendix.md)
