@@ -531,6 +531,8 @@ See '<a target="_blank" alt="'Deploy custom model' section in the Colab notebook
 
 - [ ] Active learning to improve model performance?
 
+- [ ] Add tutorial for using PlatformIO's CLI (i.e. `clio`) instead of just PlatformIO VS Code extension (shell script?)
+
 ## Further Reading
 - <a target="_blank" href="https://myfwc.com/research/wildlife/health/cyanobacteria/#:~:text=Approximately%2020%20cyanobacteria%20species%20in,than%20one%20type%20of%20toxin">Cyanobacteria (Blue-Green Algae)</a>
 - <a target="_blank" href="https://pubs.usgs.gov/publication/ofr20171054">Cyanobacteria of the 2016 Lake Okeechobee and Okeechobee Waterway Harmful Algal Bloom</a>
