@@ -17,8 +17,9 @@
 <img alt="PlatformIO" src="https://img.shields.io/static/v1?label=Tools&style=flat&message=PlatformIO&logo=platformio&color=F5822A&labelColor=393939&logoColor=F5822A">
 <img alt="Colab" src="https://img.shields.io/static/v1?label=Tools&style=flat&message=Colab&logo=google+colab&color=F9AB00&labelColor=393939&logoColor=F9AB00">
 <br><br>
-<a target="_blank" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/model"><img width="auto" height="25px" alt="Try YOLOv8 model on Roboflow" src="https://app.roboflow.com/images/try-model-badge.svg"/></a>
-<a target="_blank" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ"><img width="150px" height="auto" alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
+<a target="_blank" title="Model data + details on Roboflow" href="https://universe.roboflow.com/capstone2algae/algae-detection-1opyx/model"><img width="auto" height="25px" alt="Try YOLOv8 model on Roboflow" src="https://app.roboflow.com/images/try-model-badge.svg"/></a>
+<a target="_blank" href="https://colab.research.google.com/drive/19X4aGWTeXQbgEKVteR9qrgit67jNxkmJ" title="Accompanying Google Colab notebook"><img width="150px" height="auto" alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
+<a target="_blank" href="https://deepwiki.com/lynkos/algae-detection" title="DeepWiki for lynkos/algae-detection repository"><img height="26px" src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
 </div>
 
 ## Overview
