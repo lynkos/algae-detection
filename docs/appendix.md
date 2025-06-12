@@ -156,6 +156,15 @@ The following boards are compatible with this project
       <td>OV2640</td>
       <td>Yes</td>
     </tr>
+    <tr>
+      <td><a target="_blank" href="https://shop.m5stack.com/products/esp32-psram-timer-camera-x-ov3660">M5STACK Timer CAM (Original and X)</a></td>
+      <td>ESP32-D0WDQ6-V3</td>
+      <td>520 KB</td>
+      <td>4 MB</td>
+      <td>8 MB</td>
+      <td>OV3660</td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 (Software tested with <b>ESP32-CAM AI Thinker</b> and <b>ESP32-S3-EYE</b>)
@@ -376,7 +385,8 @@ The following boards are compatible with this project
 │       │   ├── esp32cam_m5stack_wide.json
 │       │   ├── esp32cam_seeed_xiao_esp32s3_sense.json
 │       │   ├── esp32cam_ttgo_t_camera.json
-│       │   └── esp32cam_ttgo_t_journal.json
+│       │   ├── esp32cam_ttgo_t_journal.json
+│       │   └── m5stack-timer-cam.json
 │       ├── html/
 │       │   └── index.min.html
 │       ├── include/
