@@ -212,7 +212,7 @@ Since it's designed to be user-friendly and cost-effective, it's also suitable f
 </p>
 
 <ol start="4">
-   <li>Press the 'Escape' key on your keyboard to terminate</li>
+   <li>Press <kbd>Escape</kbd> on your keyboard to terminate</li>
 </ol>
 
 ## Additional Information
