@@ -189,8 +189,8 @@ Steps starting with:
 
 <p>12. Go back to PlatformIO extension, click 'Monitor', then use 'Find' keyboard shortcut to find the ESP32's IP address
    <ul>
-      <li>PC<br><pre>Ctrl + F</pre></li>
-      <li>Mac<br><pre>⌘ + F</pre></li>
+      <li>PC: <kbd>CTRL</kbd> + <kbd>F</kbd></li>
+      <li>Mac: <kbd>⌘</kbd> + <kbd>F</kbd></li>
    </ul>
 </p>
 
@@ -253,7 +253,7 @@ Steps starting with:
          <li>Windows<br><pre>python src\detection\esp32.py</pre></li>
       </ul>
    </li>
-   <li>Press the 'Escape' key on your keyboard to terminate</li>
+   <li>Press <kbd>Escape</kbd> on your keyboard to terminate</li>
 </ol>
 
 ## Train, Validate, and Test Model
